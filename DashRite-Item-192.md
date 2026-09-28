@@ -1,38 +1,45 @@
-# #192 — Frontier labels closed; the Paid/AR proxy classified
+# #192 Parts 2 and 3 — the refund cap and the Paid/AR routing
 
-**Base:** 8d47edd9, which the gate confirmed. No code change was made in this session: the live build is unchanged.
+**Base:** 080a6ddc, which the gate confirmed. **Builds:** 430d6457 (the routing), then 09d76801 (the refund picker). #192 is closed.
 
-## Item 1 — the Frontier labels: closed as not reproduced
+## Part 2 — the refund cap
 
-In #191 both Frontier screens (cmdxfrontier and fndxfrontier) were measured by rendered pixel and by the sampler. No node on either screen failed by either measure (93 and 138 text nodes). The two labels logged at 4.38 do not reproduce on the current build. They are closed as not reproduced and taken off the log, with nothing fixed.
+A refund cannot exceed what the invoice has received, net of refunds already issued. The amount received is read from the payment records. Above that, the refund is refused with the received amount stated, for example: "Refused — 1004 has received $1,500.00; a refund cannot exceed what was collected".
 
-## Item 2 — the Paid/AR proxy, Phase 1: classification (read-only)
+**The refund picker is routed (build 09d76801).** It listed only invoices marked Paid, so a partially paid invoice could not be refunded at all. It now lists any non-void invoice whose refundable amount (received minus already refunded) is above zero, and its displayed maximum shows that figure instead of the invoice total. The cap is reachable. On a copy with $400 received on $1,000: $500 was refused ("has received $400.00"), $300 was issued (maximum now $100), $150 was refused ("of which $300.00 is already refunded"), and $100 was issued. The trial balance tied at every step.
 
-All 121 readers were classified by the question each asks, taken from what it does with the answer, not from where it sits.
+**Found while routing it: a silent neighbouring-value substitution.** A requested invoice that was not in the picker fell back to the first listed invoice. On the base, four refunds meant for the partially paid invoice were each issued against 1004, Everlast Welders, and posted to the ledger. Now a requested invoice with nothing refundable selects nothing, and the refund is refused by name ("… has nothing left to refund — nothing was issued").
 
-| Class | Question | Readers | Answer it should read |
-|---|---|---|---|
-| Cash received | collected revenue, cash flow, weekly revenue, days to pay, deposits held, concentration by customer | 65 | the amount received |
-| Money still owed | AR, aging buckets, open lists, collections | 27 | the amount outstanding |
-| Is this invoice finished | status tags, pay-or-receipt actions, completion | 13 | finished only when the balance is zero |
-| Counts | numbers of paid or open invoices, weekly counts | 9 | convention: a partially paid invoice counts as open, not paid, because it is unfinished |
-| Genuine judgments | see below | 3 | left on the proxy and named |
-| Not yet read | see below | 4 | classified once their use is read |
+**Refund eligibility stays the one genuine judgment,** and it is ruled: an invoice is refundable up to the amount received.
 
-**The shape behind the original count of 106.** Most sites declare one list, `paid = invoices.filter(status === 'Paid')`, and reuse it for two or three questions in the same function: a collected sum, a by-customer map, and sometimes a count. Classified by site, that looked like 106 judgments. Classified by use, it is four questions.
+## Part 3 — the routing
 
-**The three genuine judgments, left on the proxy:**
-1. **Refund eligibility (line 31364).** Whether a partially paid invoice can be refunded, and up to what, is a policy question.
-2. **The receipts register (line 36270) and the receipt page (line 36289).** These list invoices as receipts. With partial payments an invoice has several payments, but the book stores only a cumulative `received` per invoice. Listing payments needs payment-level records, which is a data decision rather than a helper.
+**The four remaining uses:**
+- line 21448: received by customer;
+- line 25193: "Projects delivered and collected", a finished count;
+- line 26693: days to pay and average fee, from payment dates;
+- line 30447: revenue by client or state.
 
-**The four not yet read (lines 21448, 25193, 26693, 30447).** Each declares a paid list whose use sits more than eight lines below. They are unclassified, not exceptions.
+**One helper per class:**
 
-**A caveat on method.** The first pass of the classification is shape-based: sums, accumulations, counts, lists and tests, placed by what follows each status test. Each class must be confirmed on a copy with a partial payment before anything is routed.
+| Class | Helper | Readers routed |
+|---|---|---|
+| Cash received | `_receiptRows`: one row per payment record, with its amount, date and method | 63 |
+| Money still owed | `_openRows`: the outstanding balance | 20 |
+| Is this invoice finished | `_invDone`: the balance is zero on a non-void invoice | 29 |
 
-## Remaining: Phase 2
+The receipts register and the receipt page now read the payment records, so each receipt names its own payment. The receipt page says "a part payment; $X still due" when the invoice is unfinished.
 
-- Read the four unread uses.
-- Build one helper per class: received (`_invReceived`, which already exists), outstanding (`_invBalance`, which already exists), finished (new: the balance is zero on a non-void, non-zero invoice), and the count convention.
-- Route all 118 classified readers through their class helper, and leave the three judgments on the proxy, named.
-- Prove that nothing moves on the live book, which has no partial payment. Then prove on a copy with a partial payment that cash reads received, AR reads outstanding, the invoice reads unfinished, and the trial balance ties.
-- Full battery.
+**Named, left on the proxy, accepted:** six readers inside `function(){}` callbacks (lines 23433, 23605, 23628, 23651, 23885 and 23935). Inside those callbacks `this` is not the component, so the helpers cannot be called safely. **What routing them later needs:** in each enclosing method, bind the component once (`var self = this;`, the pattern `_autofixVM` already uses) and call `self._invDone(...)` / `self._receiptRows(...)`, or convert the callback to an arrow function. Then exercise each one on a copy with a partial payment, as the other 112 were.
+
+**Found while exercising the classes:**
+- The invoice list aged invoices on `status === 'Open'`, so a partially paid invoice read "In progress". It now ages like any open invoice.
+- The receipts register printed its method as `p.method || 'Check'`. No payment was ever recorded as a check. **Logged as the worst version of this defect: a default presenting as fact reads as evidence.** It now shows the record's declared "Not recorded".
+- Both findings are the same class as the rest of the item: a label or default standing in for the thing it describes, found outside the pattern being searched.
+
+## Proof
+
+- **The live book.** No lens, verdict, consensus, leverage, binding constraint or trial-balance figure moved. Across fifteen screens compared by text, the only change is the register's method column, "Check" → "Not recorded", which is intended. A one-cent difference on the time-based burn and pace rates came from capture timing: the KPI screen, captured in step, shows the same figure on both builds.
+- **A copy with a partial payment** ($400 of $1,000, with a test bank account so the receipt is cash): cash reads $400, AR reads $600, the invoice reads unfinished (and ages as Current), the register lists a $400 receipt with the method "Not recorded", and the trial balance ties at $4,955.92.
+
+The Paid/AR proxy is closed, except for the seven named readers.
