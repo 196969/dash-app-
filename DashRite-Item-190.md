@@ -22,7 +22,7 @@ A second misposting was also observed. Filing a card-paid expense credited cash 
 - Refunds count through their own rows.
 - Batch payments, card payoffs, adjusting entries, prepaid releases and posted anomaly fixes record a cash event instead of writing the field.
 
-**Readers.** Every reader that treated the field as current cash now reads effective cash. That covers Coverage, the anomaly and fraud scans, the period snapshot, the Founders mindset view, the supply decision layer, the Alert center, the four Council-action views, the self-audit and the simulator.
+**Current-cash readers.** Every reader that treated the field as current cash now reads effective cash. That covers Coverage, the anomaly and fraud scans, the period snapshot, the Founders mindset view, the supply decision layer, the Alert center, the four Council-action views, the self-audit and the simulator.
 
 **The account 1000 drill.** It lists refunds and cash events, so it foots to effective cash.
 
@@ -36,12 +36,34 @@ The live figures did not move. Effective cash is $3,000.00 and the trial balance
 
 The drift check on the owner's saved state found no drift. Account 1000 showed $3,000.00, with the trial balance tying at $7,555.92.
 
+## Follow-on, 28 September 2026 — batch and partial payments
+
+Both open defects were exercised before they were fixed, and both broke the trial balance.
+
+- **Batch payments.** A $120 ACH item took cash from $3,000 to $2,880 with nothing on the other side, so the trial balance ran $7,435.92 against $7,555.92. An $80 card item vanished with nothing booked. Now every queued item must carry a ledger account to debit, or the whole batch is refused and nothing is paid or recorded. Card items also need the batch card, "AMEX Business ••1005", mapped to the chart; until then they are refused.
+- **Partial payments.** $400 against a $1,000 invoice marked the invoice Paid, counted $1,000 as cash, left AR at $0, and ran the trial balance $8,555.92 against $7,955.92. Now a payment records the amount received on the invoice; the invoice reads "Partially paid" with the remainder due until it is covered; cash counts what was received; and the paid date is the real date (it was hard-coded to August).
+- **Three more writers**, proven before fixing: tap to pay (both actions) and the mailbox "Payment" intent marked invoices Paid without crediting income, breaking the trial balance by the full amount. All payments now go through one helper, `_applyPayment`. The mailbox applies a payment only when the email names an invoice (it had marked a hard-coded invoice "1038").
+- **Disproved:** the booking deposit credits 2100 Accrued liabilities, and the trial balance ties. Whether 2200 Deferred revenue is the better account is a separate question.
+- **Two more gaps in the #190 reader enumeration, found by searching for the shape of the cash formula rather than its names:** the render-wide `glCash` (152 references) still used the old formula, and three views (pipeline flow, the Founders supply lens, the Books ribbon) defined "cash" as collected invoices. All now read the one formula.
+
+On live data nothing moved: cash $3,000, trial balance $7,555.92, AR $0, and no lens changed.
+
 ## Still open, for the owner
 
-1. **Unresolved payment methods.** "Card ••4417" is not on the chart of accounts. Five seeded expenses carry a payment method with no account: three marked "Cash", one on Card ••4417, and one gift card. Capturing a new card expense is refused until ••4417 is mapped, and removing any of those five is refused rather than guessed.
-2. **Batch payments have no credit side.** Payables are not on the ledger, so paying them moves cash with nothing on the other side, and the trial balance would break. It is derived by construction and was not exercised. Where paid payables should post needs a ruling.
-3. **Partial payments.** Confirm payment marks the whole invoice Paid even when the amount received is smaller, so cash counts the full invoice. This existed before #190 and is unchanged.
-4. **Operating cash flow.** Operating cash flow on the KPI scorecard still omits refunds and cash events. There are none today, so no figure is affected yet.
+1. **Unmapped payment methods**, refused rather than guessed:
+   - 14 Aug · Home Depot · $9.49 · Home Depot gift card + store credit
+   - 17 Aug · Adobe · $19.99 · AMEX ••4417
+   - 19 Aug · Logitech · $96.29 · Cash
+   - 19 Aug · Dell · $449.40 · Cash
+   - 19 Aug · Samsung · $524.29 · Cash
+   - The batch card, AMEX Business ••1005, used for every card payment of a payable.
+2. **Payables carry no ledger account.** No live payable can be sent until one is assigned. An accounts payable account on the chart is a separate decision.
+3. **Known proxy: invoice status as a stand-in for money received.** It is logged, not fixed, and it cuts both ways:
+   - The 91 readers of "Paid" (collected revenue, concentration and similar) treat a partially paid invoice as unpaid, so collected revenue is understated.
+   - The 32 readers of "not Paid" (AR on the Books ribbon and the Receivables screens) count a partially paid invoice's full total as outstanding, so AR is overstated by what has been received. The cash cockpit's canonical AR reads the true balance, so after a partial payment the two screens disagree.
+   - Neither can occur until a partial payment exists; none does live.
+4. **Operating cash flow** on the KPI scorecard still omits refunds and cash events. It is deferred and latent.
+5. **The mailbox stub** still hard-codes invoice "1035", calendar item 2 and one client in its other branches.
 
 ## Standing rule this item evidences
 
