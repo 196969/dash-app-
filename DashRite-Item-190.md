@@ -87,20 +87,33 @@ The owner ruled that both Everlast payments were an owner draw, and that no paym
 - **Receipt destination.** While no business bank account is on file, a payment still credits income, but it posts as an owner draw (a debit to 3000) rather than cash. This applies whether the payment is recorded in the payment dialog, by tap to pay or from the mailbox. The dialog states it: "Received into — the default while no business bank account is on file: Owner's personal account — owner draw". Entering a real bank account on the profile makes the next payment cash, and the field then reads "Deposit to".
 - **The payment dialog's hard-coded fields are gone:** the "1000 · Business checking" destination, which named an account that was never opened, and the date "13 Nov 2026". It now shows the real date.
 
-## Still open, for the owner
+## Card reclass, 28 September 2026 — #190 closed
 
-1. **The AMEX ••2002 charges ($2,572.66) sit in 2210 as a company liability.** The owner ruled there is no company card, so these are a personal card used for business. Measured on a copy only, and not posted:
-   - **The reclass would be** Dr 2210 / Cr 3000 $2,572.66.
-   - **2210** would go from −$2,572.66 to $0.
-   - **3000** would go from a $1,016.74 debit to a $1,555.92 credit.
-   - **The trial balance** would go from $5,572.66 to $4,555.92, and ties. The fall is presentation.
-   - **Nothing else moves:** cash, runway and every lens reading are unchanged, including the verdict, consensus, leverage and binding constraint.
-   - **If posted,** the resolver would also need ••2002 to map to 3000. Otherwise future card captures, batch card payments and reversals of the seven ••2002 rows would still post to 2210.
-2. **The headline leverage index does not show an empty bank.** Of its 42 factors, only Grow on collected cash reads cash. Taking cash from $3,000 to $0 moved that factor from 89.8% to 70%, but the geometric mean diluted it to under a tenth of a point, so the index still reads 14%. A figure that does not move when cash goes to zero is not measuring what its name implies. Logged, not fixed.
-3. **Email filing adds expense rows without posting them.** A filed receipt adds a $200 row, but 6110 and the trial balance do not move. The command-bar flow has the same shape by code.
-4. **The reconciliation's owner-paid row reads $0.** It counts only rows labelled exactly "Owner personal", which no row carries.
-5. **Reduced motion.** Opening the expenses screen runs brief colour and fade transitions for under half a second even under reduced motion. This predates the sequence.
-6. **Still logged:** the Accrued batch rule, the two-way status proxy, the operating-cash-flow omission, the mailbox stub, and the receipt label.
+The owner ruled that there is no company card: AMEX ••2002 is a personal card used for business. The reclass and the mapping were one change.
+
+- **Reclass posted.** Dr 2210 / Cr 3000, $2,572.66, as journal entry je-r190a. It is applied once after load, and only where the ••2002 expense rows sum to exactly what 2210 carries. It survived reloads, a saved book from the live build, and a saved book from before the owner draw, where both corrections applied exactly once each.
+- **Mapping moved in the same change.** ••2002 now resolves to 3000. Captures, card batches and reversals of those rows land in owner equity and cannot recreate the liability.
+- **Results:**
+  - the trial balance fell from $5,572.66 to $4,555.92, and ties; the fall is presentation, not an error;
+  - 2210 went from −$2,572.66 to $0;
+  - 3000 went from a $1,016.74 debit to a $1,555.92 credit;
+  - cash stayed at $0;
+  - no lens reading moved, and the verdict, consensus (15 of 39), leverage (14%) and binding constraint (Expose the waste) are unchanged.
+
+## Logged and unfixed, by decision
+
+These stay logged by the owner's decision, not by oversight.
+
+1. **Leverage cannot show an empty bank.** It reads cash through one factor, Grow on collected cash, diluted past visibility. Taking cash from $3,000 to $0 moved that factor from 89.8% to 70% but moved the 42-factor geometric mean by under a tenth of a point, so the index still read 14%. An index that barely moves when the bank goes to zero reports a number that cannot be acted on.
+2. **Email filing adds expense rows without posting them.** The command-bar flow has the same shape by code.
+3. **The reconciliation's owner-paid row** counts only the label "Owner personal", which no row carries.
+4. **Reduced motion.** Opening the expenses screen runs brief colour and fade transitions for under half a second even under reduced motion.
+5. **The Accrued batch rule:** whether accrued payables should reach a batch.
+6. **The two-way status proxy:** after a partial payment, "Paid" readers understate collected revenue and "not Paid" readers overstate AR.
+7. **Operating cash flow** on the KPI scorecard omits refunds and cash events.
+8. **The mailbox stub** hard-codes invoice "1035", calendar item 2 and one client.
+9. **The receipt label:** captures store "Attached", while the receipt check accepts only "On file".
+10. **The remaining contrast causes** from earlier accessibility work.
 
 ## Standing rule this item evidences
 
