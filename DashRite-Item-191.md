@@ -2,7 +2,7 @@
 
 **Run:** 28 September 2026, in one session, as one build.
 **Base:** 177fbadb, which the gate confirmed.
-**Result:** nine of the ten items were finished in this build; item 9 remains (see below).
+**Result:** all ten items are closed across two builds: fda20227 (items 1–8, and item 10 measured) and 8d47edd9 (the T3 change and item 9). #191 is closed.
 
 ## Pass A — ledger correctness
 
@@ -15,7 +15,8 @@
    - *After:* operating cash includes refunds and non-draw cash events, owner draws appear as financing (−$3,000), and the tie is a real sum. It held live, after a $100 refund, and after a $78 ACH payment.
    - The KPI scorecard's operating cash flow is corrected the same way, but it feeds only a coverage ratio that reads "Not applicable", so nothing there is displayed.
    - *Trial balance:* no posting; unchanged.
-3. **The Paid/AR status proxy: left logged, by the honest out.** One helper (`_invReceived` / `_invBalance`) serves both sides. But only 15 of 121 readers are plain sums; the other 106 are conditions, lists, lookups and counts, where treating a partially paid invoice as paid or open is a judgment per reader. Converting only the sums would leave the book answering the same question two ways. No partial payment exists live, so no figure is wrong today.
+   - **Logged as the finding of this pass.** The tie compared a figure against itself, so it could never fail, and it said "Ties" three times while false. That is the proxy class in its most dangerous form: a check that always passes. It is the fifth instance, after the security control, the vacancy check, the author name and the pair count.
+3. **The Paid/AR status proxy: left logged, by ruling.** It is not fixable without deciding, per reader, whether a partially paid invoice counts as paid. One helper (`_invReceived` / `_invBalance`) serves both sides. But only 15 of 121 readers are plain sums; the other 106 are conditions, lists, lookups and counts, where treating a partially paid invoice as paid or open is a judgment per reader. Converting only the sums would leave the book answering the same question two ways. No partial payment exists live, so no figure is wrong today.
 
 ## Pass B — labels that did not match their fields
 
@@ -27,7 +28,20 @@
 ## Pass C — presentation
 
 8. **Reduced motion: correction and fix.** Screenshots at 40 ms and 1.5 s after opening the expenses screen are pixel-identical on both builds. There was never visible motion, and the earlier log overstated it. The only defect was a dead selector for the `ckfade` rule, which React's style serialisation never matched; it is fixed.
-9. **Remaining contrast work: not done in this session.** Still open: the flat-colour causes, the three fade values at in-scope sites, the BD pipeline "0" whose cause was never found, and the two Frontier labels at 4.38.
+   *Owner's note:* the owner's report of this transition was wrong, and the correction is accepted. The real defect was a reduced-motion selector that never matched.
+9. **Contrast, re-derived from scratch by rendered pixel on build fda20227.** Ten screens, about 1,150 text nodes. Every node was also checked for being fully on screen and on top; two early failures were the measurer's own artifacts (a clipped node and a covered node) and were removed.
+   - **Found before fixing:**
+     - header separators at opacity 0.55, on every screen;
+     - the trial balance's Dr/Cr at 0.35;
+     - the BD pipeline "0" at 0.5;
+     - a placeholder dash at a 66% mix;
+     - the 10 px off-pace line, at 4.44.
+   - **The BD pipeline "0":** its cause is `dueStyle: … 'opacity:.5'`, applied through a template binding. The sampler ignores opacity, so it could never find it.
+   - **Fixed:** 0.55 → 0.8, 0.35 → 0.75 and 0.5 → 0.78, with their order kept; the dash mix 55% → 75% at its 7 sites; the pace line 10 px → 11 px, with no colour change.
+   - **After:** 0 failures by pixel on all ten screens.
+   - **Not reproduced:** the two Frontier labels at 4.38. No node on either Frontier screen fails by pixel or by sampler.
+   - **Sampler artifacts, labelled and not fixed:** "Dash · RITE Edition" and "CEO" (1.0 by sampler, 6.52 and 5.69 by pixel), "$3,000" (2.23 against 5.90) and the gradient hub titles (1.0 against about 11.5).
+   - **Accepted as found:** "Owner" and "Plan". No completed-item fade was touched.
 
 ## Pass D — leverage (measure only)
 
@@ -39,7 +53,7 @@
 | T2 cash weighted (Capital as a factor, ×3) | 14.6% | 11.9% | 2.7 pt |
 | T3 cash excluded, stated | 13.7% | 13.6% | 0.1 pt |
 
-**Recommended: T3, cash excluded and stated.** It keeps the index measuring operating leverage and says plainly, beside the number, that cash is read by Capital. Its honest cost: the headline never reflects the bank, it drops 0.6 points today, and readers must look at Capital for liquidity. T2 makes an empty bank visible, but it turns leverage into a blend whose weight (×3) is a judgment, not a measurement. It would also fall on every owner draw, which is timing, not leverage. Nothing was changed.
+**Ruled: T3, built in 8d47edd9 as a change of measurement, not a correction.** The index now uses 41 factors; its method line states that cash is excluded and read by Capital; and the Super screen counts 21 core factors. The index moved from 14.2% to 13.6%, but it still displays as 14% because the council rounds to whole percent. Nothing else moved: verdict, consensus, binding constraint, every lens and the trial balance. The original recommendation read: It keeps the index measuring operating leverage and says plainly, beside the number, that cash is read by Capital. Its honest cost: the headline never reflects the bank, it drops 0.6 points today, and readers must look at Capital for liquidity. T2 makes an empty bank visible, but it turns leverage into a blend whose weight (×3) is a judgment, not a measurement. It would also fall on every owner draw, which is timing, not leverage. Nothing was changed.
 
 ## Lenses
 
