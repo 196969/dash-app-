@@ -1,0 +1,50 @@
+{
+ "asOf": {
+  "value": "28 Sep 2026",
+  "source": "the app's own ledger date, from its 'Ties to TB … as of' line"
+ },
+ "revenue": {
+  "value": 3000,
+  "source": "sum of income accounts on the chart"
+ },
+ "expenses": {
+  "value": 4555.92,
+  "source": "sum of expense accounts on the chart"
+ },
+ "cash": {
+  "value": 0,
+  "source": "effective cash from computeTB"
+ },
+ "burn": {
+  "value": 2782.09,
+  "source": "the app's live monthly burn (_rwVal.burn); time-based, so it moves day to day"
+ },
+ "pipeline": {
+  "value": 0,
+  "source": "weighted open deals (0 open)"
+ },
+ "clients": {
+  "value": 1,
+  "source": "customers with money received, from the payment records"
+ },
+ "largest": {
+  "value": 3000,
+  "source": "largest single customer by money received"
+ },
+ "recurring": {
+  "value": 0,
+  "source": "retainer invoices"
+ },
+ "tb": {
+  "value": 4555.92,
+  "source": "trial balance debit total (ties: true)"
+ },
+ "nextDeal": {
+  "value": 1500,
+  "source": "average invoice with money received"
+ },
+ "rate": {
+  "value": 350,
+  "source": "the 2027 plan hourly rate (y27.rate) — a plan assumption, not a ledger figure"
+ }
+}
