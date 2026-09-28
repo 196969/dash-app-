@@ -48,22 +48,24 @@ Both open defects were exercised before they were fixed, and both broke the tria
 
 On live data nothing moved: cash $3,000, trial balance $7,555.92, AR $0, and no lens changed.
 
+## Mappings applied, 28 September 2026
+
+The owner ruled on all six payment methods and five payable accounts. They are applied as two owner-ruling tables in code, so they take effect whatever state the browser has saved.
+
+- **Payment methods.** "Cash" and the Home Depot gift card post to 3000 Owner equity (book). Cards ••4417 and ••1005 are the one business AMEX and post to 2210. All 31 expense rows now resolve (23 to 3000, 8 to 2210). Expense capture now records a card expense as Dr 6110 / Cr 2210, where before it was refused.
+- **Payable accounts.** Anthropic debits 6110, Hiscox 6020, and Bookkeeper 6080 "Professional fees (CPA & legal)", the chart's professional-fees account (the ruling named it "Legal & professional fees"). Broward County and Florida Sunbiz stay unmapped, because the chart has no taxes-and-licenses account.
+
+Nothing on the live books moved: trial balance $7,555.92, cash $3,000.00, AR $0, 2210 −$2,572.66, 3000 −$1,983.26, and no lens changed.
+
 ## Still open, for the owner
 
-1. **Unmapped payment methods**, refused rather than guessed:
-   - 14 Aug · Home Depot · $9.49 · Home Depot gift card + store credit
-   - 17 Aug · Adobe · $19.99 · AMEX ••4417
-   - 19 Aug · Logitech · $96.29 · Cash
-   - 19 Aug · Dell · $449.40 · Cash
-   - 19 Aug · Samsung · $524.29 · Cash
-   - The batch card, AMEX Business ••1005, used for every card payment of a payable.
-2. **Payables carry no ledger account.** No live payable can be sent until one is assigned. An accounts payable account on the chart is a separate decision.
-3. **Known proxy: invoice status as a stand-in for money received.** It is logged, not fixed, and it cuts both ways:
-   - The 91 readers of "Paid" (collected revenue, concentration and similar) treat a partially paid invoice as unpaid, so collected revenue is understated.
-   - The 32 readers of "not Paid" (AR on the Books ribbon and the Receivables screens) count a partially paid invoice's full total as outstanding, so AR is overstated by what has been received. The cash cockpit's canonical AR reads the true balance, so after a partial payment the two screens disagree.
-   - Neither can occur until a partial payment exists; none does live.
-4. **Operating cash flow** on the KPI scorecard still omits refunds and cash events. It is deferred and latent.
-5. **The mailbox stub** still hard-codes invoice "1035", calendar item 2 and one client in its other branches.
+1. **Reclass the Adobe $19.99, held.** The Adobe row on ••4417 was originally credited to 3000, not the card: the ••2002 rows sum to exactly the 2210 balance, and 3000 includes the $19.99. Under the ruling that ••4417 is the AMEX, 2210 is understated and 3000 overstated by $19.99. The correction is Dr 3000 / Cr 2210 $19.99, and the trial balance total would not move. Until it is posted, removing the Adobe row would reverse 2210 while the original credit sits in 3000, which was demonstrated on a copy. The app's own payments profile also labels the business checking account "••4417", which is worth confirming before posting.
+2. **Taxes and licenses.** Broward County ($78) and Florida Sunbiz ($138) need a chart account before they can carry one. That is a separate chart decision.
+3. **Batch exclusion, no change.** None of the five payables can reach the batch. Broward and Sunbiz are excluded as "Accrued". Anthropic, Hiscox and Bookkeeper are dropped by a hard-coded vendor-and-amount list in `_payablesLive`, not by their state.
+4. **Known proxy: invoice status as a stand-in for money received.** It cuts both ways. The 91 "Paid" readers understate collected revenue after a partial payment, and the 32 "not Paid" readers overstate AR (the Books ribbon showed $1,000 against the cockpit's true $600). Neither occurs until a partial payment exists.
+5. **Operating cash flow** on the KPI scorecard omits refunds and cash events. It is deferred and latent.
+6. **The mailbox stub** still hard-codes invoice "1035", calendar item 2 and one client in its other branches.
+7. **Receipt label.** Expense capture stores its receipt as "Attached", but the receipt check accepts only "On file", so captured expenses with receipts are listed as missing one.
 
 ## Standing rule this item evidences
 
