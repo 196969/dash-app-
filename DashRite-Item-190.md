@@ -78,21 +78,29 @@ This pass was built on the live build, ce1ee200. The closing build 522004fc was 
 
 Nothing on the live book moved: trial balance $7,555.92, 2210 −$2,572.66, 3000 −$1,983.26, and no lens changed.
 
+## Owner draw and receipt destination, 28 September 2026
+
+The owner ruled that both Everlast payments were an owner draw, and that no payment should be counted as business cash while no business account exists.
+
+- **Owner draw posted.** Dr 3000 / Cr 1000, $3,000, as journal entry je-r190d. It is applied once after load and guarded on the evidence: both Everlast invoices are Paid at $1,500. Effective cash went from $3,000 to $0, and runway from 1.1 months to 0.0. Owner equity moved from a $1,983.26 credit to a $1,016.74 debit: the owner has taken out $1,016.74 more than put in. The trial balance fell from $7,555.92 to $5,572.66, and ties. That fall is presentation, not an error.
+- **Lens readings that moved:** Capital 17.9% → 0%, and Grow on collected cash 89.8% → 70%. The verdict, consensus (15 of 39), leverage (14%) and binding constraint (Expose the waste) did not move.
+- **Receipt destination.** While no business bank account is on file, a payment still credits income, but it posts as an owner draw (a debit to 3000) rather than cash. This applies whether the payment is recorded in the payment dialog, by tap to pay or from the mailbox. The dialog states it: "Received into — the default while no business bank account is on file: Owner's personal account — owner draw". Entering a real bank account on the profile makes the next payment cash, and the field then reads "Deposit to".
+- **The payment dialog's hard-coded fields are gone:** the "1000 · Business checking" destination, which named an account that was never opened, and the date "13 Nov 2026". It now shows the real date.
+
 ## Still open, for the owner
 
-1. **The $3,000 in account 1000 is not business cash. This is the ruling that decides the headline numbers.** Both Everlast payments (invoices 1004 and 1005, $1,500 each, 1 and 5 September) went to the owner's personal account. Measured on a copy:
-   - **Today's figures are overstated:** cash $3,000 (true $0), runway 1.1 months (true 0.0), Capital 17.9% (true 0%), and Coverage's "Cash of $3,000 covers about 1.1 mo" (true: cash at zero).
-   - **Unchanged by any treatment:** the verdict "Land client two", consensus 15 of 39 (163 of 426), leverage 14%, and the binding constraint "Expose the waste". Leverage does not read Capital or cash at all.
-   - **Recommended treatment: an owner draw,** Dr 3000 / Cr 1000 $3,000. Cash reads $0; owner equity moves from a $1,983.26 credit to a $1,016.74 debit; the trial balance ties at $5,572.66.
-   - **The alternative: a due-from-owner receivable.** It needs a new asset account and asserts an obligation nobody has agreed to.
-   - **Future payments** would still be counted as business cash until receipts record where they landed.
-   - Nothing has been posted.
-2. **Email filing does not post to the ledger.** A filed receipt adds a $200 expense row, but 6110 and the trial balance do not move. The command-bar flow has the same shape by code (derived, not exercised).
-3. **The owner-paid reconciliation row reads $0.** It counts only rows labelled exactly "Owner personal", which no row carries, while $1,983.26 sits in owner equity.
-4. **Leverage is blind to cash.** Its factors do not include Capital, so the headline index does not move when the business holds nothing.
-5. **2210 AMEX ••2002 and the "no company card" ruling.** The chart carries a card payable of $2,572.66 on AMEX ••2002, while the latest ruling says no company card exists. Whether that card is a personal card used for business is for the owner.
-6. **Reduced motion.** Opening the expenses screen runs brief colour and fade transitions for under half a second even under reduced motion. This predates the sequence.
-7. **Still logged:** the Accrued batch rule, the two-way status proxy, the operating-cash-flow omission, the mailbox stub, and the receipt label.
+1. **The AMEX ••2002 charges ($2,572.66) sit in 2210 as a company liability.** The owner ruled there is no company card, so these are a personal card used for business. Measured on a copy only, and not posted:
+   - **The reclass would be** Dr 2210 / Cr 3000 $2,572.66.
+   - **2210** would go from −$2,572.66 to $0.
+   - **3000** would go from a $1,016.74 debit to a $1,555.92 credit.
+   - **The trial balance** would go from $5,572.66 to $4,555.92, and ties. The fall is presentation.
+   - **Nothing else moves:** cash, runway and every lens reading are unchanged, including the verdict, consensus, leverage and binding constraint.
+   - **If posted,** the resolver would also need ••2002 to map to 3000. Otherwise future card captures, batch card payments and reversals of the seven ••2002 rows would still post to 2210.
+2. **The headline leverage index does not show an empty bank.** Of its 42 factors, only Grow on collected cash reads cash. Taking cash from $3,000 to $0 moved that factor from 89.8% to 70%, but the geometric mean diluted it to under a tenth of a point, so the index still reads 14%. A figure that does not move when cash goes to zero is not measuring what its name implies. Logged, not fixed.
+3. **Email filing adds expense rows without posting them.** A filed receipt adds a $200 row, but 6110 and the trial balance do not move. The command-bar flow has the same shape by code.
+4. **The reconciliation's owner-paid row reads $0.** It counts only rows labelled exactly "Owner personal", which no row carries.
+5. **Reduced motion.** Opening the expenses screen runs brief colour and fade transitions for under half a second even under reduced motion. This predates the sequence.
+6. **Still logged:** the Accrued batch rule, the two-way status proxy, the operating-cash-flow omission, the mailbox stub, and the receipt label.
 
 ## Standing rule this item evidences
 
