@@ -57,15 +57,42 @@ The owner ruled on all six payment methods and five payable accounts. They are a
 
 Nothing on the live books moved: trial balance $7,555.92, cash $3,000.00, AR $0, 2210 −$2,572.66, 3000 −$1,983.26, and no lens changed.
 
+## Invented digits cleared, 28 September 2026
+
+The owner ruled that ••4417 and ••1005 are not the last four digits of any real account or card; the app invented them. Both Everlast payments landed in the owner's personal checking account, and no business bank account has ever been opened.
+
+This pass was built on the live build, ce1ee200. The closing build 522004fc was never uploaded, so the Adobe reclass (je-r190) was never posted to the live book and has not been posted now. Carried forward from that pass: the restore fix, account 6090 with Broward County and Florida Sunbiz mapped to it, and the state-based payables filter.
+
+- **Mapping tables.** ••4417 and ••1005 are gone from them entirely.
+- **Expense captures.** Expense capture, the command bar and email filing now record Owner-paid, which posts to 3000. The capture dialog states it: "Paid by — the default while no business bank account or company card is on file". Entering a real card on the profile overrides it.
+- **Corrections to the owner's saved book.** These are applied once after load, without touching the seed fingerprint, and each is written to the audit trail:
+  - the Adobe row reads "Not recorded";
+  - the owner draw account is cleared;
+  - je-5's memo reads "Tommys Express (payment method not recorded)", and its posting to 3000 stands;
+  - the profile's bank name, account label, routing number and card ••1005 are cleared.
+- **Only where the evidence exists:**
+  - a book carrying je-r190 gets a reversal, je-r190r, with both entries kept in the journal;
+  - a capture credited to 2210 under the void ruling, found by its own audit line, is moved to 3000 with a journal entry.
+- **Card reconciliation** now counts rows that resolve to 2210 (AMEX ••2002, $2,572.66, difference $0.00). Previously it counted the invented "Card ••4417" label.
+- **ACH files** are refused when no business bank account is on file.
+
+Nothing on the live book moved: trial balance $7,555.92, 2210 −$2,572.66, 3000 −$1,983.26, and no lens changed.
+
 ## Still open, for the owner
 
-1. **Reclass the Adobe $19.99, held.** The Adobe row on ••4417 was originally credited to 3000, not the card: the ••2002 rows sum to exactly the 2210 balance, and 3000 includes the $19.99. Under the ruling that ••4417 is the AMEX, 2210 is understated and 3000 overstated by $19.99. The correction is Dr 3000 / Cr 2210 $19.99, and the trial balance total would not move. Until it is posted, removing the Adobe row would reverse 2210 while the original credit sits in 3000, which was demonstrated on a copy. The app's own payments profile also labels the business checking account "••4417", which is worth confirming before posting.
-2. **Taxes and licenses.** Broward County ($78) and Florida Sunbiz ($138) need a chart account before they can carry one. That is a separate chart decision.
-3. **Batch exclusion, no change.** None of the five payables can reach the batch. Broward and Sunbiz are excluded as "Accrued". Anthropic, Hiscox and Bookkeeper are dropped by a hard-coded vendor-and-amount list in `_payablesLive`, not by their state.
-4. **Known proxy: invoice status as a stand-in for money received.** It cuts both ways. The 91 "Paid" readers understate collected revenue after a partial payment, and the 32 "not Paid" readers overstate AR (the Books ribbon showed $1,000 against the cockpit's true $600). Neither occurs until a partial payment exists.
-5. **Operating cash flow** on the KPI scorecard omits refunds and cash events. It is deferred and latent.
-6. **The mailbox stub** still hard-codes invoice "1035", calendar item 2 and one client in its other branches.
-7. **Receipt label.** Expense capture stores its receipt as "Attached", but the receipt check accepts only "On file", so captured expenses with receipts are listed as missing one.
+1. **The $3,000 in account 1000 is not business cash. This is the ruling that decides the headline numbers.** Both Everlast payments (invoices 1004 and 1005, $1,500 each, 1 and 5 September) went to the owner's personal account. Measured on a copy:
+   - **Today's figures are overstated:** cash $3,000 (true $0), runway 1.1 months (true 0.0), Capital 17.9% (true 0%), and Coverage's "Cash of $3,000 covers about 1.1 mo" (true: cash at zero).
+   - **Unchanged by any treatment:** the verdict "Land client two", consensus 15 of 39 (163 of 426), leverage 14%, and the binding constraint "Expose the waste". Leverage does not read Capital or cash at all.
+   - **Recommended treatment: an owner draw,** Dr 3000 / Cr 1000 $3,000. Cash reads $0; owner equity moves from a $1,983.26 credit to a $1,016.74 debit; the trial balance ties at $5,572.66.
+   - **The alternative: a due-from-owner receivable.** It needs a new asset account and asserts an obligation nobody has agreed to.
+   - **Future payments** would still be counted as business cash until receipts record where they landed.
+   - Nothing has been posted.
+2. **Email filing does not post to the ledger.** A filed receipt adds a $200 expense row, but 6110 and the trial balance do not move. The command-bar flow has the same shape by code (derived, not exercised).
+3. **The owner-paid reconciliation row reads $0.** It counts only rows labelled exactly "Owner personal", which no row carries, while $1,983.26 sits in owner equity.
+4. **Leverage is blind to cash.** Its factors do not include Capital, so the headline index does not move when the business holds nothing.
+5. **2210 AMEX ••2002 and the "no company card" ruling.** The chart carries a card payable of $2,572.66 on AMEX ••2002, while the latest ruling says no company card exists. Whether that card is a personal card used for business is for the owner.
+6. **Reduced motion.** Opening the expenses screen runs brief colour and fade transitions for under half a second even under reduced motion. This predates the sequence.
+7. **Still logged:** the Accrued batch rule, the two-way status proxy, the operating-cash-flow omission, the mailbox stub, and the receipt label.
 
 ## Standing rule this item evidences
 
