@@ -32,7 +32,7 @@ FIGURES_JS = r"""()=>{const L=window.__L,s=L.state; const tb=L.computeTB(s); con
   const paid=s.invoices.filter(i=>L._invReceived(i)>0); const deals=(s.deals||[]).filter(d=>d&&!/won|lost/i.test(d.stage||''));
   const asOf=(document.body.innerText.match(/Ties to TB \$[\d,.]+ · as of ([^\n]+)/)||[])[1]||null;
   const f=(v,src)=>({value:v,source:src});
-  return {asOf:f(asOf,"the app's own ledger date, from its 'Ties to TB … as of' line"), revenue:f(r2(inc),'sum of income accounts on the chart'), expenses:f(r2(exp),'sum of expense accounts on the chart'),
+  return {asOf:f(asOf,"the date the app read the book: its 'Ties to TB … as of' line follows the clock, and burn and runway are computed as of that read"), revenue:f(r2(inc),'sum of income accounts on the chart'), expenses:f(r2(exp),'sum of expense accounts on the chart'),
     cash:f(r2(tb.effCash),'effective cash from computeTB'), burn:f(r2((L._rwVal||{}).burn||0),"the app's live monthly burn (_rwVal.burn); time-based, so it moves day to day"),
     pipeline:f(r2(deals.reduce((x,d)=>x+(Number(d.value||d.amount)||0)*(Number(d.prob||d.probability)||0)/((Number(d.prob||d.probability)||0)>1?100:1),0)),'weighted open deals ('+deals.length+' open)'),
     clients:f(Object.keys(rec).length,'customers with money received, from the payment records'), largest:f(r2(Math.max(0,...Object.values(rec))),'largest single customer by money received'),

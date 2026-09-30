@@ -4,8 +4,9 @@
 Needs: Python 3.8+ only.
 Usage:
     python build_founders_true.py [--page founders-true.html] [--figures founders-true-figures.json] [--out founders-true.html]
-Replaces the page's twelve inputs with the derived figures and ties the page's saved-input key to the data date,
-so a browser that saved the old inputs cannot restore them. Refuses to build if any figure is missing.
+The page's twelve inputs and its saved-input key sit in named slots, /*slot:name*/value/*/slot*/. This fills each slot
+from the figures; the key is tied to the read date so a browser that saved older inputs cannot restore them.
+Refuses to build if a figure is missing or the page's slots do not match.
 """
 import argparse, json, re, sys
 OPEN = '<script type="__bundler/template">'
@@ -23,14 +24,12 @@ def main():
     F = json.load(open(a.figures, encoding='utf-8'))
     missing = [k for k in ORDER if k not in F or F[k].get('value') is None]
     if missing: sys.exit('not derivable, refusing to carry old values: ' + ', '.join(missing))
+    V = {k: js(F[k]['value']) for k in ORDER}; V['key'] = "'dashrite-founders-ten-lenses-truedata-" + re.sub(r'\W', '', F['asOf']['value']).lower() + "'"
     s = open(a.page, 'rb').read().decode('utf-8'); head, body, tail = split(s); src = dec(body)
-    m = re.search(r"static DEFAULTS = \{[^}]*\};", src)
-    if not m: sys.exit('the page has changed shape: its inputs line was not found')
-    new = "static DEFAULTS = { " + ', '.join(k + ': ' + js(F[k]['value']) for k in ORDER) + " };"
-    src = src.replace(m.group(0), new, 1)
-    src, n = re.subn(r"static KEY = 'dashrite-founders-ten-lenses-truedata-[^']*';", "static KEY = 'dashrite-founders-ten-lenses-truedata-" + re.sub(r'\W', '', F['asOf']['value']).lower() + "';", src, count=1)
-    if n != 1: sys.exit('the page has changed shape: its saved-input key was not found')
+    names = re.findall(r'/\*slot:(\w+)\*/', src)
+    if sorted(names) != sorted(V): sys.exit('the page has changed shape: slots ' + ', '.join(sorted(set(names) ^ set(V))) + ' do not match')
+    src = re.sub(r'(/\*slot:(\w+)\*/).*?(/\*/slot\*/)', lambda m: m.group(1) + V[m.group(2)] + m.group(3), src)
     open(a.out, 'wb').write((head + enc(src) + tail).encode('utf-8'))
-    print('old:', m.group(0)); print('new:', new)
+    print('filled {} slots as of {}'.format(len(names), F['asOf']['value']))
 
 if __name__ == '__main__': main()
