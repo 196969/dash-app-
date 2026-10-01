@@ -1,9 +1,0 @@
-import json,sys
-A='<script type="__bundler/template">'
-def split(h):
-    i=h.index(A)+len(A); j=h.index('</script>',i)
-    return h[:i],h[i:j],h[j:]
-def decode(h):
-    pre,body,post=split(h); return pre,json.loads(body.strip()),post
-def encode(pre,src,post):
-    return pre+'\n'+json.dumps(src,ensure_ascii=False).replace('</','<\\u002F')+'\n  '+post
