@@ -1,0 +1,71 @@
+  _tmxCore(s) {
+    s = s || {};
+    const A = x => Array.isArray(x) ? x : [];
+    const fin = n => (typeof n === 'number' && isFinite(n)) ? n : 0;
+    const N = x => fin(Number(x));
+    const yr = Number(s.planYear) || new Date().getFullYear();
+    const d0 = new Date(); d0.setHours(0, 0, 0, 0); const today = d0.getTime(); const DAY = 864e5;
+    const pd = x => { const r = String(x || '').split('\u00b7')[0].replace(/^(week of|mon|tue|wed|thu|fri|sat|sun)[a-z]*\.?\s+/i, '').trim(); if (!r) return null; if (/^\d{4}-\d{2}-\d{2}$/.test(r)) { const t = Date.parse(r + 'T00:00:00'); return isFinite(t) ? t : null; } const t = Date.parse(/\d{4}/.test(r) ? r : r + ' ' + yr); return isFinite(t) ? t : null; };
+    const QS = ['q1', 'q2', 'q3', 'q4'];
+    const te = A(s.timeEntries).filter(t => t && typeof t === 'object');
+    const tagged = te.filter(t => QS.indexOf(t.quad) !== -1);
+    const hrs = list => list.reduce((a, t) => a + N(t.hours), 0);
+    const by = {}; QS.forEach(q => { const L = tagged.filter(t => t.quad === q); by[q] = { n: L.length, h: hrs(L) }; });
+    const taggedH = hrs(tagged), allH = hrs(te);
+    const q2Share = taggedH > 0 ? by.q2.h / taggedH : 0;
+    const deep7 = tagged.filter(t => { if (t.quad !== 'q2' || N(t.hours) < 1.5) return false; const d = pd(t.date); return d !== null && d <= today + DAY - 1 && d >= today - 7 * DAY; });
+    const CS = ['inside', 'outside'];
+    const dec = A(s.decisions).filter(d => d && typeof d === 'object');
+    const dTag = dec.filter(d => CS.indexOf(d.circle) !== -1);
+    const win = (lo, hi) => { const L = dTag.filter(d => { const t = pd(d.when); return t !== null && t <= today + DAY - 1 - lo * DAY && t > today + DAY - 1 - hi * DAY; }); const k = L.filter(d => d.circle === 'inside').length; return { n: L.length, inside: k, share: L.length ? k / L.length : 0 }; };
+    return { QS, te, tagged, by, taggedH, allH, q2Share, deep7, dec, dTag, last30: win(0, 30), prior30: win(30, 60), pd, today, DAY };
+  }
+
+  _tmxVM(s0) {
+    s0 = s0 || this.state || {};
+    if (this._tmxFor === s0 && this._tmxVal) return this._tmxVal;
+    const C = this._tmxCore(s0);
+    const pct = x => Math.round(x * 100) + '%';
+    const h1 = x => (Math.round(x * 10) / 10).toString() + ' h';
+    const MON = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    const fd = t => { if (t === null) return 'no date'; const d = new Date(t); return d.getDate() + ' ' + MON[d.getMonth()]; };
+    const DEF = { q1: ['Q1', 'Crises', 'Urgent and important', 'bad'], q2: ['Q2', 'Grow', 'Important, not urgent', 'ok'], q3: ['Q3', 'Interrupt', 'Urgent, not important', 'warn'], q4: ['Q4', 'Busywork', 'Neither urgent nor important', 'idle'] };
+    const stamp = () => (typeof this.stamp === 'function' ? this.stamp() : new Date().toISOString());
+    const setQuad = (id, q) => () => this.setState(st => {
+      const L = Array.isArray(st.timeEntries) ? st.timeEntries : [];
+      const cur = L.find(x => x && x.id === id); const nx = cur && cur.quad === q ? '' : q;
+      return { timeEntries: L.map(x => x && x.id === id ? Object.assign({}, x, { quad: nx }) : x),
+        audit: [{ when: stamp(), who: 'Founder', what: 'Time matrix \u2014 entry ' + id + (nx ? ' tagged ' + DEF[nx][0] : ' untagged') }].concat(st.audit || []) };
+    });
+    const setCircle = (id, c) => () => this.setState(st => {
+      const L = Array.isArray(st.decisions) ? st.decisions : [];
+      const cur = L.find(x => x && x.id === id); const nx = cur && cur.circle === c ? '' : c;
+      return { decisions: L.map(x => x && x.id === id ? Object.assign({}, x, { circle: nx }) : x),
+        audit: [{ when: stamp(), who: 'Founder', what: 'Circle of influence \u2014 decision ' + id + (nx ? ' marked ' + nx : ' untagged') }].concat(st.audit || []) };
+    });
+    const chip = on => 'font: inherit; font-size: 12px; padding: 4px 10px; border-radius: 6px; cursor: pointer; white-space: nowrap; border: 1px solid ' + (on ? 'var(--color-accent)' : 'var(--color-divider)') + '; background: ' + (on ? 'color-mix(in srgb, var(--color-accent) 18%, transparent)' : 'transparent') + '; color: var(--color-text);';
+    const quads = C.QS.map(q => ({ key: q, code: DEF[q][0], name: DEF[q][1], what: DEF[q][2], hours: h1(C.by[q].h), entries: C.by[q].n + (C.by[q].n === 1 ? ' entry' : ' entries'),
+      share: C.taggedH > 0 ? pct(C.by[q].h / C.taggedH) + ' of tagged hours' : 'No tagged hours yet',
+      style: 'gap: 4px; padding: 14px; border-left: 4px solid ' + HUE[DEF[q][3]] + ';' }));
+    const entries = C.te.slice().sort((a, b) => (C.pd(b.date) || 0) - (C.pd(a.date) || 0)).map(t => ({
+      id: String(t.id), when: fd(C.pd(t.date)), task: String(t.task || ''), client: String(t.client || ''), hours: h1(Number(t.hours) || 0),
+      opts: C.QS.map(q => ({ code: DEF[q][0], title: DEF[q][1], style: chip(t.quad === q), pick: setQuad(t.id, q), pressed: t.quad === q ? 'true' : 'false' })) }));
+    const decs = C.dec.map(d => ({ id: String(d.id), when: String(d.when || ''), what: String(d.what || ''),
+      opts: [['inside', 'Inside'], ['outside', 'Outside']].map(o => ({ label: o[1], style: chip(d.circle === o[0]), pick: setCircle(d.id, o[0]), pressed: d.circle === o[0] ? 'true' : 'false' })) }));
+    const meterPct = Math.max(0, Math.min(100, C.q2Share * 100));
+    const val = {
+      quads, entries, decs, hasEntries: entries.length > 0, noEntries: entries.length === 0, hasDecs: decs.length > 0, noDecs: decs.length === 0,
+      q2Pct: C.taggedH > 0 ? pct(C.q2Share) : '\u2014',
+      meterLine: h1(C.by.q2.h) + ' of ' + h1(C.taggedH) + ' tagged \u00b7 ' + h1(C.taggedH) + ' of ' + h1(C.allH) + ' logged carry a tag',
+      meterTone: C.taggedH < 10 ? 'Blind below 10 tagged hours' : (C.q2Share >= 0.4 ? 'At or above the 40% target' : 'Below the 40% target'),
+      meterFill: 'height: 100%; width: ' + meterPct.toFixed(1) + '%; background: ' + (C.taggedH < 10 ? HUE.idle : C.q2Share >= 0.4 ? HUE.ok : HUE.warn) + ';',
+      tagLine: C.tagged.length + ' of ' + C.te.length + ' time entries tagged',
+      deepLine: C.deep7.length + ' Q2 blocks of 90 minutes or longer in the last 7 days',
+      circleLine: C.dTag.length + ' of ' + C.dec.length + ' decisions tagged',
+      circleWin: 'Last 30 days: ' + C.last30.inside + ' of ' + C.last30.n + ' inside' + (C.last30.n ? ' (' + pct(C.last30.share) + ')' : '') + ' \u00b7 prior 30: ' + C.prior30.inside + ' of ' + C.prior30.n + ' inside' + (C.prior30.n ? ' (' + pct(C.prior30.share) + ')' : ''),
+      goCal: () => this.go('calendar'), goCeoc: () => this.go('ceocheck'), goDec: () => this.go('decisions')
+    };
+    this._tmxFor = s0; this._tmxVal = val;
+    return val;
+  }
+
