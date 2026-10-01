@@ -47,13 +47,15 @@ def slots(F):
         return None
     pays = [dict(p, date=due_date(p['due'])) for p in g['payables']]
     if any(p['date'] is None for p in pays): sys.exit('a payable has an unreadable due date, refusing to guess')
-    soon = [p for p in pays if 0 <= (p['date'] - asof).days <= 5]; later = [p for p in pays if p not in soon]
+    over = [p for p in pays if (p['date'] - asof).days < 0]; soon = [p for p in pays if 0 <= (p['date'] - asof).days <= 5]; later = [p for p in pays if p not in soon and p not in over]
     fmt_due = lambda p: '{} {} {}'.format(p['date'].day, p['date'].strftime('%B'), p['date'].year)
-    ps = ' '.join('{} falls due within five days: {} {}.'.format(m0(p['amount']), p['vendor'], p['what'][:1].lower() + p['what'][1:]) for p in soon)
-    if later: ps += (' ' if ps else '') + ('The other payable is ' if soon else 'The next payable is ') + '; '.join('{} to {}, due {}'.format(m0(p['amount']), p['vendor'], fmt_due(p)) for p in later) + '.'
+    ps = ' '.join('{} to {} for the {} was due {} and is overdue.'.format(m0(p['amount']), p['vendor'], p['what'][:1].lower() + p['what'][1:], fmt_due(p)) for p in over)
+    ps += (' ' if ps else '') + ' '.join('{} falls due within five days: {} {}.'.format(m0(p['amount']), p['vendor'], p['what'][:1].lower() + p['what'][1:]) for p in soon)
+    ps = ps.strip()
+    if later: ps += (' ' if ps else '') + ('The other payable is ' if (soon or over) else 'The next payable is ') + '; '.join('{} to {}, due {}'.format(m0(p['amount']), p['vendor'], fmt_due(p)) for p in later) + '.'
     if not ps: ps = 'No payable is on file.'
     owner_draw = 'No business bank account is on file, so client payments post as owner draws and business cash stays at {}.'.format(m2(cash))
-    due_soon = sum(p['amount'] for p in soon); end = cash + avg - due_soon - card
+    due_over = sum(p['amount'] for p in over); due_soon = sum(p['amount'] for p in soon) + due_over; end = cash + avg - due_soon - card
     v = {
       'asOfLong': asof_long, 'cash': m2(cash), 'burn': m2(burn), 'runwayMo': '{:.1f}'.format(m), 'revenue': m2(g['revenue']), 'tb': m2(g['tb']),
       'netPhrase': ('a net loss of ' if g['revenue'] - g['expenses'] < 0 else 'a net profit of ') + m2(abs(g['revenue'] - g['expenses'])),
@@ -67,7 +69,7 @@ def slots(F):
       'bankClause': owner_draw if not bank else 'The runway then extends to about {:.1f} months.'.format(months(cash + avg, burn)),
       'payablesSentence': ps,
       'cardSentence': 'Card charges are owner-paid; no company card or card liability exists.' if card == 0 else 'The card carries {}.'.format(m2(card)),
-      'payAction': ('Pay the {} on time.'.format(m0(due_soon)) if soon else 'Nothing falls due within five days.') + ('' if card == 0 else ' The card balance of {} is the larger call on cash.'.format(m2(card))),
+      'payAction': ' '.join(x for x in [('Pay the overdue {} now.'.format(m0(due_over)) if over else ''), ('Pay the {} on time.'.format(m0(due_soon - due_over)) if soon else ''), ('' if (over or soon) else 'Nothing falls due within five days.')] if x) + ('' if card == 0 else ' The card balance of {} is the larger call on cash.'.format(m2(card))),
       'revPerPerson': m0(g['revenue'] / g['people']) if g['people'] else None, 'rppTarget': m0(g['rppTarget']),
       'waterfall': (owner_draw + ' There is no business-cash path to show until an account exists. Read from the ledger as of ' + asof_long + '.') if not bank else
                    'From {} of effective cash today to about {} once client two pays at the average invoice and this month’s bills clear. Read from the ledger as of {}.'.format(m0(cash), m0(end), asof_long),
@@ -80,6 +82,8 @@ def slots(F):
       'blakelyEarnedSentence': ('{} per cent of the {} collected came back from a buyer who had already paid once, against {} of paid acquisition on account 6040.'.format(cap(words(g['blakelyRepeatShare'])), m0(g['blakelyCollected']), m2(g['blakelyPaidAcq']))) if g['blakelyCollected'] > 0 else 'No revenue has been collected, so earned demand cannot be read.',
       'blakelyCall': g['blakelyAction'][:1].lower() + g['blakelyAction'][1:] + '. ' + ('It passes the seven-day test: ' if g['blakelyWeekPass'] else 'It does not pass the seven-day test: ') + g['blakelyWeekWhy'] + '.',
       'blakelyActionCap': g['blakelyAction'] + '.',
+      'suCall': g['suAction'][:1].lower() + g['suAction'][1:] + '. ' + ('It passes the seven-day test: ' if g['suWeekPass'] else 'It does not pass the seven-day test: ') + g['suWeekWhy'] + '.',
+      'suActionCap': g['suAction'] + '.',
       'deliveryCostSentence': ('{} cents of delivery cost for every revenue dollar, read from {} cost-of-delivery account{}.'.format(cap(words(round(100 * g['cogsBalance'] / g['revenue']))), words(g['cogsAccounts']), '' if g['cogsAccounts'] == 1 else 's')) if g['cogsAccounts'] > 0 and g['revenue'] > 0 else
           'Not measured: the chart of accounts has no cost-of-delivery account, and {} of the {} time entries {} logged as billable client work, so the cost of a revenue dollar cannot be read and no figure is shown.'.format(('none' if g['billableHours'] == 0 else 'some'), words(g['timeEntries']), 'is' if g['timeEntries'] == 1 else 'are'),
       'deliveryCostNext': 'Hold delivery cost below the revenue it earns.' if g['cogsAccounts'] > 0 and g['revenue'] > 0 else 'Log client hours as billable, so delivery cost can be read.',
