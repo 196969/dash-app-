@@ -47,7 +47,12 @@ FIGURES_JS = r"""()=>{const L=window.__L,s=L.state,V=window.__V; const tb=L.comp
     verdict:f(c.verdict||null,"the council's verdict"), agree:f(cm?+cm[1]:null,'council consensus line'), board:f(cm?+cm[2]:null,'council consensus line'), wAgree:f(cm?+cm[3]:null,'council consensus line, by weight'), wTotal:f(cm?+cm[4]:null,'council consensus line, by weight'),
     weights:f(L._lensWeights(),"the council's ruled seat weights (_lensWeights)"),
     dellCycle:f(dc?+dc[1]:null,"Dell seat reading: cash conversion days"), dellCollected:f(dp?+dp[1]:null,'Dell seat reading: paid invoices collected by delivery'), dellDated:f(dp?+dp[2]:null,'Dell seat reading: dated paid invoices'),
-    bransonPaying:f(bf?+bf[1]:null,'Branson seat reading: families with a paying or signed customer'), bransonFamilies:f(bf?+bf[2]:null,'Branson seat reading: offering families'), bransonBets:f(bb?+bb[2]:null,'Branson seat reading: open bets')}}"""
+    bransonPaying:f(bf?+bf[1]:null,'Branson seat reading: families with a paying or signed customer'), bransonFamilies:f(bf?+bf[2]:null,'Branson seat reading: offering families'), bransonBets:f(bb?+bb[2]:null,'Branson seat reading: open bets'),
+    ...(()=>{let k=null,kp=null; try{k=L._lensNewFacts(s).blakely; kp=L._foundersPD('blakely',s,{});}catch(e){} const g=(v,src)=>f(k?v:null,src); return {
+    blakelyRejN:g(k&&k.rejN,'Blakely seat: recorded declined estimates and lost deals'), blakelyRejR:g(k&&k.rejR,'Blakely seat: recorded rejections that carry a reason'), blakelyReasonField:g(k&&k.reasonField,'Blakely seat: whether any estimate or deal row carries a reason field'),
+    blakelyHotOpen:g(k&&k.hotOpen,'Blakely seat: named hot-list leads not yet asked'), blakelyHotN:g(k&&k.hotN,'Blakely seat: named hot-list leads'),
+    blakelyRepeatShare:g(k&&(k.kD===null?0:Math.round(k.kD*100)),'Blakely seat: per cent of collected revenue from repeat purchases'), blakelyCollected:g(k&&k.paidAmt,'Blakely seat: paid revenue'), blakelyPaidAcq:g(k&&k.paidAcq,'Blakely seat: account 6040 balance (paid acquisition)'),
+    blakelyScore:g(k&&k.score,'Blakely seat score'), blakelyRag:f(kp&&kp.flag&&kp.flag.rag?kp.flag.rag.label:null,'Blakely seat flag'), blakelyAction:g(k&&k.action,'Blakely seat: its call'), blakelyWeekPass:g(k&&k.week.pass,'Blakely seat: seven-day test'), blakelyWeekWhy:g(k&&k.week.why,'Blakely seat: seven-day test reason'), blakelyRead:g(k&&k.read,'Blakely seat reading')}})()}}"""
 
 def main():
     ap = argparse.ArgumentParser(); ap.add_argument('--app', default=APP_URL); ap.add_argument('--out', default='founders-council-figures.json'); a = ap.parse_args()

@@ -74,6 +74,13 @@ def slots(F):
       'dellCycle': ('minus ' if g['dellCycle'] < 0 else '') + '{:g}'.format(abs(g['dellCycle'])), 'dellCollected': cap(words(g['dellCollected'])) + ' of ' + words(g['dellDated']), 'dellDated': words(g['dellDated']),
       'bransonPaying': cap(words(g['bransonPaying'])), 'bransonBets': words(g['bransonBets']),
       'bransonCashClause': 'no business cash stands behind it, so a wrong bet has nothing to land on' if m < 0.05 else '{} of effective cash covers {} of burn, so a wrong bet has little to land on'.format(m2(cash), 'about a month' if m < 1.5 else 'about {:.1f} months'.format(m)), 'bransonFamilies': words(g['bransonFamilies']), 'bransonRest': words(g['bransonFamilies'] - g['bransonPaying']),
+      'boardWordsCap': cap(words(g['board'])),
+      'blakelyScoreLine': '{:.2f} · {}'.format(g['blakelyScore'], g['blakelyRag'].lower()),
+      'blakelyRejSentence': ('No \u201cno\u201d is on file yet: {} of the {} named hot-list leads have not been asked, deals have no lost stage, and {}'.format(words(g['blakelyHotOpen']), words(g['blakelyHotN']), 'estimates or deals carry a reason field, so the first rejection can be kept.' if g['blakelyReasonField'] else 'no estimate or deal carries a field for a reason, so the first rejection would be kept as silence.')) if g['blakelyRejN'] == 0 else '{} of {} recorded \u201cno\u201ds carry a reason.'.format(cap(words(g['blakelyRejR'])), words(g['blakelyRejN'])),
+      'blakelyEarnedSentence': ('{} per cent of the {} collected came back from a buyer who had already paid once, against {} of paid acquisition on account 6040.'.format(cap(words(g['blakelyRepeatShare'])), m0(g['blakelyCollected']), m2(g['blakelyPaidAcq']))) if g['blakelyCollected'] > 0 else 'No revenue has been collected, so earned demand cannot be read.',
+      'blakelyCall': g['blakelyAction'][:1].lower() + g['blakelyAction'][1:] + '. ' + ('It passes the seven-day test: ' if g['blakelyWeekPass'] else 'It does not pass the seven-day test: ') + g['blakelyWeekWhy'] + '.',
+      'blakelyActionCap': g['blakelyAction'] + '.',
+      'blakelyBlindSentence': (lambda r: ('Declared rather than guessed: ' + '; '.join(x for x in [('no client record carries a dated first contact, so time from first contact to first paid work is not read' if 'start before ready (' in r else ''), ('no record holds an ownership share or a holder, so protecting ownership is not scored' if 'ownership (' in r else ''), ('no rejection is recorded, so rejection as data is not scored' if 'rejection as data (' in r else '')] if x) + '.') if 'Not scored:' in r else 'Every clause of this seat is read from the books.')(g['blakelyRead']),
     }
     for k, w in g['weights'].items(): v['w:' + k] = str(w)
     bad = [k for k, x in v.items() if x is None]
