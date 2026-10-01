@@ -1,0 +1,14 @@
+"""Dumps every CEO-checklist row (id, kind, state, value, basis) from the live app, plus derived counts."""
+import asyncio,json,sys
+import os; sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); from dash import *
+PATH=sys.argv[1]
+async def main():
+    async with async_playwright() as p:
+        b,pg,errs=await open_app(p,PATH)
+        await go(pg,'ceocheck',800)
+        r=await pg.evaluate("()=>{const v=__dash._ceocVM(__dash.state);return {counts:v.counts,rows:v.all.map(x=>[x.id,x.kind,x.st,x.val,x.basis])}}")
+        print(json.dumps(r['counts']))
+        for row in r['rows']: print(' | '.join(str(x) for x in row))
+        await pg.screenshot(path='shot_ceocheck.png',full_page=False)
+        print('ERRORS',errs[:10]); await b.close()
+asyncio.run(main())

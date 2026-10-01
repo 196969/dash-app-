@@ -1,0 +1,30 @@
+"""Screenshots of the three #199a surfaces at desktop and phone widths; also tests the self-report tick round-trip and the area filter."""
+import asyncio,sys
+import os; sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); from dash import *
+PATH=sys.argv[1]
+OUT=(sys.argv[2] if len(sys.argv)>2 else 'shots')+'/'
+async def main():
+    import os; os.makedirs(OUT,exist_ok=True)
+    async with async_playwright() as p:
+        for (w,h,tag) in [(1280,900,'desk'),(390,844,'phone')]:
+            b,pg,errs=await open_app(p,PATH,w,h)
+            for v in ['ceocheck','dash','ceo','cmdxceo']:
+                await go(pg,v,900)
+                if v=='dash':
+                    el=await pg.query_selector('[data-ceoc="today"]'); assert el, 'Today card missing'; await el.scroll_into_view_if_needed()
+                if v in ('ceo','cmdxceo'):
+                    el=await pg.query_selector('[data-ceoc="ceo"]'); assert el, 'CEO card missing on '+v; await el.scroll_into_view_if_needed()
+                await pg.wait_for_timeout(300); await pg.screenshot(path=f'{OUT}{tag}_{v}.png')
+            if tag=='desk':
+                await go(pg,'ceocheck',600)
+                before=await pg.evaluate("()=>__dash._ceocVM(__dash.state).counts.met")
+                await pg.click('button[data-ck="1.7"]'); await pg.wait_for_timeout(400)
+                after=await pg.evaluate("()=>[__dash._ceocVM(__dash.state).counts.met, JSON.stringify(__dash.state.ceoChecks)]")
+                print('tick: met',before,'->',after)
+                await pg.click('button[data-ck="1.7"]'); await pg.wait_for_timeout(400)
+                u=await pg.evaluate("()=>[__dash._ceocVM(__dash.state).counts.met, JSON.stringify(__dash.state.ceoChecks)]"); print('untick: met',u); assert u[0]==before and u[1]=='{}', 'tick did not round-trip'
+                await pg.click('button[aria-label="Show this area"] >> nth=2'); await pg.wait_for_timeout(400)
+                print('filter shown areas',await pg.evaluate("()=>__dash._ceocVM(__dash.state).areas.filter(a=>a.show).map(a=>a.name)"))
+                await pg.screenshot(path=f'{OUT}desk_filter.png')
+            print(tag,'errors',errs[:5]); await b.close()
+asyncio.run(main())

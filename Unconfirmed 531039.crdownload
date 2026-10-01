@@ -1,0 +1,16 @@
+"""Diffs the rendered main-content text of named screens between two builds (regression triage)."""
+import asyncio, sys, difflib
+import os; sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); from dash import *
+A, B, VS = sys.argv[1], sys.argv[2], sys.argv[3].split(',')
+GET = "()=>{const m=[...document.querySelectorAll('div.m-scroll')].pop(); return m?m.innerText:''}"
+async def grab(p, path):
+    b, pg, e = await open_app(p, path); out = {}
+    for v in VS: await go(pg, v, 600); out[v] = await pg.evaluate(GET)
+    await b.close(); return out
+async def main():
+    async with async_playwright() as p:
+        a = await grab(p, A); b = await grab(p, B)
+    for v in VS:
+        d = [l for l in difflib.unified_diff(a[v].splitlines(), b[v].splitlines(), lineterm='', n=0) if l[:1] in '+-' and l[:3] not in ('+++', '---')]
+        print('##', v, len(d), 'changed lines'); print('\n'.join(d[:12]))
+asyncio.run(main())

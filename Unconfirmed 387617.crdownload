@@ -1,0 +1,222 @@
+
+  // ---- #199a: CEO checklist. 108 checks, 12 areas x 9. Kinds are derived from this list, never typed: 'm' measured (reads a Dash field), 's' self-reported (tick box), 'b' blind (names what would light it up). A measured check whose light-up condition is not met yet reports blind and the counts move with it. ----
+  _ceocVM(s0) {
+    s0 = s0 || this.state || {};
+    if (this._ceocFor === s0 && this._ceocVal) return this._ceocVal;
+    const s = (typeof this._exLive === 'function') ? this._exLive(s0) : s0;
+    const A = x => Array.isArray(x) ? x : [];
+    const fin = n => (typeof n === 'number' && isFinite(n)) ? n : 0;
+    const N = x => fin(Number(x));
+    const $ = n => (n < 0 ? '-$' : '$') + Math.abs(fin(n)).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    const $0 = n => (n < 0 ? '-$' : '$') + Math.round(Math.abs(fin(n))).toLocaleString('en-US');
+    const yr = Number(s.planYear) || new Date().getFullYear();
+    const d0 = new Date(); d0.setHours(0, 0, 0, 0); const today = d0.getTime(); const DAY = 864e5;
+    const pd = x => { const r = String(x || '').split('\u00b7')[0].replace(/^(week of|mon|tue|wed|thu|fri|sat|sun)[a-z]*\.?\s+/i, '').trim(); if (!r) return null; if (/^\d{4}-\d{2}-\d{2}$/.test(r)) { const t = Date.parse(r + 'T00:00:00'); return isFinite(t) ? t : null; } const t = Date.parse(/\d{4}/.test(r) ? r : r + ' ' + yr); return isFinite(t) ? t : null; };
+    const within = (t, days) => t !== null && t <= today + DAY - 1 && t >= today - days * DAY;
+    const MON = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']; const fd = t => { if (t === null || t === undefined) return 'no date'; const d = new Date(t); return d.getDate() + ' ' + MON[d.getMonth()] + ' ' + d.getFullYear(); };
+    const ticks = (s0.ceoChecks && typeof s0.ceoChecks === 'object') ? s0.ceoChecks : {};
+    const tb = (() => { try { return this.computeTB(s); } catch (e) { return null; } })();
+    const effCash = tb ? fin(tb.effCash) : 0;
+    const c13 = (() => { try { return this._cash13(s); } catch (e) { return null; } })();
+    const rw = (() => { try { return this._runway(s, effCash); } catch (e) { return null; } })();
+    const burn = (() => { try { return fin(this._liveBurn(s)); } catch (e) { return 0; } })();
+    const P = (this.constructor && this.constructor.PLAN90) || {};
+    const invs = A(s.invoices).filter(i => i && i.status !== 'Void');
+    const rcv = i => { try { return fin(this._invReceived(i)); } catch (e) { return i.status === 'Paid' ? N(i.amount) : 0; } };
+    const done = i => { try { return this._invDone(i); } catch (e) { return i.status === 'Paid'; } };
+    const collected = invs.reduce((a, i) => a + rcv(i), 0);
+    const paidInv = invs.filter(i => rcv(i) > 0);
+    const byCust = {}; paidInv.forEach(i => { const c = String(i.customer || 'Unnamed'); byCust[c] = (byCust[c] || 0) + rcv(i); });
+    const custs = Object.keys(byCust);
+    const people = A(s.people); const active = people.filter(p => p && p.status === 'Active');
+    const founder = active.find(p => /founder|ceo|owner/i.test(String(p.role || '') + ' ' + String(p.type || ''))) || active[0] || null;
+    const fFirst = founder ? String(founder.name || '').split(' ')[0] : '';
+    const B = s.bkkp || {};
+    const res = (st, basis, val) => ({ st, basis, val: val || '' });
+    const met = (b, v) => res('met', b, v), miss = (b, v) => res('missed', b, v), open = (b, v) => res('open', b, v), dark = b => res('blind', b);
+    const of = (a, b) => a + ' of ' + b;
+    const checks = [
+      ['Strategic Direction', [
+        ['m', 'Run the 90-day plan week by week', () => { const W = A(P.weeks); const t0 = pd(P.from); if (!W.length || t0 === null) return dark('Blind until the 90-day plan has dated weeks'); const wk = Math.floor((today - t0) / (7 * DAY)) + 1; if (wk < 1) return open('Reads Dash: the 90-day plan starts ' + fd(t0)); if (wk > W.length) return open('Reads Dash: the 90-day plan window closed ' + P.to + '; set the next one'); const w = W[wk - 1]; const n = A(w.acts).length; const d = A(w.acts).filter((a, i) => (s.planDone || {})[w.w + '-' + i]).length; return (d === n ? met : miss)('Reads Dash: 90-day plan, week ' + w.w + ' (' + w.dates + '), ' + of(d, n) + ' actions marked done', of(d, n)); }],
+        ['m', 'Set quarterly objectives with measurable key results', () => { const O = A(s.okrs); if (!O.length) return miss('Reads Dash: Objectives, none set'); const bad = O.filter(o => !A(o.kr).some(k => N(k.target) > 0)); return (bad.length ? miss : met)('Reads Dash: Objectives, ' + of(O.length - bad.length, O.length) + ' objectives carry a numeric key-result target', of(O.length - bad.length, O.length)); }],
+        ['m', 'Score your confidence in each objective', () => { const O = A(s.okrs); if (!O.length) return miss('Reads Dash: Objectives, none set'); const k = O.filter(o => typeof o.conf === 'number' && isFinite(o.conf)).length; return (k === O.length ? met : miss)('Reads Dash: Objectives, ' + of(k, O.length) + ' carry a confidence score', of(k, O.length)); }],
+        ['m', 'Log every material decision with its reason', () => { const D = A(s.decisions); const recent = D.filter(d => within(pd(d.when), 30)); const noWhy = D.filter(d => !String(d.why || '').trim()).length; const last = D.map(d => pd(d.when)).filter(t => t !== null).sort((a, b) => b - a)[0]; return (recent.length && !noWhy ? met : miss)('Reads Dash: Decision log, ' + recent.length + ' logged in the last 30 days (latest ' + fd(last === undefined ? null : last) + ')' + (noWhy ? ', ' + noWhy + ' without a reason' : ''), recent.length + ' in 30 days'); }],
+        ['m', 'Go back and grade old decisions against what happened', () => { const old = A(s.decisions).filter(d => { const t = pd(d.when); return t !== null && t < today - 30 * DAY; }); const ungraded = old.filter(d => !String(d.outcome || '').trim() || /^Open/i.test(String(d.outcome))); if (!old.length) return open('Reads Dash: Decision log, nothing older than 30 days yet'); return (ungraded.length ? miss : met)('Reads Dash: Decision log, ' + of(old.length - ungraded.length, old.length) + ' decisions older than 30 days have an outcome written', of(old.length - ungraded.length, old.length)); }],
+        ['m', 'Keep revenue on pace for the target', () => { const t0 = pd(P.from), t1 = pd(P.to), T = N(P.target); if (t0 === null || t1 === null || !T) return dark('Blind until the 90-day plan carries a target and window'); const sh = Math.max(0, Math.min(1, (today - t0) / (t1 - t0))); const pace = T * sh; return (collected >= pace ? met : miss)('Reads Dash: ' + $(collected) + ' collected against ' + $0(pace) + ' pace on the ' + $0(T) + ' 90-day target (' + Math.round(sh * 100) + '% of the window gone)', $0(collected)); }],
+        ['s', 'Name the one thing that matters this quarter'],
+        ['s', 'Write down what the firm will not do'],
+        ['s', 'Review strategy with someone outside the firm each quarter']
+      ]],
+      ['Revenue Engine', [
+        ['m', 'Hold pipeline at 3\u00d7 the quarter\u2019s revenue gap', () => { const T = N(P.target); const gap = Math.max(0, T - collected); const D = A(s.deals).filter(d => d && !/won|lost|closed/i.test(String(d.stage || d.status || ''))); const v = D.reduce((a, d) => a + N(d.value !== undefined ? d.value : d.amount), 0); if (!gap) return met('Reads Dash: no revenue gap to the target'); return (v >= 3 * gap ? met : miss)('Reads Dash: pipeline ' + $0(v) + ' across ' + D.length + ' open deals against 3\u00d7 the ' + $0(gap) + ' gap', $0(v)); }],
+        ['m', 'Make 16 touches a week', () => { const n = A(s.hotlist).filter(h => within(pd(h.touch), 7)).length; return (n >= 16 ? met : miss)('Reads Dash: Hot List, ' + n + ' touches dated in the last 7 days against 16', n + ' of 16'); }],
+        ['m', 'Work every tier-A prospect before tier B', () => { const a = A(s.hotlist).filter(h => h.tier === 'A'); const ns = a.filter(h => /not started/i.test(String(h.status || ''))).length; if (!a.length) return open('Reads Dash: Hot List, no tier-A prospects listed'); return (ns ? miss : met)('Reads Dash: Hot List, ' + ns + ' of ' + a.length + ' tier-A prospects not started', of(a.length - ns, a.length)); }],
+        ['m', 'Deliver four free evaluations a month', () => { const n = A(s.estimates).filter(e => (e.state === 'estimate' || /free estimate|evaluation/i.test(String(e.status || ''))) && within(pd(e.sent), 30)).length; return (n >= 4 ? met : miss)('Reads Dash: Estimates, ' + n + ' free evaluations sent in the last 30 days against 4', n + ' of 4'); }],
+        ['m', 'Turn half of evaluations into proposals', () => { const b = s.bdScore || {}; const e = N(b.evals), p = N(b.proposals); if (!e) return open('Reads Dash: BD scorecard, no evaluations yet'); const r = p / e; return (r >= 0.5 ? met : miss)('Reads Dash: BD scorecard, ' + p + ' proposals from ' + e + ' evaluations', Math.round(r * 100) + '%'); }],
+        ['m', 'Know the proposal win rate', () => { const b = s.bdScore || {}; const p = N(b.proposals), w = N(b.wins); if (p < 3) return dark('Blind until 3 proposals are decided; BD scorecard shows ' + p + ' so far'); return met('Reads Dash: BD scorecard, ' + w + ' wins from ' + p + ' proposals', Math.round(w / p * 100) + '%'); }],
+        ['m', 'Never price below the $1,500 floor', () => { const rows = invs.concat(A(s.estimates)).filter(r => N(r.amount) > 0); const lo = rows.filter(r => N(r.amount) < 1500); return (lo.length ? miss : met)('Reads Dash: ' + rows.length + ' invoices and estimates, ' + lo.length + ' priced under $1,500', lo.length ? lo.length + ' under' : 'none under'); }],
+        ['m', 'Land a second paying client', () => (custs.length >= 2 ? met : miss)('Reads Dash: paid invoices come from ' + custs.length + ' client' + (custs.length === 1 ? '' : 's') + (custs.length ? ' (' + custs.join(', ') + ')' : ''), custs.length + ' paying')],
+        ['m', 'Name the next project for every paying client', () => { if (!custs.length) return open('Reads Dash: no paying clients yet'); const R = A(s.roadmap); const no = custs.filter(c => !R.some(r => String(r.client || '') === c)); return (no.length ? miss : met)('Reads Dash: Roadmap, ' + of(custs.length - no.length, custs.length) + ' paying clients have a named next project', of(custs.length - no.length, custs.length)); }]
+      ]],
+      ['Cash & Capital', [
+        ['m', 'Keep a 13-week cash forecast that ties to receivables', () => { if (!c13) return dark('Blind until the 13-week cash flow can be read'); return (c13.ties ? met : miss)('Reads Dash: 13-week cash flow, ' + $(c13.inWindow + c13.beyond) + ' scheduled against ' + $(c13.openAR) + ' open receivables' + (c13.ties ? ', tied' : ', does not tie'), c13.ties ? 'ties' : 'off'); }],
+        ['m', 'Keep at least 3 months of operating runway', () => { if (!rw) return dark('Blind until runway can be read'); if (rw.mo === null) return met('Reads Dash: runway, no burn recorded yet', rw.txt); return (rw.mo >= 3 ? met : miss)('Reads Dash: runway ' + rw.txt + ' on ' + $(rw.cash) + ' effective cash and ' + $0(rw.burn) + '/mo burn, against a 3-month reserve', rw.txt); }],
+        ['m', 'Hold burn to the budget each month', () => { const bud = (B.bkkpBudget && typeof B.bkkpBudget === 'object') ? B.bkkpBudget : {}; const codes = A(s.coa).filter(a => a && a.type === 'Expense').map(a => a.code); const tot = codes.reduce((a, c) => a + N(bud[c]), 0); if (!(tot > 0)) return dark('Blind until expense budgets are entered on Bookkeeping \u00b7 Variance (burn reads ' + $0(burn) + '/mo)'); const act = tb ? fin(tb.breakdown.expenses) : 0; return (act <= tot ? met : miss)('Reads Dash: expenses ' + $(act) + ' against ' + $(tot) + ' budgeted on Bookkeeping \u00b7 Variance', $0(act)); }],
+        ['m', 'Collect fast, on clear terms', () => { const od = invs.filter(i => !done(i)).filter(i => { const t = pd(i.due); return t !== null && t < today; }); const noT = invs.filter(i => !String(i.terms || '').trim()).length; const ar = invs.filter(i => !done(i)).reduce((a, i) => a + N(i.amount) - rcv(i), 0); return (!od.length && !noT ? met : miss)('Reads Dash: open receivables ' + $(ar) + ', ' + od.length + ' past due, ' + noT + ' invoices without terms', od.length + ' past due'); }],
+        ['m', 'Run client money through the business account', () => { if (!(collected > 0)) return open('Reads Dash: nothing collected yet'); const ci = tb ? fin(tb.breakdown.cashIn) : 0; const EV = A((s.connectors || {}).cashEvents).filter(x => x && N(x.amount) < 0 && /owner draw/i.test(String(x.kind || ''))); const out = EV.reduce((a, x) => a - N(x.amount), 0); const kept = Math.max(0, ci - out); return (kept >= collected - 0.005 ? met : miss)('Reads Dash: ' + $(kept) + ' of ' + $(collected) + ' collected stayed in business checking (1000)' + (out ? '; ' + $(out) + ' posted as owner draws (' + EV.map(x => x.ref || x.kind).join('; ') + ')' : ''), $(kept)); }],
+        ['m', 'Reconcile book to bank every month', () => { let v = null; try { v = this._cashtieVM(s, effCash); } catch (e) {} if (!v) return dark('Blind until Book vs bank cash can be read'); if (!v.entered) return miss('Reads Dash: Book vs bank cash, no bank-statement balance entered'); return (v.tied ? met : miss)('Reads Dash: Book vs bank cash, book ' + v.book + ' against bank ' + v.bank, v.tied ? 'tied' : v.delta); }],
+        ['m', 'Fund commitments only from collected cash', () => { const C = A(s.commitments); if (!C.length) return dark('Blind until the first commitment is logged in Council actions \u00b7 Plan a commitment'); const tot = C.reduce((a, c) => a + N(c.amt), 0); return (tot <= effCash ? met : miss)('Reads Dash: ' + $(tot) + ' planned commitments against ' + $(effCash) + ' effective cash', $0(tot)); }],
+        ['s', 'Secure a credit line before you need it'],
+        ['s', 'Set aside 25\u201330% of profit for tax']
+      ]],
+      ['Team & Culture', [
+        ['m', 'Submit the weekly check-in', () => { const C = A(s.checkins).map(c => ({ c, t: pd(c.week) })).filter(x => x.t !== null).sort((a, b) => b.t - a.t); if (!C.length) return miss('Reads Dash: Check-ins, none logged'); const L = C[0]; const ok = L.c.submitted && L.t >= today - 7 * DAY; return (ok ? met : miss)('Reads Dash: Check-ins, latest is ' + L.c.week + (L.c.submitted ? ', submitted' : ', not submitted'), fd(L.t)); }],
+        ['m', 'Keep every 1:1 on its cadence', () => { const O = A(s.oneOnOnes); const late = O.filter(o => { const t = pd(o.next); return t !== null && t < today; }); if (!O.length) return open('Reads Dash: Check-ins & 1:1s, none scheduled'); return (late.length ? miss : met)('Reads Dash: 1:1s, ' + late.length + ' of ' + O.length + ' have a next date already past' + (late.length ? ' (' + late.map(o => o.who).join(', ') + ')' : ''), late.length + ' late'); }],
+        ['m', 'Get pulse replies back', () => { const S = A(s.surveys); const se = S.reduce((a, x) => a + N(x.sent), 0), re = S.reduce((a, x) => a + N(x.replies), 0); if (!se) return open('Reads Dash: Engagement pulse, nothing sent yet'); return (re / se >= 0.5 ? met : miss)('Reads Dash: Engagement pulse, ' + re + ' replies to ' + se + ' sent', Math.round(re / se * 100) + '%'); }],
+        ['m', 'Give every Active person a growth goal', () => { const G = A(s.empGoals); const no = active.filter(p => !G.some(g => String(g.person || '').indexOf(String(p.name || '').split(' ')[0]) !== -1)); return (no.length ? miss : met)('Reads Dash: People, ' + of(active.length - no.length, active.length) + ' Active people have a goal on file', of(active.length - no.length, active.length)); }],
+        ['m', 'Move a development step forward this quarter', () => { const st = A(s.growth).reduce((a, g) => a.concat(A(g.steps)), []); const d = st.filter(x => Array.isArray(x) ? x[1] : x && x.done).length; return (d ? met : miss)('Reads Dash: Growth & ladder, ' + of(d, st.length) + ' development steps done', of(d, st.length)); }],
+        ['m', 'Recognise a win every week', () => { const R = A(s.praise); const real = R.filter(p => !/planned/i.test(String(p.when || '')) && within(pd(p.when), 7)); const pl = R.filter(p => /planned/i.test(String(p.when || ''))).length; return (real.length ? met : miss)('Reads Dash: Recognition, ' + real.length + ' given in the last 7 days' + (pl ? ' (' + pl + ' planned, not counted)' : ''), real.length + ' this week'); }],
+        ['m', 'Plan rest and take it', () => { const T = A(s.timeOff); const tk = T.reduce((a, x) => a + N(x.taken), 0), pl = T.reduce((a, x) => a + N(x.planned), 0); if (!pl) return open('Reads Dash: Time off, no rest planned'); return (tk >= pl ? met : miss)('Reads Dash: Time off, ' + tk + ' days taken against ' + pl + ' planned this year', tk + ' of ' + pl); }],
+        ['m', 'Know the next hire and what triggers it', () => { const C = A(s.candidates).filter(c => !/hired|closed|rejected|withdrawn/i.test(String(c.stage || ''))); const trig = C.filter(c => /open|trigger|when|after|once|until/i.test(String(c.notes || ''))); const dec = A(s.decisions).filter(d => d.area === 'People').length; return (trig.length && dec ? met : miss)('Reads Dash: Recruiting, ' + trig.length + ' open reqs with a stated trigger; ' + dec + ' People decision' + (dec === 1 ? '' : 's') + ' logged', trig.length + ' reqs'); }],
+        ['s', 'Use the RITE values in real decisions']
+      ]],
+      ['Scalable Operations', [
+        ['b', 'Turn every delivery into a playbook', () => dark('Blind until playbook step totals are stored with the ticks; the Playbooks screen holds them only while it renders')],
+        ['m', 'Finish the month-end close list', () => { const C = A(s.closeTasks); const d = C.filter(c => c.done).length; if (!C.length) return miss('Reads Dash: Month-end close, no tasks'); return (d === C.length ? met : miss)('Reads Dash: Month-end close, ' + of(d, C.length) + ' tasks done', of(d, C.length)); }],
+        ['m', 'Log time every working week', () => { const T = A(s.timeEntries).map(e => pd(e.date)).filter(t => t !== null).sort((a, b) => b - a); const n = T.filter(t => within(t, 7)).length; return (n ? met : miss)('Reads Dash: Time log, ' + n + ' entries in the last 7 days (latest ' + fd(T.length ? T[0] : null) + ')', n + ' this week'); }],
+        ['m', 'Stay under the 90-hour monthly delivery ceiling (plan, decision 2)', () => { const m = new Date(today); const h = A(s.timeEntries).filter(e => e.billable).filter(e => { const t = pd(e.date); if (t === null) return false; const d = new Date(t); return d.getMonth() === m.getMonth() && d.getFullYear() === m.getFullYear(); }).reduce((a, e) => a + N(e.hours), 0); return (h <= 90 ? met : miss)('Reads Dash: Time log, ' + h.toFixed(1) + ' billable delivery hours this month against the 90-hour ceiling in the plan (decision 2)', h.toFixed(1) + ' h measured'); }],
+        ['m', 'Cap work in progress at three', () => { let W = null; try { W = this._wipBook(s); } catch (e) {} if (!W) return dark('Blind until work in progress can be read'); const n = A(W.wipItems).length; return (n <= 3 ? met : miss)('Reads Dash: ' + n + ' items of work in progress against a cap of 3', n + ' in progress'); }],
+        ['b', 'Close inside five business days', () => dark('Blind until close-complete dates are stored with Close & lock')],
+        ['s', 'Start every engagement from the standard template'],
+        ['s', 'Give each deliverable one owner, not two'],
+        ['s', 'Leave the client able to run it alone']
+      ]],
+      ['Customers & Retention', [
+        ['m', 'No client above 40% of revenue', () => { if (!collected) return open('Reads Dash: nothing collected yet'); const top = custs.map(c => [c, byCust[c] / collected]).sort((a, b) => b[1] - a[1])[0]; return (top[1] <= 0.4 ? met : miss)('Reads Dash: ' + top[0] + ' is ' + Math.round(top[1] * 100) + '% of ' + $(collected) + ' collected', Math.round(top[1] * 100) + '%'); }],
+        ['m', 'Ask every client for feedback after delivery', () => { const F = A(s.feedback).length; const n = paidInv.length; if (!n) return open('Reads Dash: no delivered, paid projects yet'); return (F >= n ? met : miss)('Reads Dash: Client feedback, ' + F + ' asks against ' + n + ' paid projects', of(Math.min(F, n), n)); }],
+        ['m', 'Get a score back', () => { const F = A(s.feedback); if (!F.length) return miss('Reads Dash: Client feedback, nothing asked yet'); const k = F.filter(f => f.score !== null && f.score !== undefined && f.score !== '').length; return (k === F.length ? met : miss)('Reads Dash: Client feedback, ' + of(k, F.length) + ' asks have a score back', of(k, F.length)); }],
+        ['m', 'Earn a referral', () => { const r = N((s.svcScore || {}).refYes); return (r >= 1 ? met : miss)('Reads Dash: Service scorecard, ' + r + ' referral' + (r === 1 ? '' : 's') + ' agreed', String(r)); }],
+        ['m', 'Answer inside the service window', () => { const m = N((s.svcScore || {}).slaMisses); return (m === 0 ? met : miss)('Reads Dash: Service scorecard, ' + m + ' replies outside the window', m + ' misses'); }],
+        ['m', 'Log a touch with every active client every two weeks', () => { const act = Array.from(new Set(invs.filter(i => within(pd(i.paidLong || i.due), 90) || !done(i)).map(i => String(i.customer || '')))).filter(Boolean); if (!act.length) return open('Reads Dash: no client active in the last 90 days'); const C = A(s.comms); const no = act.filter(c => !C.some(x => String(x.client || '') === c && within(pd(x.date), 14))); return (no.length ? miss : met)('Reads Dash: Comms log, ' + of(act.length - no.length, act.length) + ' active clients touched in the last 14 days' + (no.length ? ' (not: ' + no.join(', ') + ')' : ''), of(act.length - no.length, act.length)); }],
+        ['m', 'Keep signed paper on every engagement', () => { const Pp = A(s.papers); if (!Pp.length) return miss('Reads Dash: Paper & shields, no engagements on file'); const k = Pp.filter(p => /signed/i.test(String(p.csa || ''))).length; return (k === Pp.length ? met : miss)('Reads Dash: Paper & shields, ' + of(k, Pp.length) + ' engagements carry a signed services agreement', of(k, Pp.length)); }],
+        ['m', 'Grow repeat revenue', () => { const per = {}; paidInv.forEach(i => { const t = pd(i.paidLong || i.due); if (t === null) return; const d = new Date(t); const k = d.getFullYear() * 100 + d.getMonth(); per[k] = per[k] || {}; per[k][String(i.customer || '')] = (per[k][String(i.customer || '')] || 0) + rcv(i); }); const ks = Object.keys(per).sort(); if (ks.length < 2) return dark('Blind until there are two periods of paid revenue to compare; ' + ks.length + ' so far'); const seen = {}; const sh = ks.map(k => { const row = per[k]; let tot = 0, rep = 0; Object.keys(row).forEach(c => { tot += row[c]; if (seen[c]) rep += row[c]; }); Object.keys(row).forEach(c => { seen[c] = 1; }); return tot ? rep / tot : 0; }); const a = sh[sh.length - 2], b = sh[sh.length - 1]; return (b > a ? met : miss)('Reads Dash: repeat-client share of paid revenue ' + Math.round(a * 100) + '% to ' + Math.round(b * 100) + '% over the last two months', Math.round(b * 100) + '%'); }],
+        ['b', 'Hold a quarterly review with each client', () => dark('Blind until quarterly reviews are stored per client')]
+      ]],
+      ['Technology & Data', [
+        ['m', 'Trial balance ties, Dr = Cr', () => { if (!tb) return dark('Blind until the trial balance can be read'); return (tb.tied ? met : miss)('Reads Dash: trial balance, debits ' + $(tb.debit) + ' and credits ' + $(tb.credit), tb.tied ? 'ties' : 'off'); }],
+        ['m', 'Back up and prove a restore monthly', () => { const Bk = A(s.ctoBackups).filter(b => b.restoreTested && within(pd(b.when), 30)); const last = A(s.ctoBackups).filter(b => b.restoreTested).map(b => pd(b.when)).filter(t => t !== null).sort((a, b) => b - a)[0]; return (Bk.length ? met : miss)('Reads Dash: Data & backup, last restore-tested backup ' + fd(last === undefined ? null : last), fd(last === undefined ? null : last)); }],
+        ['m', 'Enforce 2FA on every account', () => { const X = A(s.ctoSec).filter(x => x.group === 'Access'); const d = X.filter(x => x.done).length; return (X.length && d === X.length ? met : miss)('Reads Dash: Security & access, ' + of(d, X.length) + ' access controls done', of(d, X.length)); }],
+        ['m', 'Close the fraud-control gaps: SPF, DKIM, DMARC', () => { const X = A(s.ctoSec).filter(x => x.group === 'Fraud control'); const d = X.filter(x => x.done).length; return (X.length && d === X.length ? met : miss)('Reads Dash: Security & access, ' + of(d, X.length) + ' fraud controls done' + (d < X.length ? ' (open: ' + X.filter(x => !x.done).map(x => x.item).join('; ') + ')' : ''), of(d, X.length)); }],
+        ['m', 'Name a fallback for every single point of failure', () => { const X = A(s.ctoStack).filter(x => x.crit === 'Core' && x.spof); return (X.length ? miss : met)('Reads Dash: Technology stack, ' + X.length + ' Core systems still a single point of failure' + (X.length ? ' (' + X.map(x => x.system).join('; ') + ')' : ''), X.length + ' SPOF'); }],
+        ['m', 'Keep every journal entry balanced', () => { const J = A(B.journal); const bad = J.filter(j => { const L = A(j.lines); return Math.abs(L.reduce((a, l) => a + N(l.debit), 0) - L.reduce((a, l) => a + N(l.credit), 0)) >= 0.005; }); if (!J.length) return open('Reads Dash: Journal, no entries yet'); return (bad.length ? miss : met)('Reads Dash: Journal, ' + of(J.length - bad.length, J.length) + ' entries balance Dr = Cr', of(J.length - bad.length, J.length)); }],
+        ['m', 'Lock each closed month', () => { const d = new Date(today); d.setDate(1); d.setMonth(d.getMonth() - 1); const key = MON[d.getMonth()] + ' ' + d.getFullYear(); const L = B.locked || {}; return (L[key] ? met : miss)('Reads Dash: Close & lock, ' + key + (L[key] ? ' is locked' : ' is not locked'), L[key] ? 'locked' : 'open'); }],
+        ['m', 'Set a PIN on every seat', () => { const U = A(s.users); const no = U.filter(u => !String(u.pin || '').trim()).length; return (U.length && !no ? met : miss)('Reads Dash: Users & roles, ' + no + ' of ' + U.length + ' seats without a PIN', of(U.length - no, U.length)); }],
+        ['m', 'Log every release', () => { const T = A(s.ctoReleases).map(r => pd(r.when)).filter(t => t !== null).sort((a, b) => b - a); return (T.length && within(T[0], 14) ? met : miss)('Reads Dash: Build & release log, latest release ' + fd(T.length ? T[0] : null), fd(T.length ? T[0] : null)); }]
+      ]],
+      ['Risk & Compliance', [
+        ['m', 'File every compliance item before it\u2019s due', () => { const C = A(s.lglCompliance); const late = C.filter(c => !c.done && (() => { const t = pd(c.due); return t !== null && t < today; })()); const nx = C.filter(c => !c.done).map(c => [c, pd(c.due)]).filter(x => x[1] !== null).sort((a, b) => a[1] - b[1])[0]; return (late.length ? miss : met)('Reads Dash: Entity & compliance calendar, ' + late.length + ' items past due' + (nx ? '; next: ' + nx[0].item + ', ' + fd(nx[1]) : ''), late.length + ' late'); }],
+        ['m', 'Protect the marks', () => { const I = A(s.lglIP); const nf = I.filter(x => /not filed/i.test(String(x.status || ''))).length; return (I.length && !nf ? met : miss)('Reads Dash: IP & trademark tracker, ' + nf + ' of ' + I.length + ' marks not filed', of(I.length - nf, I.length)); }],
+        ['m', 'Keep the entity wall intact', () => { const sh = A(s.shields).find(x => /entity/i.test(String(x.name || ''))); if (!sh) return dark('Blind until the Entity & formalities shield is on file'); return (/verify/i.test(String(sh.state || '')) ? miss : met)('Reads Dash: Paper & shields, Entity & formalities reads \u201c' + sh.state + '\u201d', sh.state); }],
+        ['m', 'Countersign every client agreement', () => { const E = A(s.esign); const k = E.filter(e => /countersigned/i.test(String(e.status || ''))).length; if (!E.length) return miss('Reads Dash: E-signature, nothing sent'); return (k === E.length ? met : miss)('Reads Dash: E-signature, ' + of(k, E.length) + ' documents countersigned', of(k, E.length)); }],
+        ['m', 'Track every renewal and notice date', () => { const C = A(s.contracts); const no = C.filter(c => !String(c.renew || '').trim() || !String(c.end || '').trim()).length; return (C.length && !no ? met : miss)('Reads Dash: Contract register, ' + of(C.length - no, C.length) + ' contracts carry renewal and end dates', of(C.length - no, C.length)); }],
+        ['m', 'Keep every alert rule unbreached', () => { const R = A(s.alertRules).filter(r => r.active); const live = m => /open ar/i.test(m) ? (c13 ? c13.openAR : null) : /cash/i.test(m) ? effCash : null; const br = R.filter(r => { const v = live(String(r.metric || '')); if (v === null) return false; return r.comparator === '<' ? v < N(r.value) : r.comparator === '>' ? v > N(r.value) : false; }); return (br.length ? miss : met)('Reads Dash: Alert center, ' + br.length + ' of ' + R.length + ' active rules breached' + (br.length ? ' (' + br.map(r => r.metric + ' ' + r.comparator + ' ' + $0(N(r.value))).join('; ') + ')' : ''), br.length + ' breached'); }],
+        ['m', 'Keep disputes at zero', () => { const x = A(s.lglRisk).reduce((a, r) => a + N(r.exposure), 0); return (x === 0 ? met : miss)('Reads Dash: Risk & dispute log, ' + $(x) + ' total exposure', $0(x)); }],
+        ['s', 'Carry the right insurance'],
+        ['s', 'Rehearse a month without the founder']
+      ]],
+      ['Brand & Market Presence', [
+        ['m', 'Keep the founder profile and company page live', () => { const W = A(s.weapons).filter(w => /linkedin|company page/i.test(String(w[0] || ''))); const k = W.filter(w => w[2] === 'Live').length; if (!W.length) return dark('Blind until the profiles are listed in The arsenal'); return (k === W.length ? met : miss)('Reads Dash: The arsenal, ' + of(k, W.length) + ' LinkedIn pages Live', of(k, W.length)); }],
+        ['m', 'Keep the Google Business Profile complete', () => { const w = A(s.weapons).find(w => /google business/i.test(String(w[0] || ''))); if (!w) return dark('Blind until the Google Business Profile is listed in The arsenal'); return (w[2] === 'Live' ? met : miss)('Reads Dash: The arsenal, Google Business Profile reads ' + w[2], w[2]); }],
+        ['m', 'Publish on a steady cadence', () => { const T = A(s.posts).filter(p => p.status === 'Posted').map(p => pd(p.day)).filter(t => t !== null && t <= today).sort((a, b) => b - a); return (T.length && within(T[0], 14) ? met : miss)('Reads Dash: Content engine, last post ' + fd(T.length ? T[0] : null), fd(T.length ? T[0] : null)); }],
+        ['m', 'Clear every post against claims, disclosure, tone and brand', () => { const Q = A(s.socialQueue).filter(q => !/draft/i.test(String(q.status || ''))); if (!Q.length) return open('Reads Dash: Social queue, nothing past draft yet'); const k = Q.filter(q => { const c = q.checklist || {}; return c.claims && c.disclosure && c.tone && c.brand; }).length; return (k === Q.length ? met : miss)('Reads Dash: Social queue, ' + of(k, Q.length) + ' posts cleared on all four', of(k, Q.length)); }],
+        ['m', 'Measure the site monthly', () => { const key = MON[new Date(today).getMonth()] + ' ' + new Date(today).getFullYear(); const W = A(s.webAnalytics); const hit = W.some(w => String(w.month || '') === key); const last = W.map(w => w.month).slice(-1)[0]; return (hit ? met : miss)('Reads Dash: Website & leads, ' + (hit ? key + ' recorded' : 'no row for ' + key + ' (latest: ' + (last || 'none') + ')'), hit ? key : 'missing'); }],
+        ['m', 'Turn visits into leads', () => { const W = A(s.webAnalytics); if (!W.length) return miss('Reads Dash: Website & leads, no months recorded'); const L = W[W.length - 1]; return (N(L.leads) >= 1 ? met : miss)('Reads Dash: Website & leads, ' + L.month + ': ' + N(L.visits) + ' visits, ' + N(L.leads) + ' leads', N(L.leads) + ' leads'); }],
+        ['m', 'Publish a case study with permission', () => { const k = A(s.feedback).filter(f => f.permission).length; return (k ? met : miss)('Reads Dash: Client feedback, ' + k + ' clients have given permission to publish', String(k)); }],
+        ['m', 'Track sentiment', () => { const S = s.socialSentiment || {}; const n = N(S.positive) + N(S.neutral) + N(S.negative); if (!n) return dark('Blind until sentiment is logged on Social accounts'); return (N(S.negative) <= N(S.positive) ? met : miss)('Reads Dash: Social accounts, ' + N(S.positive) + ' positive, ' + N(S.neutral) + ' neutral, ' + N(S.negative) + ' negative', n + ' logged'); }],
+        ['s', 'Say one true thing, the same everywhere']
+      ]],
+      ['Leadership & Self-Mastery', [
+        ['m', 'Keep energy at 3 or higher', () => { const C = A(s.checkins).map(c => ({ c, t: pd(c.week) })).filter(x => x.t !== null && x.c.submitted && typeof x.c.energy === 'number').sort((a, b) => b.t - a.t); if (!C.length) return miss('Reads Dash: Check-ins, no submitted check-in carries an energy score'); const L = C[0]; const e = N(L.c.energy); const fresh = L.t >= today - 14 * DAY; return (e >= 3 && fresh ? met : miss)('Reads Dash: Check-ins, energy ' + e + ' of 5 on ' + L.c.week + (fresh ? '' : ', the latest submitted score, now stale'), e + ' of 5'); }],
+        ['m', 'Raise the weakest discipline', () => { const D = A((s.perf || {}).disciplines); if (!D.length) return dark('Blind until disciplines are scored on Performance'); const w = D.slice().sort((a, b) => N(a.now) - N(b.now))[0]; return (N(w.now) > N(w.prior) ? met : miss)('Reads Dash: Performance, weakest is ' + w.name + ' at ' + N(w.now) + ' (prior ' + N(w.prior) + ')', N(w.prior) + ' \u2192 ' + N(w.now)); }],
+        ['m', 'Finish your own review', () => { const r = A(s.reviewCycle).find(x => /founder|ceo/i.test(String(x.role || ''))); if (!r) return miss('Reads Dash: Reviews, no founder review in the cycle'); return (/drafted|not started/i.test(String(r.self || '')) ? miss : met)('Reads Dash: Reviews, founder self-review reads \u201c' + r.self + '\u201d', r.self); }],
+        ['m', 'Finish a course this quarter', () => { const k = A(s.empLearning).filter(l => l.done && fFirst && String(l.person || '').indexOf(fFirst) !== -1).length; return (k ? met : miss)('Reads Dash: Talent development, ' + k + ' course' + (k === 1 ? '' : 's') + ' completed by the founder', String(k)); }],
+        ['b', 'Spend 40% of the week on Q2 work', () => dark('Blind, waits on #199b (the time matrix): lights up when 10 hours carry a quadrant tag')],
+        ['b', 'Protect deep-work blocks', () => dark('Blind, waits on #199b (the time matrix): lights up when 10 hours carry a quadrant tag')],
+        ['b', 'Decide inside the circle of influence', () => dark('Blind, waits on #199b: lights up when decisions carry the inside/outside-the-circle tag')],
+        ['s', 'Run the Captain self-check weekly'],
+        ['s', 'Write the Friday review']
+      ]],
+      ['Board & Advisors', [
+        ['m', 'Meet the CPA on the quarterly cadence', () => { const o = A(s.oneOnOnes).find(x => /cpa/i.test(String(x.who || ''))); if (!o) return miss('Reads Dash: 1:1s, no CPA cadence set'); const t = pd(o.next); return (t !== null && t >= today ? met : miss)('Reads Dash: 1:1s, CPA next meeting ' + fd(t), fd(t)); }],
+        ['m', 'Meet the bookkeeper monthly', () => { const o = A(s.oneOnOnes).find(x => /bookkeep/i.test(String(x.who || ''))); if (!o) return miss('Reads Dash: 1:1s, no bookkeeper cadence set'); const t = pd(o.next); return (t !== null && t >= today ? met : miss)('Reads Dash: 1:1s, bookkeeper next meeting ' + fd(t), fd(t)); }],
+        ['m', 'Give outside seats secured access', () => { const U = A(s.users).filter(u => u.external); const k = U.filter(u => String(u.pin || '').trim()).length; if (!U.length) return open('Reads Dash: Users & roles, no outside seats'); return (k === U.length ? met : miss)('Reads Dash: Users & roles, ' + of(k, U.length) + ' outside seats have a PIN', of(k, U.length)); }],
+        ['s', 'Produce a board pack each month'],
+        ['s', 'Name at least three outside advisors'],
+        ['s', 'Send advisors a written update'],
+        ['s', 'Take the hardest decision to an advisor first'],
+        ['s', 'Clear the Council\u2019s gate questions before a commitment'],
+        ['s', 'Put advisor terms on paper']
+      ]],
+      ['Exit & Long-Term Options', [
+        ['m', 'Back material entries with evidence', () => { const J = A(B.journal); const E = (s.evidence && typeof s.evidence === 'object') ? s.evidence : {}; if (!J.length) return open('Reads Dash: Journal, no entries yet'); const k = J.filter(j => E[j.id]).length; return (k === J.length ? met : miss)('Reads Dash: Evidence locker, ' + of(k, J.length) + ' journal entries carry evidence', of(k, J.length)); }],
+        ['m', 'Make revenue repeatable', () => { if (!collected) return open('Reads Dash: nothing collected yet'); const cnt = {}; paidInv.forEach(i => { const c = String(i.customer || ''); cnt[c] = (cnt[c] || 0) + 1; }); const rep = paidInv.filter(i => cnt[String(i.customer || '')] >= 2 || /retainer/i.test(String(i.type || ''))).reduce((a, i) => a + rcv(i), 0); return (rep > 0 ? met : miss)('Reads Dash: ' + $(rep) + ' of ' + $(collected) + ' collected came from repeat or retainer work', Math.round(rep / collected * 100) + '%'); }],
+        ['m', 'Reduce founder dependence', () => (active.length >= 2 ? met : miss)('Reads Dash: People, ' + active.length + ' Active ' + (active.length === 1 ? 'person' : 'people'), active.length + ' Active')],
+        ['m', 'Move succession past stage 1', () => { let S = null; try { S = this._successionStage(s); } catch (e) {} if (!S) return dark('Blind until the succession stage can be read'); return (S.stage >= 2 ? met : miss)('Reads Dash: succession stage ' + S.stage + ' of 4, ' + S.name, S.stage + ' of 4'); }],
+        ['m', 'Pay the founder on a schedule', () => { const D = A(B.bkkpDraws).map(d => pd(d.date)).filter(t => t !== null); const months = new Set(D.map(t => { const d = new Date(t); return d.getFullYear() * 100 + d.getMonth(); })); const lm = new Date(today); lm.setDate(1); lm.setMonth(lm.getMonth() - 1); const ok = months.has(lm.getFullYear() * 100 + lm.getMonth()); return (ok ? met : miss)('Reads Dash: Bookkeeping \u00b7 Owner draw, ' + D.length + ' scheduled draws recorded' + (ok ? '' : ', none for last month'), D.length + ' draws'); }],
+        ['s', 'Know what the firm is worth and why'],
+        ['s', 'Hold a written five-year view'],
+        ['s', 'Assign IP from every contributor'],
+        ['s', 'Keep contracts assignable to a buyer']
+      ]]
+    ];
+    const ORDER = { missed: 0, open: 1, blind: 2, met: 3 };
+    const TONE = { met: 'ok', missed: 'bad', open: 'warn', blind: 'idle' };
+    const LABEL = { met: 'Met', missed: 'Missed', open: 'Open', blind: 'Blind' };
+    const KIND = { m: 'measured', s: 'self-reported', b: 'blind' };
+    const all = [];
+    const tickTo = id => () => this.setState(st => { const cur = (st.ceoChecks && typeof st.ceoChecks === 'object') ? st.ceoChecks : {}; const nx = Object.assign({}, cur); if (nx[id]) delete nx[id]; else nx[id] = true; return { ceoChecks: nx }; });
+    checks.forEach((ar, ai) => {
+      ar[1].forEach((c, ci) => {
+        const id = (ai + 1) + '.' + (ci + 1);
+        let r;
+        if (c[0] === 's') r = ticks[id] ? met('Self-reported \u00b7 ticked') : open('Self-reported \u00b7 tick when done');
+        else { try { r = c[2](); } catch (e) { r = dark('Blind: this reading failed (' + String(e && e.message || e).slice(0, 60) + ')'); } }
+        let kind = c[0] === 's' ? 's' : (c[0] === 'b' || r.st === 'blind') ? 'b' : 'm';
+        if (r.st === 'blind') kind = 'b';
+        const st = r.st;
+        const box = kind === 's' ? ('width: 18px; height: 18px; border-radius: 4px; flex: none; cursor: pointer; display: grid; place-items: center; font-size: 12px; background: transparent; border: 1.5px solid ' + (st === 'met' ? HUE.ok : 'color-mix(in srgb, var(--color-text) 40%, transparent)') + '; color: ' + HUE.ok + ';')
+          : kind === 'b' ? 'width: 18px; height: 18px; border-radius: 4px; flex: none; background: transparent; border: 1.5px dashed color-mix(in srgb, var(--color-text) 30%, transparent);'
+          : ('width: 18px; height: 18px; border-radius: 4px; flex: none; background: ' + HUE[TONE[st]] + ';');
+        all.push({ id, area: ar[0], text: c[1], kind, kindLabel: KIND[kind], st, label: LABEL[st], basis: r.basis, val: kind === 'm' ? r.val : '', hasVal: kind === 'm' && !!r.val,
+          pillStyle: pill(TONE[st], LABEL[st]).style, box, mark: kind === 's' && st === 'met' ? '\u2713' : '', isSelf: kind === 's', notSelf: kind !== 's', tick: kind === 's' ? tickTo(id) : () => {}, ord: ORDER[st] * 1000 + ai * 10 + ci,
+          rowStyle: 'display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: center; padding: 9px 0; border-top: 1px solid var(--color-divider);' + (kind === 'b' ? ' opacity: 0.78;' : '') });
+      });
+    });
+    const cnt = (k, v) => all.filter(x => x[k] === v).length;
+    const counts = { measured: cnt('kind', 'm'), self: cnt('kind', 's'), blind: cnt('kind', 'b'), met: cnt('st', 'met'), missed: cnt('st', 'missed'), open: cnt('st', 'open'), dark: cnt('st', 'blind'), total: all.length };
+    const missed = all.filter(x => x.st === 'missed');
+    const sel = String(s0.ceocArea || '');
+    const areas = checks.map((ar, ai) => {
+      const rows = all.filter(x => x.area === ar[0]).sort((a, b) => a.ord - b.ord);
+      const m = rows.filter(x => x.st === 'met').length, mi = rows.filter(x => x.st === 'missed').length;
+      const tone = mi >= 4 ? 'bad' : mi >= 1 ? 'warn' : 'ok';
+      const on = sel === ar[0];
+      return { name: ar[0], rows, score: m + ' of ' + rows.length + ' met', note: mi ? mi + ' missed' : 'none missed', color: 'color: ' + HUE[tone] + '; font-family: var(--font-heading); font-size: 22px;',
+        src: rows.filter(x => x.kind === 'm').length + ' measured \u00b7 ' + rows.filter(x => x.kind === 's').length + ' self-reported \u00b7 ' + rows.filter(x => x.kind === 'b').length + ' blind',
+        show: !sel || on, pick: () => this.setState({ ceocArea: on ? '' : ar[0] }),
+        cardStyle: 'cursor: pointer; text-align: left; gap: 4px; padding: 12px; font: inherit; color: inherit;' + (on ? ' outline: 2px solid var(--color-accent); outline-offset: -2px;' : '') };
+    });
+    const go = () => this.setState({ view: 'ceocheck' });
+    const val = {
+      areas, missed, hasMissed: missed.length > 0, noMissed: missed.length === 0, counts, all,
+      kindLine: counts.measured + ' measured, ' + counts.self + ' self-reported, ' + counts.blind + ' blind',
+      stateLine: counts.met + ' met \u00b7 ' + counts.missed + ' missed \u00b7 ' + counts.open + ' open \u00b7 ' + counts.dark + ' blind',
+      missedTitle: counts.missed + ' missed check' + (counts.missed === 1 ? '' : 's'),
+      top: missed.slice(0, 5), more: missed.length > 5 ? '+ ' + (missed.length - 5) + ' more on the checklist' : '', hasMore: missed.length > 5,
+      filtered: !!sel, filterNote: sel ? 'Showing ' + sel + ' only' : '', clearFilter: () => this.setState({ ceocArea: '' }),
+      bar: [['met', counts.met], ['missed', counts.missed], ['open', counts.open], ['blind', counts.dark]].map(x => ({ style: 'height: 100%; width: ' + (x[1] / Math.max(1, counts.total) * 100).toFixed(2) + '%; background: ' + HUE[TONE[x[0]]] + ';' })),
+      go, badge: counts.missed ? String(counts.missed) : ''
+    };
+    this._ceocFor = s0; this._ceocVal = val;
+    return val;
+  }
