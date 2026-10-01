@@ -1,0 +1,27 @@
+## calib/e523c98: 504 screens, 63542 nodes measured, 0 skipped views
+FAIL 274  | on #197 screens: 274 (other text 260, money/pct 14) | new screens: 0
+accepted: Counter({'Plan': 3, 'Owner': 1}) | emoji: 2
+
+Other-text causes on #197 screens (rank, cause, nodes, screens, colour, example):
+ 1  token --color-accent                 48    4 scr  rgb(130, 169, 255)      e.g. tenants: 'Primary' (4.10)
+ 2  fade 0.55                            47   13 scr  rgb(233, 233, 237)      e.g. dashiq: '\\u00b7 also in Notifications' (4.21)
+ 3  50% mix                              41    1 scr  color(srgb 0.913726 0.913726 0.929412 / 0.64)  e.g. connxhub: 'Connect' (4.39)
+ 4  solid rgb(224, 164, 92)              35    1 scr  rgb(224, 164, 92)       e.g. qbxtools: 'Activates on connect' (4.31)
+ 5  fade 0.5                             34    7 scr  rgb(233, 233, 237)      e.g. dashiq: 'Learning & memory' (4.47)
+ 6  fade 0.45                            17    7 scr  rgb(233, 233, 237)      e.g. paystub: 'Basis' (3.56)
+ 7  fade 0.6                             16    4 scr  color(srgb 0.913725 0.913725 0.929412 / 0.66)  e.g. dashiq: 'Hire now' (4.13)
+ 8  fade 0.3                              9    3 scr  rgb(233, 233, 237)      e.g. erpxbtp: '›' (2.39)
+ 9  fade 0.7                              6    2 scr  oklch(0.81 0.115 82)    e.g. command: 'On pace' (4.00)
+10  token --state-idle                    2    1 scr  rgb(178, 182, 202)      e.g. covdash: 'n/a' (4.28)
+11  token --color-text-dim                2    2 scr  color(srgb 0.913725 0.913725 0.929412 / 0.66)  e.g. cmdxfrontier: 'Model' (4.47)
+12  solid rgb(232, 163, 61)               1    1 scr  rgb(232, 163, 61)       e.g. bddir: 'Hire 3' (4.40)
+13  token --color-bg                      1    1 scr  rgb(22, 24, 38)         e.g. bdcommand: '0' (1.76)
+14  fade 0.85                             1    1 scr  rgb(130, 169, 255)      e.g. bkkpwork: 'Fix it' (4.50)
+
+New screens (reported separately):
+  ceocheck     0 []
+  timematrix   0 []
+  hrokr        0 []
+  fndxblakely  0 []
+
+#197 known list: [('fade 0.55', 42), ('fade 0.5', 27), ('solid accent blue outside kickers', 23), ('60% mix', 21), ('fade 0.45', 17), ('fade 0.6', 16), ('50% mix', 16), ('55% mix', 15), ('amber', 14), ('chevrons at 0.3', 9)]
