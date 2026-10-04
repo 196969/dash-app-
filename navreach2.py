@@ -1,5 +1,6 @@
 import re, sys, importlib.util
-spec=importlib.util.spec_from_file_location('views','/home/claude/w247/views.py'); V=importlib.util.module_from_spec(spec); spec.loader.exec_module(V)
+import os
+spec=importlib.util.spec_from_file_location('views', os.path.join(os.path.dirname(os.path.abspath(__file__)), 'views.py')); V=importlib.util.module_from_spec(spec); spec.loader.exec_module(V)
 enc=sys.argv[1]; dec=sys.argv[2]
 allv=V.views(enc)[0]
 s=open(dec,encoding='utf-8').read()
