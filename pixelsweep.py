@@ -1,6 +1,9 @@
 """Pixel contrast sweep (rebuilt to the #206 spec; #197's own sweep was lost with its container).
 
-Usage: pixelsweep.py <html> <out.json> [start] [end] [--views a,b,c] [--dsf 2]
+Usage: pixelsweep.py <html> <out.json> [start] [end] [--views a,b,c | --acq] [--dsf 2] [--populated]
+Prerequisites: pip install playwright pillow numpy; playwright install chromium. Set DASH_CHROME to use another browser.
+--acq sweeps the standing Acquisitions list (ACQ_SWEEP below). Exits 1 if any node fails contrast or any screen is skipped.
+--populated loads the same book rowkinds.py populates, read from rowkinds.py beside this script, so sweep and census see the same data.
 
 Per screen:
   1. Fresh app, tour dismissed first (localStorage dash.tourDone), 1440x900 viewport.
@@ -23,17 +26,11 @@ money = text with a currency amount or a percentage; everything else is "other t
 import asyncio, json, sys, os, io, re
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from playwright.async_api import async_playwright
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from pxconst import CHROME, FIND, SETTLE  # DASH_CHROME, else Playwright's bundled Chromium
 import numpy as np
 from PIL import Image
 
-CHROME = '/opt/pw-browsers/chromium-1194/chrome-linux/chrome'
-FIND = r"""()=>{ if(window.__dash) return true; const D=window.DCLogic;
- for(const e of document.querySelectorAll('*')){ const k=Object.keys(e).find(k=>k.startsWith('__reactFiber$')); if(!k) continue; let f=e[k], n=0;
-  while(f&&n<300){ const sn=f.stateNode; if(sn&&sn.logic&&(sn.logic instanceof D)){ window.__dash=sn.logic; return true; } f=f.return; n++; } }
- return false }"""
-SETTLE = r"""async()=>{ const t0=performance.now();
- while(performance.now()-t0<3000){ const run=document.getAnimations().filter(a=>a.playState==='running' && (a.effect&&a.effect.getComputedTiming().endTime!==Infinity)); if(!run.length) break; await new Promise(r=>setTimeout(r,50)); }
- await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r))); return true }"""
 TOKENS = r"""()=>{ const names=new Set(); for(const sh of document.styleSheets){ let rr; try{rr=sh.cssRules}catch(e){continue}
   const walk=L=>{ for(const r of L){ if(r.cssRules&&!r.style) walk(r.cssRules); else if(r.style&&/^:root$|^html$/.test((r.selectorText||'').trim())) for(const p of r.style) if(p.startsWith('--')) names.add(p); } }; walk(rr); }
  const probe=document.createElement('span'); document.body.appendChild(probe); const out={};
@@ -100,10 +97,22 @@ def cause_of(n, tokens):
     pref = [k for k in names if not re.search(r'\d{3}$', k)] or names
     return ('token ' + pref[0]) if pref else ('solid ' + n['color'])
 
+# The standing Acquisitions sweep list: every screen that carries a Flagged or Self-reported row on the populated book.
+ACQ_SWEEP = ['acqbuyside', 'acqpack', 'acqowner', 'acqphilosophy', 'acqenrich', 'acqarch', 'acqcouncil', 'acqdefence', 'acqhub', 'acqfindings', 'acqgap', 'acqmarket', 'acqbuyers', 'acqreserve']
+
 async def main():
     a = sys.argv[1:]; dsf = 2.0; only = None
     if '--dsf' in a: i = a.index('--dsf'); dsf = float(a[i + 1]); del a[i:i + 2]
     if '--views' in a: i = a.index('--views'); only = a[i + 1].split(','); del a[i:i + 2]
+    if '--acq' in a: a.remove('--acq'); only = ACQ_SWEEP
+    populated = '--populated' in a
+    if populated: a.remove('--populated')
+    POP = []
+    if populated:
+        import re as _re
+        rk = open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'rowkinds.py'), encoding='utf-8').read()
+        m = _re.search(r'for js in (\[.*?\]):', rk, _re.S); assert m, 'populated scenario not found in rowkinds.py'
+        POP = eval(m.group(1))
     path, out = a[0], a[1]
     sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
     from views import views
@@ -117,15 +126,20 @@ async def main():
         pg = await ctx.new_page()
         await pg.goto('file://' + os.path.abspath(path)); await pg.wait_for_timeout(4000)
         assert await pg.evaluate(FIND), 'component not found'
+        for js in POP:
+            await pg.evaluate("()=>{ try { window.__dash." + js + "; } catch(e) {} }"); await pg.wait_for_timeout(120)
+        if POP: print('populated with', len(POP), 'writer calls from rowkinds.py')
         tokens = await pg.evaluate(TOKENS); res['tokens'] = len(tokens)
         for v in vs:
             try:
                 await pg.evaluate("v=>window.__dash.setState({view:v})", v)
                 await pg.wait_for_timeout(150); await pg.evaluate(SETTLE)
+                landed = await pg.evaluate("()=>window.__dash.state.view")
+                if landed != v: raise RuntimeError('did not land on ' + v + ' (the app shows ' + str(landed) + '); not measured')
                 await pg.evaluate("()=>{const sc=[...document.querySelectorAll('div.m-scroll')].filter(m=>m.tagName!=='ASIDE').pop(); if(sc) sc.scrollTop=0}")
                 seen = []; stops = 0
                 while stops < 40:
-                    await pg.evaluate(SETTLE)
+                    await pg.evaluate(SETTLE); await pg.wait_for_timeout(600)
                     m = await pg.evaluate(MEASURE, seen)
                     if m['nodes']:
                         img = Image.open(io.BytesIO(await pg.screenshot())).convert('RGB'); arr = np.asarray(img)
@@ -137,6 +151,7 @@ async def main():
                             cr, bg, fg = ratio_of(crop)
                             large = n['fs'] >= 24 or (n['fs'] >= 18.66 and n['fw'] >= 700)
                             need = 3.0 if large else 4.5
+                            if n['t'] in ('Flagged', 'Self-reported', 'Blind', 'Stated position'): res.setdefault('tags', []).append({'v': v, 't': n['t'], 'cr': round(cr, 2), 'need': need})
                             if cr >= need: continue
                             kind = 'emoji' if EMOJI.match(n['t']) else 'accepted' if n['t'] in ACCEPTED else 'FAIL'
                             res['fails'].append({'v': v, 't': n['t'], 'cr': round(cr, 2), 'need': need, 'px': n['fs'], 'fw': n['fw'], 'bg': bg, 'fg': fg,
@@ -153,5 +168,6 @@ async def main():
     json.dump(res, open(out, 'w'))
     f = [x for x in res['fails'] if x['kind'] == 'FAIL']
     print(path, 'screens', res['screens'], 'nodes', res['nodes'], 'FAIL', len(f), 'other', sum(not x['money'] for x in f), 'money', sum(x['money'] for x in f), 'skipped', len(res['skipped_views']))
+    return 1 if (f or res['skipped_views']) else 0
 
-asyncio.run(main())
+sys.exit(asyncio.run(main()))
