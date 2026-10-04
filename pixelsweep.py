@@ -126,9 +126,12 @@ async def main():
         pg = await ctx.new_page()
         await pg.goto('file://' + os.path.abspath(path)); await pg.wait_for_timeout(4000)
         assert await pg.evaluate(FIND), 'component not found'
+        bad = []
         for js in POP:
-            await pg.evaluate("()=>{ try { window.__dash." + js + "; } catch(e) {} }"); await pg.wait_for_timeout(120)
-        if POP: print('populated with', len(POP), 'writer calls from rowkinds.py')
+            r = await pg.evaluate("()=>{ try { window.__dash." + js + "; return String(window.__dash.state.toast || ''); } catch(e) { return 'THREW: ' + e.message; } }"); await pg.wait_for_timeout(120)
+            if r.startswith('THREW') or r.startswith('Refused'): bad.append(js.split('(')[0] + ' -> ' + r[:90])
+        if bad: print('POPULATE FAILED: the book is not the populated book;', len(bad), 'of', len(POP), 'calls failed:', bad); await b.close(); return 1
+        if POP: print('populated with', len(POP), 'writer calls from rowkinds.py, all succeeded')
         tokens = await pg.evaluate(TOKENS); res['tokens'] = len(tokens)
         for v in vs:
             try:
