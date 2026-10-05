@@ -82,9 +82,7 @@ def ratio_of(crop):
     i = int(cr.argmax())
     return float(cr[i]), bgpx.round().astype(int).tolist(), px[i].tolist()
 
-EMOJI = re.compile(r'^[\U0001F000-\U0001FAFF\u2600-\u27BF\uFE0F\u200D\s\u2190-\u21FF\u2B00-\u2BFF]+$')
 MONEY = re.compile(r'[$€£]\s?-?[\d,]|\d\s?%')
-ACCEPTED = {'Owner', 'Plan'}
 
 def cause_of(n, tokens):
     if n['fades']:
@@ -112,7 +110,10 @@ async def main():
         import re as _re
         rk = open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'rowkinds.py'), encoding='utf-8').read()
         m = _re.search(r'for js in (\[.*?\]):', rk, _re.S); assert m, 'populated scenario not found in rowkinds.py'
-        POP = eval(m.group(1))
+        ns = {}
+        sm = _re.search(r'^STATE_REACHED = (.*)$', rk, _re.M)
+        if sm: ns['STATE_REACHED'] = eval(sm.group(1))
+        POP = eval(m.group(1), ns)
     path, out = a[0], a[1]
     sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
     from views import views
@@ -131,7 +132,9 @@ async def main():
             r = await pg.evaluate("()=>{ try { window.__dash." + js + "; return String(window.__dash.state.toast || ''); } catch(e) { return 'THREW: ' + e.message; } }"); await pg.wait_for_timeout(120)
             if r.startswith('THREW') or r.startswith('Refused'): bad.append(js.split('(')[0] + ' -> ' + r[:90])
         if bad: print('POPULATE FAILED: the book is not the populated book;', len(bad), 'of', len(POP), 'calls failed:', bad); await b.close(); return 1
-        if POP: print('populated with', len(POP), 'writer calls from rowkinds.py, all succeeded')
+        if POP:
+            last = await pg.evaluate("()=>String(window.__dash.state.toast || '')")
+            print('populated with', len(POP), 'calls from rowkinds.py, all succeeded' + ('; ' + last if last.startswith('State reached') else ''))
         tokens = await pg.evaluate(TOKENS); res['tokens'] = len(tokens)
         for v in vs:
             try:
@@ -153,10 +156,12 @@ async def main():
                             if crop.size == 0: continue
                             cr, bg, fg = ratio_of(crop)
                             large = n['fs'] >= 24 or (n['fs'] >= 18.66 and n['fw'] >= 700)
+                            if cr < 5.0: res.setdefault('near', []).append({'v': v, 't': n['t'][:60], 'cr': round(cr, 2), 'px': n['fs'], 'cause': cause_of(n, tokens)})
+                            if res.get('floor') is None or cr < res['floor']['cr']: res['floor'] = {'v': v, 't': n['t'][:60], 'cr': round(cr, 2), 'px': n['fs']}
                             need = 3.0 if large else 4.5
                             if n['t'] in ('Flagged', 'Self-reported', 'Blind', 'Stated position'): res.setdefault('tags', []).append({'v': v, 't': n['t'], 'cr': round(cr, 2), 'need': need})
                             if cr >= need: continue
-                            kind = 'emoji' if EMOJI.match(n['t']) else 'accepted' if n['t'] in ACCEPTED else 'FAIL'
+                            kind = 'FAIL'  # no exemption of any kind: if a node fails, it fails
                             res['fails'].append({'v': v, 't': n['t'], 'cr': round(cr, 2), 'need': need, 'px': n['fs'], 'fw': n['fw'], 'bg': bg, 'fg': fg,
                                 'color': n['color'], 'fades': n['fades'], 'decl': n['decl'], 'cls': n['cls'], 'cause': cause_of(n, tokens),
                                 'money': bool(MONEY.search(n['t'])), 'kind': kind})
@@ -170,6 +175,7 @@ async def main():
         await b.close()
     json.dump(res, open(out, 'w'))
     f = [x for x in res['fails'] if x['kind'] == 'FAIL']
+    fl = res.get('floor'); print('floor:', ('%.2f:1 on %s (%r)' % (fl['cr'], fl['v'], fl['t'])) if fl else 'no node measured')
     print(path, 'screens', res['screens'], 'nodes', res['nodes'], 'FAIL', len(f), 'other', sum(not x['money'] for x in f), 'money', sum(x['money'] for x in f), 'skipped', len(res['skipped_views']))
     return 1 if (f or res['skipped_views']) else 0
 
