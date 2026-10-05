@@ -1,13 +1,125 @@
 {
   "branch": "branch",
   "files": {
+    "Dash-Books-CEO-Workbook.xlsx": {
+      "sha256": "a7f5fa103db8424e9b0c5ccb48feed4950a71de1a65524b2d3e613973b8c3759",
+      "size": 33264
+    },
+    "Dash-Client-Portal-CEO-Workbook.xlsx": {
+      "sha256": "f182141bd0b5be7a4ee5f5f5f262e0af39019d0c1c1c9060eac29eb62bf1016e",
+      "size": 18804
+    },
+    "Dash-Command-CEO-Workbook.xlsx": {
+      "sha256": "1ef963177eda6a32add68f9246890fb0cccbb50b8e9eb02dae38274e5fb5d187",
+      "size": 30826
+    },
+    "Dash-Connectors-CEO-Workbook.xlsx": {
+      "sha256": "54e98f6cf83db7120d88a4eafcc739218a2d3f76123bfec875913d66917bc923",
+      "size": 16992
+    },
+    "Dash-Founders-CEO-Workbook.xlsx": {
+      "sha256": "eff643fc720f1e417e5e3eedc8c09f37b10ad61f5ed553d483b422d12def8538",
+      "size": 24130
+    },
+    "Dash-Growth-CEO-Workbook.xlsx": {
+      "sha256": "b19009b80cedd84f9a3b70ee4c6603005faa2afd46a309768f3615a82e12719e",
+      "size": 26107
+    },
+    "Dash-Learn-CEO-Workbook.xlsx": {
+      "sha256": "48ff1ed55e74170f122b49bf01f56e8dd63821d29ac688bb996e86fab74f82d9",
+      "size": 20251
+    },
+    "Dash-Legal-CEO-Workbook.xlsx": {
+      "sha256": "5191b71b832bd707526e049994f5e444e189d3422f94a1adf8f9392eec7a2f3c",
+      "size": 26412
+    },
+    "Dash-One-CEO-Workbook.xlsx": {
+      "sha256": "efeaff529b590a798ebf376d3826f64abd59154a3acea25c5d49f2b35efc6c2a",
+      "size": 19062
+    },
+    "Dash-People-CEO-Workbook.xlsx": {
+      "sha256": "8489c0caa8dd25cef94e78aa8e4d99c356e0cdbd535ddb24826ea3403d3abb61",
+      "size": 19677
+    },
+    "Dash-Projects-CEO-Workbook.xlsx": {
+      "sha256": "207458abcdd3445bb36e7b174236861814bf12a2c2ebf1c739c840cf91c22dbf",
+      "size": 18640
+    },
+    "DashRite - The Founders Council.docx": {
+      "sha256": "8dfa93f70c5e54da5186c801d79490f3adf684d2fc564434ab991a1c2384fc08",
+      "size": 416867
+    },
+    "DashRite-Live-Links-Directory.docx": {
+      "sha256": "50f190924f6670b384089f64c38bab16183f59ac739cb8d71ae13ece7d5416ce",
+      "size": 434787
+    },
     "app-acquisitions.html": {
       "sha256": "115c209e465498daec81ee4f85f23d16a954c5017b5c3f734ccdc56b42403e33",
       "size": 4511
     },
+    "app-books.html": {
+      "sha256": "03f0fd10e7b363ee8f4c4250df97e5f592b99fec3695be6e4d72c08b7c912c8c",
+      "size": 6853
+    },
+    "app-command.html": {
+      "sha256": "d0a842493626889c9f392f10ea592b441e36b5efdbbb48d301ac3bc8466fbe7f",
+      "size": 6936
+    },
+    "app-compliance.html": {
+      "sha256": "da8f80ad34dce3fee0460740072d650438db1817274df8c66daf981adf0d3f96",
+      "size": 6274
+    },
+    "app-connectors.html": {
+      "sha256": "d46c944c2e5b4605013e72aa5a54539732d2674c0587e408616fb64bc50df76a",
+      "size": 6247
+    },
+    "app-founders.html": {
+      "sha256": "03147d76c5e82c39f9afa4340c4395b7f8189a31e27c685c151e9162ee119760",
+      "size": 6865
+    },
     "app-fractionals.html": {
       "sha256": "7e35cbab8eecd7d66ce29ebb3259d28c2122c88a50b7a50d1f50de00b756f118",
       "size": 5058
+    },
+    "app-growth.html": {
+      "sha256": "62514c087dbb15e51fb4d101543b154f49960299cdf37b944cfeef62407e10cc",
+      "size": 6748
+    },
+    "app-learn.html": {
+      "sha256": "9282e4ef854a6d38408c6846bd3250b329322288298fef0131d2b298e97c417c",
+      "size": 6255
+    },
+    "app-offerings.html": {
+      "sha256": "c5a180f3f035f2c6ae714f02f70966e08cdededc29503c0e2051f25f850c2cc5",
+      "size": 12957
+    },
+    "app-one.html": {
+      "sha256": "fc3af000798611ff32f75f21b10c21dcae71d1944e0f4076d06520f0f2a7eb80",
+      "size": 6406
+    },
+    "app-people.html": {
+      "sha256": "4e983dbb80f9db0fb22200da812317cbf11e31175b88a54dd7ce526f74ad2af1",
+      "size": 6462
+    },
+    "app-portal.html": {
+      "sha256": "987c2d5a601601091ce50428aabedb1fc63032d527f2294c5f315b90012dd567",
+      "size": 6495
+    },
+    "app-projects.html": {
+      "sha256": "b728c43939a30b7eb214e7a5b247967bdc87491340144ae688ec755eeca20264",
+      "size": 6571
+    },
+    "apps.html": {
+      "sha256": "45e2b087abdade155c63dd1f90f045ba978085f1a5fcf1479433853d58ece3d8",
+      "size": 3479
+    },
+    "build_founders_council.py": {
+      "sha256": "ee654b3574e8281fea32550d54c43a2a8f63ada051ef74c93284f530ed6ac56e",
+      "size": 14155
+    },
+    "build_founders_true.py": {
+      "sha256": "a2619ed461b2590ba328688b50cd759a22c49c0dc698887e134740855d333a74",
+      "size": 2469
     },
     "checks.py": {
       "sha256": "f6a0cc48460a4b69e431d93b005aa257afde9466a7a3c680a88e25c22546ab87",
@@ -17,17 +129,113 @@
       "sha256": "117b3cef4ed48d7d81c9ec65141f1e3ab1894615537e8f2c6e1d03aa690cf904",
       "size": 1319
     },
+    "crawl.py": {
+      "sha256": "c151431c0640d640974df3eaae852d4a1611bf12b3b4d110ceaaa956b901f405",
+      "size": 12212
+    },
+    "founders-council-example.html": {
+      "sha256": "8e3ce9c673d20cf6757343487bb37789b0803a9ca1fd84258a4540a08a9d31b1",
+      "size": 454200
+    },
+    "founders-council.html": {
+      "sha256": "f9ddf468a934eceef84d3d106670acbd410fa78f3a03aa1b4a77669691d7e1a2",
+      "size": 466803
+    },
+    "founders-true.html": {
+      "sha256": "529c6716f9cc665f410d3344a07e66b33e7ca09af80382aadae2147a9a995b35",
+      "size": 2778692
+    },
+    "founders.html": {
+      "sha256": "9bb54b8cc37d7b4b2bdef65692152b2e413151ece92c17175dd4161ac2446786",
+      "size": 2778321
+    },
     "gate.py": {
-      "sha256": "17c78f6a5cf4c65dedcdc8f39c360e38ceae0ec7b4c0c49e469565cdda4bf759",
-      "size": 6620
+      "sha256": "cc7f15544d6ea5ce7fbc7c303cc5ef7eaf19da2f9d34d22ef5dbd890ef14938f",
+      "size": 6936
+    },
+    "gen_fc_figures.py": {
+      "sha256": "6a38d85545b8e09548ecf4362b3bc9fb2c81ce6eaec256e7f309c09ef64e6a6e",
+      "size": 9706
+    },
+    "gen_ft_figures.py": {
+      "sha256": "c8aaea649e1b8e8eb9c18402a77cfab4993e741d7fef429ba8f0e3ccf4db89be",
+      "size": 4929
     },
     "index.html": {
-      "sha256": "09cf1d60e4e0d208527b7f32a586199d7c93b5d1dfb6583cbf40588da9f4aed3",
-      "size": 9897918
+      "sha256": "949eef5acaf3bb7e0db80007ad756b9bfae78aa589842e0c722f08dfd36c8392",
+      "size": 9902363
+    },
+    "link-check.html": {
+      "sha256": "c971bd0cec0d69f33ac980e1d2e770a2a7a22d867b5387eab97c5198d0ca9c46",
+      "size": 59556
+    },
+    "links.html": {
+      "sha256": "f8bfa14cc588bd26ddab6e614d52b05035701e6b58f2e0347bb7f264e1b5360a",
+      "size": 33530
     },
     "navreach2.py": {
       "sha256": "b4bbbcb238c7b7692f58fe56ca6b62978b492bc42464931e658dd2bcd822a01a",
       "size": 1497
+    },
+    "offering-books.html": {
+      "sha256": "50f650d331da1d331c905ebb12cb762901741a5cc29c5f65e64a3ad6d7d6eaa7",
+      "size": 1169725
+    },
+    "offering-command.html": {
+      "sha256": "983ef435744a4ffb3575bb8400c9f8ac0abe6687ccc18cb661e78cc7e7458b1e",
+      "size": 1169531
+    },
+    "offering-connectors.html": {
+      "sha256": "2443bd15b5f98e698f9f3a7fad6d442e4c62a82a882feab3b2f442770cbe0068",
+      "size": 1169361
+    },
+    "offering-founders.html": {
+      "sha256": "14748a49435a7e3d91a557042726b8d7890964a643022573c585bd3f3523654b",
+      "size": 1169524
+    },
+    "offering-growth.html": {
+      "sha256": "2e82f43c9a37a0e30cdb355da4aeac2b864b3df1dfca185703647f305d063d62",
+      "size": 1169434
+    },
+    "offering-interview-readiness.html": {
+      "sha256": "8cd624ffb6e0b692c678dc932ce2c251cca9208b7449ce3e2f6e1e292dbe2f51",
+      "size": 1169914
+    },
+    "offering-learn.html": {
+      "sha256": "9f7b6844e5f512a5c8055f787d0a7774d3508c129ae4fda1fa32b655a5a62eea",
+      "size": 1169326
+    },
+    "offering-legal.html": {
+      "sha256": "9b460e26f388e66cf70cbbf8f3187de8ed5c25f4c5081c0472ab5ac61ee0dc3e",
+      "size": 1169433
+    },
+    "offering-links.html": {
+      "sha256": "571b502aa8371683315e37d742b725cb1d74e1bad0e1c7a00bb85ac3dc0e362d",
+      "size": 1169312
+    },
+    "offering-one.html": {
+      "sha256": "861de7ada25ac5ed68eae9b6fe2851b0d771c7d175441f320212a26d28b01324",
+      "size": 1169411
+    },
+    "offering-people.html": {
+      "sha256": "c725a2c06f16cbaff89e10ab9f58371d61ac71485ac0a6e1adb3eb9056487e77",
+      "size": 1169375
+    },
+    "offering-portal.html": {
+      "sha256": "15099a77154b730658da7678cdfcca8cdf35f434880ba851b6f08ba9e694a037",
+      "size": 1169462
+    },
+    "offering-projects.html": {
+      "sha256": "ca665e04ad33dd99701900b1df42379d5f98f719f3b591df280be9a7355c418e",
+      "size": 1169437
+    },
+    "offerings-all.html": {
+      "sha256": "cbf67ff61662e61d0da1497c97194781464eac632fb11553eb44f7fa8092956b",
+      "size": 1216445
+    },
+    "offerings.html": {
+      "sha256": "112492e6d29a912027bb63c55e5e0b89da2fa5c452ebfe7007db642feeec534d",
+      "size": 1168335
     },
     "pixelsweep.py": {
       "sha256": "9c19be68ccc497725fd35711edb8e8290c93efe6341baa486ca722e9a960875d",
@@ -41,6 +249,118 @@
       "sha256": "461f493b30f034b366c8533f8a3589f8bdd73f82f14defb5c96bbf1e762c0f5b",
       "size": 5148
     },
+    "signature.html": {
+      "sha256": "367c400f471d66a511fc0c227078b2f199ca167380a7f9f859a8e31ab1df26d9",
+      "size": 60386
+    },
+    "state-arizona.html": {
+      "sha256": "4ee504684a8e3457225113ed2b0eea0177fc7c5fc15386eddc23c6c24b3dd9ac",
+      "size": 132856
+    },
+    "state-california.html": {
+      "sha256": "3b9b333554bb87845f87bbc3bdd4609604ad93c525c17cbb94ae43390ca51971",
+      "size": 132854
+    },
+    "state-colorado.html": {
+      "sha256": "b0f909276f19b8775ed9324fa8ba94acab594c64a292282b926a62a88bfa06ec",
+      "size": 132791
+    },
+    "state-florida.html": {
+      "sha256": "e28025117ace18f8f98b9d069c8675386240ad04a0e0120cb2432a6d65a6c7cf",
+      "size": 132855
+    },
+    "state-georgia.html": {
+      "sha256": "1d1a9b9c4b9a5e376faffb6e0b650410aff3d4086a43d9a2f7605a59613568ce",
+      "size": 132896
+    },
+    "state-illinois-chicago.html": {
+      "sha256": "2a190cf11cdc595196031b3c2c7f534043af24d4a7fee141e193931067800ebe",
+      "size": 132849
+    },
+    "state-illinois-downstate.html": {
+      "sha256": "a2b2e62e5b65da9fdab2ed8695dd3888f3f2fd61f5f979e18e395816d1c11d74",
+      "size": 132874
+    },
+    "state-indiana.html": {
+      "sha256": "9ba2a858b1f217ace740e6b0dfebaaceb02b4ff4d1ac3fd73e86e9a1068183ce",
+      "size": 132847
+    },
+    "state-iowa.html": {
+      "sha256": "10259e3072da198376e6c35a773bffd058a40562f7f50580407e002870c95b32",
+      "size": 132813
+    },
+    "state-kentucky.html": {
+      "sha256": "93fea89f8f34ca4c7dde3b864935d0bf4327de8739a3431bd592a65e1ef94b7e",
+      "size": 132831
+    },
+    "state-michigan.html": {
+      "sha256": "4494af082c9f1c821e3f646a36460f79842c517e3363a1af656a91511093abdd",
+      "size": 132841
+    },
+    "state-minnesota.html": {
+      "sha256": "ddc14b57e249c9db786b1254addae7af804c65aab0228cbb076cf2306343b7ee",
+      "size": 132821
+    },
+    "state-missouri.html": {
+      "sha256": "e8fe9397c547200d7f89ea9e2986abefe89e9c0d6a835d442c0c7180644ccac1",
+      "size": 132814
+    },
+    "state-nevada-las-vegas.html": {
+      "sha256": "6ff9edf33a97553872eacaeb4792f016f648c2e69a3556cc72359dce47fddcbb",
+      "size": 132845
+    },
+    "state-new-jersey.html": {
+      "sha256": "35af635d8ac4f426958857848c3610f94d0db219dee30d7c173cdba15f22371e",
+      "size": 132867
+    },
+    "state-new-york.html": {
+      "sha256": "7fc7ea59a1c42e64aad33b88a65f5447943eb96c4f4cf967ccf9aa9d19e24265",
+      "size": 132890
+    },
+    "state-north-carolina.html": {
+      "sha256": "8aecae524745daed73e43350879a181adc5c4be88cb8046ea5ba4d7e0a2c204d",
+      "size": 132881
+    },
+    "state-ohio.html": {
+      "sha256": "323cc0927ea61851967560ab4d8c218b6c189a62091e4778284495f48ba90de0",
+      "size": 132860
+    },
+    "state-oregon.html": {
+      "sha256": "ef2f2bf87232582208be304685b41e5e13e28ae21f3bfb42ea64184831abc4cf",
+      "size": 132890
+    },
+    "state-pennsylvania.html": {
+      "sha256": "2e50f9174b2f44ef8a10aa706e4ec061ac5e4a1131c73b4a3d6bf932f41525c7",
+      "size": 132855
+    },
+    "state-south-carolina.html": {
+      "sha256": "a1d7b10faef1336f1499a7b0536ce5b2fad19f69b857d3b00c5207dee15eda75",
+      "size": 132875
+    },
+    "state-tennessee.html": {
+      "sha256": "b970ff55a90475aa67faafb3932819838e99d3f315ad9a1ed0541122ca16d062",
+      "size": 132872
+    },
+    "state-texas.html": {
+      "sha256": "c41bfc285d358d7e1116a8aabb962bf0b4f7d20365ae5966de2dd4d7d5b1250e",
+      "size": 132846
+    },
+    "state-utah.html": {
+      "sha256": "f22733605e8d6a7194899f109f03b92b75ab0c8e0e469b2c9808402b42d7f741",
+      "size": 132830
+    },
+    "state-virginia.html": {
+      "sha256": "3ec798ad87f6961f8703aa78ea36e342787ac9c381604b5153054cf7d9f8a3a3",
+      "size": 132831
+    },
+    "state-washington.html": {
+      "sha256": "3fb513cce1efff03e847476a75cf607538e81997859c0345b0a016291b3cf524",
+      "size": 132848
+    },
+    "state-wisconsin.html": {
+      "sha256": "6c32f6dc836133c867c14f5dabb8b611a109af68b2865478b27cdadc912280bd",
+      "size": 132854
+    },
     "sw.js": {
       "sha256": "5815dfd31da04d314b5206405b282cdec580051e8dffea8c52652461dba9630d",
       "size": 1778
@@ -50,7 +370,7 @@
       "size": 1070
     }
   },
-  "pass": "Pass 8",
+  "pass": "Pass 9",
   "repo": "196969/dash-app-",
-  "written": "2026-10-05 03:59:03 UTC"
+  "written": "2026-10-05 17:23:00 UTC"
 }

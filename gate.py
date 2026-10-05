@@ -15,7 +15,7 @@ calls are capped), the output says so rather than treating silence as agreement.
 the higher limit. Exits 1 on any mismatch, missing file, invalid manifest, unreadable source, or
 disagreement between sources. Exits 0 only when every listed file matches.
 """
-import hashlib, json, os, sys, time, urllib.request, urllib.error
+import hashlib, json, os, re, sys, time, urllib.request, urllib.error, urllib.parse
 
 REPO, BRANCH = '196969/dash-app-', 'branch'
 
@@ -30,7 +30,7 @@ def fetch(url, headers=None):
 
 
 def raw(path):
-    return fetch(f'https://raw.githubusercontent.com/{REPO}/{BRANCH}/{path}?gate={time.time_ns()}')
+    return fetch(f'https://raw.githubusercontent.com/{REPO}/{BRANCH}/{urllib.parse.quote(path)}?gate={time.time_ns()}')
 
 
 def api_sha(path):
@@ -38,7 +38,7 @@ def api_sha(path):
     h = {'Accept': 'application/vnd.github+json'}
     if os.environ.get('GITHUB_TOKEN'): h['Authorization'] = 'Bearer ' + os.environ['GITHUB_TOKEN']
     try:
-        d = json.loads(fetch(f'https://api.github.com/repos/{REPO}/contents/{path}?ref={BRANCH}', h))
+        d = json.loads(fetch(f'https://api.github.com/repos/{REPO}/contents/{urllib.parse.quote(path)}?ref={BRANCH}', h))
         return (d.get('sha'), None) if d.get('sha') else (None, 'no sha in response')
     except urllib.error.HTTPError as e:
         try: msg = json.loads(e.read()).get('message', '')
@@ -86,7 +86,7 @@ def check(args):
     bad = valid_manifest(m)
     if bad: print(f'FAIL: the manifest is malformed: {bad}'); return 1
     print(f'manifest: {src} | pass {m.get("pass") or "(unlabelled)"} | written {m.get("written", "?")} | {len(m["files"])} file(s)')
-    fails, api_note = [], set()
+    fails, api_note = [], {}
     for name, want in sorted(m['files'].items()):
         try: b = open(os.path.join(local, name), 'rb').read() if local else raw(name)
         except Exception as e: fails.append(f'{name}: not readable ({str(e)[:60]})'); print(f'  MISSING  {name}'); continue
@@ -96,11 +96,11 @@ def check(args):
         if not ok: line += f'  | delivered {want["sha256"][:16]}... {want["size"]} bytes'; fails.append(f'{name}: {where} copy does not match delivered')
         if not local:
             a, why = api_sha(name)
-            if a is None: api_note.add(why); line += '  | API: not consulted (' + why + ')'
-            elif a != gitsha(b): fails.append(f'{name}: the raw address and the API disagree; the raw copy may be stale'); line += '  | API: DISAGREES with the raw bytes'
+            if a is None: api_note[re.sub(r'\s*\(.*$', '', re.sub(r' for [0-9a-fA-F.:]+\.?', '', why)).strip()] = api_note.get(re.sub(r'\s*\(.*$', '', re.sub(r' for [0-9a-fA-F.:]+\.?', '', why)).strip(), 0) + 1; line += '  | API: refused (see note)'
+            elif a != gitsha(b): fails.append(f'{name}: the raw address and the API disagree; the raw copy may be stale'); line = line.replace('  OK       ', '  DISAGREE ', 1) + '  | API: DISAGREES with the raw bytes'
             else: line += '  | API: agrees'
         print(line)
-    if api_note: print('  note: the contents API was unavailable for some files, so the raw address was the only source for them:', '; '.join(sorted(api_note)))
+    for why, n in sorted(api_note.items()): print(f'  note: the contents API refused {n} of {len(m["files"])} file(s) ({why}); for those, the raw address was the only source, so the second-source check did not run.')
     if fails: print(f'GATE FAILED: {len(fails)} problem(s):'); [print('  - ' + f) for f in fails]; return 1
     print(f'GATE PASSED: all {len(m["files"])} delivered file(s) match ' + (f'the files in {local}' if local else f'what is live on {REPO}@{BRANCH}')); return 0
 
