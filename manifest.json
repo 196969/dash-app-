@@ -154,8 +154,8 @@
       "size": 2778321
     },
     "gate.py": {
-      "sha256": "cc7f15544d6ea5ce7fbc7c303cc5ef7eaf19da2f9d34d22ef5dbd890ef14938f",
-      "size": 6936
+      "sha256": "eb8c934461b24e2bd82137fd43d4ff41d882cf7c37326d9412e8e6e66b16f9b4",
+      "size": 7772
     },
     "gen_fc_figures.py": {
       "sha256": "6a38d85545b8e09548ecf4362b3bc9fb2c81ce6eaec256e7f309c09ef64e6a6e",
@@ -166,8 +166,8 @@
       "size": 4929
     },
     "index.html": {
-      "sha256": "6c52d6497ff2ecb3443d205a6e09f4be12205b8cb2fabc2092d0c87a4e869702",
-      "size": 10009217
+      "sha256": "1dfe2fd1e06c6c825bd879a06ef49d5fbc2d9e8d893a62d511fb3fca5eadf96c",
+      "size": 10000104
     },
     "link-check.html": {
       "sha256": "c971bd0cec0d69f33ac980e1d2e770a2a7a22d867b5387eab97c5198d0ca9c46",
@@ -374,7 +374,7 @@
       "size": 1070
     }
   },
-  "pass": "Pass 15",
+  "pass": "Pass 16",
   "repo": "196969/dash-app-",
-  "written": "2026-10-07 18:12:28 UTC"
+  "written": "2026-10-09 00:39:11 UTC"
 }

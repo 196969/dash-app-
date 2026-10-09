@@ -10,10 +10,12 @@ Compares what was delivered against what is live, with no hand-typed figures in 
 The manifest lists every delivered file with its SHA-256 and size. It cannot list its own hash
 (writing the hash would change the file), so its form is validated instead: a missing or malformed
 manifest fails. Live files are read from the raw address with a cache-buster; GitHub's contents API
-is asked for each file's git object hash as a second source. If the API refuses (unauthenticated
-calls are capped), the output says so rather than treating silence as agreement. Set GITHUB_TOKEN for
-the higher limit. Exits 1 on any mismatch, missing file, invalid manifest, unreadable source, or
-disagreement between sources. Exits 0 only when every listed file matches.
+is asked once, through the git-trees endpoint, for every file's git object hash as a second source
+(one call per check, inside the 60-an-hour unauthenticated cap). The tree must come back complete
+(truncated false) and list every manifest file. If the API refuses or the tree is partial, the check
+reports GATE INCOMPLETE and exits 2: a single-source result is never reported as a pass. Set
+GITHUB_TOKEN for the higher limit. Exits 1 on any mismatch, missing file, invalid manifest, unreadable
+source, or disagreement between sources. Exits 0 only when every listed file matches on both sources.
 """
 import hashlib, json, os, re, sys, time, urllib.request, urllib.error, urllib.parse
 
@@ -33,19 +35,20 @@ def raw(path):
     return fetch(f'https://raw.githubusercontent.com/{REPO}/{BRANCH}/{urllib.parse.quote(path)}?gate={time.time_ns()}')
 
 
-def api_sha(path):
-    """Returns (git object sha, None) or (None, reason)."""
+def api_tree():
+    """One call: the branch's full tree from the git-trees API. Returns ({path: git blob sha}, commit/tree sha, None) or (None, None, reason)."""
     h = {'Accept': 'application/vnd.github+json'}
     if os.environ.get('GITHUB_TOKEN'): h['Authorization'] = 'Bearer ' + os.environ['GITHUB_TOKEN']
     try:
-        d = json.loads(fetch(f'https://api.github.com/repos/{REPO}/contents/{urllib.parse.quote(path)}?ref={BRANCH}', h))
-        return (d.get('sha'), None) if d.get('sha') else (None, 'no sha in response')
+        d = json.loads(fetch(f'https://api.github.com/repos/{REPO}/git/trees/{urllib.parse.quote(BRANCH)}?recursive=1', h))
+        if d.get('truncated') is not False: return None, None, 'tree response truncated or unmarked; a partial tree is not a second source'
+        return {e['path']: e['sha'] for e in d.get('tree', []) if e.get('type') == 'blob'}, d.get('sha'), None
     except urllib.error.HTTPError as e:
         try: msg = json.loads(e.read()).get('message', '')
         except Exception: msg = ''
-        return None, f'HTTP {e.code} {msg[:70]}'.strip()
+        return None, None, re.sub(r' for [0-9a-fA-F.:]+\.?', '', f'HTTP {e.code} {msg[:70]}').strip()
     except Exception as e:
-        return None, str(e)[:80]
+        return None, None, str(e)[:80]
 
 
 def valid_manifest(m):
@@ -86,7 +89,11 @@ def check(args):
     bad = valid_manifest(m)
     if bad: print(f'FAIL: the manifest is malformed: {bad}'); return 1
     print(f'manifest: {src} | pass {m.get("pass") or "(unlabelled)"} | written {m.get("written", "?")} | {len(m["files"])} file(s)')
-    fails, api_note = [], {}
+    fails = []
+    tree = tree_sha = why = None
+    if not local:
+        tree, tree_sha, why = api_tree()
+        print(f'  API trees: ' + (f'tree {tree_sha[:8]}, {len(tree)} blob(s), truncated false' if tree is not None else f'refused ({why})'))
     for name, want in sorted(m['files'].items()):
         try: b = open(os.path.join(local, name), 'rb').read() if local else raw(name)
         except Exception as e: fails.append(f'{name}: not readable ({str(e)[:60]})'); print(f'  MISSING  {name}'); continue
@@ -94,15 +101,17 @@ def check(args):
         where = 'in folder' if local else 'live'
         line = f'  {"OK      " if ok else "MISMATCH"} {name}  {where} {got[:16]}... {len(b)} bytes'
         if not ok: line += f'  | delivered {want["sha256"][:16]}... {want["size"]} bytes'; fails.append(f'{name}: {where} copy does not match delivered')
-        if not local:
-            a, why = api_sha(name)
-            if a is None: api_note[re.sub(r'\s*\(.*$', '', re.sub(r' for [0-9a-fA-F.:]+\.?', '', why)).strip()] = api_note.get(re.sub(r'\s*\(.*$', '', re.sub(r' for [0-9a-fA-F.:]+\.?', '', why)).strip(), 0) + 1; line += '  | API: refused (see note)'
+        if not local and tree is not None:
+            a = tree.get(name)
+            if a is None: fails.append(f'{name}: listed in the manifest but absent from the API tree'); line += '  | API: ABSENT from tree'
             elif a != gitsha(b): fails.append(f'{name}: the raw address and the API disagree; the raw copy may be stale'); line = line.replace('  OK       ', '  DISAGREE ', 1) + '  | API: DISAGREES with the raw bytes'
             else: line += '  | API: agrees'
         print(line)
-    for why, n in sorted(api_note.items()): print(f'  note: the contents API refused {n} of {len(m["files"])} file(s) ({why}); for those, the raw address was the only source, so the second-source check did not run.')
     if fails: print(f'GATE FAILED: {len(fails)} problem(s):'); [print('  - ' + f) for f in fails]; return 1
-    print(f'GATE PASSED: all {len(m["files"])} delivered file(s) match ' + (f'the files in {local}' if local else f'what is live on {REPO}@{BRANCH}')); return 0
+    if not local and tree is None:
+        print(f'GATE INCOMPLETE: all {len(m["files"])} file(s) match on the raw address, but the API trees source did not answer ({why}). Single source only: not a pass. Re-run when the API answers.'); return 2
+    if fails: print(f'GATE FAILED: {len(fails)} problem(s):'); [print('  - ' + f) for f in fails]; return 1
+    print(f'GATE PASSED: all {len(m["files"])} delivered file(s) match ' + (f'the files in {local}' if local else f'what is live on {REPO}@{BRANCH}, two sources: raw + API trees ({tree_sha[:8]})')); return 0
 
 
 if __name__ == '__main__':
