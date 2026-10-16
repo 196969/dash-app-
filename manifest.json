@@ -162,8 +162,8 @@
       "size": 4929
     },
     "index.html": {
-      "sha256": "fb2bfe766554dc916420e9b503173fa9bfff347b09cdd8954751b63e26edf846",
-      "size": 10028778
+      "sha256": "6f9f24e59251c1b314e2d55139c1a301545572c4a4e79d9263f5734c1a5a6562",
+      "size": 10042103
     },
     "link-check.html": {
       "sha256": "c971bd0cec0d69f33ac980e1d2e770a2a7a22d867b5387eab97c5198d0ca9c46",
@@ -370,7 +370,7 @@
       "size": 1070
     }
   },
-  "pass": "Pass 17",
+  "pass": "Frameworks 1",
   "repo": "196969/dash-app-",
-  "written": "2026-10-16 13:24:10 UTC"
+  "written": "2026-10-16 22:24:08 UTC"
 }
