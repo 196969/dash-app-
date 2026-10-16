@@ -14,6 +14,8 @@ open launcher or menu) are explored once from the landing screen; every reached 
 control in its main area clicked. Before every click the book is restored to the same snapshot, so a
 click that writes cannot change what later clicks see. When a click opens a menu or panel without
 changing screen, the controls it revealed are clicked too, one level deep.
+A control that navigates the page away from the app is counted as refused by name (the page is reloaded first), and
+progress is saved after every main-area control, so a screen with a large subtree resumes rather than restarts.
 
 A control identical to one already clicked (tag, label, class and the labels of its row) is clicked once and
 then skipped; the skips are counted. A skip can only miss a reach, never invent one, so the shortcut errs toward
@@ -75,8 +77,21 @@ async def main():
             if not await pg.evaluate(FIND): raise RuntimeError('app not found after reload')
             await pg.evaluate("s=>{ window.__crawlSnap = JSON.parse(s); }", snap)
         cur = {'v': None, 'scope': None, 'pre': None}
+        async def press(sel):
+            # Pass 17: a control may navigate the page away from the app (an href, a location change). Watch for
+            # 1.6 s after the click; if the app is gone at any point, reload it and raise so the retry-then-refuse
+            # path counts the control as refused by name instead of the next state read crashing the crawl.
+            await pg.click(sel, timeout=4000, no_wait_after=True)
+            gone = None
+            for _ in range(8):
+                await pg.wait_for_timeout(200)
+                try:
+                    if not (pg.url.startswith('file://') and await pg.evaluate("()=>typeof window.__dash!=='undefined' && !!window.__dash.state")): gone = pg.url[:60]
+                except Exception as e: gone = (pg.url[:40] + ' (' + str(e)[:30] + ')')
+            if gone is not None:
+                await fresh(); raise RuntimeError('navigated away to ' + gone + '; app reloaded')
         async def click(i):
-            try: await pg.click(f'[data-crawl-i="{i}"]', timeout=4000, no_wait_after=True); await pg.wait_for_timeout(110); return True
+            try: await press(f'[data-crawl-i="{i}"]'); return True
             except Exception: pass
             # a panel left open by an earlier click lives outside the book and survives a restore; retry once on a fresh page
             try:
@@ -84,7 +99,7 @@ async def main():
                 if cur['pre'] is not None:
                     await pg.click(f'[data-crawl-i="{cur["pre"]}"]', timeout=4000, no_wait_after=True); await pg.wait_for_timeout(110)
                     await pg.evaluate(MARK, 'chrome' if cur['scope'] == 'chrome' else 'main')
-                await pg.click(f'[data-crawl-i="{i}"]', timeout=4000, no_wait_after=True); await pg.wait_for_timeout(110); return True
+                await press(f'[data-crawl-i="{i}"]'); return True
             except Exception: return False
         reached = {start: ('(landing)', '')}; edges = []; queue = [start]; clicks = 0; refused = 0; timed_out = []; done = set(); chrome_done = False; elapsed0 = 0; clicked = set(); skipped = 0; chrome_pos = 0
         if prog:
@@ -103,6 +118,7 @@ async def main():
                 ident = lab + '|' + idents[i]
                 if ident in clicked: skipped += 1; continue
                 clicked.add(ident)
+                if scope == 'main': save()   # Pass 17: checkpoint per control, so a screen whose subtree outlasts one session resumes by skipping what is clicked
                 await restore(v); await pg.evaluate(MARK, scope); cur.update(v=v, scope=scope, pre=None)
                 if not await click(i): refused += 1; timed_out.append((v, lab)); continue
                 clicks += 1; nv = await view()

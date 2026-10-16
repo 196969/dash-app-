@@ -118,8 +118,8 @@
       "size": 1553
     },
     "build_founders_council.py": {
-      "sha256": "ee654b3574e8281fea32550d54c43a2a8f63ada051ef74c93284f530ed6ac56e",
-      "size": 14155
+      "sha256": "5f357e1529e6e16b5008d14569e6662bd0b68f05228699554125da965e857d97",
+      "size": 21113
     },
     "build_founders_true.py": {
       "sha256": "a2619ed461b2590ba328688b50cd759a22c49c0dc698887e134740855d333a74",
@@ -134,40 +134,36 @@
       "size": 1319
     },
     "crawl.py": {
-      "sha256": "c151431c0640d640974df3eaae852d4a1611bf12b3b4d110ceaaa956b901f405",
-      "size": 12212
-    },
-    "founders-council-example.html": {
-      "sha256": "8e3ce9c673d20cf6757343487bb37789b0803a9ca1fd84258a4540a08a9d31b1",
-      "size": 454200
+      "sha256": "f6b1a16179eb11917fce2b4836978a6ae5a281bff8f3860ccf0830b3a6c2412a",
+      "size": 13405
     },
     "founders-council.html": {
-      "sha256": "f9ddf468a934eceef84d3d106670acbd410fa78f3a03aa1b4a77669691d7e1a2",
-      "size": 466803
+      "sha256": "5306585b60026af48ab8ba06b1f72a65b337463564d53dd9848f4cffec1f8643",
+      "size": 513829
     },
     "founders-true.html": {
-      "sha256": "529c6716f9cc665f410d3344a07e66b33e7ca09af80382aadae2147a9a995b35",
-      "size": 2778692
+      "sha256": "16d1206637091e4ba08296e87d806d8ce555322ea52b2fe9e895d2a26803293e",
+      "size": 2778693
     },
     "founders.html": {
       "sha256": "9bb54b8cc37d7b4b2bdef65692152b2e413151ece92c17175dd4161ac2446786",
       "size": 2778321
     },
     "gate.py": {
-      "sha256": "eb8c934461b24e2bd82137fd43d4ff41d882cf7c37326d9412e8e6e66b16f9b4",
-      "size": 7772
+      "sha256": "cc7f15544d6ea5ce7fbc7c303cc5ef7eaf19da2f9d34d22ef5dbd890ef14938f",
+      "size": 6936
     },
     "gen_fc_figures.py": {
-      "sha256": "6a38d85545b8e09548ecf4362b3bc9fb2c81ce6eaec256e7f309c09ef64e6a6e",
-      "size": 9706
+      "sha256": "e92ef559be770a7bd34dc2b2d178a76c209e42c16173a7f4375d7a1fd06df5fe",
+      "size": 11146
     },
     "gen_ft_figures.py": {
       "sha256": "c8aaea649e1b8e8eb9c18402a77cfab4993e741d7fef429ba8f0e3ccf4db89be",
       "size": 4929
     },
     "index.html": {
-      "sha256": "1dfe2fd1e06c6c825bd879a06ef49d5fbc2d9e8d893a62d511fb3fca5eadf96c",
-      "size": 10000104
+      "sha256": "fb2bfe766554dc916420e9b503173fa9bfff347b09cdd8954751b63e26edf846",
+      "size": 10028778
     },
     "link-check.html": {
       "sha256": "c971bd0cec0d69f33ac980e1d2e770a2a7a22d867b5387eab97c5198d0ca9c46",
@@ -374,7 +370,7 @@
       "size": 1070
     }
   },
-  "pass": "Pass 16",
+  "pass": "Pass 17",
   "repo": "196969/dash-app-",
-  "written": "2026-10-09 00:39:11 UTC"
+  "written": "2026-10-16 13:11:31 UTC"
 }

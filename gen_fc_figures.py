@@ -31,7 +31,7 @@ FIGURES_JS = r"""()=>{const L=window.__L,s=L.state,V=window.__V; const tb=L.comp
   const paid=s.invoices.filter(i=>L._invReceived(i)>0); const deals=(s.deals||[]).filter(d=>d&&!/won|lost/i.test(d.stage||''));
   const pr=d=>{const p=Number(d.prob||d.probability)||0; return p>1?p/100:p}; const amt=d=>Number(d.value||d.amount)||0;
   const asOf=(document.body.innerText.match(/Ties to TB \$[\d,.]+ · as of ([^\n]+)/)||[])[1]||null;
-  const c=V.councilVM||{}; const cl=String(c.consensusLine||''); const cm=cl.match(/(\d+) of (\d+) council lenses agree[^(]*\((\d+) of (\d+) by council weight/);
+  const c=V.councilVM||{}; const cl=String(c.consensusLine||''); const cm=cl.match(/(\d+) of (\d+) (?:council lenses|seats) agree[^(]*\(([\d.]+) of ([\d.]+) by council weight/);  // Pass 17: the line counts seats, with decimal weights, since the governing seats were seated
   const pdt=k=>{try{return JSON.stringify(L._foundersPD(k,s,{})||{})}catch(e){return ''}};
   const dl=pdt('direct'), bs=pdt('branson'); const dc=dl.match(/Cash conversion (-?[\d.]+) days/), dp=dl.match(/(\d+) of (\d+) dated paid invoices collected by delivery/), bf=bs.match(/(\d+) of (\d+) offering families carry a paying or signed customer/), bb=bs.match(/(\d+) of (\d+) open bets? would survive/);
   const card=(coa.find(a=>a.code==='2210')||{}).balance;
@@ -45,6 +45,11 @@ FIGURES_JS = r"""()=>{const L=window.__L,s=L.state,V=window.__V; const tb=L.comp
     card:f(typeof card==='number'?r2(card):null,'account 2210 balance'), bankAccount:f(String((s.payroll||{}).bankAccount||'').trim(),'the payments profile bank account (empty means none on file)'),
     people:f((s.employees||[]).length,'people on payroll records'),
     verdict:f(c.verdict||null,"the council's verdict"), agree:f(cm?+cm[1]:null,'council consensus line'), board:f(cm?+cm[2]:null,'council consensus line'), wAgree:f(cm?+cm[3]:null,'council consensus line, by weight'), wTotal:f(cm?+cm[4]:null,'council consensus line, by weight'),
+    lensRows:f((()=>{try{const R=L._councilRoster(); const vv=L._seatVotes(s,c.verdict||'',R); const K=L._lensKeys(); const SB=(typeof L._seatedBlind==='function')?L._seatedBlind():{}; const vote=k=>(vv.find(x=>x.key===k)||{}); const pd=k=>{try{return L._foundersPD(k,s,{})}catch(e){return null}};
+      const rows=[{seat:'00',key:'chair',name:R.chair.name,tier:'chair',label:'Chair',check:'Final decision on every verdict; only the Chair clears a hold',call:vote('chair').reason||'',weight:R.chair.weight}];
+      R.governing.forEach(g=>rows.push({seat:g.seat,key:g.seat,name:g.name,tier:'governing',label:g.ground,check:'Holds, does not compel; only the Chair clears a hold',call:(vote(g.seat).stance||'')+(vote(g.seat).reason?' \u2014 '+vote(g.seat).reason:''),weight:g.weight}));
+      R.adv.forEach(a=>{const kk=K.find(x=>x[0]===a.key)||[]; const p=pd(a.key); const sb=SB[a.key]; rows.push({seat:sb?sb.seat:'',key:a.key,name:sb?sb.name:'',tier:a.tier||'advisory',label:kk[1]||a.name,check:sb?sb.lens:'',call:p?(p.blind?(p.seated?'Blind \u2014 seated, reading not yet built':'Blind \u2014 no source'):(p.next?p.next.action:'')):'',weight:a.weight})});
+      return rows}catch(e){return null}})(),'the roster read at runtime from _councilRoster, _lensKeys, _seatedBlind and _seatVotes; every seat, call and weight derives'),
     weights:f(L._lensWeights(),"the council's ruled seat weights (_lensWeights)"),
     dellCycle:f(dc?+dc[1]:null,"Dell seat reading: cash conversion days"), dellCollected:f(dp?+dp[1]:null,'Dell seat reading: paid invoices collected by delivery'), dellDated:f(dp?+dp[2]:null,'Dell seat reading: dated paid invoices'),
     bransonPaying:f(bf?+bf[1]:null,'Branson seat reading: families with a paying or signed customer'), bransonFamilies:f(bf?+bf[2]:null,'Branson seat reading: offering families'), bransonBets:f(bb?+bb[2]:null,'Branson seat reading: open bets'),
