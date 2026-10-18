@@ -138,11 +138,11 @@
       "size": 13405
     },
     "founders-council.html": {
-      "sha256": "f8160ee24d70d6281fc873eb898304a9212fffc0d19dff92007cf8b9a29f82f6",
+      "sha256": "70d14d4c82e61f73a083fec58b175c069b28fabea92281fb2a50969ba86aaa10",
       "size": 480658
     },
     "founders-true.html": {
-      "sha256": "7424e135a79ed2dfd9654fcc75b61523e3a01f2ac910bf3d180dfdaca1f74b0f",
+      "sha256": "40b43c674e88b8e42f5fe3ee175a3b46f4837c53717a843292e2a4140810293a",
       "size": 2778693
     },
     "founders.html": {
@@ -162,8 +162,8 @@
       "size": 4929
     },
     "index.html": {
-      "sha256": "7d7034953812039b48c190f5063cd037a10c6d2d7ea2c08c2994abd939426431",
-      "size": 10121196
+      "sha256": "6478853669fdc89f3603843a538f4368668a6e2c490f84bafd93b25c365d770f",
+      "size": 10123337
     },
     "link-check.html": {
       "sha256": "c971bd0cec0d69f33ac980e1d2e770a2a7a22d867b5387eab97c5198d0ca9c46",
@@ -242,8 +242,8 @@
       "size": 13169
     },
     "pxconst.py": {
-      "sha256": "ec29661c8b18c41cd7b5f50955928c493e3d2f5a1bbe52f5994ca5bd7edadb18",
-      "size": 1178
+      "sha256": "de74cf5d98bd5d4f4b2cdfccb9d783fd9e13abfdb1e03c26090e080fa524a70e",
+      "size": 2689
     },
     "rowkinds.py": {
       "sha256": "461f493b30f034b366c8533f8a3589f8bdd73f82f14defb5c96bbf1e762c0f5b",
@@ -370,7 +370,7 @@
       "size": 1070
     }
   },
-  "pass": "72 seats",
+  "pass": "72 seats \u00b7 catch 35 settle",
   "repo": "196969/dash-app-",
-  "written": "2026-10-18 12:09:50 UTC"
+  "written": "2026-10-18 21:55:56 UTC"
 }
