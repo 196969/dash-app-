@@ -118,8 +118,8 @@
       "size": 1553
     },
     "build_founders_council.py": {
-      "sha256": "5f357e1529e6e16b5008d14569e6662bd0b68f05228699554125da965e857d97",
-      "size": 21113
+      "sha256": "19458427895402d455508e2c8721a27c0e70a94d76c23e0caf0af96623afdf39",
+      "size": 22662
     },
     "build_founders_true.py": {
       "sha256": "a2619ed461b2590ba328688b50cd759a22c49c0dc698887e134740855d333a74",
@@ -138,11 +138,11 @@
       "size": 13405
     },
     "founders-council.html": {
-      "sha256": "5306585b60026af48ab8ba06b1f72a65b337463564d53dd9848f4cffec1f8643",
-      "size": 513829
+      "sha256": "f8160ee24d70d6281fc873eb898304a9212fffc0d19dff92007cf8b9a29f82f6",
+      "size": 480658
     },
     "founders-true.html": {
-      "sha256": "16d1206637091e4ba08296e87d806d8ce555322ea52b2fe9e895d2a26803293e",
+      "sha256": "7424e135a79ed2dfd9654fcc75b61523e3a01f2ac910bf3d180dfdaca1f74b0f",
       "size": 2778693
     },
     "founders.html": {
@@ -154,16 +154,16 @@
       "size": 7772
     },
     "gen_fc_figures.py": {
-      "sha256": "e92ef559be770a7bd34dc2b2d178a76c209e42c16173a7f4375d7a1fd06df5fe",
-      "size": 11146
+      "sha256": "fdb967cceffa31b049502fa5cc331f0190474c0308f9f7eec6b6174eaa5d7d3f",
+      "size": 11734
     },
     "gen_ft_figures.py": {
       "sha256": "c8aaea649e1b8e8eb9c18402a77cfab4993e741d7fef429ba8f0e3ccf4db89be",
       "size": 4929
     },
     "index.html": {
-      "sha256": "4a738c5407126be97eb714884b6e7628561380786774c194b3a1e53378d2da56",
-      "size": 10091028
+      "sha256": "7d7034953812039b48c190f5063cd037a10c6d2d7ea2c08c2994abd939426431",
+      "size": 10121196
     },
     "link-check.html": {
       "sha256": "c971bd0cec0d69f33ac980e1d2e770a2a7a22d867b5387eab97c5198d0ca9c46",
@@ -242,8 +242,8 @@
       "size": 13169
     },
     "pxconst.py": {
-      "sha256": "b9d192668dfa6f392d46fa4a4c79d680d7a05fd8035cc2857ae9f572015db8d4",
-      "size": 908
+      "sha256": "ec29661c8b18c41cd7b5f50955928c493e3d2f5a1bbe52f5994ca5bd7edadb18",
+      "size": 1178
     },
     "rowkinds.py": {
       "sha256": "461f493b30f034b366c8533f8a3589f8bdd73f82f14defb5c96bbf1e762c0f5b",
@@ -370,7 +370,7 @@
       "size": 1070
     }
   },
-  "pass": "Frameworks 4",
+  "pass": "72 seats",
   "repo": "196969/dash-app-",
-  "written": "2026-10-17 22:03:57 UTC"
+  "written": "2026-10-18 12:09:50 UTC"
 }

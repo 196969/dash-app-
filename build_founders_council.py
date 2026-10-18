@@ -99,6 +99,7 @@ def slots(F):
       'blakelyBlindSentence': (lambda r: ('Declared rather than guessed: ' + '; '.join(x for x in [('no client record carries a dated first contact, so time from first contact to first paid work is not read' if 'start before ready (' in r else ''), ('no record holds an ownership share or a holder, so protecting ownership is not scored' if 'ownership (' in r else ''), ('no rejection is recorded, so rejection as data is not scored' if 'rejection as data (' in r else '')] if x) + '.') if 'Not scored:' in r else 'Every clause of this seat is read from the books.')(g['blakelyRead']),
     }
     for k, w in g['weights'].items(): v['w:' + k] = str(w)
+    for k, w in g['factorW'].items(): v['fw:' + k] = '%g' % w   # 72-seat pass: the worked-example tiles read the app's factor weights, never typed figures
     bad = [k for k, x in v.items() if x is None]
     if bad: sys.exit('not derivable, refusing to carry old values: ' + ', '.join(bad))
     return v
@@ -113,6 +114,7 @@ def lens_rows(rows):
         name = (r['name'] + ' \u00b7 ' + r['label']) if r['tier'] in ('chair', 'governing', 'brand', 'dra') or not d else (d['name'] + ' \u00b7 ' + r['label'].lower() if d['name'].split(' \u00b7 ')[0] else r['label'])
         if d and r['tier'] == 'advisory': name = d['name']
         if r['tier'] == 'chair': name = r['name']
+        if r['name'] and r['label'] == r['name']: name = r['name']   # 72-seat pass: a seat with no canonical record carries its name as its label; print it once
         check = r['check'] or d.get('check', '')
         tag = {'chair': 'Chair', 'governing': 'Governing \u00b7 holds', 'brand': 'Brand \u00b7 beside the Chair', 'dra': 'DRA \u2014 the firm\u2019s own seat'}.get(r['tier'], '')
         out.append('<div class="lr" style="border-bottom: 1px solid var(--color-divider);"><div style="font-weight: 600;">' + html.escape(name, quote=False) + (' <span style="font-weight: 400; font-size: 11px; opacity: .8;">' + tag + '</span>' if tag else '') + '</div><div>' + html.escape(check, quote=False) + '</div><div>' + html.escape(str(r['call']), quote=False) + '</div><div style="text-align: right;">' + ('%g' % r['weight']) + '\u00d7</div></div>')
@@ -132,9 +134,23 @@ def main():
     need = {k for k in V if not k.startswith('w:')} | {n for n in names if n.startswith('w:')}
     if need - names: sys.exit('the page has changed shape: missing slots ' + ', '.join(sorted(need - names)))
     src, n = re.subn(r'(<span data-slot="([^"]+)">)[^<]*(</span>)', lambda m: m.group(1) + html.escape(V[m.group(2)], quote=False) + m.group(3), src)
-    src, n2 = re.subn(r'(<div data-slot="lensRows">).*?(</div>)', lambda m: m.group(1) + V['lensRows'] + m.group(2), src, flags=re.S)
-    if n2 != 1: sys.exit('the page has no lensRows slot; mark it first')
+    # 72-seat pass: replace the slot's whole content up to its own matching </div>. The earlier non-greedy match stopped at the
+    # first nested </div>, so every rebuild inserted the new rows and kept every old one after them (156 rows for 52 seats).
+    opens = [m.start() for m in re.finditer(r'<div data-slot="lensRows">', src)]
+    if len(opens) != 1: sys.exit('the page has no single lensRows slot; mark it first')
+    p0 = opens[0] + len('<div data-slot="lensRows">'); depth = 1; k = p0
+    for m in re.finditer(r'<div\b|</div>', src[p0:]):
+        depth += 1 if m.group(0) != '</div>' else -1
+        if depth == 0: k = p0 + m.start(); break
+    if depth != 0: sys.exit('the lensRows slot does not close; refusing to build')
+    src = src[:p0] + V['lensRows'] + src[k:]; n2 = 1
     n += n2
+    # Self-test (72-seat pass, Chair's ruling 2): the page must render exactly one roster row per seat. A builder that cannot count
+    # its own output reported "filled 70 slots" for 52 seats while the table grew to 156 rows (catch 32). Fail loudly, write nothing.
+    seats = F.get('board', {}).get('value'); rendered = len(re.findall(r'<div class="lr" style="border-bottom', src))
+    if not isinstance(seats, int) or rendered != seats:
+        sys.exit('SELF-TEST FAILED: the page renders {} roster rows for {} seats; refusing to write'.format(rendered, seats))
+    print('self-test: {} roster rows rendered for {} seats'.format(rendered, seats))
     open(a.out, 'wb').write((head + enc(src) + tail).encode('utf-8'))
     print('filled {} slots ({} distinct) as of {}'.format(n, len(names), V['asOfLong']))
 
