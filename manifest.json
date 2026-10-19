@@ -170,8 +170,8 @@
       "size": 59556
     },
     "links.html": {
-      "sha256": "f8bfa14cc588bd26ddab6e614d52b05035701e6b58f2e0347bb7f264e1b5360a",
-      "size": 33530
+      "sha256": "a7226f04ccfc7c83bf9024af215a712efa2e490a43175525a371bb81e359a366",
+      "size": 37190
     },
     "navreach2.py": {
       "sha256": "b4bbbcb238c7b7692f58fe56ca6b62978b492bc42464931e658dd2bcd822a01a",
@@ -370,7 +370,7 @@
       "size": 1070
     }
   },
-  "pass": "Item 232 \u00b7 Pass 1 \u00b7 ceo60 (60-second test)",
+  "pass": "item232 pass1 ceo60 (manifest corrected: links.html live bytes)",
   "repo": "196969/dash-app-",
-  "written": "2026-10-19 15:24:18 UTC"
+  "written": "2026-10-19 17:59:22 UTC"
 }
