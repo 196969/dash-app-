@@ -162,8 +162,8 @@
       "size": 4929
     },
     "index.html": {
-      "sha256": "e51d7d09d6ac774de2389ec04fbbfaa365f0e88db0103a80f4112042a6d0abce",
-      "size": 10145740
+      "sha256": "a53377b2235048df78f62c4bb0c78217e1ea788f8a1b68444fa7660a8c91400c",
+      "size": 10158787
     },
     "link-check.html": {
       "sha256": "c971bd0cec0d69f33ac980e1d2e770a2a7a22d867b5387eab97c5198d0ca9c46",
@@ -370,7 +370,7 @@
       "size": 1070
     }
   },
-  "pass": "item232 pass2 change control + matrices",
+  "pass": "item232 pass3 organization design",
   "repo": "196969/dash-app-",
-  "written": "2026-10-19 18:50:38 UTC"
+  "written": "2026-10-19 19:27:22 UTC"
 }
