@@ -162,8 +162,8 @@
       "size": 4929
     },
     "index.html": {
-      "sha256": "123a2b1dee400bc07bd8b0f3bd5a245f6b71bb6b78ae58fc08a3929a5179e029",
-      "size": 10131526
+      "sha256": "e51d7d09d6ac774de2389ec04fbbfaa365f0e88db0103a80f4112042a6d0abce",
+      "size": 10145740
     },
     "link-check.html": {
       "sha256": "c971bd0cec0d69f33ac980e1d2e770a2a7a22d867b5387eab97c5198d0ca9c46",
@@ -370,7 +370,7 @@
       "size": 1070
     }
   },
-  "pass": "item232 pass1 ceo60 (manifest corrected: links.html live bytes)",
+  "pass": "item232 pass2 change control + matrices",
   "repo": "196969/dash-app-",
-  "written": "2026-10-19 17:59:22 UTC"
+  "written": "2026-10-19 18:50:38 UTC"
 }
