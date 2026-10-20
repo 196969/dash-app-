@@ -162,8 +162,8 @@
       "size": 4929
     },
     "index.html": {
-      "sha256": "6f19a5d7eb706acbf40720dae0153d0bafe579ab2b1c37849d98fbd90aabc5bf",
-      "size": 10479480
+      "sha256": "e1cfbe20de613ff923a17211d51cdc70bd6b96969293c5353f715c090aed5b9a",
+      "size": 10479680
     },
     "link-check.html": {
       "sha256": "c971bd0cec0d69f33ac980e1d2e770a2a7a22d867b5387eab97c5198d0ca9c46",
@@ -370,7 +370,7 @@
       "size": 1070
     }
   },
-  "pass": "item236 live checks for the 19 rules (catch 42)",
+  "pass": "item237 brain census empty-book refusal",
   "repo": "196969/dash-app-",
-  "written": "2026-10-20 05:57:59 UTC"
+  "written": "2026-10-20 12:38:05 UTC"
 }
