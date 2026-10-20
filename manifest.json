@@ -162,8 +162,8 @@
       "size": 4929
     },
     "index.html": {
-      "sha256": "aff56e3310645dc8f5c62402290f1bd645dc6baeddc834f5f4b62c3197d05338",
-      "size": 10490775
+      "sha256": "e875a7b47e812207144ebfd63a94f094b85bdd7e05531e668c60856894da9e6d",
+      "size": 10492194
     },
     "link-check.html": {
       "sha256": "c971bd0cec0d69f33ac980e1d2e770a2a7a22d867b5387eab97c5198d0ca9c46",
@@ -370,7 +370,7 @@
       "size": 1070
     }
   },
-  "pass": "item240 payables resolver (catches 45, 46, 47)",
+  "pass": "item241 paid-on-terms check (catch 48)",
   "repo": "196969/dash-app-",
-  "written": "2026-10-20 19:22:46 UTC"
+  "written": "2026-10-20 20:22:13 UTC"
 }
