@@ -162,8 +162,8 @@
       "size": 4929
     },
     "index.html": {
-      "sha256": "5bebe9683c93bcfb2abc0a1035faf73f5ae4ad0e8f485c15864882947f3437b9",
-      "size": 10472479
+      "sha256": "6f19a5d7eb706acbf40720dae0153d0bafe579ab2b1c37849d98fbd90aabc5bf",
+      "size": 10479480
     },
     "link-check.html": {
       "sha256": "c971bd0cec0d69f33ac980e1d2e770a2a7a22d867b5387eab97c5198d0ca9c46",
@@ -370,7 +370,7 @@
       "size": 1070
     }
   },
-  "pass": "item235 catch 41 + receipt removed",
+  "pass": "item236 live checks for the 19 rules (catch 42)",
   "repo": "196969/dash-app-",
-  "written": "2026-10-20 01:01:36 UTC"
+  "written": "2026-10-20 05:57:59 UTC"
 }
