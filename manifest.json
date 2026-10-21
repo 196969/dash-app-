@@ -162,8 +162,8 @@
       "size": 4929
     },
     "index.html": {
-      "sha256": "01f93cbcd35232ddd924e3189f68530dbaec74025a0b14362274c5c988e23088",
-      "size": 10497813
+      "sha256": "62b666cc7a8ca2907eb09deeb103863e1a11f05e288666262a3e5a19f3ca8938",
+      "size": 10500394
     },
     "link-check.html": {
       "sha256": "c971bd0cec0d69f33ac980e1d2e770a2a7a22d867b5387eab97c5198d0ca9c46",
@@ -370,7 +370,7 @@
       "size": 1070
     }
   },
-  "pass": "item242 pitSnapshots repair + rule 20 (catch 49)",
+  "pass": "item243 census counts the book (catches 50, 51)",
   "repo": "196969/dash-app-",
-  "written": "2026-10-20 22:35:30 UTC"
+  "written": "2026-10-21 01:01:55 UTC"
 }
