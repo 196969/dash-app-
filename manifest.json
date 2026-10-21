@@ -162,8 +162,8 @@
       "size": 4929
     },
     "index.html": {
-      "sha256": "e9c5434e1dbe6d633df1b3ccf40351e8fee0df2e5b3bfc0abb500a40e09db7a5",
-      "size": 10524424
+      "sha256": "839661ff5c737f947f04ead02b412a539040bd8ea5b89ad40d4bdf5aed17cccd",
+      "size": 10527483
     },
     "link-check.html": {
       "sha256": "c971bd0cec0d69f33ac980e1d2e770a2a7a22d867b5387eab97c5198d0ca9c46",
@@ -370,7 +370,7 @@
       "size": 1070
     }
   },
-  "pass": "Brain Pass 3: catches 52-59, brnHist, thinking wheel, action risk",
+  "pass": "items 251-252: seat numbers from the roster, counts wired, fc.history Blind, record corrected",
   "repo": "196969/dash-app-",
-  "written": "2026-10-21 19:11:30 UTC"
+  "written": "2026-10-21 21:56:27 UTC"
 }
