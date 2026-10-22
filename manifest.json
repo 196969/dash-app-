@@ -162,8 +162,8 @@
       "size": 4929
     },
     "index.html": {
-      "sha256": "3a35cf5ab37ab4fced7f801d392fd9ea41bb19cf8f96d122c5e4b1cd12e117bc",
-      "size": 10534188
+      "sha256": "5636abcee35dab9c856e56f3d9063b83c243dc95567a27ab93d4beecd03862c7",
+      "size": 10534555
     },
     "link-check.html": {
       "sha256": "c971bd0cec0d69f33ac980e1d2e770a2a7a22d867b5387eab97c5198d0ca9c46",
@@ -370,7 +370,7 @@
       "size": 1070
     }
   },
-  "pass": "item 257: Action risk declares its reads; computed reads named",
+  "pass": "item 258: reduced motion while speaking \u2014 the lip loop holds a resting mouth",
   "repo": "196969/dash-app-",
-  "written": "2026-10-22 20:21:47 UTC"
+  "written": "2026-10-22 21:45:43 UTC"
 }
