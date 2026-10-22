@@ -162,8 +162,8 @@
       "size": 4929
     },
     "index.html": {
-      "sha256": "3dfd41db68ddd92ada9589007cf9659c5c98ff554735505a129adf0d71022764",
-      "size": 10528029
+      "sha256": "069e704a54a68be8cfa1dd0423c763b6f01c8a1785991ea54173a4c03eb2e850",
+      "size": 10528159
     },
     "link-check.html": {
       "sha256": "c971bd0cec0d69f33ac980e1d2e770a2a7a22d867b5387eab97c5198d0ca9c46",
@@ -370,7 +370,7 @@
       "size": 1070
     }
   },
-  "pass": "item 253: #182 recorded as not built; close-and-lock measured",
+  "pass": "item 253: honest reconciliation tie, route to Reconcile, no false sign-off",
   "repo": "196969/dash-app-",
-  "written": "2026-10-21 23:02:19 UTC"
+  "written": "2026-10-22 14:06:32 UTC"
 }
