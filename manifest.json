@@ -162,8 +162,8 @@
       "size": 4929
     },
     "index.html": {
-      "sha256": "839661ff5c737f947f04ead02b412a539040bd8ea5b89ad40d4bdf5aed17cccd",
-      "size": 10527483
+      "sha256": "3dfd41db68ddd92ada9589007cf9659c5c98ff554735505a129adf0d71022764",
+      "size": 10528029
     },
     "link-check.html": {
       "sha256": "c971bd0cec0d69f33ac980e1d2e770a2a7a22d867b5387eab97c5198d0ca9c46",
@@ -370,7 +370,7 @@
       "size": 1070
     }
   },
-  "pass": "items 251-252: seat numbers from the roster, counts wired, fc.history Blind, record corrected",
+  "pass": "item 253: #182 recorded as not built; close-and-lock measured",
   "repo": "196969/dash-app-",
-  "written": "2026-10-21 21:56:27 UTC"
+  "written": "2026-10-21 23:02:19 UTC"
 }
