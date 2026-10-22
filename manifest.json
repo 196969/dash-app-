@@ -162,8 +162,8 @@
       "size": 4929
     },
     "index.html": {
-      "sha256": "069e704a54a68be8cfa1dd0423c763b6f01c8a1785991ea54173a4c03eb2e850",
-      "size": 10528159
+      "sha256": "295ce9ea047c22493bccec86c56870ac8e96d96bf412373f40444213f64964ad",
+      "size": 10532760
     },
     "link-check.html": {
       "sha256": "c971bd0cec0d69f33ac980e1d2e770a2a7a22d867b5387eab97c5198d0ca9c46",
@@ -370,7 +370,7 @@
       "size": 1070
     }
   },
-  "pass": "item 253: honest reconciliation tie, route to Reconcile, no false sign-off",
+  "pass": "item 255: cash parts shared by ledger and Reconcile; destination recorded; booking writers on the owner convention",
   "repo": "196969/dash-app-",
-  "written": "2026-10-22 14:06:32 UTC"
+  "written": "2026-10-22 16:30:30 UTC"
 }
