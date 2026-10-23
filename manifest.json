@@ -61,6 +61,10 @@
       "sha256": "03f0fd10e7b363ee8f4c4250df97e5f592b99fec3695be6e4d72c08b7c912c8c",
       "size": 6853
     },
+    "app-brain.html": {
+      "sha256": "a64b06acde58cbb350a3aeb1c4cd9903c1bcde4443ad5a074677a6d39a896347",
+      "size": 4360
+    },
     "app-command.html": {
       "sha256": "d0a842493626889c9f392f10ea592b441e36b5efdbbb48d301ac3bc8466fbe7f",
       "size": 6936
@@ -110,8 +114,8 @@
       "size": 6571
     },
     "apps.html": {
-      "sha256": "45e2b087abdade155c63dd1f90f045ba978085f1a5fcf1479433853d58ece3d8",
-      "size": 3479
+      "sha256": "5dd7d562173deca76996ddf04d922d7b64eb6de3be4108ac61fcd2c73aa48d97",
+      "size": 4092
     },
     "brandmark.py": {
       "sha256": "b943c3dc2f2adbb864712b14897dab65ad4cfb729d93bd3b916013289dad2962",
@@ -162,16 +166,16 @@
       "size": 4929
     },
     "index.html": {
-      "sha256": "5636abcee35dab9c856e56f3d9063b83c243dc95567a27ab93d4beecd03862c7",
-      "size": 10534555
+      "sha256": "d67a7676434e31cdacf2eddc96a41d6e0a1df69bdbdc61a00aab26de97310fdc",
+      "size": 10550368
     },
     "link-check.html": {
       "sha256": "c971bd0cec0d69f33ac980e1d2e770a2a7a22d867b5387eab97c5198d0ca9c46",
       "size": 59556
     },
     "links.html": {
-      "sha256": "a7226f04ccfc7c83bf9024af215a712efa2e490a43175525a371bb81e359a366",
-      "size": 37190
+      "sha256": "8e19b59e653e959704d35d6e922e1a35a8407b95bbbad533d1dc587d31e26110",
+      "size": 39726
     },
     "navreach2.py": {
       "sha256": "b4bbbcb238c7b7692f58fe56ca6b62978b492bc42464931e658dd2bcd822a01a",
@@ -370,7 +374,7 @@
       "size": 1070
     }
   },
-  "pass": "item 258: reduced motion while speaking \u2014 the lip loop holds a resting mouth",
+  "pass": "item 259: Dash Brain, the fifteenth edition, with the Needs you conduit",
   "repo": "196969/dash-app-",
-  "written": "2026-10-22 21:45:43 UTC"
+  "written": "2026-10-23 15:12:35 UTC"
 }
