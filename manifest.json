@@ -62,8 +62,8 @@
       "size": 6853
     },
     "app-brain.html": {
-      "sha256": "242221a40c94d8682b15dfa1c0e01cd693a75044bc7753ee9ea960cce3945754",
-      "size": 9500
+      "sha256": "82ecba6081571711d99c2143e5ea8675156c6abc4cdac96b8c90c9792047b9ba",
+      "size": 10478
     },
     "app-command.html": {
       "sha256": "d0a842493626889c9f392f10ea592b441e36b5efdbbb48d301ac3bc8466fbe7f",
@@ -166,8 +166,8 @@
       "size": 4929
     },
     "index.html": {
-      "sha256": "37f3dfdebb1f3b26e64eb57ff440ef476a67694f8671b47c72443e447905d9fe",
-      "size": 10743512
+      "sha256": "ea0a369c274a301f1c8a2be79f06651ebaaf937337a55cd7eada71d50929274a",
+      "size": 10751575
     },
     "link-check.html": {
       "sha256": "c971bd0cec0d69f33ac980e1d2e770a2a7a22d867b5387eab97c5198d0ca9c46",
@@ -374,7 +374,7 @@
       "size": 1070
     }
   },
-  "pass": "Brain Pass A: Senses",
+  "pass": "Brain Pass B1: Needs you to Delegate",
   "repo": "196969/dash-app-",
-  "written": "2026-10-24 16:28:12 UTC"
+  "written": "2026-10-24 19:06:22 UTC"
 }
