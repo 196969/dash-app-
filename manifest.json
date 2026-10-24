@@ -62,8 +62,8 @@
       "size": 6853
     },
     "app-brain.html": {
-      "sha256": "23eb31a8a826662391e99f06a0cf661a470f7dae299b93ee2a35c9af6ac97dc4",
-      "size": 7813
+      "sha256": "0dfa77e2172853fe82f65d5eb1ca3d70bf044daca5a58e9b60e9fa3747ee0f4b",
+      "size": 8372
     },
     "app-command.html": {
       "sha256": "d0a842493626889c9f392f10ea592b441e36b5efdbbb48d301ac3bc8466fbe7f",
@@ -166,8 +166,8 @@
       "size": 4929
     },
     "index.html": {
-      "sha256": "3767365d4dae0b7d44694c05d34642695958cae0ef18545387094f7b32dcba28",
-      "size": 10726187
+      "sha256": "efbab09c8e3293c906a46342c9de0827bdd385566c7d7456ecff0ab65424203d",
+      "size": 10726800
     },
     "link-check.html": {
       "sha256": "c971bd0cec0d69f33ac980e1d2e770a2a7a22d867b5387eab97c5198d0ca9c46",
@@ -374,7 +374,7 @@
       "size": 1070
     }
   },
-  "pass": "Second Seat Pass 4c of 4: the nine enrichments, the patterns, the blast radius, the close",
+  "pass": "Brain Pass 0: the seat-register fallback",
   "repo": "196969/dash-app-",
-  "written": "2026-10-24 13:05:33 UTC"
+  "written": "2026-10-24 15:01:28 UTC"
 }
