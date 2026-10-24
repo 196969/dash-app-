@@ -62,8 +62,8 @@
       "size": 6853
     },
     "app-brain.html": {
-      "sha256": "ee50a32700bff45bc634eeecb41cc8263a38310c350355804d698e2ed817e486",
-      "size": 6720
+      "sha256": "efa55b8f7aae615f56d98b96fe422f2a8dec91f75b2b745214cd7653db1bf1ef",
+      "size": 7295
     },
     "app-command.html": {
       "sha256": "d0a842493626889c9f392f10ea592b441e36b5efdbbb48d301ac3bc8466fbe7f",
@@ -166,8 +166,8 @@
       "size": 4929
     },
     "index.html": {
-      "sha256": "ad1ab2c62cc22a877d42461c4fc8f32102d61aed49f97e59d1cfa1aea9f4221e",
-      "size": 10662407
+      "sha256": "bf903367d3d400e558aa3bc6ecfe091b1055ef13f6f5d71d6fdb97992c5f8c0b",
+      "size": 10692992
     },
     "link-check.html": {
       "sha256": "c971bd0cec0d69f33ac980e1d2e770a2a7a22d867b5387eab97c5198d0ca9c46",
@@ -374,7 +374,7 @@
       "size": 1070
     }
   },
-  "pass": "Second Seat Pass 4a of 4: governing \u2014 Tune the Seat, Correspondence as a frame, the routed owners",
+  "pass": "Second Seat Pass 4b of 4: the pack register, the toolkit fold, the philosophy layer",
   "repo": "196969/dash-app-",
-  "written": "2026-10-24 02:34:29 UTC"
+  "written": "2026-10-24 10:28:19 UTC"
 }
