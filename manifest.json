@@ -62,8 +62,8 @@
       "size": 6853
     },
     "app-brain.html": {
-      "sha256": "5282da1ad325e06e282f3396247a8b573a475856acec1cab6ddfe2bb3249f930",
-      "size": 11203
+      "sha256": "a3cf3d4602d57a8688edf4f86dec160b9e665c30bf620355c4b941947507b1ea",
+      "size": 12004
     },
     "app-command.html": {
       "sha256": "d0a842493626889c9f392f10ea592b441e36b5efdbbb48d301ac3bc8466fbe7f",
@@ -166,8 +166,8 @@
       "size": 4929
     },
     "index.html": {
-      "sha256": "fbcad530a1b45545a3aeaffc3d21358da51f1dd23c8fdd325177218529f00868",
-      "size": 10759678
+      "sha256": "dd817c3eb8b5ca3d9c3ab650abf778e2cae4ae0546a8843601de43eb43bb53ec",
+      "size": 10769308
     },
     "link-check.html": {
       "sha256": "c971bd0cec0d69f33ac980e1d2e770a2a7a22d867b5387eab97c5198d0ca9c46",
@@ -374,7 +374,7 @@
       "size": 1070
     }
   },
-  "pass": "Brain Pass B2: the blast radius, the cost of waiting, the precedent, the carry-through, Founders 72 per delegation",
+  "pass": "Brain Pass C1: the verdict, read by every hub",
   "repo": "196969/dash-app-",
-  "written": "2026-10-24 20:11:02 UTC"
+  "written": "2026-10-24 21:06:28 UTC"
 }
