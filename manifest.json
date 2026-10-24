@@ -62,8 +62,8 @@
       "size": 6853
     },
     "app-brain.html": {
-      "sha256": "a3cf3d4602d57a8688edf4f86dec160b9e665c30bf620355c4b941947507b1ea",
-      "size": 12004
+      "sha256": "cc169f9dad95698947d8e74aedb54e53a6d32e3673f2a0ce230189878291d729",
+      "size": 13106
     },
     "app-command.html": {
       "sha256": "d0a842493626889c9f392f10ea592b441e36b5efdbbb48d301ac3bc8466fbe7f",
@@ -166,8 +166,8 @@
       "size": 4929
     },
     "index.html": {
-      "sha256": "dd817c3eb8b5ca3d9c3ab650abf778e2cae4ae0546a8843601de43eb43bb53ec",
-      "size": 10769308
+      "sha256": "b26d516465e39f3b62f10c286b39ba067992e057c52b2530392745ef4f1ea8be",
+      "size": 10783141
     },
     "link-check.html": {
       "sha256": "c971bd0cec0d69f33ac980e1d2e770a2a7a22d867b5387eab97c5198d0ca9c46",
@@ -374,7 +374,7 @@
       "size": 1070
     }
   },
-  "pass": "Brain Pass C1: the verdict, read by every hub",
+  "pass": "Brain Pass C2: the one number, the change ledger, the census, the silence read, the self-report, Founders 72",
   "repo": "196969/dash-app-",
-  "written": "2026-10-24 21:06:28 UTC"
+  "written": "2026-10-24 22:32:40 UTC"
 }
