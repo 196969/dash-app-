@@ -62,8 +62,8 @@
       "size": 6853
     },
     "app-brain.html": {
-      "sha256": "17e40f0fc3f3430025e73930894888cd51f5c4e1bd218e3f66345e3cb797ca28",
-      "size": 6004
+      "sha256": "ee50a32700bff45bc634eeecb41cc8263a38310c350355804d698e2ed817e486",
+      "size": 6720
     },
     "app-command.html": {
       "sha256": "d0a842493626889c9f392f10ea592b441e36b5efdbbb48d301ac3bc8466fbe7f",
@@ -166,8 +166,8 @@
       "size": 4929
     },
     "index.html": {
-      "sha256": "216b08a7436e04ec600c3d3068874fe88594b50712938fa9ec2d92382d7fa888",
-      "size": 10642695
+      "sha256": "ad1ab2c62cc22a877d42461c4fc8f32102d61aed49f97e59d1cfa1aea9f4221e",
+      "size": 10662407
     },
     "link-check.html": {
       "sha256": "c971bd0cec0d69f33ac980e1d2e770a2a7a22d867b5387eab97c5198d0ca9c46",
@@ -374,7 +374,7 @@
       "size": 1070
     }
   },
-  "pass": "Second Seat Pass 3 of 4: House Format and Visuals",
+  "pass": "Second Seat Pass 4a of 4: governing \u2014 Tune the Seat, Correspondence as a frame, the routed owners",
   "repo": "196969/dash-app-",
-  "written": "2026-10-23 23:58:42 UTC"
+  "written": "2026-10-24 02:34:29 UTC"
 }
