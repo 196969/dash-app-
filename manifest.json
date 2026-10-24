@@ -62,8 +62,8 @@
       "size": 6853
     },
     "app-brain.html": {
-      "sha256": "af8c774361ab7a13a948b1a6aef51cc4aef267540ea25d7001d57665c51b2274",
-      "size": 5617
+      "sha256": "17e40f0fc3f3430025e73930894888cd51f5c4e1bd218e3f66345e3cb797ca28",
+      "size": 6004
     },
     "app-command.html": {
       "sha256": "d0a842493626889c9f392f10ea592b441e36b5efdbbb48d301ac3bc8466fbe7f",
@@ -166,8 +166,8 @@
       "size": 4929
     },
     "index.html": {
-      "sha256": "8cf207ee7eb53d007b9b6b247af209692fbbd604e0addbdb807ed11e554f5f24",
-      "size": 10625908
+      "sha256": "216b08a7436e04ec600c3d3068874fe88594b50712938fa9ec2d92382d7fa888",
+      "size": 10642695
     },
     "link-check.html": {
       "sha256": "c971bd0cec0d69f33ac980e1d2e770a2a7a22d867b5387eab97c5198d0ca9c46",
@@ -374,7 +374,7 @@
       "size": 1070
     }
   },
-  "pass": "Second Seat Pass 2 of 4: delegation, the roster, and Brain as an edition",
+  "pass": "Second Seat Pass 3 of 4: House Format and Visuals",
   "repo": "196969/dash-app-",
-  "written": "2026-10-23 22:03:37 UTC"
+  "written": "2026-10-23 23:58:42 UTC"
 }
