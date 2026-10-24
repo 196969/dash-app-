@@ -62,8 +62,8 @@
       "size": 6853
     },
     "app-brain.html": {
-      "sha256": "efa55b8f7aae615f56d98b96fe422f2a8dec91f75b2b745214cd7653db1bf1ef",
-      "size": 7295
+      "sha256": "23eb31a8a826662391e99f06a0cf661a470f7dae299b93ee2a35c9af6ac97dc4",
+      "size": 7813
     },
     "app-command.html": {
       "sha256": "d0a842493626889c9f392f10ea592b441e36b5efdbbb48d301ac3bc8466fbe7f",
@@ -166,8 +166,8 @@
       "size": 4929
     },
     "index.html": {
-      "sha256": "bf903367d3d400e558aa3bc6ecfe091b1055ef13f6f5d71d6fdb97992c5f8c0b",
-      "size": 10692992
+      "sha256": "3767365d4dae0b7d44694c05d34642695958cae0ef18545387094f7b32dcba28",
+      "size": 10726187
     },
     "link-check.html": {
       "sha256": "c971bd0cec0d69f33ac980e1d2e770a2a7a22d867b5387eab97c5198d0ca9c46",
@@ -374,7 +374,7 @@
       "size": 1070
     }
   },
-  "pass": "Second Seat Pass 4b of 4: the pack register, the toolkit fold, the philosophy layer",
+  "pass": "Second Seat Pass 4c of 4: the nine enrichments, the patterns, the blast radius, the close",
   "repo": "196969/dash-app-",
-  "written": "2026-10-24 10:28:19 UTC"
+  "written": "2026-10-24 13:05:33 UTC"
 }
