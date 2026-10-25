@@ -62,8 +62,8 @@
       "size": 6853
     },
     "app-brain.html": {
-      "sha256": "34672210626e0225de99ecf09efff32707cc4105891957351755b2426a775a68",
-      "size": 14654
+      "sha256": "559745153e2be44d42001628042d35c60cdb021a92026e14c49971c38a01a010",
+      "size": 15380
     },
     "app-command.html": {
       "sha256": "d0a842493626889c9f392f10ea592b441e36b5efdbbb48d301ac3bc8466fbe7f",
@@ -166,8 +166,8 @@
       "size": 4929
     },
     "index.html": {
-      "sha256": "bbde1f2a60c575a20fd6ec46d867a60f3f65d687ca8a053502963c1fed17d0f0",
-      "size": 10794904
+      "sha256": "2fd622df4517ebe6cbf93ca615fe123ccf1381ba176570d1ddbf3fa8e836050e",
+      "size": 10806455
     },
     "link-check.html": {
       "sha256": "c971bd0cec0d69f33ac980e1d2e770a2a7a22d867b5387eab97c5198d0ca9c46",
@@ -374,7 +374,7 @@
       "size": 1070
     }
   },
-  "pass": "Brain Pass E: the learning loop",
+  "pass": "Brain Pass F: proprioception",
   "repo": "196969/dash-app-",
-  "written": "2026-10-25 11:02:27 UTC"
+  "written": "2026-10-25 15:50:33 UTC"
 }
