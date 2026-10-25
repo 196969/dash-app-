@@ -166,8 +166,8 @@
       "size": 4929
     },
     "index.html": {
-      "sha256": "2fd622df4517ebe6cbf93ca615fe123ccf1381ba176570d1ddbf3fa8e836050e",
-      "size": 10806455
+      "sha256": "7c865fa9272e1e3c07d322df391b4253054ee9ec32b23b98ff06b0d9840391b9",
+      "size": 10808556
     },
     "link-check.html": {
       "sha256": "c971bd0cec0d69f33ac980e1d2e770a2a7a22d867b5387eab97c5198d0ca9c46",
@@ -374,7 +374,7 @@
       "size": 1070
     }
   },
-  "pass": "Brain Pass F: proprioception",
+  "pass": "#297: the council settles; Founders home reads the current book",
   "repo": "196969/dash-app-",
-  "written": "2026-10-25 15:50:33 UTC"
+  "written": "2026-10-25 22:56:32 UTC"
 }
