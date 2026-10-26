@@ -166,8 +166,8 @@
       "size": 4929
     },
     "index.html": {
-      "sha256": "7c865fa9272e1e3c07d322df391b4253054ee9ec32b23b98ff06b0d9840391b9",
-      "size": 10808556
+      "sha256": "b3804964859f2a5c7b9fe6aec0c822c0e9da891c101e27f81dc8fa5533e79a03",
+      "size": 10814837
     },
     "link-check.html": {
       "sha256": "c971bd0cec0d69f33ac980e1d2e770a2a7a22d867b5387eab97c5198d0ca9c46",
@@ -374,7 +374,7 @@
       "size": 1070
     }
   },
-  "pass": "#297: the council settles; Founders home reads the current book",
+  "pass": "#299: a runnable test for rule 21",
   "repo": "196969/dash-app-",
-  "written": "2026-10-25 22:56:32 UTC"
+  "written": "2026-10-26 11:43:03 UTC"
 }
