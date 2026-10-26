@@ -166,8 +166,8 @@
       "size": 4929
     },
     "index.html": {
-      "sha256": "b3804964859f2a5c7b9fe6aec0c822c0e9da891c101e27f81dc8fa5533e79a03",
-      "size": 10814837
+      "sha256": "479f8a3d92c862db095a51707eaa1ef5698fcfcc69c14c105db74306bc30c7ea",
+      "size": 10815437
     },
     "link-check.html": {
       "sha256": "c971bd0cec0d69f33ac980e1d2e770a2a7a22d867b5387eab97c5198d0ca9c46",
@@ -374,7 +374,7 @@
       "size": 1070
     }
   },
-  "pass": "#299: a runnable test for rule 21",
+  "pass": "#298: four run rates count whole days; no money moves within a day",
   "repo": "196969/dash-app-",
-  "written": "2026-10-26 11:43:03 UTC"
+  "written": "2026-10-26 18:36:28 UTC"
 }
