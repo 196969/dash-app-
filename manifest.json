@@ -182,64 +182,64 @@
       "size": 1497
     },
     "offering-books.html": {
-      "sha256": "50f650d331da1d331c905ebb12cb762901741a5cc29c5f65e64a3ad6d7d6eaa7",
-      "size": 1169725
+      "sha256": "4f6d0f0e5a0a72bfe7885a4c9ab04c3d672a32e64f011f01c9b02c3b3f6d2e73",
+      "size": 1169727
     },
     "offering-command.html": {
-      "sha256": "983ef435744a4ffb3575bb8400c9f8ac0abe6687ccc18cb661e78cc7e7458b1e",
-      "size": 1169531
+      "sha256": "7dce1e231f202ceecfcdc78e8c87419680de54c2a71e4c0a9335644564b8d251",
+      "size": 1169533
     },
     "offering-connectors.html": {
-      "sha256": "2443bd15b5f98e698f9f3a7fad6d442e4c62a82a882feab3b2f442770cbe0068",
-      "size": 1169361
+      "sha256": "3e02dca3be074da294df7cd9b5f863f8d341d1bd18c0604dfc567112be1cb170",
+      "size": 1169363
     },
     "offering-founders.html": {
-      "sha256": "14748a49435a7e3d91a557042726b8d7890964a643022573c585bd3f3523654b",
-      "size": 1169524
+      "sha256": "e4ac9e21d244cbf3ea4400b028dd19d7d0076bc0f929436d62993ca87fe6245c",
+      "size": 1169526
     },
     "offering-growth.html": {
-      "sha256": "2e82f43c9a37a0e30cdb355da4aeac2b864b3df1dfca185703647f305d063d62",
-      "size": 1169434
+      "sha256": "c494cbdc827e628e4a38e3164e45fa3723978e259bb3a9fc80384dd847b9e5ab",
+      "size": 1169436
     },
     "offering-interview-readiness.html": {
-      "sha256": "8cd624ffb6e0b692c678dc932ce2c251cca9208b7449ce3e2f6e1e292dbe2f51",
-      "size": 1169914
+      "sha256": "dafb481342758b8d4c91def0723a0d8468be44dca5c44e8b53c352ca92c4f308",
+      "size": 1169916
     },
     "offering-learn.html": {
-      "sha256": "9f7b6844e5f512a5c8055f787d0a7774d3508c129ae4fda1fa32b655a5a62eea",
-      "size": 1169326
+      "sha256": "cc1f8ca03bd6818c670ddfc7e2e81956fa3192a5b25806a28bc3157f193c121e",
+      "size": 1169328
     },
     "offering-legal.html": {
-      "sha256": "9b460e26f388e66cf70cbbf8f3187de8ed5c25f4c5081c0472ab5ac61ee0dc3e",
-      "size": 1169433
+      "sha256": "b1a95d5d819513c3d3cc7a59260c3662554b86f0c6cae3f14f899acc47ab886d",
+      "size": 1169435
     },
     "offering-links.html": {
-      "sha256": "571b502aa8371683315e37d742b725cb1d74e1bad0e1c7a00bb85ac3dc0e362d",
-      "size": 1169312
+      "sha256": "31e5afb70c22509553f848439736183c31af8592eabe5104154ecb672837051f",
+      "size": 1169314
     },
     "offering-one.html": {
-      "sha256": "861de7ada25ac5ed68eae9b6fe2851b0d771c7d175441f320212a26d28b01324",
-      "size": 1169411
+      "sha256": "259bdc27665d36dace065a4840338d267b43974bd0891a9ed08239af24dec1ea",
+      "size": 1169413
     },
     "offering-people.html": {
-      "sha256": "c725a2c06f16cbaff89e10ab9f58371d61ac71485ac0a6e1adb3eb9056487e77",
-      "size": 1169375
+      "sha256": "4574ff115f9db1d59e71556e37f66921db7eefa9e8b7fadbc87eeddfcb277ec7",
+      "size": 1169377
     },
     "offering-portal.html": {
-      "sha256": "15099a77154b730658da7678cdfcca8cdf35f434880ba851b6f08ba9e694a037",
-      "size": 1169462
+      "sha256": "9fdd88c026e5734d1566225e9b99fd715c8e654e9f3fe837e1dd5402aed800ee",
+      "size": 1169464
     },
     "offering-projects.html": {
-      "sha256": "ca665e04ad33dd99701900b1df42379d5f98f719f3b591df280be9a7355c418e",
-      "size": 1169437
+      "sha256": "9e3d0a9e0e8549b41dfa89ac91cf84c3d99721da2d84a2e350557aa22f2527b6",
+      "size": 1169439
     },
     "offerings-all.html": {
-      "sha256": "cbf67ff61662e61d0da1497c97194781464eac632fb11553eb44f7fa8092956b",
-      "size": 1216445
+      "sha256": "502091e9cc1b4d0d94600d7f7d07b93dde77abfd3b893252112540d8daa03f66",
+      "size": 1216459
     },
     "offerings.html": {
-      "sha256": "112492e6d29a912027bb63c55e5e0b89da2fa5c452ebfe7007db642feeec534d",
-      "size": 1168335
+      "sha256": "63606836762c6b076001bced183d040a16c7a6ce8e877f2b2bb594ea5f8bd18a",
+      "size": 1168336
     },
     "pixelsweep.py": {
       "sha256": "9c19be68ccc497725fd35711edb8e8290c93efe6341baa486ca722e9a960875d",
@@ -374,7 +374,7 @@
       "size": 1070
     }
   },
-  "pass": "#295b: 25 seats ask their own question; Blind naming the field until it is held",
+  "pass": "Address sweep (narrow): dashriteadvisory@gmail.com \u2192 TEdick@dashriteadvisory.com on the 15 offering pages; 14 stale entries and 7 unlisted files left as found, for their own item",
   "repo": "196969/dash-app-",
-  "written": "2026-10-26 23:54:52 UTC"
+  "written": "2026-10-27 02:18:24 UTC"
 }
