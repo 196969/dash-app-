@@ -125,6 +125,14 @@
       "sha256": "43656f4d61852d4d61255003da4269879e5623db412a9351d6c31b1f88219a47",
       "size": 4093
     },
+    "battery/battery.py": {
+      "sha256": "186ec4c9e6d0d136cba5f82e684a30d42d1a410986c85765f8991d15716bacdb",
+      "size": 9427
+    },
+    "battery/control.py": {
+      "sha256": "aeafe81bfcd629174f5d6a4d25e7b1d31546ca443984764995c99ff0624e1c80",
+      "size": 3480
+    },
     "brandmark.py": {
       "sha256": "b943c3dc2f2adbb864712b14897dab65ad4cfb729d93bd3b916013289dad2962",
       "size": 1553
@@ -394,8 +402,8 @@
       "size": 4929
     },
     "index.html": {
-      "sha256": "d123c0ef654aa8fc0382f7c83ffd00a9e15b9cf7b7bad9cf7cb41290948546e0",
-      "size": 10832683
+      "sha256": "da551bbe7bf9a5d96a5f7e322634f7155cf5c25751143be5a9fef19d8f3bf443",
+      "size": 10843367
     },
     "link-check.html": {
       "sha256": "c971bd0cec0d69f33ac980e1d2e770a2a7a22d867b5387eab97c5198d0ca9c46",
@@ -626,7 +634,7 @@
       "size": 5344
     }
   },
-  "pass": "Stale-and-unlisted rulings: 11 address-only entries re-baselined; apps.html restored (four app links) and certified; 63 unlisted files listed; links.html and founders-council.html left stale by ruling",
+  "pass": "295b: the recorder (one audited write path), the eleven readers on the mapping rulings, Schneier on the tech stack, EST-1044 seeded at $1,500, the audit-counting seats name what they count, the seat header wraps; the battery committed under version control",
   "repo": "196969/dash-app-",
-  "written": "2026-10-27 11:34:32 UTC"
+  "written": "2026-10-27 17:37:55 UTC"
 }
