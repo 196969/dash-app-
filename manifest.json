@@ -402,8 +402,8 @@
       "size": 4929
     },
     "index.html": {
-      "sha256": "cc778bd20fa5a9ff45b7eb3d2be74368c23e18723991591f8e05a18727b89903",
-      "size": 10844015
+      "sha256": "cfaa04102cd6002e6e3087cea2e72f0a6553e53a2414021e2d86b5179b017ba9",
+      "size": 10844609
     },
     "link-check.html": {
       "sha256": "c971bd0cec0d69f33ac980e1d2e770a2a7a22d867b5387eab97c5198d0ca9c46",
@@ -634,7 +634,7 @@
       "size": 5344
     }
   },
-  "pass": "295b ruling (A): EST-1044 stored correction on load, audited; screen-time rewrite retired",
+  "pass": "EST-1044 ruling (A): one audited correction at all five load points, only at exactly $2,750; the screen-time mask retired for EST-1044 only; supersedes the live struck build 71e3afcd",
   "repo": "196969/dash-app-",
-  "written": "2026-10-27 19:32:48 UTC"
+  "written": "2026-10-27 20:23:37 UTC"
 }
