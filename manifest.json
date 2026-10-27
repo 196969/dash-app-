@@ -45,6 +45,10 @@
       "sha256": "207458abcdd3445bb36e7b174236861814bf12a2c2ebf1c739c840cf91c22dbf",
       "size": 18640
     },
+    "DashRite - Dashboard Live Links.docx": {
+      "sha256": "20f0752d4b86e98c47261456d10c3212492f88141b3f2c67884b972c43baaf77",
+      "size": 44792
+    },
     "DashRite - The Founders Council.docx": {
       "sha256": "8dfa93f70c5e54da5186c801d79490f3adf684d2fc564434ab991a1c2384fc08",
       "size": 416867
@@ -53,69 +57,73 @@
       "sha256": "50f190924f6670b384089f64c38bab16183f59ac739cb8d71ae13ece7d5416ce",
       "size": 434787
     },
+    "LIVE-LINKS.txt": {
+      "sha256": "b06a6cfbbe77ecacd473aacaaebaa0bf232ff7966490dd2f95d3ac4d508b9d8f",
+      "size": 134883
+    },
     "app-acquisitions.html": {
       "sha256": "290ea17e0438b45e549048b92b24044c6fde2fa17e688e75b248cd7faaa64465",
       "size": 4512
     },
     "app-books.html": {
-      "sha256": "03f0fd10e7b363ee8f4c4250df97e5f592b99fec3695be6e4d72c08b7c912c8c",
-      "size": 6853
+      "sha256": "398cd2da46dfe700ed36ec02663f91f5014238590e47e6fde78906ed29366c35",
+      "size": 6854
     },
     "app-brain.html": {
       "sha256": "4c5f87fc61a688a0a68c2b7b6b9985595d3b80b18987a2674d3d41fa76576ffd",
       "size": 15381
     },
     "app-command.html": {
-      "sha256": "d0a842493626889c9f392f10ea592b441e36b5efdbbb48d301ac3bc8466fbe7f",
-      "size": 6936
+      "sha256": "58045bd61e235b2c9d57a9e60009d377ee2cf0c32eade3b85539087be9b2f197",
+      "size": 6937
     },
     "app-compliance.html": {
-      "sha256": "da8f80ad34dce3fee0460740072d650438db1817274df8c66daf981adf0d3f96",
-      "size": 6274
+      "sha256": "a82fe9a094029f6ad067a27dd57d0fcc2c196ab08165fc7f3859de99b207d2b6",
+      "size": 6275
     },
     "app-connectors.html": {
-      "sha256": "d46c944c2e5b4605013e72aa5a54539732d2674c0587e408616fb64bc50df76a",
-      "size": 6247
+      "sha256": "7f7b8fa6edb6eadcd922536c851a7a51fd5a9ecc2ccbb90828527cf65b65409b",
+      "size": 6248
     },
     "app-founders.html": {
-      "sha256": "737252ac4eed9123531971e3fc6c925f29823c3c26fa45623d94a43b2ad6e274",
-      "size": 6920
+      "sha256": "b0f3d8faf20dcaf249292776f9cb980ae844646052867756b994757dc480f134",
+      "size": 6921
     },
     "app-fractionals.html": {
       "sha256": "0f556bd532d54e8deb319eb9f6ce4f7751434aa65a0e3a4b956b1b2d7c9fc469",
       "size": 5059
     },
     "app-growth.html": {
-      "sha256": "62514c087dbb15e51fb4d101543b154f49960299cdf37b944cfeef62407e10cc",
-      "size": 6748
+      "sha256": "713680fa6b5b61098296237ab484d35a9493fe3215091cece5304a15d1937d64",
+      "size": 6749
     },
     "app-learn.html": {
-      "sha256": "9282e4ef854a6d38408c6846bd3250b329322288298fef0131d2b298e97c417c",
-      "size": 6255
+      "sha256": "11a3e7169ee3e7d8f8c4a31fd1b5178d4ba53a30089a1e020f7a5dfcb6b55f1d",
+      "size": 6256
     },
     "app-offerings.html": {
       "sha256": "c5a180f3f035f2c6ae714f02f70966e08cdededc29503c0e2051f25f850c2cc5",
       "size": 12957
     },
     "app-one.html": {
-      "sha256": "fc3af000798611ff32f75f21b10c21dcae71d1944e0f4076d06520f0f2a7eb80",
-      "size": 6406
+      "sha256": "02bb9f3274dc2d10ba47397cadab2746490eb7daa39e91e871036aa2e271d730",
+      "size": 6407
     },
     "app-people.html": {
-      "sha256": "4e983dbb80f9db0fb22200da812317cbf11e31175b88a54dd7ce526f74ad2af1",
-      "size": 6462
+      "sha256": "03b48667d5e403c65d9780056a3506be54866bde0a19cc90dda02e6990c8de21",
+      "size": 6463
     },
     "app-portal.html": {
-      "sha256": "987c2d5a601601091ce50428aabedb1fc63032d527f2294c5f315b90012dd567",
-      "size": 6495
+      "sha256": "93e2b1387abc831c95ef0375ad847b95b01c4cc90c54871f01c97d9049e8f7b9",
+      "size": 6496
     },
     "app-projects.html": {
-      "sha256": "b728c43939a30b7eb214e7a5b247967bdc87491340144ae688ec755eeca20264",
-      "size": 6571
+      "sha256": "c6ec0dfb7fd135b2f0eb87b4945abd3797914bf585eee215c47799849ef056d0",
+      "size": 6572
     },
     "apps.html": {
-      "sha256": "5dd7d562173deca76996ddf04d922d7b64eb6de3be4108ac61fcd2c73aa48d97",
-      "size": 4092
+      "sha256": "43656f4d61852d4d61255003da4269879e5623db412a9351d6c31b1f88219a47",
+      "size": 4093
     },
     "brandmark.py": {
       "sha256": "b943c3dc2f2adbb864712b14897dab65ad4cfb729d93bd3b916013289dad2962",
@@ -140,6 +148,226 @@
     "crawl.py": {
       "sha256": "f6b1a16179eb11917fce2b4836978a6ae5a281bff8f3860ccf0830b3a6c2412a",
       "size": 13405
+    },
+    "dashboards.html": {
+      "sha256": "b06a6cfbbe77ecacd473aacaaebaa0bf232ff7966490dd2f95d3ac4d508b9d8f",
+      "size": 134883
+    },
+    "db-13-week-cash-flow.html": {
+      "sha256": "2d99c5b768efd380516120e5e0b28c5bfceaa245427abb7b4efd42eb1306267a",
+      "size": 132835
+    },
+    "db-board-read.html": {
+      "sha256": "6254ab83e1cb1fab012f06d5233da26ffe28cd51adde746b509a48ecca649dfc",
+      "size": 138624
+    },
+    "db-brand-protection.html": {
+      "sha256": "4f2a5e62205ad8b091c240c7c66caac94cbe61c648b51d71d39129c15224dce5",
+      "size": 138044
+    },
+    "db-capacity-and-utilisation.html": {
+      "sha256": "45b5799c0e43980f40576d98b7b7533540794393ec2bb7b7c0eb47b0c4288983",
+      "size": 138264
+    },
+    "db-cbd-market-entry.html": {
+      "sha256": "83fe15f8ee5a894510494b4421e72dde7cc540794c182281eb4d7016d2e452c5",
+      "size": 138261
+    },
+    "db-cbd-partnership-and-channel.html": {
+      "sha256": "aa076974f50be15a845d3cc489d64e5e626264a0dd8ae2a0bf2af1e9fad59085",
+      "size": 138052
+    },
+    "db-cbd-referral-engine.html": {
+      "sha256": "a9dae1c3a9469acc6b316509eec71bfb55add0b930b3415d90eef19c5030d7b9",
+      "size": 138002
+    },
+    "db-ceo-operating-cadence.html": {
+      "sha256": "17391c7b03a07cf20071801ead3f9572fa734cded4a17c9b7f9bd96d35b1f18e",
+      "size": 138020
+    },
+    "db-ceo-psychological-safety.html": {
+      "sha256": "b4563745c89ff31c06f0c27bcb1f5b3b7e7f140e35d841ed00d431d812786693",
+      "size": 138285
+    },
+    "db-ceo-scalability-readiness.html": {
+      "sha256": "70bcecd0942a1c5f4a0239b7b80692c81b546db712c8fc225ea4bf09d3a9443d",
+      "size": 138594
+    },
+    "db-cfo-forecast-accuracy.html": {
+      "sha256": "9f0cbfaa1c03d05b1264d1eeb18ea0beb6c748333f0835b743f9151636173f07",
+      "size": 137989
+    },
+    "db-cfo-margin-and-unit-economics.html": {
+      "sha256": "7dfe2c326e923e09c40420264f4015d9b862431eeaf8621668b4c3b4532dc75b",
+      "size": 138266
+    },
+    "db-cfo-working-capital.html": {
+      "sha256": "dc01011f47760eb570111815545c030743d8c67d260d6dc992d7835a83af5b84",
+      "size": 137841
+    },
+    "db-client-health-and-retention.html": {
+      "sha256": "a8dfe886f1c6ccb71e46f5037835538aefe39775b01828cfe7b674c29b6e4de3",
+      "size": 137773
+    },
+    "db-client-sales-and-margin.html": {
+      "sha256": "503b0bac28713664458e21d17add83fb840be0d6e0f15230286a5163bcb27d73",
+      "size": 136139
+    },
+    "db-clo-contract-register.html": {
+      "sha256": "5a6e57a187ca473f05ab082325f8d5a75053b7f2638cf4014be99e217e11d89d",
+      "size": 138454
+    },
+    "db-clo-exposure-and-dispute.html": {
+      "sha256": "7478e872ed62dd49dd82c3dbca27117609a552b99db3175df11252ec5608d4dd",
+      "size": 138075
+    },
+    "db-clo-intellectual-property.html": {
+      "sha256": "281f15a2628687dcc0440ed9c10af0408c932a2adcacc3d79855750413f17f19",
+      "size": 138270
+    },
+    "db-compliance-calendar.html": {
+      "sha256": "ae22e455079c6310ebcbe90184cf496b97967c647ffa5be23d374594ee318cfa",
+      "size": 138601
+    },
+    "db-coo-order-to-cash.html": {
+      "sha256": "8369c17ddb7319f32199ad94e1b62bcd9c3a8faa9da310c54a8a438003a2c179",
+      "size": 137621
+    },
+    "db-coo-process-control.html": {
+      "sha256": "34f1a5b5ca4b15616c5cd218981912627cb1aaefbad0d3822493878348cb16d5",
+      "size": 138455
+    },
+    "db-coo-resource-allocation.html": {
+      "sha256": "982aa60fca158facafc737a5c11f9bc13c0d1a90def1de831b550f644b7485c1",
+      "size": 138059
+    },
+    "db-cso-pipeline-coverage.html": {
+      "sha256": "48750ba6b6d4d34c4425f235464bb907d732c366e9803f03b9703d24dabf26c6",
+      "size": 138366
+    },
+    "db-cso-sales-enablement.html": {
+      "sha256": "ac6b44b262a5313dcbe9bd6ea2b41f2b0f5e91d368b445195d3f9b862b5c1ab1",
+      "size": 138253
+    },
+    "db-cso-territory-performance.html": {
+      "sha256": "27061e4a77c3a0ffc796dc9fb4becf9304ead2137d2daf8546cca0b3e11001da",
+      "size": 138204
+    },
+    "db-cto-data-integrity-control.html": {
+      "sha256": "2ea5341d95572012001f7b015426f51a204dd5845ce3f471318a2ce6b31b4a69",
+      "size": 138249
+    },
+    "db-cto-platform-health.html": {
+      "sha256": "23d8cebca7b420e40c8408b5fbe40add7bfa86f988f2399d3b5fac95c915a67b",
+      "size": 138221
+    },
+    "db-cto-release-and-gate.html": {
+      "sha256": "810c39f3e8feeffbceb21f6f817e6da44027b3de34c024b09650316262230945",
+      "size": 138300
+    },
+    "db-cy2026-launch.html": {
+      "sha256": "cc5696e953f4b642680513c238fa958faa6bf0c7d42b7a639916891af9056304",
+      "size": 131597
+    },
+    "db-cy2027-plan.html": {
+      "sha256": "8c57aa018989563b7ff5780f67c0df0a04553732e852c6003b65c29c1e232aab",
+      "size": 131934
+    },
+    "db-dashboard-adoption.html": {
+      "sha256": "567059043e8d6ac3575cebaa3f63dc6417e64333446777ab52d5e9738c6080d8",
+      "size": 138346
+    },
+    "db-delivery-quality-and-rework.html": {
+      "sha256": "fc76c4b6c708ec066b7bf0c71d23561de770f8ea37f515ca4583fbd95febd20f",
+      "size": 137781
+    },
+    "db-everlast-engagement.html": {
+      "sha256": "6fcc6ff472ad4c30325873f22fcae1937b43da70fd179377f0756ece7c2573bc",
+      "size": 137938
+    },
+    "db-executive-command.html": {
+      "sha256": "c89291ec8ab17cf301b38d8441fc1c0c92a45cc4551132c4ae7d6bf3ec9249ef",
+      "size": 138386
+    },
+    "db-expense-and-burn.html": {
+      "sha256": "3cfb63921377bf6fbcc830be5eb22c81f7cbea9a6ec392b59a1027a8aabe9ab9",
+      "size": 138461
+    },
+    "db-founders-72-council.html": {
+      "sha256": "009c380b68af83016c3fbbd6b78f802ffbc0dfeec2ea50ebeb6f1f28d0c49e9f",
+      "size": 138358
+    },
+    "db-fractionals-and-private-equity.html": {
+      "sha256": "8466385250414f2c46883c2bec484614c7e6e54c47ae3394eea74b8aa38e9172",
+      "size": 135123
+    },
+    "db-hot-leads-market.html": {
+      "sha256": "cab4e8f833d6b062295e2858e72b18f6d14619f38b633c11fe880210e39af134",
+      "size": 135436
+    },
+    "db-inventory-order-round.html": {
+      "sha256": "18506af26ff71ebcbc5c99951d7be8ffc12d918310027127892019774fffbfea",
+      "size": 135643
+    },
+    "db-market-expansion-readiness.html": {
+      "sha256": "58f678e847f880ec612cc77af1a810fab3457bd2ed2d7f08e2c7b3458206764a",
+      "size": 138315
+    },
+    "db-partner-economics.html": {
+      "sha256": "10ac8308a9186ecec4641eb41a205bcbdc092b5cc67ad26d8815aa7acc38cc15",
+      "size": 134778
+    },
+    "db-practice.html": {
+      "sha256": "3f88d2ecfa75a8658fadff3fb2112bd4903b87c583dc47a7031590eca6718c0f",
+      "size": 140080
+    },
+    "db-proposal-and-win-loss.html": {
+      "sha256": "160ece0ee0f2393d8e847576cf129ae05758a71a45b73a9a288a5bc8aa56dd7b",
+      "size": 137942
+    },
+    "db-receivables-and-collections.html": {
+      "sha256": "54fa5446ac42081247c72fefb9f5add43d46361631496fd38fd528219dee4a7b",
+      "size": 137553
+    },
+    "db-risk-register.html": {
+      "sha256": "66a63594a4b5702bf1271f80f3c48abfba9b32c7f04ce02eb935518a691506ff",
+      "size": 138543
+    },
+    "db-service-suite-performance.html": {
+      "sha256": "f7157147957d47cf04c852b56e3a853a6085d615175a2275b5c5b898004968fc",
+      "size": 138433
+    },
+    "db-social-and-brand-reach.html": {
+      "sha256": "65c1b8c2f2732b83d8211fe9e7c8dc8494aa153fc1560c9b989d74d9aefcb437",
+      "size": 138252
+    },
+    "db-standalone-product.html": {
+      "sha256": "b9d24d0023e59fb87c07dfb5f678c5aa56cb97fd0524dc2af920ab5cb33755cf",
+      "size": 138443
+    },
+    "db-startup-cost-and-capitalisation.html": {
+      "sha256": "db104a170d5fc24750759c972b6f2aa2ac48edcdfc10afdfeee2b98c9f102bc0",
+      "size": 138443
+    },
+    "db-tax-provision-and-set-aside.html": {
+      "sha256": "c1cf536cccf480157eb7d7a67118d5af6358fc14cbc293c9e943e3daa32fa6fe",
+      "size": 138370
+    },
+    "db-training-and-enablement.html": {
+      "sha256": "f30e77ebb84e8514b9040d8831f2614b3cbc0aa411f56bac00c35c5f62b2afb9",
+      "size": 138491
+    },
+    "db-vendor-and-subscription.html": {
+      "sha256": "39bad6e5c944aeed6fb44e1ef5b71d63d5d49add78d38f10c8136b46abea2a01",
+      "size": 138729
+    },
+    "db-website-and-lead-capture.html": {
+      "sha256": "a46bad8cc42a8657934367fe6eef19eafc69946fc6d7bf47aa8324b398da947a",
+      "size": 138511
+    },
+    "founders-council-example.html": {
+      "sha256": "280bee28b53eb3430459594bcfc6297eaa00db98dbd687d24a5cd5771818d1a8",
+      "size": 464419
     },
     "founders-council.html": {
       "sha256": "70d14d4c82e61f73a083fec58b175c069b28fabea92281fb2a50969ba86aaa10",
@@ -369,12 +597,36 @@
       "sha256": "5815dfd31da04d314b5206405b282cdec580051e8dffea8c52652461dba9630d",
       "size": 1778
     },
+    "view-business-plan-example.html": {
+      "sha256": "0c1e007a7db506aa44a21dbf82445755d6210d5305173d39eed0e81eedbe2197",
+      "size": 6854
+    },
+    "view-business-plan-working.html": {
+      "sha256": "d45690e130f5ac64d29d5eca085066158274175364ae454b472cbb2a52d6eab4",
+      "size": 9551
+    },
+    "view-executive-deck.html": {
+      "sha256": "d11aa6205a4dcaebe17c0bb6661c6f710c62a33342c6e8e21bfd9fe80cfbf3e3",
+      "size": 6372
+    },
+    "view-financial-model.html": {
+      "sha256": "d21ea9b9bf07b001b3c435e8c032a72850e192469ed04253d23e2445ec15a9f7",
+      "size": 7123
+    },
+    "view-how-to-use.html": {
+      "sha256": "defb0f726cab258743ec7a558598b23acbae99239c39c79881926f0b9413c6f7",
+      "size": 7903
+    },
     "views.py": {
       "sha256": "bf95ce4f8449a8bf755e674b153355275dd902d7c001ec800278b85b46048ae2",
       "size": 1070
+    },
+    "weinberg.html": {
+      "sha256": "2e68cc47852b3bb093c7102f66b9a83e37bb745ad56be1692f7c77e4fedf8320",
+      "size": 5344
     }
   },
-  "pass": "index.html address pass: the retired address replaced by TEdick@dashriteadvisory.com in the decoded app source (27), round trip proven, full battery; narrow \u2014 only this entry changes",
+  "pass": "Stale-and-unlisted rulings: 11 address-only entries re-baselined; apps.html restored (four app links) and certified; 63 unlisted files listed; links.html and founders-council.html left stale by ruling",
   "repo": "196969/dash-app-",
-  "written": "2026-10-27 03:38:46 UTC"
+  "written": "2026-10-27 11:34:32 UTC"
 }
