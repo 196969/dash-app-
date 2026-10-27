@@ -54,8 +54,8 @@
       "size": 416867
     },
     "DashRite-Live-Links-Directory.docx": {
-      "sha256": "50f190924f6670b384089f64c38bab16183f59ac739cb8d71ae13ece7d5416ce",
-      "size": 434787
+      "sha256": "6418143d717ccb3e64cf05ba301ec640ebaa53978e080c6642d3a1b722a7df6c",
+      "size": 431731
     },
     "LIVE-LINKS.txt": {
       "sha256": "b06a6cfbbe77ecacd473aacaaebaa0bf232ff7966490dd2f95d3ac4d508b9d8f",
@@ -402,8 +402,8 @@
       "size": 4929
     },
     "index.html": {
-      "sha256": "ca30ef09a1403df45e492ae6574b807debb3ca12b64040c3798c480c9b87287c",
-      "size": 10844407
+      "sha256": "657f5d2c8ee4f136bafae6acc664530fd2f69d7864306c43ce4382292264db82",
+      "size": 10844408
     },
     "link-check.html": {
       "sha256": "c971bd0cec0d69f33ac980e1d2e770a2a7a22d867b5387eab97c5198d0ca9c46",
@@ -634,7 +634,7 @@
       "size": 5344
     }
   },
-  "pass": "Three-address pass: the retired address on the formation checklist becomes TEdick@; the alias removed; the unimplemented forwarding claim removed",
+  "pass": "Address sweep Part A: the retired address replaced in index.html (encoded, in a mailto body) and DashRite-Live-Links-Directory.docx",
   "repo": "196969/dash-app-",
-  "written": "2026-10-27 21:06:40 UTC"
+  "written": "2026-10-27 21:32:42 UTC"
 }
