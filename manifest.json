@@ -166,8 +166,8 @@
       "size": 4929
     },
     "index.html": {
-      "sha256": "479f8a3d92c862db095a51707eaa1ef5698fcfcc69c14c105db74306bc30c7ea",
-      "size": 10815437
+      "sha256": "b7847dd9bc52fff5357da15f998f3270f64fd8190f802eda031942ca7d1abe33",
+      "size": 10832656
     },
     "link-check.html": {
       "sha256": "c971bd0cec0d69f33ac980e1d2e770a2a7a22d867b5387eab97c5198d0ca9c46",
@@ -374,7 +374,7 @@
       "size": 1070
     }
   },
-  "pass": "#298: four run rates count whole days; no money moves within a day",
+  "pass": "#295b: 25 seats ask their own question; Blind naming the field until it is held",
   "repo": "196969/dash-app-",
-  "written": "2026-10-26 18:36:28 UTC"
+  "written": "2026-10-26 23:54:52 UTC"
 }
