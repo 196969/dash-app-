@@ -54,16 +54,16 @@
       "size": 434787
     },
     "app-acquisitions.html": {
-      "sha256": "115c209e465498daec81ee4f85f23d16a954c5017b5c3f734ccdc56b42403e33",
-      "size": 4511
+      "sha256": "290ea17e0438b45e549048b92b24044c6fde2fa17e688e75b248cd7faaa64465",
+      "size": 4512
     },
     "app-books.html": {
       "sha256": "03f0fd10e7b363ee8f4c4250df97e5f592b99fec3695be6e4d72c08b7c912c8c",
       "size": 6853
     },
     "app-brain.html": {
-      "sha256": "559745153e2be44d42001628042d35c60cdb021a92026e14c49971c38a01a010",
-      "size": 15380
+      "sha256": "4c5f87fc61a688a0a68c2b7b6b9985595d3b80b18987a2674d3d41fa76576ffd",
+      "size": 15381
     },
     "app-command.html": {
       "sha256": "d0a842493626889c9f392f10ea592b441e36b5efdbbb48d301ac3bc8466fbe7f",
@@ -82,8 +82,8 @@
       "size": 6920
     },
     "app-fractionals.html": {
-      "sha256": "7e35cbab8eecd7d66ce29ebb3259d28c2122c88a50b7a50d1f50de00b756f118",
-      "size": 5058
+      "sha256": "0f556bd532d54e8deb319eb9f6ce4f7751434aa65a0e3a4b956b1b2d7c9fc469",
+      "size": 5059
     },
     "app-growth.html": {
       "sha256": "62514c087dbb15e51fb4d101543b154f49960299cdf37b944cfeef62407e10cc",
@@ -254,116 +254,116 @@
       "size": 5148
     },
     "signature.html": {
-      "sha256": "367c400f471d66a511fc0c227078b2f199ca167380a7f9f859a8e31ab1df26d9",
-      "size": 60386
+      "sha256": "6106ddb7281b810b2545c7ad545ffd7c1b0703d67026fd1c776f2ee8c84e2a92",
+      "size": 60388
     },
     "state-arizona.html": {
-      "sha256": "4ee504684a8e3457225113ed2b0eea0177fc7c5fc15386eddc23c6c24b3dd9ac",
-      "size": 132856
+      "sha256": "9116303f3071b465c034dc8aeeefb13bd66ab876d6b9495007d30580899212a0",
+      "size": 132857
     },
     "state-california.html": {
-      "sha256": "3b9b333554bb87845f87bbc3bdd4609604ad93c525c17cbb94ae43390ca51971",
-      "size": 132854
+      "sha256": "3636b655e8a8cb2fd25a64abb789b3db31a23719b81bc42ff98938d18c81cffc",
+      "size": 132855
     },
     "state-colorado.html": {
-      "sha256": "b0f909276f19b8775ed9324fa8ba94acab594c64a292282b926a62a88bfa06ec",
-      "size": 132791
+      "sha256": "48827648f8e3661534ec530cc792348e48d01f3dc507d12266511487fffbadc1",
+      "size": 132792
     },
     "state-florida.html": {
-      "sha256": "e28025117ace18f8f98b9d069c8675386240ad04a0e0120cb2432a6d65a6c7cf",
-      "size": 132855
+      "sha256": "1acc8f81b7e5b365adb968a98419c0a0f175b0eb301ef1dbf32953af314b4a7c",
+      "size": 132856
     },
     "state-georgia.html": {
-      "sha256": "1d1a9b9c4b9a5e376faffb6e0b650410aff3d4086a43d9a2f7605a59613568ce",
-      "size": 132896
+      "sha256": "4f9825d6c0f6eb0c1e7f1023eb236c0b592fd41d6b0e477826122d47587df8ea",
+      "size": 132897
     },
     "state-illinois-chicago.html": {
-      "sha256": "2a190cf11cdc595196031b3c2c7f534043af24d4a7fee141e193931067800ebe",
-      "size": 132849
+      "sha256": "26ef853747f08641937b8c3f6bbd90017fc3141c3d43b398a166b5d576469d88",
+      "size": 132850
     },
     "state-illinois-downstate.html": {
-      "sha256": "a2b2e62e5b65da9fdab2ed8695dd3888f3f2fd61f5f979e18e395816d1c11d74",
-      "size": 132874
-    },
-    "state-indiana.html": {
-      "sha256": "9ba2a858b1f217ace740e6b0dfebaaceb02b4ff4d1ac3fd73e86e9a1068183ce",
-      "size": 132847
-    },
-    "state-iowa.html": {
-      "sha256": "10259e3072da198376e6c35a773bffd058a40562f7f50580407e002870c95b32",
-      "size": 132813
-    },
-    "state-kentucky.html": {
-      "sha256": "93fea89f8f34ca4c7dde3b864935d0bf4327de8739a3431bd592a65e1ef94b7e",
-      "size": 132831
-    },
-    "state-michigan.html": {
-      "sha256": "4494af082c9f1c821e3f646a36460f79842c517e3363a1af656a91511093abdd",
-      "size": 132841
-    },
-    "state-minnesota.html": {
-      "sha256": "ddc14b57e249c9db786b1254addae7af804c65aab0228cbb076cf2306343b7ee",
-      "size": 132821
-    },
-    "state-missouri.html": {
-      "sha256": "e8fe9397c547200d7f89ea9e2986abefe89e9c0d6a835d442c0c7180644ccac1",
-      "size": 132814
-    },
-    "state-nevada-las-vegas.html": {
-      "sha256": "6ff9edf33a97553872eacaeb4792f016f648c2e69a3556cc72359dce47fddcbb",
-      "size": 132845
-    },
-    "state-new-jersey.html": {
-      "sha256": "35af635d8ac4f426958857848c3610f94d0db219dee30d7c173cdba15f22371e",
-      "size": 132867
-    },
-    "state-new-york.html": {
-      "sha256": "7fc7ea59a1c42e64aad33b88a65f5447943eb96c4f4cf967ccf9aa9d19e24265",
-      "size": 132890
-    },
-    "state-north-carolina.html": {
-      "sha256": "8aecae524745daed73e43350879a181adc5c4be88cb8046ea5ba4d7e0a2c204d",
-      "size": 132881
-    },
-    "state-ohio.html": {
-      "sha256": "323cc0927ea61851967560ab4d8c218b6c189a62091e4778284495f48ba90de0",
-      "size": 132860
-    },
-    "state-oregon.html": {
-      "sha256": "ef2f2bf87232582208be304685b41e5e13e28ae21f3bfb42ea64184831abc4cf",
-      "size": 132890
-    },
-    "state-pennsylvania.html": {
-      "sha256": "2e50f9174b2f44ef8a10aa706e4ec061ac5e4a1131c73b4a3d6bf932f41525c7",
-      "size": 132855
-    },
-    "state-south-carolina.html": {
-      "sha256": "a1d7b10faef1336f1499a7b0536ce5b2fad19f69b857d3b00c5207dee15eda75",
+      "sha256": "043a6f58043f697fa7bf757fd61d549298fa0bbe9153172ce87ec76bddc69911",
       "size": 132875
     },
-    "state-tennessee.html": {
-      "sha256": "b970ff55a90475aa67faafb3932819838e99d3f315ad9a1ed0541122ca16d062",
-      "size": 132872
-    },
-    "state-texas.html": {
-      "sha256": "c41bfc285d358d7e1116a8aabb962bf0b4f7d20365ae5966de2dd4d7d5b1250e",
-      "size": 132846
-    },
-    "state-utah.html": {
-      "sha256": "f22733605e8d6a7194899f109f03b92b75ab0c8e0e469b2c9808402b42d7f741",
-      "size": 132830
-    },
-    "state-virginia.html": {
-      "sha256": "3ec798ad87f6961f8703aa78ea36e342787ac9c381604b5153054cf7d9f8a3a3",
-      "size": 132831
-    },
-    "state-washington.html": {
-      "sha256": "3fb513cce1efff03e847476a75cf607538e81997859c0345b0a016291b3cf524",
+    "state-indiana.html": {
+      "sha256": "969b8875f41b564d70bdde7f56fea6c9ede930b6b4e0f4a65b7c846119c7cd96",
       "size": 132848
     },
+    "state-iowa.html": {
+      "sha256": "3e544cb90092781d2048ae9b47c809479765e6e650772beba23dca718836f606",
+      "size": 132814
+    },
+    "state-kentucky.html": {
+      "sha256": "3484f638d170b3cde3961fdb5ccacfb4fd20b52bd8a40a980ce2acbcd6a3bc74",
+      "size": 132832
+    },
+    "state-michigan.html": {
+      "sha256": "2efc8273d93b71dad9ecf46e27b88e518dafcc4355553ce0c8af0473a9b9af8e",
+      "size": 132842
+    },
+    "state-minnesota.html": {
+      "sha256": "9103c19b2436461562c6d1860c74a44d1fbe8536dd1673bd1088be4595b1b7f0",
+      "size": 132822
+    },
+    "state-missouri.html": {
+      "sha256": "71679418ff5caad66f1be5f5c2e8f98163fd51cf32d6bf4c115ab445646167f4",
+      "size": 132815
+    },
+    "state-nevada-las-vegas.html": {
+      "sha256": "1a009a0fa964fa65f1afafdca7b52d7c276202b106cd27c5269a116405724aee",
+      "size": 132846
+    },
+    "state-new-jersey.html": {
+      "sha256": "15f49efb915934ff1d690cf9df0db70f03467b6b3659a15aecb86ef32ae68f01",
+      "size": 132868
+    },
+    "state-new-york.html": {
+      "sha256": "234a98a7a914c6e77c1e491cbe78f05a90298222448579b40698000fe4c29ca0",
+      "size": 132891
+    },
+    "state-north-carolina.html": {
+      "sha256": "d399ff01147ff584254e7f2f05a7ba238c3a582cd9818b4481b1b08b085606a7",
+      "size": 132882
+    },
+    "state-ohio.html": {
+      "sha256": "9d2050eb421b5d66ca85a5fe48dd31b76f368e8b59a1ca86d9efb4412c0762dd",
+      "size": 132861
+    },
+    "state-oregon.html": {
+      "sha256": "95e7dda235503f68f98375a9e2c7091f6102597bee4aff63cf6ac5fda80692cd",
+      "size": 132891
+    },
+    "state-pennsylvania.html": {
+      "sha256": "c42d9ddbb9c0187b95400dd5d780f8acf92b2924264fe86e37c6819393f1b1db",
+      "size": 132856
+    },
+    "state-south-carolina.html": {
+      "sha256": "a09d51acaa4bd793430d379f6bf070ad1b699bb1df9fe0847adb748eef53ef86",
+      "size": 132876
+    },
+    "state-tennessee.html": {
+      "sha256": "a539ee2cd9a1b6fcab119c2d7c889adbb90947e6552c8f8a35abe07937e614da",
+      "size": 132873
+    },
+    "state-texas.html": {
+      "sha256": "feed2db5f1744d235a4c8434b37329cca7e1f55856023bb307db97aa9149697b",
+      "size": 132847
+    },
+    "state-utah.html": {
+      "sha256": "5ac46c0d2efb4b695f4b2a476b9382b87fa5b1ee50fc23bd33515de9b9bc5c9f",
+      "size": 132831
+    },
+    "state-virginia.html": {
+      "sha256": "f5e7e49e329d9a8beeade0edec9fc3ab0da57c31ec7f8326a3773bce23c59552",
+      "size": 132832
+    },
+    "state-washington.html": {
+      "sha256": "fa11286a3ea73f54b936ef1392cac6e754045ceae2985331aaffc6dc67b262da",
+      "size": 132849
+    },
     "state-wisconsin.html": {
-      "sha256": "6c32f6dc836133c867c14f5dabb8b611a109af68b2865478b27cdadc912280bd",
-      "size": 132854
+      "sha256": "1da649491c1376ef108901d8b6c8e60ab9e6f2ded691ec636a3af8cf68ab04ab",
+      "size": 132855
     },
     "sw.js": {
       "sha256": "5815dfd31da04d314b5206405b282cdec580051e8dffea8c52652461dba9630d",
@@ -374,7 +374,7 @@
       "size": 1070
     }
   },
-  "pass": "Address sweep (narrow): the retired address replaced by TEdick@dashriteadvisory.com on the 15 offering pages; this label reworded so the manifest no longer carries the retired address; 14 stale entries and 7 unlisted files left as found, for their own item",
+  "pass": "Address sweep (narrow): the retired address replaced by TEdick@dashriteadvisory.com on 34 plain pages (signature, 27 state pages, 3 app pages, 3 dashboards); 31 listed entries updated; 3 unlisted dashboards left unlisted; index.html is its own pass",
   "repo": "196969/dash-app-",
-  "written": "2026-10-27 02:24:20 UTC"
+  "written": "2026-10-27 02:30:52 UTC"
 }
