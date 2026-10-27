@@ -402,8 +402,8 @@
       "size": 4929
     },
     "index.html": {
-      "sha256": "da551bbe7bf9a5d96a5f7e322634f7155cf5c25751143be5a9fef19d8f3bf443",
-      "size": 10843367
+      "sha256": "cc778bd20fa5a9ff45b7eb3d2be74368c23e18723991591f8e05a18727b89903",
+      "size": 10844015
     },
     "link-check.html": {
       "sha256": "c971bd0cec0d69f33ac980e1d2e770a2a7a22d867b5387eab97c5198d0ca9c46",
@@ -634,7 +634,7 @@
       "size": 5344
     }
   },
-  "pass": "295b: the recorder (one audited write path), the eleven readers on the mapping rulings, Schneier on the tech stack, EST-1044 seeded at $1,500, the audit-counting seats name what they count, the seat header wraps; the battery committed under version control",
+  "pass": "295b ruling (A): EST-1044 stored correction on load, audited; screen-time rewrite retired",
   "repo": "196969/dash-app-",
-  "written": "2026-10-27 17:37:55 UTC"
+  "written": "2026-10-27 19:32:48 UTC"
 }
