@@ -166,8 +166,8 @@
       "size": 4929
     },
     "index.html": {
-      "sha256": "b7847dd9bc52fff5357da15f998f3270f64fd8190f802eda031942ca7d1abe33",
-      "size": 10832656
+      "sha256": "d123c0ef654aa8fc0382f7c83ffd00a9e15b9cf7b7bad9cf7cb41290948546e0",
+      "size": 10832683
     },
     "link-check.html": {
       "sha256": "c971bd0cec0d69f33ac980e1d2e770a2a7a22d867b5387eab97c5198d0ca9c46",
@@ -374,7 +374,7 @@
       "size": 1070
     }
   },
-  "pass": "Address sweep (narrow): the retired address replaced by TEdick@dashriteadvisory.com on 34 plain pages (signature, 27 state pages, 3 app pages, 3 dashboards); 31 listed entries updated; 3 unlisted dashboards left unlisted; index.html is its own pass",
+  "pass": "index.html address pass: the retired address replaced by TEdick@dashriteadvisory.com in the decoded app source (27), round trip proven, full battery; narrow \u2014 only this entry changes",
   "repo": "196969/dash-app-",
-  "written": "2026-10-27 02:30:52 UTC"
+  "written": "2026-10-27 03:38:46 UTC"
 }
