@@ -402,8 +402,8 @@
       "size": 4929
     },
     "index.html": {
-      "sha256": "657f5d2c8ee4f136bafae6acc664530fd2f69d7864306c43ce4382292264db82",
-      "size": 10844408
+      "sha256": "964e7fcae0d75db458b8fe9f22af92d379c66352a15aba35a8db7a95dc414dd9",
+      "size": 10847704
     },
     "link-check.html": {
       "sha256": "c971bd0cec0d69f33ac980e1d2e770a2a7a22d867b5387eab97c5198d0ca9c46",
@@ -634,7 +634,7 @@
       "size": 5344
     }
   },
-  "pass": "Address sweep Part A: the retired address replaced in index.html (encoded, in a mailto body) and DashRite-Live-Links-Directory.docx",
+  "pass": "#308a: small non-zero percentages display \"<1%\" (whole-percent helpers) or \"<0.1%\" (one-decimal helpers) instead of 0%; true zero keeps 0%; 22 of 26 helpers changed by rule",
   "repo": "196969/dash-app-",
-  "written": "2026-10-27 21:32:42 UTC"
+  "written": "2026-10-28 13:51:50 UTC"
 }
