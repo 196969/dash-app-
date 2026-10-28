@@ -402,8 +402,8 @@
       "size": 4929
     },
     "index.html": {
-      "sha256": "964e7fcae0d75db458b8fe9f22af92d379c66352a15aba35a8db7a95dc414dd9",
-      "size": 10847704
+      "sha256": "752bf14a874df6e4c03114b5e480da78abe96e574b83e4203cf1112735948326",
+      "size": 10847852
     },
     "link-check.html": {
       "sha256": "c971bd0cec0d69f33ac980e1d2e770a2a7a22d867b5387eab97c5198d0ca9c46",
@@ -634,7 +634,7 @@
       "size": 5344
     }
   },
-  "pass": "#308a: small non-zero percentages display \"<1%\" (whole-percent helpers) or \"<0.1%\" (one-decimal helpers) instead of 0%; true zero keeps 0%; 22 of 26 helpers changed by rule",
+  "pass": "#308a, Bogle copy: _seatAnswer's pct takes the whole-percent rule ('<1%' for a positive value that rounds to zero); reproduced in the third book state; #17 remains excluded",
   "repo": "196969/dash-app-",
-  "written": "2026-10-28 13:51:50 UTC"
+  "written": "2026-10-28 17:53:35 UTC"
 }
