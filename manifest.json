@@ -402,8 +402,8 @@
       "size": 4929
     },
     "index.html": {
-      "sha256": "5e7233ebecb043e3d00b2d4ad587bf84ea9b493974984911dd1152b522afeb1e",
-      "size": 10848489
+      "sha256": "d672440e7c458612d66e4c6829c239a40c9e189329f7418fedc2f75bff2ac575",
+      "size": 10848992
     },
     "link-check.html": {
       "sha256": "c971bd0cec0d69f33ac980e1d2e770a2a7a22d867b5387eab97c5198d0ca9c46",
@@ -634,7 +634,7 @@
       "size": 5344
     }
   },
-  "pass": "#17: the ratios report reads equity as the balance sheet computes it (coaEff), rounded to cents at source; the 0.01 floor removed; return on equity, debt to equity and the equity multiplier read Blind in both columns when equity is not positive",
+  "pass": "#298, day counts: 34 displayed day-figure sites routed through _calDiff (calendar days via _calDays); counts step at local midnight, not midday; site 38 left, named",
   "repo": "196969/dash-app-",
-  "written": "2026-10-28 21:21:51 UTC"
+  "written": "2026-10-29 02:33:51 UTC"
 }
