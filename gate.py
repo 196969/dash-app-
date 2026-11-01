@@ -66,7 +66,7 @@ def write(args):
     files = {}
     for f in args:
         if not os.path.isfile(f): print(f'REFUSED: {f} does not exist; a manifest cannot list a file that is not there'); return 1
-        b = open(f, 'rb').read(); files[os.path.basename(f)] = {'sha256': sha256(b), 'size': len(b)}
+        b = open(f, 'rb').read(); files[os.path.relpath(f).replace(os.sep, '/')] = {'sha256': sha256(b), 'size': len(b)}   # 2026-11-01: relative path, not basename — basename flattened battery/*.py out of the manifest
     m = {'pass': label, 'written': time.strftime('%Y-%m-%d %H:%M:%S UTC', time.gmtime()), 'repo': REPO, 'branch': BRANCH, 'files': files}
     out = os.path.join(os.path.dirname(os.path.abspath(args[0])), 'manifest.json')
     json.dump(m, open(out, 'w'), indent=2, sort_keys=True); open(out, 'a').write('\n')

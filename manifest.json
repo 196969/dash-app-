@@ -390,8 +390,8 @@
       "size": 2778321
     },
     "gate.py": {
-      "sha256": "eb8c934461b24e2bd82137fd43d4ff41d882cf7c37326d9412e8e6e66b16f9b4",
-      "size": 7772
+      "sha256": "a9ae4df1fcef987d87f70be4ad9ae4b4c1a50825a37b7b9d8185f3fa20f54289",
+      "size": 7892
     },
     "gen_fc_figures.py": {
       "sha256": "fdb967cceffa31b049502fa5cc331f0190474c0308f9f7eec6b6174eaa5d7d3f",
@@ -410,8 +410,8 @@
       "size": 59556
     },
     "links.html": {
-      "sha256": "8e19b59e653e959704d35d6e922e1a35a8407b95bbbad533d1dc587d31e26110",
-      "size": 39726
+      "sha256": "6de9304dcb2221b6447d1132db31912f1429290b2857d2e9165fb162a2794e4e",
+      "size": 12112
     },
     "navreach2.py": {
       "sha256": "b4bbbcb238c7b7692f58fe56ca6b62978b492bc42464931e658dd2bcd822a01a",
@@ -490,8 +490,8 @@
       "size": 5148
     },
     "signature.html": {
-      "sha256": "6106ddb7281b810b2545c7ad545ffd7c1b0703d67026fd1c776f2ee8c84e2a92",
-      "size": 60388
+      "sha256": "adab6d5889d9f2b96be05c486ad62776a088387e69af8fbc6b2a0e4f707d1adf",
+      "size": 111190
     },
     "state-arizona.html": {
       "sha256": "9116303f3071b465c034dc8aeeefb13bd66ab876d6b9495007d30580899212a0",
@@ -634,7 +634,7 @@
       "size": 5344
     }
   },
-  "pass": "#298, day counts: 34 displayed day-figure sites routed through _calDiff (calendar days via _calDays); counts step at local midnight, not midday; site 38 left, named",
+  "pass": "Re-baseline 2026-11-01 (Chair ruling): links.html and signature.html adopted as live \u2014 replaced out of band at 20:47 on 29 Oct by the Chair's own upload (directory rebuilt to point at the dashboards hub; signature installer carrying the new brand mark); both opened in Chromium and read whole before adoption. gate.py write now keeps relative paths (it had flattened battery/*.py)",
   "repo": "196969/dash-app-",
-  "written": "2026-10-29 02:33:51 UTC"
+  "written": "2026-11-01 22:24:10 UTC"
 }
