@@ -86,8 +86,8 @@
       "size": 6248
     },
     "app-founders.html": {
-      "sha256": "b0f3d8faf20dcaf249292776f9cb980ae844646052867756b994757dc480f134",
-      "size": 6921
+      "sha256": "180f99e0505d3b9c766b0f8df59d44e5fbd4047d94c7a2cdeaf2edeb1824c2c3",
+      "size": 646
     },
     "app-fractionals.html": {
       "sha256": "0f556bd532d54e8deb319eb9f6ce4f7751434aa65a0e3a4b956b1b2d7c9fc469",
@@ -106,8 +106,8 @@
       "size": 12957
     },
     "app-one.html": {
-      "sha256": "02bb9f3274dc2d10ba47397cadab2746490eb7daa39e91e871036aa2e271d730",
-      "size": 6407
+      "sha256": "7323bd14914ee54b6f978d3ef6907b49d046149c8c5d40ab387b4876c3e35b8b",
+      "size": 636
     },
     "app-people.html": {
       "sha256": "03b48667d5e403c65d9780056a3506be54866bde0a19cc90dda02e6990c8de21",
@@ -402,8 +402,8 @@
       "size": 4929
     },
     "index.html": {
-      "sha256": "d672440e7c458612d66e4c6829c239a40c9e189329f7418fedc2f75bff2ac575",
-      "size": 10848992
+      "sha256": "ab5080e6d13154f3f398e1bbe8ffc3a1f4a76caab5686c96734762a4d58d242d",
+      "size": 10930307
     },
     "link-check.html": {
       "sha256": "c971bd0cec0d69f33ac980e1d2e770a2a7a22d867b5387eab97c5198d0ca9c46",
@@ -634,7 +634,7 @@
       "size": 5344
     }
   },
-  "pass": "Re-baseline 2026-11-01 (Chair ruling): links.html and signature.html adopted as live \u2014 replaced out of band at 20:47 on 29 Oct by the Chair's own upload (directory rebuilt to point at the dashboards hub; signature installer carrying the new brand mark); both opened in Chromium and read whole before adoption. gate.py write now keeps relative paths (it had flattened battery/*.py)",
+  "pass": "Item 368 \u00b7 Edition 3 \u00b7 2 Nov 2026",
   "repo": "196969/dash-app-",
-  "written": "2026-11-01 22:24:10 UTC"
+  "written": "2026-11-02 23:21:59 UTC"
 }
