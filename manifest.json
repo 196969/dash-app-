@@ -402,8 +402,8 @@
       "size": 4929
     },
     "index.html": {
-      "sha256": "ddd92a2555b33f558b84d059c51435dcf180584c05c7fa2be2bfabdf809cef50",
-      "size": 10937412
+      "sha256": "9fed97f566266f885a58dd8bf497b449897a362fceaced1d0150405611c086cb",
+      "size": 10937470
     },
     "link-check.html": {
       "sha256": "c971bd0cec0d69f33ac980e1d2e770a2a7a22d867b5387eab97c5198d0ca9c46",
@@ -634,7 +634,7 @@
       "size": 5344
     }
   },
-  "pass": "Item 372 \u00b7 payables named \u00b7 3 Nov 2026",
+  "pass": "Scheduled payables from the full list \u00b7 3 Nov 2026",
   "repo": "196969/dash-app-",
-  "written": "2026-11-03 19:11:07 UTC"
+  "written": "2026-11-03 22:12:52 UTC"
 }
