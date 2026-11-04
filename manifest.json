@@ -406,8 +406,8 @@
       "size": 4929
     },
     "index.html": {
-      "sha256": "9d4c8af49ff60dc929f9c8aab95d7964840efe90f6cbaa61ef9dec674e3e84b7",
-      "size": 10941986
+      "sha256": "1c211685bfbd388d72a32daa09d300c9cb4150716f3720e7a0a31cef316f9e9f",
+      "size": 10944700
     },
     "item369-build-record.json": {
       "sha256": "bfcaa2bdb4e478085b7ad71443f0b3652fb5d07b18e542b55d42bf19a76c74ff",
@@ -666,7 +666,7 @@
       "size": 5344
     }
   },
-  "pass": "Item 380 \u00b7 recHistory and the Reconcile table \u00b7 4 Nov 2026",
+  "pass": "Item 383 \u00b7 bank reconciliation reads Blind with no account \u00b7 4 Nov 2026",
   "repo": "196969/dash-app-",
-  "written": "2026-11-04 14:49:50 UTC"
+  "written": "2026-11-04 18:43:20 UTC"
 }
