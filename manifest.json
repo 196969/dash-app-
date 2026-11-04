@@ -406,8 +406,8 @@
       "size": 4929
     },
     "index.html": {
-      "sha256": "75fbf0bcc760cd6ddcdcb77f2fca17d55a3ba07b124c2e08be212bb92427ccbd",
-      "size": 10940204
+      "sha256": "445f3c84ae857cef214561c646b4ba4522f74e3d81e6fa02add3c49ceb5c73cd",
+      "size": 10940304
     },
     "item369-build-record.json": {
       "sha256": "bfcaa2bdb4e478085b7ad71443f0b3652fb5d07b18e542b55d42bf19a76c74ff",
@@ -666,7 +666,7 @@
       "size": 5344
     }
   },
-  "pass": "Item 369 \u00b7 the CRM visual layer, to standard \u00b7 4 Nov 2026",
+  "pass": "Item 378 \u00b7 compliance owners \u00b7 4 Nov 2026",
   "repo": "196969/dash-app-",
-  "written": "2026-11-04 03:26:09 UTC"
+  "written": "2026-11-04 10:10:23 UTC"
 }
