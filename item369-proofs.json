@@ -1,0 +1,625 @@
+{
+ "blind_and_derivation": [
+  {
+   "view": "erpxinvcc",
+   "empty_book": {
+    "blind": [
+     "Blind — no stock items on file, so there is no stock health to chart."
+    ],
+    "charts": []
+   },
+   "one_record": {
+    "blind": [],
+    "charts": [
+     {
+      "titles": [
+       "Stock health: 0% (0%)",
+       "Not in stock: 100% (100%)"
+      ],
+      "texts": [
+       "0%"
+      ]
+     }
+    ]
+   },
+   "two_records": {
+    "blind": [],
+    "charts": [
+     {
+      "titles": [
+       "Stock health: 0% (0%)",
+       "Not in stock: 100% (100%)"
+      ],
+      "texts": [
+       "0%"
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "view": "prjxraid",
+   "empty_book": {
+    "blind": [
+     "Blind — no RAID items logged, so the mix has nothing to chart."
+    ],
+    "charts": []
+   },
+   "one_record": {
+    "blind": [],
+    "charts": [
+     {
+      "titles": [
+       "Risks: 1 (100%)",
+       "Assumptions: 0 (0%)",
+       "Issues: 0 (0%)",
+       "Dependencies: 0 (0%)"
+      ],
+      "texts": [
+       "1"
+      ]
+     }
+    ]
+   },
+   "two_records": {
+    "blind": [],
+    "charts": [
+     {
+      "titles": [
+       "Risks: 1 (50%)",
+       "Assumptions: 0 (0%)",
+       "Issues: 1 (50%)",
+       "Dependencies: 0 (0%)"
+      ],
+      "texts": [
+       "2"
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "view": "learnthink",
+   "empty_book": {
+    "blind": [
+     "Blind — no one is enrolled, so completion and adoption have nothing to chart."
+    ],
+    "charts": []
+   },
+   "one_record": {
+    "blind": [],
+    "charts": [
+     {
+      "titles": [
+       "Academy %: 50%",
+       "Enrolled: 1",
+       "Goals on-track: 0"
+      ],
+      "texts": [
+       "Academy %",
+       "50%",
+       "Enrolled",
+       "1",
+       "Goals on-track",
+       "0"
+      ]
+     }
+    ]
+   },
+   "two_records": {
+    "blind": [],
+    "charts": [
+     {
+      "titles": [
+       "Academy %: 75%",
+       "Enrolled: 2",
+       "Goals on-track: 0"
+      ],
+      "texts": [
+       "Academy %",
+       "75%",
+       "Enrolled",
+       "2",
+       "Goals on-track",
+       "0"
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "view": "cmdxfrontier",
+   "empty_book": {
+    "blind": [
+     "Blind — no drafts on the book yet, so the draft-to-done funnel has nothing to draw."
+    ],
+    "charts": []
+   },
+   "one_record": {
+    "blind": [],
+    "charts": [
+     {
+      "titles": [
+       "Drafted: 1",
+       "Approved: 0",
+       "Done: 0"
+      ],
+      "texts": [
+       "Drafted",
+       "1",
+       "−1 stalled",
+       "Approved",
+       "0",
+       "Done",
+       "0"
+      ]
+     }
+    ]
+   },
+   "two_records": {
+    "blind": [],
+    "charts": [
+     {
+      "titles": [
+       "Drafted → Approved: 1 of 2 (50%)",
+       "Drafted: 2",
+       "Approved: 1",
+       "Done: 0"
+      ],
+      "texts": [
+       "Drafted",
+       "2",
+       "−1 stalled",
+       "Approved",
+       "1",
+       "−1 stalled",
+       "Done",
+       "0"
+      ]
+     }
+    ]
+   }
+  }
+ ],
+ "click_through": {
+  "view": "cmdxrisk",
+  "mark_title": "Impact 3 × likelihood 1 — none",
+  "before": "cmdxrisk",
+  "after": "prjxeng",
+  "tried_before_success": 3
+ },
+ "period_follow": {
+  "anlxexec": {
+   "charts": 1,
+   "follow": []
+  },
+  "anlxrollup": {
+   "charts": 1,
+   "follow": []
+  },
+  "bills": {
+   "charts": 1,
+   "follow": []
+  },
+  "bkkpauditor": {
+   "charts": 3,
+   "follow": []
+  },
+  "bkkpccc": {
+   "charts": 2,
+   "follow": []
+  },
+  "bkkpcockpit": {
+   "charts": 2,
+   "follow": []
+  },
+  "bkkpcpa": {
+   "charts": 5,
+   "follow": []
+  },
+  "bkkpwork": {
+   "charts": 2,
+   "follow": []
+  },
+  "capacity": {
+   "charts": 1,
+   "follow": []
+  },
+  "captaincheck": {
+   "charts": 1,
+   "follow": []
+  },
+  "close": {
+   "charts": 1,
+   "follow": []
+  },
+  "cmdxcapital": {
+   "charts": 1,
+   "follow": []
+  },
+  "cmdxcash": {
+   "charts": 3,
+   "follow": []
+  },
+  "cmdxcommand": {
+   "charts": 1,
+   "follow": []
+  },
+  "cmdxfrontier": {
+   "charts": 3,
+   "follow": []
+  },
+  "cmdxiq": {
+   "charts": 1,
+   "follow": []
+  },
+  "cmdxmemory": {
+   "charts": 1,
+   "follow": []
+  },
+  "cmdxmeta": {
+   "charts": 1,
+   "follow": []
+  },
+  "cmdxperf": {
+   "charts": 1,
+   "follow": []
+  },
+  "cmdxplatform": {
+   "charts": 2,
+   "follow": []
+  },
+  "cmdxreason": {
+   "charts": 2,
+   "follow": []
+  },
+  "cmdxrisk": {
+   "charts": 1,
+   "follow": []
+  },
+  "cmdxstudio": {
+   "charts": 3,
+   "follow": []
+  },
+  "cmdxsuper": {
+   "charts": 3,
+   "follow": []
+  },
+  "cmdxtruth": {
+   "charts": 1,
+   "follow": []
+  },
+  "cmdxvelocity": {
+   "charts": 2,
+   "follow": []
+  },
+  "cmpxentity": {
+   "charts": 1,
+   "follow": []
+  },
+  "command": {
+   "charts": 1,
+   "follow": []
+  },
+  "connxthink": {
+   "charts": 1,
+   "follow": []
+  },
+  "coreport": {
+   "charts": 1,
+   "follow": []
+  },
+  "dash": {
+   "charts": 3,
+   "follow": []
+  },
+  "dashiq": {
+   "charts": 1,
+   "follow": []
+  },
+  "delivery": {
+   "charts": 1,
+   "follow": []
+  },
+  "dtools": {
+   "charts": 1,
+   "follow": []
+  },
+  "engagements": {
+   "charts": 3,
+   "follow": []
+  },
+  "erpxfinance": {
+   "charts": 1,
+   "follow": []
+  },
+  "erpxinvcc": {
+   "charts": 0,
+   "follow": []
+  },
+  "erpxproc": {
+   "charts": 1,
+   "follow": []
+  },
+  "erpxrollup": {
+   "charts": 4,
+   "follow": []
+  },
+  "erpxspend": {
+   "charts": 2,
+   "follow": []
+  },
+  "erpxsuite": {
+   "charts": 1,
+   "follow": []
+  },
+  "expenses": {
+   "charts": 1,
+   "follow": []
+  },
+  "fndxcapital": {
+   "charts": 1,
+   "follow": []
+  },
+  "fndxcashsb": {
+   "charts": 1,
+   "follow": []
+  },
+  "fndxclient": {
+   "charts": 1,
+   "follow": []
+  },
+  "fndxcollect": {
+   "charts": 1,
+   "follow": []
+  },
+  "fndxcompanion": {
+   "charts": 1,
+   "follow": []
+  },
+  "fndxdayone": {
+   "charts": 1,
+   "follow": []
+  },
+  "fndxfront": {
+   "charts": 1,
+   "follow": []
+  },
+  "fndxfrontier": {
+   "charts": 3,
+   "follow": []
+  },
+  "fndxhome": {
+   "charts": 5,
+   "follow": []
+  },
+  "fndxinvert": {
+   "charts": 1,
+   "follow": []
+  },
+  "fndxlearn": {
+   "charts": 1,
+   "follow": []
+  },
+  "fndxmeta": {
+   "charts": 1,
+   "follow": []
+  },
+  "fndxplatform": {
+   "charts": 2,
+   "follow": []
+  },
+  "fndxppp": {
+   "charts": 1,
+   "follow": []
+  },
+  "fndxreuse": {
+   "charts": 1,
+   "follow": []
+  },
+  "fndxsales": {
+   "charts": 1,
+   "follow": []
+  },
+  "fndxsell": {
+   "charts": 1,
+   "follow": []
+  },
+  "fndxstraight": {
+   "charts": 1,
+   "follow": []
+  },
+  "fndxsummit": {
+   "charts": 4,
+   "follow": []
+  },
+  "fndxsuper": {
+   "charts": 3,
+   "follow": []
+  },
+  "fndxswlev": {
+   "charts": 1,
+   "follow": []
+  },
+  "fndxtrust": {
+   "charts": 1,
+   "follow": []
+  },
+  "fndxtruth": {
+   "charts": 1,
+   "follow": []
+  },
+  "fndxuser": {
+   "charts": 1,
+   "follow": []
+  },
+  "fndxvelocity": {
+   "charts": 2,
+   "follow": []
+  },
+  "growththink": {
+   "charts": 2,
+   "follow": []
+  },
+  "hrdash": {
+   "charts": 2,
+   "follow": []
+  },
+  "hrxdash": {
+   "charts": 2,
+   "follow": []
+  },
+  "hrxrecruit": {
+   "charts": 1,
+   "follow": []
+  },
+  "hrxswp": {
+   "charts": 1,
+   "follow": []
+  },
+  "hrxtalent": {
+   "charts": 1,
+   "follow": []
+  },
+  "hrxtalentrisk": {
+   "charts": 1,
+   "follow": []
+  },
+  "keyind": {
+   "charts": 1,
+   "follow": []
+  },
+  "learnthink": {
+   "charts": 1,
+   "follow": []
+  },
+  "lglentity": {
+   "charts": 1,
+   "follow": []
+  },
+  "memory": {
+   "charts": 1,
+   "follow": []
+  },
+  "okr": {
+   "charts": 1,
+   "follow": []
+  },
+  "payables": {
+   "charts": 2,
+   "follow": []
+  },
+  "pchxbills": {
+   "charts": 1,
+   "follow": []
+  },
+  "pchxexpenses": {
+   "charts": 1,
+   "follow": []
+  },
+  "pchxpayables": {
+   "charts": 2,
+   "follow": []
+  },
+  "prjxcapacity": {
+   "charts": 1,
+   "follow": []
+  },
+  "prjxcharter": {
+   "charts": 1,
+   "follow": []
+  },
+  "prjxdelivery": {
+   "charts": 1,
+   "follow": []
+  },
+  "prjxeng": {
+   "charts": 3,
+   "follow": []
+  },
+  "prjxfin": {
+   "charts": 2,
+   "follow": []
+  },
+  "prjxport": {
+   "charts": 4,
+   "follow": []
+  },
+  "prjxraid": {
+   "charts": 0,
+   "follow": []
+  },
+  "prjxrisk": {
+   "charts": 1,
+   "follow": []
+  },
+  "projfin": {
+   "charts": 2,
+   "follow": []
+  },
+  "projrisk": {
+   "charts": 1,
+   "follow": []
+  },
+  "qbxcashflow": {
+   "charts": 1,
+   "follow": []
+  },
+  "qbxexpenses": {
+   "charts": 1,
+   "follow": []
+  },
+  "qbxhome": {
+   "charts": 3,
+   "follow": []
+  },
+  "qbxinteg": {
+   "charts": 1,
+   "follow": []
+  },
+  "qbxspend": {
+   "charts": 1,
+   "follow": []
+  },
+  "reason": {
+   "charts": 2,
+   "follow": []
+  },
+  "recruit": {
+   "charts": 1,
+   "follow": []
+  },
+  "risk": {
+   "charts": 1,
+   "follow": []
+  },
+  "rollfc": {
+   "charts": 2,
+   "follow": []
+  },
+  "salesan": {
+   "charts": 2,
+   "follow": []
+  },
+  "salxsalesan": {
+   "charts": 2,
+   "follow": []
+  },
+  "studio": {
+   "charts": 3,
+   "follow": []
+  },
+  "supplythink": {
+   "charts": 1,
+   "follow": []
+  },
+  "talent": {
+   "charts": 1,
+   "follow": []
+  },
+  "taxxdeduct": {
+   "charts": 1,
+   "follow": []
+  }
+ }
+}

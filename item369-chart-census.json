@@ -1,0 +1,401 @@
+{
+ "instrument": "headless Chromium over every view (views.py); a chart = an SVG of at least 60x36 px in the main area, not aria-hidden, not the Bella avatar; contrast = each SVG text fill composited on the nearest opaque background via a 1-pixel canvas (reads rgb, oklch and color()); known-answer test: a planted 1.39:1 label caught, a near-white oklch label passed",
+ "live_1b28f43_or_earlier_live": {
+  "1440 m": {
+   "views": 654,
+   "skipped": 0,
+   "charts": 172,
+   "views_with_charts": 108,
+   "overflow": 0,
+   "clipped_charts": 31,
+   "tiny_charts": 1,
+   "blank": 0,
+   "contrast_floor": 5.94,
+   "labels_below_4_5": 0,
+   "hover": 172,
+   "clickable": 142,
+   "static": 0,
+   "all_zero": [
+    [
+     "bkkpauditor",
+     "Clean: $5 (100%)"
+    ],
+    [
+     "cmdxcapital",
+     "Reserve (cash): $0 (0%)"
+    ],
+    [
+     "cmdxfrontier",
+     "Drafted: 0"
+    ],
+    [
+     "erpxinvcc",
+     "Stock health: $0 (0%)"
+    ],
+    [
+     "fndxcapital",
+     "Reserve (cash): $0 (0%)"
+    ],
+    [
+     "fndxclient",
+     "Client interest first: $0 (0%)"
+    ],
+    [
+     "fndxfrontier",
+     "Drafted: 0"
+    ],
+    [
+     "fndxinvert",
+     "Invert first: $0 (0%)"
+    ],
+    [
+     "fndxtrust",
+     "Trust by design: $0 (0%)"
+    ],
+    [
+     "learnthink",
+     "Academy %: 0%"
+    ],
+    [
+     "prjxraid",
+     "Risks: $0"
+    ]
+   ],
+   "infinite_running": 17,
+   "errors": 0,
+   "colours": {
+    "rgb(233, 233, 237)": 143,
+    "oklch(0.74 0.125 158)": 96,
+    "rgb(0, 0, 0)": 85,
+    "oklch(0.8 0.135 82)": 67,
+    "oklch(0.66 0.175 26)": 61,
+    "color(srgb 0.913725 0.913725 0.929412 / 0.66)": 59,
+    "color(srgb 0.184314 0.419608 0.964706 / 0.3)": 56,
+    "rgb(47, 107, 246)": 45,
+    "rgb(210, 206, 253)": 40,
+    "rgb(130, 169, 255)": 34,
+    "color(srgb 0.913725 0.913725 0.929412 / 0.16)": 27,
+    "color(srgb 0.913725 0.913725 0.929412 / 0.14)": 22,
+    "color(srgb 0.913725 0.913725 0.929412 / 0.76)": 14,
+    "rgb(181, 171, 252)": 8,
+    "rgb(147, 151, 171)": 7,
+    "oklch(0.8 0.149 26)": 6,
+    "rgb(255, 255, 255)": 6,
+    "color(srgb 0.913725 0.913725 0.929412 / 0.18)": 5,
+    "color(srgb 0.913726 0.913726 0.929412 / 0.78)": 5,
+    "rgb(185, 140, 255)": 4,
+    "color(srgb 0.184314 0.419608 0.964706 / 0.25)": 4,
+    "rgb(41, 43, 49)": 2,
+    "rgb(231, 229, 254)": 2,
+    "color(srgb 0.568627 0.517647 0.85098 / 0.22)": 2,
+    "color(srgb 0.912971 0.707542 0.292742 / 0.18)": 2,
+    "color(srgb 0.916931 0.368507 0.339777 / 0.18)": 2,
+    "color(srgb 0.916931 0.368507 0.339777 / 0.45)": 2,
+    "color(srgb 0.362341 0.762882 0.550186 / 0.45)": 2,
+    "color(srgb 0.362341 0.762882 0.550186 / 0.18)": 2,
+    "rgb(22, 24, 38)": 2,
+    "color(srgb 0.913725 0.913725 0.929412 / 0.25)": 2,
+    "rgb(145, 132, 217)": 2,
+    "color(srgb 0.913725 0.913725 0.929412 / 0.12)": 2,
+    "color(srgb 0.913725 0.913725 0.929412 / 0.22)": 2,
+    "rgb(93, 82, 148)": 2,
+    "rgb(66, 58, 106)": 2,
+    "oklch(0.8 0.135 82 / 0.16)": 2,
+    "oklch(0.66 0.175 26 / 0.16)": 2,
+    "oklch(0.74 0.125 158 / 0.16)": 2,
+    "color(srgb 0.913725 0.913725 0.929412 / 0.08)": 1,
+    "color(srgb 0.362341 0.762882 0.550186 / 0.4)": 1,
+    "color(srgb 0.362341 0.762882 0.550186 / 0.7)": 1,
+    "color(srgb 0.913725 0.913725 0.929412 / 0.3)": 1,
+    "color(srgb 0.184314 0.419608 0.964706 / 0.18)": 1,
+    "oklch(0.78 0.106 158)": 1
+   }
+  },
+  "480 rm": {
+   "views": 654,
+   "skipped": 0,
+   "charts": 172,
+   "views_with_charts": 108,
+   "overflow": 0,
+   "clipped_charts": 33,
+   "tiny_charts": 2,
+   "blank": 0,
+   "contrast_floor": 5.94,
+   "labels_below_4_5": 0,
+   "hover": 172,
+   "clickable": 142,
+   "static": 0,
+   "all_zero": [
+    [
+     "bkkpauditor",
+     "Clean: $5 (100%)"
+    ],
+    [
+     "cmdxcapital",
+     "Reserve (cash): $0 (0%)"
+    ],
+    [
+     "cmdxfrontier",
+     "Drafted: 0"
+    ],
+    [
+     "erpxinvcc",
+     "Stock health: $0 (0%)"
+    ],
+    [
+     "fndxcapital",
+     "Reserve (cash): $0 (0%)"
+    ],
+    [
+     "fndxclient",
+     "Client interest first: $0 (0%)"
+    ],
+    [
+     "fndxfrontier",
+     "Drafted: 0"
+    ],
+    [
+     "fndxinvert",
+     "Invert first: $0 (0%)"
+    ],
+    [
+     "fndxtrust",
+     "Trust by design: $0 (0%)"
+    ],
+    [
+     "learnthink",
+     "Academy %: 0%"
+    ],
+    [
+     "prjxraid",
+     "Risks: $0"
+    ]
+   ],
+   "infinite_running": 0,
+   "errors": 0,
+   "colours": {
+    "rgb(233, 233, 237)": 143,
+    "oklch(0.74 0.125 158)": 96,
+    "rgb(0, 0, 0)": 85,
+    "oklch(0.8 0.135 82)": 67,
+    "oklch(0.66 0.175 26)": 61,
+    "color(srgb 0.913725 0.913725 0.929412 / 0.66)": 59,
+    "color(srgb 0.184314 0.419608 0.964706 / 0.3)": 56,
+    "rgb(47, 107, 246)": 45,
+    "rgb(210, 206, 253)": 40,
+    "rgb(130, 169, 255)": 34,
+    "color(srgb 0.913725 0.913725 0.929412 / 0.16)": 27,
+    "color(srgb 0.913725 0.913725 0.929412 / 0.14)": 22,
+    "color(srgb 0.913725 0.913725 0.929412 / 0.76)": 14,
+    "rgb(181, 171, 252)": 8,
+    "rgb(147, 151, 171)": 7,
+    "rgb(255, 255, 255)": 6,
+    "oklch(0.8 0.149 26)": 6,
+    "color(srgb 0.913726 0.913726 0.929412 / 0.78)": 5,
+    "color(srgb 0.913725 0.913725 0.929412 / 0.18)": 5,
+    "rgb(185, 140, 255)": 4,
+    "color(srgb 0.184314 0.419608 0.964706 / 0.25)": 4,
+    "color(srgb 0.912971 0.707542 0.292742 / 0.18)": 2,
+    "color(srgb 0.916931 0.368507 0.339777 / 0.18)": 2,
+    "color(srgb 0.916931 0.368507 0.339777 / 0.45)": 2,
+    "color(srgb 0.362341 0.762882 0.550186 / 0.45)": 2,
+    "color(srgb 0.362341 0.762882 0.550186 / 0.18)": 2,
+    "color(srgb 0.913725 0.913725 0.929412 / 0.25)": 2,
+    "rgb(145, 132, 217)": 2,
+    "color(srgb 0.913725 0.913725 0.929412 / 0.12)": 2,
+    "rgb(41, 43, 49)": 2,
+    "rgb(231, 229, 254)": 2,
+    "color(srgb 0.568627 0.517647 0.85098 / 0.22)": 2,
+    "rgb(22, 24, 38)": 2,
+    "color(srgb 0.913725 0.913725 0.929412 / 0.22)": 2,
+    "rgb(93, 82, 148)": 2,
+    "rgb(66, 58, 106)": 2,
+    "oklch(0.8 0.135 82 / 0.16)": 2,
+    "oklch(0.66 0.175 26 / 0.16)": 2,
+    "oklch(0.74 0.125 158 / 0.16)": 2,
+    "color(srgb 0.913725 0.913725 0.929412 / 0.08)": 1,
+    "color(srgb 0.362341 0.762882 0.550186 / 0.4)": 1,
+    "color(srgb 0.362341 0.762882 0.550186 / 0.7)": 1,
+    "color(srgb 0.913725 0.913725 0.929412 / 0.3)": 1,
+    "color(srgb 0.184314 0.419608 0.964706 / 0.18)": 1,
+    "oklch(0.78 0.106 158)": 1
+   }
+  }
+ },
+ "final_bytes": {
+  "1440 m": {
+   "views": 654,
+   "skipped": 0,
+   "charts": 167,
+   "views_with_charts": 106,
+   "overflow": 0,
+   "clipped_charts": 23,
+   "tiny_charts": 1,
+   "blank": 0,
+   "contrast_floor": 5.94,
+   "labels_below_4_5": 0,
+   "hover": 167,
+   "clickable": 137,
+   "static": 0,
+   "all_zero": [
+    [
+     "bkkpauditor",
+     "Clean: $5 (100%)"
+    ],
+    [
+     "cmdxcapital",
+     "Reserve (cash): $0 (0%)"
+    ],
+    [
+     "fndxcapital",
+     "Reserve (cash): $0 (0%)"
+    ],
+    [
+     "fndxclient",
+     "Client interest first: 0% (0%)"
+    ],
+    [
+     "fndxinvert",
+     "Invert first: 0% (0%)"
+    ],
+    [
+     "fndxtrust",
+     "Trust by design: 0% (0%)"
+    ]
+   ],
+   "infinite_running": 17,
+   "errors": 0,
+   "colours": {
+    "rgb(233, 233, 237)": 138,
+    "oklch(0.74 0.125 158)": 88,
+    "rgb(0, 0, 0)": 82,
+    "rgb(130, 169, 255)": 66,
+    "oklch(0.8 0.135 82)": 59,
+    "oklch(0.66 0.175 26)": 59,
+    "color(srgb 0.913725 0.913725 0.929412 / 0.66)": 58,
+    "color(srgb 0.184314 0.419608 0.964706 / 0.3)": 54,
+    "rgb(47, 107, 246)": 51,
+    "color(srgb 0.913725 0.913725 0.929412 / 0.16)": 27,
+    "color(srgb 0.913725 0.913725 0.929412 / 0.14)": 21,
+    "color(srgb 0.913725 0.913725 0.929412 / 0.76)": 14,
+    "rgb(147, 151, 171)": 7,
+    "rgb(191, 215, 255)": 6,
+    "rgb(27, 63, 191)": 6,
+    "rgb(255, 255, 255)": 6,
+    "color(srgb 0.913726 0.913726 0.929412 / 0.78)": 5,
+    "color(srgb 0.913725 0.913725 0.929412 / 0.18)": 5,
+    "oklch(0.8 0.149 26)": 4,
+    "color(srgb 0.184314 0.419608 0.964706 / 0.25)": 4,
+    "rgb(210, 206, 253)": 3,
+    "color(srgb 0.913725 0.913725 0.929412 / 0.12)": 2,
+    "rgb(41, 43, 49)": 2,
+    "color(srgb 0.184314 0.419608 0.964706 / 0.22)": 2,
+    "rgb(11, 26, 74)": 2,
+    "color(srgb 0.912971 0.707542 0.292742 / 0.18)": 2,
+    "color(srgb 0.916931 0.368507 0.339777 / 0.18)": 2,
+    "color(srgb 0.916931 0.368507 0.339777 / 0.45)": 2,
+    "color(srgb 0.362341 0.762882 0.550186 / 0.45)": 2,
+    "color(srgb 0.362341 0.762882 0.550186 / 0.18)": 2,
+    "color(srgb 0.913725 0.913725 0.929412 / 0.22)": 2,
+    "color(srgb 0.913725 0.913725 0.929412 / 0.25)": 2,
+    "rgb(22, 24, 38)": 2,
+    "oklch(0.8 0.135 82 / 0.16)": 2,
+    "oklch(0.66 0.175 26 / 0.16)": 2,
+    "oklch(0.74 0.125 158 / 0.16)": 2,
+    "oklch(0.78 0.106 158)": 1,
+    "color(srgb 0.913725 0.913725 0.929412 / 0.3)": 1,
+    "color(srgb 0.913725 0.913725 0.929412 / 0.08)": 1,
+    "color(srgb 0.362341 0.762882 0.550186 / 0.4)": 1,
+    "color(srgb 0.362341 0.762882 0.550186 / 0.7)": 1,
+    "color(srgb 0.184314 0.419608 0.964706 / 0.18)": 1
+   }
+  },
+  "480 rm": {
+   "views": 654,
+   "skipped": 0,
+   "charts": 167,
+   "views_with_charts": 106,
+   "overflow": 0,
+   "clipped_charts": 24,
+   "tiny_charts": 2,
+   "blank": 0,
+   "contrast_floor": 5.94,
+   "labels_below_4_5": 0,
+   "hover": 167,
+   "clickable": 137,
+   "static": 0,
+   "all_zero": [
+    [
+     "bkkpauditor",
+     "Clean: $5 (100%)"
+    ],
+    [
+     "cmdxcapital",
+     "Reserve (cash): $0 (0%)"
+    ],
+    [
+     "fndxcapital",
+     "Reserve (cash): $0 (0%)"
+    ],
+    [
+     "fndxclient",
+     "Client interest first: 0% (0%)"
+    ],
+    [
+     "fndxinvert",
+     "Invert first: 0% (0%)"
+    ],
+    [
+     "fndxtrust",
+     "Trust by design: 0% (0%)"
+    ]
+   ],
+   "infinite_running": 0,
+   "errors": 0,
+   "colours": {
+    "rgb(233, 233, 237)": 138,
+    "oklch(0.74 0.125 158)": 88,
+    "rgb(0, 0, 0)": 82,
+    "rgb(130, 169, 255)": 66,
+    "oklch(0.8 0.135 82)": 59,
+    "oklch(0.66 0.175 26)": 59,
+    "color(srgb 0.913725 0.913725 0.929412 / 0.66)": 58,
+    "color(srgb 0.184314 0.419608 0.964706 / 0.3)": 54,
+    "rgb(47, 107, 246)": 51,
+    "color(srgb 0.913725 0.913725 0.929412 / 0.16)": 27,
+    "color(srgb 0.913725 0.913725 0.929412 / 0.14)": 21,
+    "color(srgb 0.913725 0.913725 0.929412 / 0.76)": 14,
+    "rgb(147, 151, 171)": 7,
+    "rgb(191, 215, 255)": 6,
+    "rgb(27, 63, 191)": 6,
+    "rgb(255, 255, 255)": 6,
+    "color(srgb 0.913726 0.913726 0.929412 / 0.78)": 5,
+    "color(srgb 0.913725 0.913725 0.929412 / 0.18)": 5,
+    "oklch(0.8 0.149 26)": 4,
+    "color(srgb 0.184314 0.419608 0.964706 / 0.25)": 4,
+    "rgb(210, 206, 253)": 3,
+    "color(srgb 0.913725 0.913725 0.929412 / 0.12)": 2,
+    "rgb(41, 43, 49)": 2,
+    "color(srgb 0.184314 0.419608 0.964706 / 0.22)": 2,
+    "rgb(11, 26, 74)": 2,
+    "color(srgb 0.912971 0.707542 0.292742 / 0.18)": 2,
+    "color(srgb 0.916931 0.368507 0.339777 / 0.18)": 2,
+    "color(srgb 0.916931 0.368507 0.339777 / 0.45)": 2,
+    "color(srgb 0.362341 0.762882 0.550186 / 0.45)": 2,
+    "color(srgb 0.362341 0.762882 0.550186 / 0.18)": 2,
+    "color(srgb 0.913725 0.913725 0.929412 / 0.22)": 2,
+    "color(srgb 0.913725 0.913725 0.929412 / 0.25)": 2,
+    "rgb(22, 24, 38)": 2,
+    "oklch(0.8 0.135 82 / 0.16)": 2,
+    "oklch(0.66 0.175 26 / 0.16)": 2,
+    "oklch(0.74 0.125 158 / 0.16)": 2,
+    "oklch(0.78 0.106 158)": 1,
+    "color(srgb 0.913725 0.913725 0.929412 / 0.3)": 1,
+    "color(srgb 0.913725 0.913725 0.929412 / 0.08)": 1,
+    "color(srgb 0.362341 0.762882 0.550186 / 0.4)": 1,
+    "color(srgb 0.362341 0.762882 0.550186 / 0.7)": 1,
+    "color(srgb 0.184314 0.419608 0.964706 / 0.18)": 1
+   }
+  }
+ }
+}

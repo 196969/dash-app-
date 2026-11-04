@@ -1,0 +1,59 @@
+{
+ "item": "369",
+ "target_repository": "196969/dash-app-",
+ "branch": "branch",
+ "base": "85fff5c",
+ "date": "2026-11-04",
+ "upload": "flat, all files to the repository root; index.html first, then the item369 records, then manifest.json, then delivery-manifest.json last",
+ "files": [
+  {
+   "file": "index.html",
+   "bytes": 10940204,
+   "sha256": "75fbf0bcc760cd6ddcdcb77f2fca17d55a3ba07b124c2e08be212bb92427ccbd"
+  },
+  {
+   "file": "item369-build-record.json",
+   "bytes": 1799,
+   "sha256": "bfcaa2bdb4e478085b7ad71443f0b3652fb5d07b18e542b55d42bf19a76c74ff"
+  },
+  {
+   "file": "item369-chart-census.json",
+   "bytes": 11491,
+   "sha256": "dcb92e46ca352c2f2a1de87ae646fb585e04f96d55bc2a2d71126f2bff1d4a99"
+  },
+  {
+   "file": "item369-cut-labels.json",
+   "bytes": 19160,
+   "sha256": "b9e1ebb3c3b5d634ae2eb0f29eea77b2e551ab75c1640043dacdf4e58e3f34fc"
+  },
+  {
+   "file": "item369-founders72-verdicts.json",
+   "bytes": 27957,
+   "sha256": "3610bac1b527e1aa4af663eeb9686d5e9bcd02c14c4ca26b11edff9d028d44ac"
+  },
+  {
+   "file": "item369-proofs.json",
+   "bytes": 8968,
+   "sha256": "c25e056ec83cda0eaa5387d33bf641b4ec5c16d061e9fcbb5dc82066b925653d"
+  },
+  {
+   "file": "item369-register.json",
+   "bytes": 4544,
+   "sha256": "6c80863d56d32c23890f932c9a011cc696b3278d0f522cde0281f69cb39e1950"
+  },
+  {
+   "file": "item369-report.md",
+   "bytes": 2476,
+   "sha256": "d15e2cd4e2723b3bb21cad5768ad07e18fcb068643dbc32815b11dc2b0c99d52"
+  },
+  {
+   "file": "manifest.json",
+   "bytes": 24146,
+   "sha256": "5af4f689c6d80add211b9e8ef57fe516126c1fafd72aaeaafacedfab78ede29d"
+  },
+  {
+   "file": "delivery-manifest.json",
+   "note": "upload last"
+  }
+ ]
+}

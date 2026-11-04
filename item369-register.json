@@ -1,0 +1,67 @@
+{
+ "item": "369",
+ "date": "2026-11-03",
+ "base": "85fff5c",
+ "entries": [
+  {
+   "n": 1,
+   "what": "Charts that rendered without data",
+   "detail": "The live census found 11 charts drawing a shape for an all-zero book. Four now render Blind with the reason: stock health (erpxinvcc), the RAID mix (prjxraid), completion and adoption (learnthink), and the draft-to-done funnel (cmdxfrontier/fndxfrontier). Each is proved on the empty book, and proved derived when one record and then a second are added. The rest are decided: three lens donuts (fndxclient, fndxinvert, fndxtrust) read computed scores of 0%, a measurement rather than an absence; the Reserve (cash) donut sits in the locked Capital module; the Bookkeeping Auditor reading ($5, 100%) is an instrument false positive."
+  },
+  {
+   "n": 2,
+   "what": "A typed figure in a chart — not found",
+   "detail": "Every chart template binds its figures to a view model. No chart carries a literal figure, by a static scan of all 138 chart templates."
+  },
+  {
+   "n": 3,
+   "what": "A palette that varied by screen",
+   "detail": "The live charts used 45 distinct colours: a violet accent ramp, ten stray hexes in chart code, and violet expenditure-class and relationship-map colours. These are mapped to the brand blue ramp and the state colours. Violet remains only inside the locked founders modules."
+  },
+  {
+   "n": 4,
+   "what": "Dollars printed on counts and scores",
+   "detail": "The donut kit formats any value without its own display as money, so eight donuts holding counts or percentages read “$0”, for example “Trust by design: $0” and “Risks: $0”. Each now carries its own unit. No value changed."
+  },
+  {
+   "n": 5,
+   "what": "Instruments that cannot fail — the contrast census",
+   "detail": "The first contrast instrument parsed only rgb() colours and silently skipped every label drawn in oklch() or color(), reporting a floor it had not measured. It now reads colours through a 1-pixel canvas. Tested on a known answer: a planted 1.39:1 label caught, a near-white oklch label passed."
+  },
+  {
+   "n": 6,
+   "what": "A label drawn 874 px off its chart",
+   "detail": "The outcome-range chart placed its floor label at the floor’s y-coordinate even when the floor lay above the plotted range. The label now clamps to the range and says “above the range shown”."
+  },
+  {
+   "n": 7,
+   "what": "Held by the founders lock (September), recorded",
+   "detail": "cmdxsuper, cmdxcapital, cmdxfounders and cmdxmindset are byte-identical to live, templates and view models alike. Held: four palette replacements, the Reserve donut’s violet, and the Super lens chart’s cut labels, which also appear on fndxsuper and fndxhome."
+  },
+  {
+   "n": 8,
+   "what": "§7 — period follow, for ruling",
+   "detail": "0 of 167 charts move when the header period control switches between Today, Month and YTD (state.hdrPeriod; measured by rendering every chart view under each setting). Making them follow would change their derivations, a stop condition. Reported, not built."
+  },
+  {
+   "n": 9,
+   "what": "Not built — series toggles",
+   "detail": "The app has no series toggle anywhere. Six chart templates draw two or more series. Recorded as open."
+  },
+  {
+   "n": 10,
+   "what": "Found in passing — a negative stall count",
+   "detail": "The draft-to-done funnel labels a stage drop as “−1 stalled” when one draft has not advanced. The count is right but the sign is wrong. Fixing it changes a derived figure’s label, so it is left for ruling."
+  },
+  {
+   "n": 11,
+   "what": "The head moved three times mid-pass, and census runs were lost",
+   "detail": "Item 372, the scheduled-payables upload and Item 377 landed while this pass ran. Each time the edit script rebuilt from live and the gate re-ran (final head 1b28f43). Nine browsers holding the 10 MB app exhausted the workspace’s 4 GB and restarted it three times, so the census now runs as two processes. A padded radar frame (council radar, first try) shrank its labels below legible size on fndxhome and fndxsummit; the census caught it and the padding was narrowed."
+  },
+  {
+   "n": 12,
+   "what": "Outlook only in Dash",
+   "detail": "Two lead-screen Google search links now go to Bing. A seeded lead’s free-mail address is withheld, and one advice line no longer spells out a Gmail-domain address. “Gmail” remains as a connector product name. link-check.html, an old link-check record, still lists Google search URLs; it is a record and is left as written."
+  }
+ ]
+}

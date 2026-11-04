@@ -1,0 +1,838 @@
+{
+ "1440": {
+  "bkkpccc": [],
+  "bkkpcpa": [],
+  "cmdxfrontier": [],
+  "cmdxplatform": [],
+  "cmdxreason": [],
+  "cmdxsuper": [
+   {
+    "chart": "Super: 34%",
+    "text": "People, process, product",
+    "side": "L",
+    "by": 15,
+    "overflow": "visible",
+    "vb": "0 0 340 1820"
+   },
+   {
+    "chart": "Super: 34%",
+    "text": "Think straight, talk straight",
+    "side": "L",
+    "by": 26,
+    "overflow": "visible",
+    "vb": "0 0 340 1820"
+   },
+   {
+    "chart": "Super: 34%",
+    "text": "The experience is the product",
+    "side": "L",
+    "by": 53,
+    "overflow": "visible",
+    "vb": "0 0 340 1820"
+   },
+   {
+    "chart": "Super: 34%",
+    "text": "Sell direct, customer funds growth",
+    "side": "L",
+    "by": 93,
+    "overflow": "visible",
+    "vb": "0 0 340 1820"
+   },
+   {
+    "chart": "Super: 34%",
+    "text": "Hard roadmap, kept for years",
+    "side": "L",
+    "by": 54,
+    "overflow": "visible",
+    "vb": "0 0 340 1820"
+   },
+   {
+    "chart": "Super: 34%",
+    "text": "Serve the badly served, bet small",
+    "side": "L",
+    "by": 82,
+    "overflow": "visible",
+    "vb": "0 0 340 1820"
+   },
+   {
+    "chart": "Super: 34%",
+    "text": "Attention is the only asset",
+    "side": "L",
+    "by": 18,
+    "overflow": "visible",
+    "vb": "0 0 340 1820"
+   },
+   {
+    "chart": "Super: 34%",
+    "text": "Entered once, read everywhere",
+    "side": "L",
+    "by": 68,
+    "overflow": "visible",
+    "vb": "0 0 340 1820"
+   },
+   {
+    "chart": "Super: 34%",
+    "text": "A shipment is a document first",
+    "side": "L",
+    "by": 58,
+    "overflow": "visible",
+    "vb": "0 0 340 1820"
+   },
+   {
+    "chart": "Super: 34%",
+    "text": "Execution before preparation",
+    "side": "L",
+    "by": 49,
+    "overflow": "visible",
+    "vb": "0 0 340 1820"
+   },
+   {
+    "chart": "Super: 34%",
+    "text": "Tax position, elections, and what surviv",
+    "side": "L",
+    "by": 257,
+    "overflow": "visible",
+    "vb": "0 0 340 1820"
+   },
+   {
+    "chart": "Super: 34%",
+    "text": "The moment of truth — the encounter that",
+    "side": "L",
+    "by": 316,
+    "overflow": "visible",
+    "vb": "0 0 340 1820"
+   },
+   {
+    "chart": "Super: 34%",
+    "text": "Hiring on evidence, paying for contribut",
+    "side": "L",
+    "by": 337,
+    "overflow": "visible",
+    "vb": "0 0 340 1820"
+   },
+   {
+    "chart": "Super: 34%",
+    "text": "Whether a figure is shown honestly or me",
+    "side": "L",
+    "by": 242,
+    "overflow": "visible",
+    "vb": "0 0 340 1820"
+   },
+   {
+    "chart": "Super: 34%",
+    "text": "The last planner — whether a schedule wa",
+    "side": "L",
+    "by": 431,
+    "overflow": "visible",
+    "vb": "0 0 340 1820"
+   },
+   {
+    "chart": "Super: 34%",
+    "text": "Variation is the enemy, and the process ",
+    "side": "L",
+    "by": 270,
+    "overflow": "visible",
+    "vb": "0 0 340 1820"
+   },
+   {
+    "chart": "Super: 34%",
+    "text": "Scope, baseline and earned value — matur",
+    "side": "L",
+    "by": 290,
+    "overflow": "visible",
+    "vb": "0 0 340 1820"
+   },
+   {
+    "chart": "Super: 34%",
+    "text": "The unit must run identically without th",
+    "side": "L",
+    "by": 239,
+    "overflow": "visible",
+    "vb": "0 0 340 1820"
+   },
+   {
+    "chart": "Super: 34%",
+    "text": "Landed cost is the only cost — ocean, ai",
+    "side": "L",
+    "by": 444,
+    "overflow": "visible",
+    "vb": "0 0 340 1820"
+   },
+   {
+    "chart": "Super: 34%",
+    "text": "AI governance to a published standard, i",
+    "side": "L",
+    "by": 249,
+    "overflow": "visible",
+    "vb": "0 0 340 1820"
+   }
+  ],
+  "dash": [],
+  "dtools": [],
+  "erpxrollup": [],
+  "fndxfrontier": [],
+  "fndxhome": [
+   {
+    "chart": "Super: 34% — Emerging risk: 100% of collected revenue rides on one client.",
+    "text": "Tax position, elections, and what surviv",
+    "side": "L",
+    "by": 43,
+    "overflow": "visible",
+    "vb": "0 0 280 280"
+   },
+   {
+    "chart": "Super: 34% — Emerging risk: 100% of collected revenue rides on one client.",
+    "text": "The moment of truth — the encounter that",
+    "side": "L",
+    "by": 62,
+    "overflow": "visible",
+    "vb": "0 0 280 280"
+   },
+   {
+    "chart": "Super: 34% — Emerging risk: 100% of collected revenue rides on one client.",
+    "text": "Hiring on evidence, paying for contribut",
+    "side": "L",
+    "by": 69,
+    "overflow": "visible",
+    "vb": "0 0 280 280"
+   },
+   {
+    "chart": "Super: 34% — Emerging risk: 100% of collected revenue rides on one client.",
+    "text": "Whether a figure is shown honestly or me",
+    "side": "L",
+    "by": 44,
+    "overflow": "visible",
+    "vb": "0 0 280 280"
+   },
+   {
+    "chart": "Super: 34% — Emerging risk: 100% of collected revenue rides on one client.",
+    "text": "The last planner — whether a schedule wa",
+    "side": "L",
+    "by": 100,
+    "overflow": "visible",
+    "vb": "0 0 280 280"
+   },
+   {
+    "chart": "Super: 34% — Emerging risk: 100% of collected revenue rides on one client.",
+    "text": "Variation is the enemy, and the process ",
+    "side": "L",
+    "by": 52,
+    "overflow": "visible",
+    "vb": "0 0 280 280"
+   },
+   {
+    "chart": "Super: 34% — Emerging risk: 100% of collected revenue rides on one client.",
+    "text": "Scope, baseline and earned value — matur",
+    "side": "L",
+    "by": 54,
+    "overflow": "visible",
+    "vb": "0 0 280 280"
+   },
+   {
+    "chart": "Super: 34% — Emerging risk: 100% of collected revenue rides on one client.",
+    "text": "The unit must run identically without th",
+    "side": "L",
+    "by": 39,
+    "overflow": "visible",
+    "vb": "0 0 280 280"
+   },
+   {
+    "chart": "Super: 34% — Emerging risk: 100% of collected revenue rides on one client.",
+    "text": "Landed cost is the only cost — ocean, ai",
+    "side": "L",
+    "by": 94,
+    "overflow": "visible",
+    "vb": "0 0 280 280"
+   },
+   {
+    "chart": "Super: 34% — Emerging risk: 100% of collected revenue rides on one client.",
+    "text": "AI governance to a published standard, i",
+    "side": "L",
+    "by": 30,
+    "overflow": "visible",
+    "vb": "0 0 280 280"
+   }
+  ],
+  "fndxplatform": [],
+  "fndxsummit": [],
+  "fndxsuper": [
+   {
+    "chart": "Super: 34%",
+    "text": "People, process, product",
+    "side": "L",
+    "by": 15,
+    "overflow": "visible",
+    "vb": "0 0 340 1820"
+   },
+   {
+    "chart": "Super: 34%",
+    "text": "Think straight, talk straight",
+    "side": "L",
+    "by": 26,
+    "overflow": "visible",
+    "vb": "0 0 340 1820"
+   },
+   {
+    "chart": "Super: 34%",
+    "text": "The experience is the product",
+    "side": "L",
+    "by": 53,
+    "overflow": "visible",
+    "vb": "0 0 340 1820"
+   },
+   {
+    "chart": "Super: 34%",
+    "text": "Sell direct, customer funds growth",
+    "side": "L",
+    "by": 93,
+    "overflow": "visible",
+    "vb": "0 0 340 1820"
+   },
+   {
+    "chart": "Super: 34%",
+    "text": "Hard roadmap, kept for years",
+    "side": "L",
+    "by": 54,
+    "overflow": "visible",
+    "vb": "0 0 340 1820"
+   },
+   {
+    "chart": "Super: 34%",
+    "text": "Serve the badly served, bet small",
+    "side": "L",
+    "by": 82,
+    "overflow": "visible",
+    "vb": "0 0 340 1820"
+   },
+   {
+    "chart": "Super: 34%",
+    "text": "Attention is the only asset",
+    "side": "L",
+    "by": 18,
+    "overflow": "visible",
+    "vb": "0 0 340 1820"
+   },
+   {
+    "chart": "Super: 34%",
+    "text": "Entered once, read everywhere",
+    "side": "L",
+    "by": 68,
+    "overflow": "visible",
+    "vb": "0 0 340 1820"
+   },
+   {
+    "chart": "Super: 34%",
+    "text": "A shipment is a document first",
+    "side": "L",
+    "by": 58,
+    "overflow": "visible",
+    "vb": "0 0 340 1820"
+   },
+   {
+    "chart": "Super: 34%",
+    "text": "Execution before preparation",
+    "side": "L",
+    "by": 49,
+    "overflow": "visible",
+    "vb": "0 0 340 1820"
+   },
+   {
+    "chart": "Super: 34%",
+    "text": "Tax position, elections, and what surviv",
+    "side": "L",
+    "by": 257,
+    "overflow": "visible",
+    "vb": "0 0 340 1820"
+   },
+   {
+    "chart": "Super: 34%",
+    "text": "The moment of truth — the encounter that",
+    "side": "L",
+    "by": 316,
+    "overflow": "visible",
+    "vb": "0 0 340 1820"
+   },
+   {
+    "chart": "Super: 34%",
+    "text": "Hiring on evidence, paying for contribut",
+    "side": "L",
+    "by": 337,
+    "overflow": "visible",
+    "vb": "0 0 340 1820"
+   },
+   {
+    "chart": "Super: 34%",
+    "text": "Whether a figure is shown honestly or me",
+    "side": "L",
+    "by": 242,
+    "overflow": "visible",
+    "vb": "0 0 340 1820"
+   },
+   {
+    "chart": "Super: 34%",
+    "text": "The last planner — whether a schedule wa",
+    "side": "L",
+    "by": 431,
+    "overflow": "visible",
+    "vb": "0 0 340 1820"
+   },
+   {
+    "chart": "Super: 34%",
+    "text": "Variation is the enemy, and the process ",
+    "side": "L",
+    "by": 270,
+    "overflow": "visible",
+    "vb": "0 0 340 1820"
+   },
+   {
+    "chart": "Super: 34%",
+    "text": "Scope, baseline and earned value — matur",
+    "side": "L",
+    "by": 290,
+    "overflow": "visible",
+    "vb": "0 0 340 1820"
+   },
+   {
+    "chart": "Super: 34%",
+    "text": "The unit must run identically without th",
+    "side": "L",
+    "by": 239,
+    "overflow": "visible",
+    "vb": "0 0 340 1820"
+   },
+   {
+    "chart": "Super: 34%",
+    "text": "Landed cost is the only cost — ocean, ai",
+    "side": "L",
+    "by": 444,
+    "overflow": "visible",
+    "vb": "0 0 340 1820"
+   },
+   {
+    "chart": "Super: 34%",
+    "text": "AI governance to a published standard, i",
+    "side": "L",
+    "by": 249,
+    "overflow": "visible",
+    "vb": "0 0 340 1820"
+   }
+  ],
+  "growththink": [],
+  "prjxfin": [],
+  "projfin": [],
+  "qbxcashflow": [],
+  "qbxhome": [],
+  "reason": [],
+  "rollfc": []
+ },
+ "480": {
+  "bkkpccc": [],
+  "bkkpcpa": [],
+  "cmdxfrontier": [],
+  "cmdxplatform": [],
+  "cmdxreason": [],
+  "cmdxsuper": [
+   {
+    "chart": "Super: 34%",
+    "text": "Think straight, talk straight",
+    "side": "L",
+    "by": 22,
+    "overflow": "visible",
+    "vb": "0 0 340 1820"
+   },
+   {
+    "chart": "Super: 34%",
+    "text": "The experience is the product",
+    "side": "L",
+    "by": 41,
+    "overflow": "visible",
+    "vb": "0 0 340 1820"
+   },
+   {
+    "chart": "Super: 34%",
+    "text": "Sell direct, customer funds growth",
+    "side": "L",
+    "by": 71,
+    "overflow": "visible",
+    "vb": "0 0 340 1820"
+   },
+   {
+    "chart": "Super: 34%",
+    "text": "Hard roadmap, kept for years",
+    "side": "L",
+    "by": 40,
+    "overflow": "visible",
+    "vb": "0 0 340 1820"
+   },
+   {
+    "chart": "Super: 34%",
+    "text": "Serve the badly served, bet small",
+    "side": "L",
+    "by": 60,
+    "overflow": "visible",
+    "vb": "0 0 340 1820"
+   },
+   {
+    "chart": "Super: 34%",
+    "text": "Attention is the only asset",
+    "side": "L",
+    "by": 17,
+    "overflow": "visible",
+    "vb": "0 0 340 1820"
+   },
+   {
+    "chart": "Super: 34%",
+    "text": "Entered once, read everywhere",
+    "side": "L",
+    "by": 50,
+    "overflow": "visible",
+    "vb": "0 0 340 1820"
+   },
+   {
+    "chart": "Super: 34%",
+    "text": "A shipment is a document first",
+    "side": "L",
+    "by": 46,
+    "overflow": "visible",
+    "vb": "0 0 340 1820"
+   },
+   {
+    "chart": "Super: 34%",
+    "text": "Execution before preparation",
+    "side": "L",
+    "by": 37,
+    "overflow": "visible",
+    "vb": "0 0 340 1820"
+   },
+   {
+    "chart": "Super: 34%",
+    "text": "Tax position, elections, and what surviv",
+    "side": "L",
+    "by": 192,
+    "overflow": "visible",
+    "vb": "0 0 340 1820"
+   },
+   {
+    "chart": "Super: 34%",
+    "text": "The moment of truth — the encounter that",
+    "side": "L",
+    "by": 236,
+    "overflow": "visible",
+    "vb": "0 0 340 1820"
+   },
+   {
+    "chart": "Super: 34%",
+    "text": "Hiring on evidence, paying for contribut",
+    "side": "L",
+    "by": 254,
+    "overflow": "visible",
+    "vb": "0 0 340 1820"
+   },
+   {
+    "chart": "Super: 34%",
+    "text": "Whether a figure is shown honestly or me",
+    "side": "L",
+    "by": 185,
+    "overflow": "visible",
+    "vb": "0 0 340 1820"
+   },
+   {
+    "chart": "Super: 34%",
+    "text": "The last planner — whether a schedule wa",
+    "side": "L",
+    "by": 321,
+    "overflow": "visible",
+    "vb": "0 0 340 1820"
+   },
+   {
+    "chart": "Super: 34%",
+    "text": "Variation is the enemy, and the process ",
+    "side": "L",
+    "by": 202,
+    "overflow": "visible",
+    "vb": "0 0 340 1820"
+   },
+   {
+    "chart": "Super: 34%",
+    "text": "Scope, baseline and earned value — matur",
+    "side": "L",
+    "by": 214,
+    "overflow": "visible",
+    "vb": "0 0 340 1820"
+   },
+   {
+    "chart": "Super: 34%",
+    "text": "The unit must run identically without th",
+    "side": "L",
+    "by": 184,
+    "overflow": "visible",
+    "vb": "0 0 340 1820"
+   },
+   {
+    "chart": "Super: 34%",
+    "text": "Landed cost is the only cost — ocean, ai",
+    "side": "L",
+    "by": 329,
+    "overflow": "visible",
+    "vb": "0 0 340 1820"
+   },
+   {
+    "chart": "Super: 34%",
+    "text": "AI governance to a published standard, i",
+    "side": "L",
+    "by": 185,
+    "overflow": "visible",
+    "vb": "0 0 340 1820"
+   }
+  ],
+  "dash": [],
+  "dtools": [],
+  "erpxrollup": [],
+  "fndxfrontier": [],
+  "fndxhome": [
+   {
+    "chart": "Super: 34% — Emerging risk: 100% of collected revenue rides on one client.",
+    "text": "Tax position, elections, and what surviv",
+    "side": "L",
+    "by": 50,
+    "overflow": "visible",
+    "vb": "0 0 280 280"
+   },
+   {
+    "chart": "Super: 34% — Emerging risk: 100% of collected revenue rides on one client.",
+    "text": "The moment of truth — the encounter that",
+    "side": "L",
+    "by": 69,
+    "overflow": "visible",
+    "vb": "0 0 280 280"
+   },
+   {
+    "chart": "Super: 34% — Emerging risk: 100% of collected revenue rides on one client.",
+    "text": "Hiring on evidence, paying for contribut",
+    "side": "L",
+    "by": 76,
+    "overflow": "visible",
+    "vb": "0 0 280 280"
+   },
+   {
+    "chart": "Super: 34% — Emerging risk: 100% of collected revenue rides on one client.",
+    "text": "Whether a figure is shown honestly or me",
+    "side": "L",
+    "by": 51,
+    "overflow": "visible",
+    "vb": "0 0 280 280"
+   },
+   {
+    "chart": "Super: 34% — Emerging risk: 100% of collected revenue rides on one client.",
+    "text": "The last planner — whether a schedule wa",
+    "side": "L",
+    "by": 107,
+    "overflow": "visible",
+    "vb": "0 0 280 280"
+   },
+   {
+    "chart": "Super: 34% — Emerging risk: 100% of collected revenue rides on one client.",
+    "text": "Variation is the enemy, and the process ",
+    "side": "L",
+    "by": 59,
+    "overflow": "visible",
+    "vb": "0 0 280 280"
+   },
+   {
+    "chart": "Super: 34% — Emerging risk: 100% of collected revenue rides on one client.",
+    "text": "Scope, baseline and earned value — matur",
+    "side": "L",
+    "by": 61,
+    "overflow": "visible",
+    "vb": "0 0 280 280"
+   },
+   {
+    "chart": "Super: 34% — Emerging risk: 100% of collected revenue rides on one client.",
+    "text": "The unit must run identically without th",
+    "side": "L",
+    "by": 46,
+    "overflow": "visible",
+    "vb": "0 0 280 280"
+   },
+   {
+    "chart": "Super: 34% — Emerging risk: 100% of collected revenue rides on one client.",
+    "text": "Landed cost is the only cost — ocean, ai",
+    "side": "L",
+    "by": 101,
+    "overflow": "visible",
+    "vb": "0 0 280 280"
+   },
+   {
+    "chart": "Super: 34% — Emerging risk: 100% of collected revenue rides on one client.",
+    "text": "AI governance to a published standard, i",
+    "side": "L",
+    "by": 38,
+    "overflow": "visible",
+    "vb": "0 0 280 280"
+   }
+  ],
+  "fndxplatform": [],
+  "fndxsummit": [],
+  "fndxsuper": [
+   {
+    "chart": "Super: 34%",
+    "text": "Think straight, talk straight",
+    "side": "L",
+    "by": 22,
+    "overflow": "visible",
+    "vb": "0 0 340 1820"
+   },
+   {
+    "chart": "Super: 34%",
+    "text": "The experience is the product",
+    "side": "L",
+    "by": 41,
+    "overflow": "visible",
+    "vb": "0 0 340 1820"
+   },
+   {
+    "chart": "Super: 34%",
+    "text": "Sell direct, customer funds growth",
+    "side": "L",
+    "by": 71,
+    "overflow": "visible",
+    "vb": "0 0 340 1820"
+   },
+   {
+    "chart": "Super: 34%",
+    "text": "Hard roadmap, kept for years",
+    "side": "L",
+    "by": 40,
+    "overflow": "visible",
+    "vb": "0 0 340 1820"
+   },
+   {
+    "chart": "Super: 34%",
+    "text": "Serve the badly served, bet small",
+    "side": "L",
+    "by": 60,
+    "overflow": "visible",
+    "vb": "0 0 340 1820"
+   },
+   {
+    "chart": "Super: 34%",
+    "text": "Attention is the only asset",
+    "side": "L",
+    "by": 17,
+    "overflow": "visible",
+    "vb": "0 0 340 1820"
+   },
+   {
+    "chart": "Super: 34%",
+    "text": "Entered once, read everywhere",
+    "side": "L",
+    "by": 50,
+    "overflow": "visible",
+    "vb": "0 0 340 1820"
+   },
+   {
+    "chart": "Super: 34%",
+    "text": "A shipment is a document first",
+    "side": "L",
+    "by": 46,
+    "overflow": "visible",
+    "vb": "0 0 340 1820"
+   },
+   {
+    "chart": "Super: 34%",
+    "text": "Execution before preparation",
+    "side": "L",
+    "by": 37,
+    "overflow": "visible",
+    "vb": "0 0 340 1820"
+   },
+   {
+    "chart": "Super: 34%",
+    "text": "Tax position, elections, and what surviv",
+    "side": "L",
+    "by": 192,
+    "overflow": "visible",
+    "vb": "0 0 340 1820"
+   },
+   {
+    "chart": "Super: 34%",
+    "text": "The moment of truth — the encounter that",
+    "side": "L",
+    "by": 236,
+    "overflow": "visible",
+    "vb": "0 0 340 1820"
+   },
+   {
+    "chart": "Super: 34%",
+    "text": "Hiring on evidence, paying for contribut",
+    "side": "L",
+    "by": 254,
+    "overflow": "visible",
+    "vb": "0 0 340 1820"
+   },
+   {
+    "chart": "Super: 34%",
+    "text": "Whether a figure is shown honestly or me",
+    "side": "L",
+    "by": 185,
+    "overflow": "visible",
+    "vb": "0 0 340 1820"
+   },
+   {
+    "chart": "Super: 34%",
+    "text": "The last planner — whether a schedule wa",
+    "side": "L",
+    "by": 321,
+    "overflow": "visible",
+    "vb": "0 0 340 1820"
+   },
+   {
+    "chart": "Super: 34%",
+    "text": "Variation is the enemy, and the process ",
+    "side": "L",
+    "by": 202,
+    "overflow": "visible",
+    "vb": "0 0 340 1820"
+   },
+   {
+    "chart": "Super: 34%",
+    "text": "Scope, baseline and earned value — matur",
+    "side": "L",
+    "by": 214,
+    "overflow": "visible",
+    "vb": "0 0 340 1820"
+   },
+   {
+    "chart": "Super: 34%",
+    "text": "The unit must run identically without th",
+    "side": "L",
+    "by": 184,
+    "overflow": "visible",
+    "vb": "0 0 340 1820"
+   },
+   {
+    "chart": "Super: 34%",
+    "text": "Landed cost is the only cost — ocean, ai",
+    "side": "L",
+    "by": 329,
+    "overflow": "visible",
+    "vb": "0 0 340 1820"
+   },
+   {
+    "chart": "Super: 34%",
+    "text": "AI governance to a published standard, i",
+    "side": "L",
+    "by": 185,
+    "overflow": "visible",
+    "vb": "0 0 340 1820"
+   }
+  ],
+  "growththink": [],
+  "prjxfin": [],
+  "projfin": [],
+  "qbxcashflow": [],
+  "qbxhome": [],
+  "reason": [],
+  "rollfc": []
+ }
+}

@@ -1,0 +1,203 @@
+{
+ "gate": {
+  "head": "85fff5c",
+  "files": 160,
+  "agree": 160,
+  "method": "raw (pinned to head) plus fresh clone; per file length, git blob, SHA-256"
+ },
+ "edits": [
+  [
+   "E1 overflow",
+   1
+  ],
+  [
+   "E2 bars room",
+   1
+  ],
+  [
+   "E4 one-way",
+   1
+  ],
+  [
+   "E4 raid",
+   1
+  ],
+  [
+   "E4 raid",
+   1
+  ],
+  [
+   "E4 raid",
+   1
+  ],
+  [
+   "E4 raid",
+   1
+  ],
+  [
+   "E4 lens",
+   1
+  ],
+  [
+   "E4 stock counts",
+   1
+  ],
+  [
+   "E4 stock health",
+   1
+  ],
+  [
+   "E4 stock gap",
+   1
+  ],
+  [
+   "E4 proj health",
+   1
+  ],
+  [
+   "E4 proj gap",
+   1
+  ],
+  [
+   "E4 grounded",
+   1
+  ],
+  [
+   "E4 docs",
+   1
+  ],
+  [
+   "E5 RAG ink",
+   1
+  ],
+  [
+   "E5 accent series",
+   10
+  ],
+  [
+   "E5 #22B07D",
+   23
+  ],
+  [
+   "E5 #2e9e63",
+   1
+  ],
+  [
+   "E5 #D9534F",
+   11
+  ],
+  [
+   "E5 #e0304a",
+   1
+  ],
+  [
+   "E5 #ff7a5c",
+   1
+  ],
+  [
+   "E5 #E0A32E",
+   10
+  ],
+  [
+   "E5 #c9a227",
+   1
+  ],
+  [
+   "E5 #9AA0A6",
+   0
+  ],
+  [
+   "E5 #9184d9",
+   1
+  ],
+  [
+   "E5 #796cbf",
+   1
+  ],
+  [
+   "E5 flow",
+   1
+  ],
+  [
+   "E6 floor clamp",
+   1
+  ],
+  [
+   "E6 floor label",
+   1
+  ],
+  [
+   "E7 learn flags",
+   1
+  ],
+  [
+   "E7 frontier flag",
+   1
+  ],
+  [
+   "E7 stock gauge",
+   1
+  ],
+  [
+   "E7 raid donut",
+   1
+  ],
+  [
+   "E7 adoption",
+   1
+  ],
+  [
+   "E7 frontier funnel",
+   1
+  ],
+  [
+   "E9 svg accent to blue",
+   49
+  ],
+  [
+   "E10 class colours",
+   1
+  ],
+  [
+   "E10 rel edge",
+   1
+  ],
+  [
+   "E10 rel fill",
+   1
+  ],
+  [
+   "E11 radar vb",
+   1
+  ],
+  [
+   "E11 skills vb",
+   1
+  ],
+  [
+   "E11 radar tpl",
+   2
+  ],
+  [
+   "E11 skills tpl",
+   3
+  ],
+  [
+   "E8 bing",
+   2
+  ],
+  [
+   "E8 address",
+   1
+  ],
+  [
+   "E8 advice",
+   1
+  ]
+ ],
+ "held_by_founders_lock": {
+  "cmdCapitalVM": 1,
+  "superVM": 2,
+  "foundersVerdictVM": 1
+ }
+}

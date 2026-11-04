@@ -157,6 +157,10 @@
       "sha256": "f6b1a16179eb11917fce2b4836978a6ae5a281bff8f3860ccf0830b3a6c2412a",
       "size": 13405
     },
+    "dash-rebaseline-report.md": {
+      "sha256": "d3b80ce88b4e438d97f9632244db1f8b54bb54a7f724c9b947a7f2520db4afdc",
+      "size": 3215
+    },
     "dashboards.html": {
       "sha256": "b06a6cfbbe77ecacd473aacaaebaa0bf232ff7966490dd2f95d3ac4d508b9d8f",
       "size": 134883
@@ -402,8 +406,36 @@
       "size": 4929
     },
     "index.html": {
-      "sha256": "f687f4780f60ddce4cd21e18e49c9a9fbc7b5366b4fb71a9293b536d3d05e8fa",
-      "size": 10937639
+      "sha256": "75fbf0bcc760cd6ddcdcb77f2fca17d55a3ba07b124c2e08be212bb92427ccbd",
+      "size": 10940204
+    },
+    "item369-build-record.json": {
+      "sha256": "bfcaa2bdb4e478085b7ad71443f0b3652fb5d07b18e542b55d42bf19a76c74ff",
+      "size": 1799
+    },
+    "item369-chart-census.json": {
+      "sha256": "dcb92e46ca352c2f2a1de87ae646fb585e04f96d55bc2a2d71126f2bff1d4a99",
+      "size": 11491
+    },
+    "item369-cut-labels.json": {
+      "sha256": "b9e1ebb3c3b5d634ae2eb0f29eea77b2e551ab75c1640043dacdf4e58e3f34fc",
+      "size": 19160
+    },
+    "item369-founders72-verdicts.json": {
+      "sha256": "3610bac1b527e1aa4af663eeb9686d5e9bcd02c14c4ca26b11edff9d028d44ac",
+      "size": 27957
+    },
+    "item369-proofs.json": {
+      "sha256": "c25e056ec83cda0eaa5387d33bf641b4ec5c16d061e9fcbb5dc82066b925653d",
+      "size": 8968
+    },
+    "item369-register.json": {
+      "sha256": "6c80863d56d32c23890f932c9a011cc696b3278d0f522cde0281f69cb39e1950",
+      "size": 4544
+    },
+    "item369-report.md": {
+      "sha256": "d15e2cd4e2723b3bb21cad5768ad07e18fcb068643dbc32815b11dc2b0c99d52",
+      "size": 2476
     },
     "link-check.html": {
       "sha256": "c971bd0cec0d69f33ac980e1d2e770a2a7a22d867b5387eab97c5198d0ca9c46",
@@ -634,7 +666,7 @@
       "size": 5344
     }
   },
-  "pass": "Item 377 \u00b7 the commitments chart, both bars \u00b7 4 Nov 2026",
+  "pass": "Item 369 \u00b7 the CRM visual layer, to standard \u00b7 4 Nov 2026",
   "repo": "196969/dash-app-",
-  "written": "2026-11-04 02:18:52 UTC"
+  "written": "2026-11-04 03:26:09 UTC"
 }
