@@ -398,8 +398,8 @@
       "size": 2778321
     },
     "gate.py": {
-      "sha256": "e4e2fc44003bfe23f0ebf0386c21e2bd75f40f4cd9b34cf29dc1370b1c5c6007",
-      "size": 10138
+      "sha256": "57946f980963ed38f136cc056ea23e7cb907abb1a93ac0957f94af366357befb",
+      "size": 12700
     },
     "gen_fc_figures.py": {
       "sha256": "fdb967cceffa31b049502fa5cc331f0190474c0308f9f7eec6b6174eaa5d7d3f",
@@ -670,7 +670,7 @@
       "size": 5344
     }
   },
-  "pass": "Item 402 \u00b7 Senses re-homed as a Brain tab; apps.html and the launcher map read from the registry \u00b7 5 Nov 2026",
+  "pass": "Item 403 \u00b7 gate.py compares the registry with apps.html (cards and count line) and fails by name \u00b7 5 Nov 2026",
   "repo": "196969/dash-app-",
-  "written": "2026-11-05 23:15:30 UTC"
+  "written": "2026-11-05 23:23:37 UTC"
 }
