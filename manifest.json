@@ -406,8 +406,8 @@
       "size": 4929
     },
     "index.html": {
-      "sha256": "efcfe7d503b4d0b827e467c58375bb05383a7909c6a92a741625e5a8aad11093",
-      "size": 10952622
+      "sha256": "5b9f4486617cc84e4ebc35b774a05476caadc390a874739ef305b32593b5f5a4",
+      "size": 10955137
     },
     "item369-build-record.json": {
       "sha256": "bfcaa2bdb4e478085b7ad71443f0b3652fb5d07b18e542b55d42bf19a76c74ff",
@@ -666,7 +666,7 @@
       "size": 5344
     }
   },
-  "pass": "Item 399 \u00b7 Evidence labels (Boies, Tweedie) and gate.py amended to raw plus fresh clone \u00b7 5 Nov 2026",
+  "pass": "Item 396 \u00b7 Standing Work records its opening time; watch age measures opening, not continuous evaluation \u00b7 5 Nov 2026",
   "repo": "196969/dash-app-",
-  "written": "2026-11-05 21:33:45 UTC"
+  "written": "2026-11-05 22:43:46 UTC"
 }
