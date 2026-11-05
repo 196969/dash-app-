@@ -394,8 +394,8 @@
       "size": 2778321
     },
     "gate.py": {
-      "sha256": "a9ae4df1fcef987d87f70be4ad9ae4b4c1a50825a37b7b9d8185f3fa20f54289",
-      "size": 7892
+      "sha256": "e4e2fc44003bfe23f0ebf0386c21e2bd75f40f4cd9b34cf29dc1370b1c5c6007",
+      "size": 10138
     },
     "gen_fc_figures.py": {
       "sha256": "fdb967cceffa31b049502fa5cc331f0190474c0308f9f7eec6b6174eaa5d7d3f",
@@ -406,8 +406,8 @@
       "size": 4929
     },
     "index.html": {
-      "sha256": "516a4f0e54aead51bb5326fd17ebba97844ae4ef4f90ba78c74843b180972784",
-      "size": 10951655
+      "sha256": "efcfe7d503b4d0b827e467c58375bb05383a7909c6a92a741625e5a8aad11093",
+      "size": 10952622
     },
     "item369-build-record.json": {
       "sha256": "bfcaa2bdb4e478085b7ad71443f0b3652fb5d07b18e542b55d42bf19a76c74ff",
@@ -666,7 +666,7 @@
       "size": 5344
     }
   },
-  "pass": "Item 397 \u00b7 Mentorship honest screens \u00b7 Fifth edition rev 4 Part C \u00b7 5 Nov 2026",
+  "pass": "Item 399 \u00b7 Evidence labels (Boies, Tweedie) and gate.py amended to raw plus fresh clone \u00b7 5 Nov 2026",
   "repo": "196969/dash-app-",
-  "written": "2026-11-05 20:27:21 UTC"
+  "written": "2026-11-05 21:33:45 UTC"
 }
