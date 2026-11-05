@@ -9,15 +9,18 @@ Compares what was delivered against what is live, with no hand-typed figures in 
 
 The manifest lists every delivered file with its SHA-256 and size. It cannot list its own hash
 (writing the hash would change the file), so its form is validated instead: a missing or malformed
-manifest fails. Live files are read from the raw address with a cache-buster; GitHub's contents API
-is asked once, through the git-trees endpoint, for every file's git object hash as a second source
-(one call per check, inside the 60-an-hour unauthenticated cap). The tree must come back complete
-(truncated false) and list every manifest file. If the API refuses or the tree is partial, the check
-reports GATE INCOMPLETE and exits 2: a single-source result is never reported as a pass. Set
-GITHUB_TOKEN for the higher limit. Exits 1 on any mismatch, missing file, invalid manifest, unreadable
-source, or disagreement between sources. Exits 0 only when every listed file matches on both sources.
+manifest fails. Gate definition (amended 5 Nov 2026, Item 399): the two sources are the raw address,
+read with a cache-buster, and a fresh shallow git clone of the branch into a temporary folder. GATE
+PASSED means the raw and clone copies of manifest.json are byte-identical and every manifest file
+matches on both. The limit is always printed beside the result: both reads leave this machine on one
+network path, so they are independent of each other's cache, not of the path. GitHub's contents API
+(git-trees endpoint) is still consulted once. When it answers it must agree, or the gate fails; when it
+refuses, the refusal is reported as a limit, not a failure. Set GITHUB_TOKEN for the higher limit. If
+the clone cannot be made, only one source exists: GATE INCOMPLETE, exit 2, never a pass. Exits 1 on
+any mismatch, missing file, invalid manifest, unreadable source, or disagreement between sources.
+Exits 0 only when every listed file matches on raw and clone.
 """
-import hashlib, json, os, re, sys, time, urllib.request, urllib.error, urllib.parse
+import hashlib, json, os, re, shutil, subprocess, sys, tempfile, time, urllib.request, urllib.error, urllib.parse
 
 REPO, BRANCH = '196969/dash-app-', 'branch'
 
@@ -49,6 +52,18 @@ def api_tree():
         return None, None, re.sub(r' for [0-9a-fA-F.:]+\.?', '', f'HTTP {e.code} {msg[:70]}').strip()
     except Exception as e:
         return None, None, str(e)[:80]
+
+
+def fresh_clone():
+    """Source two: a fresh shallow clone of the branch. Returns (folder, head short sha, None) or (None, None, reason)."""
+    d = tempfile.mkdtemp(prefix='gate-clone-')
+    try:
+        subprocess.run(['git', 'clone', '-q', '--depth', '1', '--branch', BRANCH, f'https://github.com/{REPO}.git', d], check=True, capture_output=True, timeout=600)
+        head = subprocess.run(['git', '-C', d, 'rev-parse', '--short', 'HEAD'], check=True, capture_output=True, text=True).stdout.strip()
+        return d, head, None
+    except Exception as e:
+        shutil.rmtree(d, ignore_errors=True)
+        return None, None, (getattr(e, 'stderr', b'') or b'').decode(errors='replace')[:80] or str(e)[:80]
 
 
 def valid_manifest(m):
@@ -91,9 +106,17 @@ def check(args):
     print(f'manifest: {src} | pass {m.get("pass") or "(unlabelled)"} | written {m.get("written", "?")} | {len(m["files"])} file(s)')
     fails = []
     tree = tree_sha = why = None
+    clone = head = cwhy = None
     if not local:
         tree, tree_sha, why = api_tree()
-        print(f'  API trees: ' + (f'tree {tree_sha[:8]}, {len(tree)} blob(s), truncated false' if tree is not None else f'refused ({why})'))
+        print(f'  API trees: ' + (f'tree {tree_sha[:8]}, {len(tree)} blob(s), truncated false' if tree is not None else f'refused ({why}) - reported as a limit, not a failure'))
+        if not mpath:
+            clone, head, cwhy = fresh_clone()
+            print(f'  Clone: ' + (f'fresh shallow clone, head {head}' if clone else f'could not be made ({cwhy})'))
+            if clone:
+                try: cm = open(os.path.join(clone, 'manifest.json'), 'rb').read()
+                except Exception: cm = None
+                if cm != mtxt: fails.append('manifest.json: the raw and clone copies differ')
     for name, want in sorted(m['files'].items()):
         try: b = open(os.path.join(local, name), 'rb').read() if local else raw(name)
         except Exception as e: fails.append(f'{name}: not readable ({str(e)[:60]})'); print(f'  MISSING  {name}'); continue
@@ -101,17 +124,28 @@ def check(args):
         where = 'in folder' if local else 'live'
         line = f'  {"OK      " if ok else "MISMATCH"} {name}  {where} {got[:16]}... {len(b)} bytes'
         if not ok: line += f'  | delivered {want["sha256"][:16]}... {want["size"]} bytes'; fails.append(f'{name}: {where} copy does not match delivered')
+        if clone:
+            try: cb = open(os.path.join(clone, name), 'rb').read()
+            except Exception: cb = None
+            if cb is None: fails.append(f'{name}: absent from the fresh clone'); line += '  | clone: ABSENT'
+            elif sha256(cb) != got: fails.append(f'{name}: the raw address and the clone disagree'); line += '  | clone: DISAGREES'
+            else: line += '  | clone: agrees'
         if not local and tree is not None:
             a = tree.get(name)
             if a is None: fails.append(f'{name}: listed in the manifest but absent from the API tree'); line += '  | API: ABSENT from tree'
             elif a != gitsha(b): fails.append(f'{name}: the raw address and the API disagree; the raw copy may be stale'); line = line.replace('  OK       ', '  DISAGREE ', 1) + '  | API: DISAGREES with the raw bytes'
             else: line += '  | API: agrees'
         print(line)
+    if clone: shutil.rmtree(clone, ignore_errors=True)
     if fails: print(f'GATE FAILED: {len(fails)} problem(s):'); [print('  - ' + f) for f in fails]; return 1
-    if not local and tree is None:
-        print(f'GATE INCOMPLETE: all {len(m["files"])} file(s) match on the raw address, but the API trees source did not answer ({why}). Single source only: not a pass. Re-run when the API answers.'); return 2
-    if fails: print(f'GATE FAILED: {len(fails)} problem(s):'); [print('  - ' + f) for f in fails]; return 1
-    print(f'GATE PASSED: all {len(m["files"])} delivered file(s) match ' + (f'the files in {local}' if local else f'what is live on {REPO}@{BRANCH}, two sources: raw + API trees ({tree_sha[:8]})')); return 0
+    if local:
+        print(f'GATE PASSED: all {len(m["files"])} delivered file(s) match the files in {local}'); return 0
+    if not clone and tree is None:
+        print(f'GATE INCOMPLETE: all {len(m["files"])} file(s) match on the raw address, but no second source answered (clone: {cwhy or "not attempted"}; API: {why}). Single source only: not a pass.'); return 2
+    second = f'fresh clone (head {head})' if clone else f'API trees ({tree_sha[:8]})'
+    api = f'API trees agrees ({tree_sha[:8]})' if tree is not None else f'API trees refused ({why})'
+    print(f'GATE PASSED: all {len(m["files"])} delivered file(s) match what is live on {REPO}@{BRANCH}, two sources: raw + {second}.')
+    print(f'  LIMIT: both reads leave this machine on one network path; independent of each other\'s cache, not of the path. {api}.'); return 0
 
 
 if __name__ == '__main__':
