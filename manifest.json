@@ -406,8 +406,8 @@
       "size": 4929
     },
     "index.html": {
-      "sha256": "8ab8b0b3eac81d2dfd750635ebcaf881c0eefc2c6986694fc35b5251f8fc409e",
-      "size": 10939575
+      "sha256": "b77209535601aba97d226d31b84234a7b00a5f14d5879645e027fdab738e314a",
+      "size": 10939742
     },
     "item369-build-record.json": {
       "sha256": "bfcaa2bdb4e478085b7ad71443f0b3652fb5d07b18e542b55d42bf19a76c74ff",
@@ -666,7 +666,7 @@
       "size": 5344
     }
   },
-  "pass": "Item 393 Parts A and B \u00b7 home panels removed, Target note \u00b7 5 Nov 2026",
+  "pass": "Item 393 Part C \u00b7 Open AR direction flag \u00b7 5 Nov 2026",
   "repo": "196969/dash-app-",
-  "written": "2026-11-05 14:07:35 UTC"
+  "written": "2026-11-05 17:32:18 UTC"
 }
