@@ -406,8 +406,8 @@
       "size": 4929
     },
     "index.html": {
-      "sha256": "4e33b2dc52a50046a4658d73a1def926ae28a2009c7fada6a3997d2e7ea31e9e",
-      "size": 10942073
+      "sha256": "1a773157f1733d8b791e451a1df3c54f3582e8631c72391184e77914e281e1c2",
+      "size": 10944441
     },
     "item369-build-record.json": {
       "sha256": "bfcaa2bdb4e478085b7ad71443f0b3652fb5d07b18e542b55d42bf19a76c74ff",
@@ -666,7 +666,7 @@
       "size": 5344
     }
   },
-  "pass": "Item 386 \u00b7 Growth body cleanup \u00b7 5 Nov 2026",
+  "pass": "Item 387 \u00b7 weekly outreach cadence re-homed \u00b7 5 Nov 2026",
   "repo": "196969/dash-app-",
-  "written": "2026-11-05 01:46:42 UTC"
+  "written": "2026-11-05 03:04:47 UTC"
 }
