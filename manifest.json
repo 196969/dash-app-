@@ -406,8 +406,8 @@
       "size": 4929
     },
     "index.html": {
-      "sha256": "bc6539cfd952ce5e9df4fef7a44d392ee56e63b4dd71d85dd718b48dbf723ba7",
-      "size": 10945614
+      "sha256": "8ab8b0b3eac81d2dfd750635ebcaf881c0eefc2c6986694fc35b5251f8fc409e",
+      "size": 10939575
     },
     "item369-build-record.json": {
       "sha256": "bfcaa2bdb4e478085b7ad71443f0b3652fb5d07b18e542b55d42bf19a76c74ff",
@@ -666,7 +666,7 @@
       "size": 5344
     }
   },
-  "pass": "Item 390 follow-up \u00b7 descriptions, honest zeros, Target column \u00b7 5 Nov 2026",
+  "pass": "Item 393 Parts A and B \u00b7 home panels removed, Target note \u00b7 5 Nov 2026",
   "repo": "196969/dash-app-",
-  "written": "2026-11-05 11:27:34 UTC"
+  "written": "2026-11-05 14:07:35 UTC"
 }
