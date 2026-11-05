@@ -101,6 +101,10 @@
       "sha256": "11a3e7169ee3e7d8f8c4a31fd1b5178d4ba53a30089a1e020f7a5dfcb6b55f1d",
       "size": 6256
     },
+    "app-mentorship.html": {
+      "sha256": "1c551766f686864e63da403b610c2764ddf468dd1ea5f2c382f6bccd5d56666f",
+      "size": 3229
+    },
     "app-offerings.html": {
       "sha256": "c5a180f3f035f2c6ae714f02f70966e08cdededc29503c0e2051f25f850c2cc5",
       "size": 12957
@@ -122,8 +126,8 @@
       "size": 6572
     },
     "apps.html": {
-      "sha256": "43656f4d61852d4d61255003da4269879e5623db412a9351d6c31b1f88219a47",
-      "size": 4093
+      "sha256": "fb108c942aa21d631d1fef3610d3b472ebb13c5aabbefe623724ecd45ad24ccb",
+      "size": 4268
     },
     "battery/battery.py": {
       "sha256": "186ec4c9e6d0d136cba5f82e684a30d42d1a410986c85765f8991d15716bacdb",
@@ -406,8 +410,8 @@
       "size": 4929
     },
     "index.html": {
-      "sha256": "5b9f4486617cc84e4ebc35b774a05476caadc390a874739ef305b32593b5f5a4",
-      "size": 10955137
+      "sha256": "386857a6062059f729bacf37c7d8d0ecfe46c1242cf58887e98575cbe44202d7",
+      "size": 10954145
     },
     "item369-build-record.json": {
       "sha256": "bfcaa2bdb4e478085b7ad71443f0b3652fb5d07b18e542b55d42bf19a76c74ff",
@@ -666,7 +670,7 @@
       "size": 5344
     }
   },
-  "pass": "Item 396 \u00b7 Standing Work records its opening time; watch age measures opening, not continuous evaluation \u00b7 5 Nov 2026",
+  "pass": "Item 396R + 401 + 388 \u00b7 watch age reads viewLast (zero added writes); Dash Mentorship registered as a standalone; 388 measured \u00b7 5 Nov 2026",
   "repo": "196969/dash-app-",
-  "written": "2026-11-05 22:43:46 UTC"
+  "written": "2026-11-05 23:06:08 UTC"
 }
