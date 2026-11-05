@@ -406,8 +406,8 @@
       "size": 4929
     },
     "index.html": {
-      "sha256": "522e793f07326526d3a90365f74a7adc0f4dabcea741a616501908e39f87d035",
-      "size": 10945667
+      "sha256": "4e33b2dc52a50046a4658d73a1def926ae28a2009c7fada6a3997d2e7ea31e9e",
+      "size": 10942073
     },
     "item369-build-record.json": {
       "sha256": "bfcaa2bdb4e478085b7ad71443f0b3652fb5d07b18e542b55d42bf19a76c74ff",
@@ -666,7 +666,7 @@
       "size": 5344
     }
   },
-  "pass": "Item 385 \u00b7 one resolver for closeTasks[].done \u00b7 5 Nov 2026",
+  "pass": "Item 386 \u00b7 Growth body cleanup \u00b7 5 Nov 2026",
   "repo": "196969/dash-app-",
-  "written": "2026-11-05 00:36:10 UTC"
+  "written": "2026-11-05 01:46:42 UTC"
 }
