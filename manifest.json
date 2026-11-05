@@ -126,8 +126,8 @@
       "size": 6572
     },
     "apps.html": {
-      "sha256": "fb108c942aa21d631d1fef3610d3b472ebb13c5aabbefe623724ecd45ad24ccb",
-      "size": 4268
+      "sha256": "e3a36153bebd0215ac327e8e58b35b6ca30b087b28f54c7f1beec290acfa9a0c",
+      "size": 4110
     },
     "battery/battery.py": {
       "sha256": "186ec4c9e6d0d136cba5f82e684a30d42d1a410986c85765f8991d15716bacdb",
@@ -410,8 +410,8 @@
       "size": 4929
     },
     "index.html": {
-      "sha256": "386857a6062059f729bacf37c7d8d0ecfe46c1242cf58887e98575cbe44202d7",
-      "size": 10954145
+      "sha256": "f4a157a17dc3ec56973da77c4bfabd03ff3c4c91f6003b213ce40f334bb4a69c",
+      "size": 10954018
     },
     "item369-build-record.json": {
       "sha256": "bfcaa2bdb4e478085b7ad71443f0b3652fb5d07b18e542b55d42bf19a76c74ff",
@@ -670,7 +670,7 @@
       "size": 5344
     }
   },
-  "pass": "Item 396R + 401 + 388 \u00b7 watch age reads viewLast (zero added writes); Dash Mentorship registered as a standalone; 388 measured \u00b7 5 Nov 2026",
+  "pass": "Item 402 \u00b7 Senses re-homed as a Brain tab; apps.html and the launcher map read from the registry \u00b7 5 Nov 2026",
   "repo": "196969/dash-app-",
-  "written": "2026-11-05 23:06:08 UTC"
+  "written": "2026-11-05 23:15:30 UTC"
 }
