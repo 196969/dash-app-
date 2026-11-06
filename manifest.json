@@ -78,8 +78,8 @@
       "size": 6937
     },
     "app-compliance.html": {
-      "sha256": "a82fe9a094029f6ad067a27dd57d0fcc2c196ab08165fc7f3859de99b207d2b6",
-      "size": 6275
+      "sha256": "f820eb220907c3fc2372d72b02fa87f993b482ab2d2ccf351dc3571e61d29d45",
+      "size": 621
     },
     "app-connectors.html": {
       "sha256": "7f7b8fa6edb6eadcd922536c851a7a51fd5a9ecc2ccbb90828527cf65b65409b",
@@ -101,13 +101,17 @@
       "sha256": "11a3e7169ee3e7d8f8c4a31fd1b5178d4ba53a30089a1e020f7a5dfcb6b55f1d",
       "size": 6256
     },
+    "app-legal.html": {
+      "sha256": "2ddaa3bf22e6f88547caa1a9df4c929bbfe012aee123938f532df3fc7fb86ffd",
+      "size": 6265
+    },
     "app-mentorship.html": {
       "sha256": "1c551766f686864e63da403b610c2764ddf468dd1ea5f2c382f6bccd5d56666f",
       "size": 3229
     },
     "app-offerings.html": {
-      "sha256": "c5a180f3f035f2c6ae714f02f70966e08cdededc29503c0e2051f25f850c2cc5",
-      "size": 12957
+      "sha256": "44f35271385cbef3a2ce44c0c849dc456f560a854c2bb295e7df9a13c8d7466f",
+      "size": 12965
     },
     "app-one.html": {
       "sha256": "7323bd14914ee54b6f978d3ef6907b49d046149c8c5d40ab387b4876c3e35b8b",
@@ -126,8 +130,8 @@
       "size": 6572
     },
     "apps.html": {
-      "sha256": "e3a36153bebd0215ac327e8e58b35b6ca30b087b28f54c7f1beec290acfa9a0c",
-      "size": 4110
+      "sha256": "e9c8f898cc050c0de77fe212c5122259e78d18d00286f918a9360bc63e57ae02",
+      "size": 4105
     },
     "battery/battery.py": {
       "sha256": "186ec4c9e6d0d136cba5f82e684a30d42d1a410986c85765f8991d15716bacdb",
@@ -410,8 +414,8 @@
       "size": 4929
     },
     "index.html": {
-      "sha256": "f4a157a17dc3ec56973da77c4bfabd03ff3c4c91f6003b213ce40f334bb4a69c",
-      "size": 10954018
+      "sha256": "3682e5caa319ed03af14fbce4f5f1beb1264d02e57c8e72f15f355b4224a7aea",
+      "size": 10954184
     },
     "item369-build-record.json": {
       "sha256": "bfcaa2bdb4e478085b7ad71443f0b3652fb5d07b18e542b55d42bf19a76c74ff",
@@ -670,7 +674,7 @@
       "size": 5344
     }
   },
-  "pass": "Item 403 \u00b7 gate.py compares the registry with apps.html (cards and count line) and fails by name \u00b7 5 Nov 2026",
+  "pass": "Item 404 \u00b7 writes line names all thirteen navigation writes; Dash Legal and Dash Offerings pages match the registry \u00b7 6 Nov 2026",
   "repo": "196969/dash-app-",
-  "written": "2026-11-05 23:23:37 UTC"
+  "written": "2026-11-06 02:06:06 UTC"
 }
