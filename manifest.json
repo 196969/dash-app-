@@ -130,8 +130,8 @@
       "size": 6572
     },
     "apps.html": {
-      "sha256": "e9c8f898cc050c0de77fe212c5122259e78d18d00286f918a9360bc63e57ae02",
-      "size": 4105
+      "sha256": "532d89ad0c3cc1a0cb5185c8cdcb6ff19751e1af3a1add2b7dcf624cc7625c53",
+      "size": 4193
     },
     "battery/battery.py": {
       "sha256": "186ec4c9e6d0d136cba5f82e684a30d42d1a410986c85765f8991d15716bacdb",
@@ -402,8 +402,8 @@
       "size": 2778321
     },
     "gate.py": {
-      "sha256": "3c8dcad8399edcefec99a84679ac170653db02e7f10b60a2dd4d22b93836a4b1",
-      "size": 23406
+      "sha256": "d6bfa88b04d9ad72b755ac65d95f3d17e3c5660e6d1746cb5951ab5afc8e9994",
+      "size": 24819
     },
     "gen_fc_figures.py": {
       "sha256": "fdb967cceffa31b049502fa5cc331f0190474c0308f9f7eec6b6174eaa5d7d3f",
@@ -412,6 +412,10 @@
     "gen_ft_figures.py": {
       "sha256": "c8aaea649e1b8e8eb9c18402a77cfab4993e741d7fef429ba8f0e3ccf4db89be",
       "size": 4929
+    },
+    "gen_launchers.py": {
+      "sha256": "c22e996d3122ea71cbe5bd85548b80a33669a8d1827576282f20d5557e8a1e4f",
+      "size": 3178
     },
     "index.html": {
       "sha256": "54c936bcce8d13aec901cfd9f134de77d6de42aad05d07187a18f681b5de5294",
@@ -450,8 +454,8 @@
       "size": 59556
     },
     "links.html": {
-      "sha256": "6de9304dcb2221b6447d1132db31912f1429290b2857d2e9165fb162a2794e4e",
-      "size": 12112
+      "sha256": "8bad2e4ab95b5c068ea53986571eb364d8b60f300443e161562b04525b11ba4c",
+      "size": 12479
     },
     "navreach2.py": {
       "sha256": "b4bbbcb238c7b7692f58fe56ca6b62978b492bc42464931e658dd2bcd822a01a",
@@ -662,7 +666,7 @@
       "size": 5344
     }
   },
-  "pass": "Item 414 \u00b7 the Dash CRM close: actions-map gaps declared and rendered; BUS_EXCLUDED read by Brain; identity regions derived; three unlinked offering pages struck \u00b7 6 Nov 2026",
+  "pass": "Item 417 \u00b7 apps.html and links.html both generated from the registry by gen_launchers.py; gate.py fails when the two launchers and the registry are not one set \u00b7 6 Nov 2026",
   "repo": "196969/dash-app-",
-  "written": "2026-11-06 16:32:53 UTC"
+  "written": "2026-11-06 18:33:56 UTC"
 }

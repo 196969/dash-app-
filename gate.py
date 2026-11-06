@@ -27,7 +27,7 @@ It always prints the manifest's pass line; --expect-pass "…" fails when the pa
 --compare-manifest PATH fails, naming each file, when two manifests disagree about any file. Since
 Item 409 it fails when a keyed region's membership differs from the registry minus that region's
 declared exclusions (BUS_EXCLUDED, CATALOGUE_EXCLUDED: reason and date per entry), when a region
-names a key the registry does not declare, or when the editions list is a literal again. Since Item 414
+names a key the registry does not declare, or when the editions list is a literal again. Since Item 417 it also fails when the apps rendered by apps.html, by links.html and the registry are not the same set (gen_launchers.py writes both from the registry). Since Item 414
 the identity check derives its regions from the source (any literal keyed by four or more registry ids),
 and the actions map fails on any gap not declared in PB_PENDING.
 """
@@ -259,6 +259,22 @@ def write(args):
     return 0
 
 
+
+def launcher_check(index_bytes, apps_bytes, links_bytes):
+    """Item 417: apps.html and links.html are both launcher directories. The set of apps each renders (by app-X.html
+    link) must equal the other's and the registry's. Fails by name, file by file."""
+    import re as _re
+    ix = index_bytes.decode('utf-8', 'replace')
+    m = _re.search(r"APPS = \[(\[.*?\])\];", ix, _re.S)
+    if not m: return ['launchers: the registry (APPS) was not found in index.html']
+    reg = set(_re.findall(r"\['(\w+)', '", m.group(1)))
+    out = []
+    for fname, b in (('apps.html', apps_bytes), ('links.html', links_bytes)):
+        got = set(_re.findall(r'href="[^"]*app-([\w-]+)\.html"', b.decode('utf-8', 'replace')))
+        for k in sorted(reg - got): out.append(f'{fname}: registry app {k} is not rendered')
+        for k in sorted(got - reg): out.append(f'{fname}: renders app {k}, which the registry does not hold')
+    return out
+
 def check(args):
     local = None; mpath = None; expect = None; other = None
     if '--expect-pass' in args: i = args.index('--expect-pass'); expect = args[i + 1]; del args[i:i + 2]
@@ -327,6 +343,10 @@ def check(args):
         rp = registry_check(seen['index.html'], seen['apps.html'])
         print('  Registry vs apps.html: ' + ('agree' if not rp else f'{len(rp)} disagreement(s)'))
         fails.extend(rp)
+    if 'index.html' in seen and 'apps.html' in seen and 'links.html' in seen:
+        lp = launcher_check(seen['index.html'], seen['apps.html'], seen['links.html'])
+        print('  Launchers (apps.html = links.html = registry): ' + ('agree' if not lp else f'{len(lp)} disagreement(s)'))
+        fails.extend(lp)
     if 'index.html' in seen:
         try:
             mp, mn = membership_check(_src(seen['index.html']))
