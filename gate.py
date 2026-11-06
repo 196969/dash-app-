@@ -18,7 +18,9 @@ network path, so they are independent of each other's cache, not of the path. Gi
 refuses, the refusal is reported as a limit, not a failure. Set GITHUB_TOKEN for the higher limit. If
 the clone cannot be made, only one source exists: GATE INCOMPLETE, exit 2, never a pass. Exits 1 on
 any mismatch, missing file, invalid manifest, unreadable source, or disagreement between sources.
-Exits 0 only when every listed file matches on raw and clone.
+Exits 0 only when every listed file matches on raw and clone. Since Item 403 it also compares the app
+registry (APPS in _liveLinks, read out of index.html) with the cards and the count line on apps.html,
+and fails by name if they disagree.
 """
 import hashlib, json, os, re, shutil, subprocess, sys, tempfile, time, urllib.request, urllib.error, urllib.parse
 
@@ -64,6 +66,36 @@ def fresh_clone():
     except Exception as e:
         shutil.rmtree(d, ignore_errors=True)
         return None, None, (getattr(e, 'stderr', b'') or b'').decode(errors='replace')[:80] or str(e)[:80]
+
+
+WORDS = {1: 'One', 2: 'Two', 3: 'Three', 4: 'Four', 5: 'Five', 6: 'Six', 7: 'Seven', 8: 'Eight', 9: 'Nine', 10: 'Ten', 11: 'Eleven', 12: 'Twelve', 13: 'Thirteen', 14: 'Fourteen', 15: 'Fifteen', 16: 'Sixteen', 17: 'Seventeen', 18: 'Eighteen', 19: 'Nineteen', 20: 'Twenty'}
+
+
+def registry_check(index_bytes, apps_bytes):
+    """Item 403: the registry (APPS in _liveLinks, inside index.html) governs; apps.html must list exactly its entries, in its order, by name and page, with the count word matching. Returns a list of named problems; empty means they agree."""
+    probs = []
+    try:
+        m = re.search(r'<script type="__bundler/template"[^>]*>(.*?)</script>', index_bytes.decode('utf-8'), re.S)
+        src = json.loads(m.group(1).strip())
+        i = src.index('const APPS = [[', src.index('_liveLinks()'))
+        block = src[i:src.index(']];', i) + 3]
+        reg = [(a, json.loads('"' + b + '"')) for a, b in re.findall(r"\['([a-z0-9]+)', '((?:[^'\\]|\\.)*)', '", block)]
+    except Exception as e:
+        return [f'registry: could not be read from index.html ({str(e)[:60]})']
+    if not reg: return ['registry: no entries parsed from APPS in _liveLinks']
+    a = apps_bytes.decode('utf-8')
+    cards = re.findall(r'<a class="c t" href="app-([a-z0-9]+)\.html"><b>([^<]+)</b>', a)
+    cards = [(x, y.replace('&amp;', '&')) for x, y in cards]
+    if cards != reg:
+        rs, cs = set(reg), set(cards)
+        for x in [r for r in reg if r not in cs]: probs.append(f'apps.html: registry entry {x[1]} (app-{x[0]}.html) has no matching card')
+        for x in [c for c in cards if c not in rs]: probs.append(f'apps.html: card {x[1]} (app-{x[0]}.html) is not in the registry')
+        if not probs: probs.append('apps.html: cards match the registry but not in its order')
+    w = re.search(r'<div>([A-Z][a-z]+) apps, one ledger, every lens\.</div>', a)
+    want = WORDS.get(len(reg))
+    if not w: probs.append('apps.html: the count line was not found')
+    elif w.group(1) != want: probs.append(f'apps.html: the count line says {w.group(1)}; the registry holds {len(reg)} ({want})')
+    return probs
 
 
 def valid_manifest(m):
@@ -117,8 +149,9 @@ def check(args):
                 try: cm = open(os.path.join(clone, 'manifest.json'), 'rb').read()
                 except Exception: cm = None
                 if cm != mtxt: fails.append('manifest.json: the raw and clone copies differ')
+    seen = {}
     for name, want in sorted(m['files'].items()):
-        try: b = open(os.path.join(local, name), 'rb').read() if local else raw(name)
+        try: b = open(os.path.join(local, name), 'rb').read() if local else raw(name); seen[name] = b
         except Exception as e: fails.append(f'{name}: not readable ({str(e)[:60]})'); print(f'  MISSING  {name}'); continue
         got = sha256(b); ok = got == want['sha256'] and len(b) == want['size']
         where = 'in folder' if local else 'live'
@@ -136,6 +169,10 @@ def check(args):
             elif a != gitsha(b): fails.append(f'{name}: the raw address and the API disagree; the raw copy may be stale'); line = line.replace('  OK       ', '  DISAGREE ', 1) + '  | API: DISAGREES with the raw bytes'
             else: line += '  | API: agrees'
         print(line)
+    if 'index.html' in seen and 'apps.html' in seen:
+        rp = registry_check(seen['index.html'], seen['apps.html'])
+        print('  Registry vs apps.html: ' + ('agree' if not rp else f'{len(rp)} disagreement(s)'))
+        fails.extend(rp)
     if clone: shutil.rmtree(clone, ignore_errors=True)
     if fails: print(f'GATE FAILED: {len(fails)} problem(s):'); [print('  - ' + f) for f in fails]; return 1
     if local:
