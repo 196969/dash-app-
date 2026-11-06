@@ -20,7 +20,11 @@ the clone cannot be made, only one source exists: GATE INCOMPLETE, exit 2, never
 any mismatch, missing file, invalid manifest, unreadable source, or disagreement between sources.
 Exits 0 only when every listed file matches on raw and clone. Since Item 403 it also compares the app
 registry (APPS in _liveLinks, read out of index.html) with the cards and the count line on apps.html,
-and fails by name if they disagree.
+and fails by name if they disagree. Since Item 406 it derives rename history from forwarding pages
+(app-X.html forwarding to app-Y.html makes X a former key of Y) and fails if the registry, the bus
+census, the read-bus declaration or the livelinks actions map still keys an edition by a former key.
+It always prints the manifest's pass line; --expect-pass "…" fails when the pass line differs, and
+--compare-manifest PATH fails, naming each file, when two manifests disagree about any file.
 """
 import hashlib, json, os, re, shutil, subprocess, sys, tempfile, time, urllib.request, urllib.error, urllib.parse
 
@@ -98,6 +102,49 @@ def registry_check(index_bytes, apps_bytes):
     return probs
 
 
+def _src(index_bytes):
+    m = re.search(r'<script type="__bundler/template"[^>]*>(.*?)</script>', index_bytes.decode('utf-8'), re.S)
+    return json.loads(m.group(1).strip())
+
+
+def former_keys(files):
+    """Item 406: rename history derived from the source, never typed. A page app-X.html that forwards (meta refresh) to app-Y.html makes X a former key of Y."""
+    out = {}
+    for name, b in files.items():
+        mm = re.fullmatch(r'app-([a-z0-9]+)\.html', name)
+        if not mm: continue
+        f = re.search(rb'http-equiv="refresh" content="0; url=app-([a-z0-9]+)\.html"', b)
+        if f: out[mm.group(1)] = f.group(1).decode()
+    return out
+
+
+def keyed_regions(src):
+    """The places that key a standalone by its registry id: the registry, the bus census (WM), the read-bus declaration and the livelinks actions map (PB)."""
+    R = {}
+    i = src.index('const APPS = [[', src.index('_liveLinks()')); R['registry'] = re.findall(r"\['([a-z0-9]+)', '", src[i:src.index(']];', i)])
+    i = src.find('const WM = {'); j = src.find('};', i); R['bus census (WM)'] = re.findall(r'(?:\{|\]\},|\},)"([a-z0-9]+)":\{"located"', src[i:j + 1])
+    i = src.find("{'id': 'command'"); R['read-bus declaration'] = re.findall(r"\{'id': '([a-z0-9]+)', 'name': 'Dash ", src[i:i + 400000]) if i >= 0 else []
+    i = src.find('const PB = {'); j = src.find('] };', i); R['actions map (PB)'] = re.findall(r'(?:\{|\],) ([a-z0-9]+): \[', src[i:j + 3])
+    return R
+
+
+def identity_check(seen):
+    """Fails by name when any keyed region still uses a former key. Reports, without failing, ids the regions disagree on."""
+    probs, notes = [], []
+    try: src = _src(seen['index.html']); R = keyed_regions(src)
+    except Exception as e: return [f'identity: keyed regions could not be read ({str(e)[:60]})'], notes
+    F = former_keys(seen)
+    for region, keys in R.items():
+        for k in keys:
+            if k in F: probs.append(f'identity: {region} still keys an edition as {k!r}, a former key of {F[k]!r} (app-{k}.html forwards to app-{F[k]}.html)')
+    reg = set(R['registry'])
+    for region, keys in R.items():
+        if region == 'registry': continue
+        miss = sorted(reg - set(keys)); extra = sorted(set(keys) - reg - set(F))
+        if miss or extra: notes.append(f'{region}: missing {", ".join(miss) or "none"}; not in registry {", ".join(extra) or "none"}')
+    return probs, notes
+
+
 def valid_manifest(m):
     if not isinstance(m, dict) or not isinstance(m.get('files'), dict) or not m['files']: return 'no "files" map, or it is empty'
     for k, v in m['files'].items():
@@ -122,7 +169,9 @@ def write(args):
 
 
 def check(args):
-    local = None; mpath = None
+    local = None; mpath = None; expect = None; other = None
+    if '--expect-pass' in args: i = args.index('--expect-pass'); expect = args[i + 1]; del args[i:i + 2]
+    if '--compare-manifest' in args: i = args.index('--compare-manifest'); other = args[i + 1]; del args[i:i + 2]
     if '--local' in args: i = args.index('--local'); local = args[i + 1]; del args[i:i + 2]
     if '--manifest' in args: i = args.index('--manifest'); mpath = args[i + 1]; del args[i:i + 2]
     try:
@@ -137,6 +186,20 @@ def check(args):
     if bad: print(f'FAIL: the manifest is malformed: {bad}'); return 1
     print(f'manifest: {src} | pass {m.get("pass") or "(unlabelled)"} | written {m.get("written", "?")} | {len(m["files"])} file(s)')
     fails = []
+    print(f'  Pass line: {m.get("pass") or "(unlabelled)"}')
+    if expect is not None:
+        if (m.get('pass') or '') != expect: fails.append(f'manifest pass line is {m.get("pass")!r}; expected {expect!r}')
+        else: print('  Pass line: matches the expected value')
+    if other:
+        try:
+            om = json.loads(open(other, 'rb').read()); ob = valid_manifest(om)
+            if ob: fails.append(f'compared manifest {other} is malformed: {ob}')
+            else:
+                names = sorted(set(m['files']) | set(om['files']))
+                diff = [n for n in names if m['files'].get(n) != om['files'].get(n)]
+                for n in diff: fails.append(f'manifests disagree about {n}: {src} has {(m["files"].get(n) or {}).get("sha256", "absent")[:16]}; {other} has {(om["files"].get(n) or {}).get("sha256", "absent")[:16]}')
+                if not diff: print(f'  Compared manifest {other}: agrees about every file (pass lines: {m.get("pass")!r} / {om.get("pass")!r})')
+        except Exception as e: fails.append(f'compared manifest {other} could not be read ({str(e)[:60]})')
     tree = tree_sha = why = None
     clone = head = cwhy = None
     if not local:
@@ -173,6 +236,11 @@ def check(args):
         rp = registry_check(seen['index.html'], seen['apps.html'])
         print('  Registry vs apps.html: ' + ('agree' if not rp else f'{len(rp)} disagreement(s)'))
         fails.extend(rp)
+    if 'index.html' in seen:
+        ip, notes = identity_check(seen)
+        print('  Identity (former keys in keyed regions): ' + ('none' if not ip else f'{len(ip)} found'))
+        for n in notes: print('  Identity note: ' + n)
+        fails.extend(ip)
     if clone: shutil.rmtree(clone, ignore_errors=True)
     if fails: print(f'GATE FAILED: {len(fails)} problem(s):'); [print('  - ' + f) for f in fails]; return 1
     if local:

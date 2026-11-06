@@ -402,8 +402,8 @@
       "size": 2778321
     },
     "gate.py": {
-      "sha256": "57946f980963ed38f136cc056ea23e7cb907abb1a93ac0957f94af366357befb",
-      "size": 12700
+      "sha256": "ef5d9b82f8ba366be787cdbd5f5c6d2cf3c51941cef1892302879c0862878b3f",
+      "size": 17151
     },
     "gen_fc_figures.py": {
       "sha256": "fdb967cceffa31b049502fa5cc331f0190474c0308f9f7eec6b6174eaa5d7d3f",
@@ -414,8 +414,8 @@
       "size": 4929
     },
     "index.html": {
-      "sha256": "b1216da6d5e787e40515d7df7161e2829177883fbe59cf15c0ef4d33a678a252",
-      "size": 10954169
+      "sha256": "38b19a784c835db80087a95a4f55b7c1b8fa737aacc27e0de84cdb7414f188f7",
+      "size": 10953850
     },
     "item369-build-record.json": {
       "sha256": "bfcaa2bdb4e478085b7ad71443f0b3652fb5d07b18e542b55d42bf19a76c74ff",
@@ -674,7 +674,7 @@
       "size": 5344
     }
   },
-  "pass": "Item 404 correction \u00b7 the edition id legal carried to the three places still keyed compliance (bus census, read-bus declaration, livelinks actions) \u00b7 6 Nov 2026",
+  "pass": "Item 406 \u00b7 identity check (former keys derived from forwarding pages), manifest pass-line and comparison checks; two dead actions-map keys removed \u00b7 6 Nov 2026",
   "repo": "196969/dash-app-",
-  "written": "2026-11-06 02:54:06 UTC"
+  "written": "2026-11-06 10:29:12 UTC"
 }
