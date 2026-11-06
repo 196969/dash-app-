@@ -402,8 +402,8 @@
       "size": 2778321
     },
     "gate.py": {
-      "sha256": "ef5d9b82f8ba366be787cdbd5f5c6d2cf3c51941cef1892302879c0862878b3f",
-      "size": 17151
+      "sha256": "101cae41d183988b8b062fbcfa3c2775152093c950e3760516fd230029e9110f",
+      "size": 21203
     },
     "gen_fc_figures.py": {
       "sha256": "fdb967cceffa31b049502fa5cc331f0190474c0308f9f7eec6b6174eaa5d7d3f",
@@ -414,8 +414,8 @@
       "size": 4929
     },
     "index.html": {
-      "sha256": "38b19a784c835db80087a95a4f55b7c1b8fa737aacc27e0de84cdb7414f188f7",
-      "size": 10953850
+      "sha256": "95c73d2f4d26e739c165aede648135a89dd9276d30f303ed64e3660961efe124",
+      "size": 10955723
     },
     "item369-build-record.json": {
       "sha256": "bfcaa2bdb4e478085b7ad71443f0b3652fb5d07b18e542b55d42bf19a76c74ff",
@@ -674,7 +674,7 @@
       "size": 5344
     }
   },
-  "pass": "Item 406 \u00b7 identity check (former keys derived from forwarding pages), manifest pass-line and comparison checks; two dead actions-map keys removed \u00b7 6 Nov 2026",
+  "pass": "Item 409 \u00b7 region membership derived from the registry with declared exclusions; Acquisitions and Fractionals catalogue entries; membership guard \u00b7 6 Nov 2026",
   "repo": "196969/dash-app-",
-  "written": "2026-11-06 10:29:12 UTC"
+  "written": "2026-11-06 16:18:25 UTC"
 }

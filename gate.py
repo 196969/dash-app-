@@ -24,7 +24,10 @@ and fails by name if they disagree. Since Item 406 it derives rename history fro
 (app-X.html forwarding to app-Y.html makes X a former key of Y) and fails if the registry, the bus
 census, the read-bus declaration or the livelinks actions map still keys an edition by a former key.
 It always prints the manifest's pass line; --expect-pass "…" fails when the pass line differs, and
---compare-manifest PATH fails, naming each file, when two manifests disagree about any file.
+--compare-manifest PATH fails, naming each file, when two manifests disagree about any file. Since
+Item 409 it fails when a keyed region's membership differs from the registry minus that region's
+declared exclusions (BUS_EXCLUDED, CATALOGUE_EXCLUDED: reason and date per entry), when a region
+names a key the registry does not declare, or when the editions list is a literal again.
 """
 import hashlib, json, os, re, shutil, subprocess, sys, tempfile, time, urllib.request, urllib.error, urllib.parse
 
@@ -145,6 +148,49 @@ def identity_check(seen):
     return probs, notes
 
 
+def membership_check(src):
+    """Item 409: every keyed region's membership must equal the registry minus that region's declared exclusions. Fails on an undeclared omission and on any key the registry does not declare. Returns (problems, notes)."""
+    P, N = [], []
+    reg = re.findall(r"\['([a-z0-9]+)', '", src[src.index('const APPS = [[', src.index('_liveLinks()')):].split(']];')[0])
+    names = {json.loads('"' + n + '"'): i for i, n in re.findall(r"\['([a-z0-9]+)', '((?:[^'\\]|\\.)*)', '", src[src.index('const APPS = [[', src.index('_liveLinks()')):].split(']];')[0])}
+    R = set(reg)
+    def excl(name):
+        i = src.find('const ' + name + ' = {')
+        if i < 0: return None
+        blk = src[i:src.index('};', i)]
+        out = {}
+        for k, body in re.findall(r"([a-z0-9]+): \{ reason: '((?:[^'\\]|\\.)*)', date: '\d{4}-\d{2}-\d{2}' \}", blk): out[k] = body
+        keys = re.findall(r"[{,] ([a-z0-9]+): \{", blk)
+        for k in keys:
+            if k not in out: P.append(f'{name}: {k} is excluded without a reason and a date')
+        return out
+    def compare(region, have, ex, strict=True):
+        have = set(have)
+        for k in sorted(have - R): P.append(f'{region}: names {k!r}, which the registry does not declare')
+        for k in sorted(have & set(ex)): P.append(f'{region}: carries {k!r}, which it declares excluded')
+        miss = sorted(R - have - set(ex))
+        if miss and strict: P.extend(f'{region}: omits {k!r} with no declared exclusion' for k in miss)
+        elif miss: N.append(f'{region}: content not yet authored for {", ".join(miss)} (not yet shown on screen; option (b) and the authored catalogue entries are pending)')
+    bx = excl('BUS_EXCLUDED')
+    if bx is None: P.append('BUS_EXCLUDED: the declared exclusion block for the bus is missing')
+    else:
+        i = src.find("const T = [{'id': "); compare('read-bus declaration', re.findall(r"\{'id': '([a-z0-9]+)', 'name': 'Dash ", src[i:src.index('}];', i)]), bx)
+        i = src.find('const WM = {'); compare('bus census (WM)', re.findall(r'(?:\{|\]\},|\},)"([a-z0-9]+)":\{"located"', src[i:src.index('};', i) + 1]), bx)
+    if re.search(r"const APPS = \['Dash ", src): P.append('editions list: a literal list of edition names is back; it must be derived from the registry')
+    i = src.find('const DD = { ')
+    if i < 0: P.append('apps dropdown: the content map DD is missing')
+    else: compare('apps dropdown', re.findall(r"(?:\{|\}, ) ?([a-z0-9]+): \{ name: 'Dash ", src[i:i + 8000]), {})
+    cx = excl('CATALOGUE_EXCLUDED')
+    i = src.find("[{ key: 'books', name: 'Dash Books',")
+    if cx is None: P.append('CATALOGUE_EXCLUDED: the declared exclusion block for the offerings catalogue is missing')
+    elif i >= 0: compare('offerings catalogue', re.findall(r"\{ key: '([a-z0-9]+)', name: 'Dash ", src[i:i + 40000]), cx, strict=False)
+    i = src.find('const PB = {'); compare('actions map (PB)', re.findall(r'(?:\{|\],) ([a-z0-9]+): \[', src[i:src.index('] };', i) + 3]), {}, strict=False)
+    # The playbook documents (D) and the edition hub tiles (bandVM) are keyed by screen family (erpx, fndx, ...), not by
+    # standalone id: a family absorbed into Command keeps its screens and its key. They are not registry-membership regions,
+    # so they are not checked here (Item 409, after the erpxthink regression of 6 Nov 2026).
+    return P, N
+
+
 def valid_manifest(m):
     if not isinstance(m, dict) or not isinstance(m.get('files'), dict) or not m['files']: return 'no "files" map, or it is empty'
     for k, v in m['files'].items():
@@ -237,6 +283,13 @@ def check(args):
         print('  Registry vs apps.html: ' + ('agree' if not rp else f'{len(rp)} disagreement(s)'))
         fails.extend(rp)
     if 'index.html' in seen:
+        try:
+            mp, mn = membership_check(_src(seen['index.html']))
+        except Exception as e:
+            mp, mn = [f'membership: regions could not be read ({str(e)[:60]})'], []
+        print('  Membership (registry minus declared exclusions): ' + ('agrees' if not mp else f'{len(mp)} problem(s)'))
+        for n in mn: print('  Membership note: ' + n)
+        fails.extend(mp)
         ip, notes = identity_check(seen)
         print('  Identity (former keys in keyed regions): ' + ('none' if not ip else f'{len(ip)} found'))
         for n in notes: print('  Identity note: ' + n)
