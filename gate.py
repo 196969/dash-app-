@@ -27,7 +27,9 @@ It always prints the manifest's pass line; --expect-pass "…" fails when the pa
 --compare-manifest PATH fails, naming each file, when two manifests disagree about any file. Since
 Item 409 it fails when a keyed region's membership differs from the registry minus that region's
 declared exclusions (BUS_EXCLUDED, CATALOGUE_EXCLUDED: reason and date per entry), when a region
-names a key the registry does not declare, or when the editions list is a literal again.
+names a key the registry does not declare, or when the editions list is a literal again. Since Item 414
+the identity check derives its regions from the source (any literal keyed by four or more registry ids),
+and the actions map fails on any gap not declared in PB_PENDING.
 """
 import hashlib, json, os, re, shutil, subprocess, sys, tempfile, time, urllib.request, urllib.error, urllib.parse
 
@@ -131,20 +133,60 @@ def keyed_regions(src):
     return R
 
 
+def derive_regions(src, reg):
+    """Item 414 (Item 411): the regions are derived, not listed. Every literal assigned to a name or a property is scanned
+    (string-aware); it is a region when its own entries, as keys or as records ('id' / key / first element), include at
+    least four registry ids. A region preceded by the marker gate:screen-family-keyed is keyed by screen family and declared
+    so at the point of effect; it is reported, not checked for former keys."""
+    ids = set(reg); out = []
+    rec = re.compile(r"""\s*(?:\{\s*(?:'id'|key)\s*:\s*|\[\s*)?['"]?([a-z0-9]+)['"]?\s*[:,]""")
+    for m in re.finditer(r"(?:=|:|\(|return|&&)\s*([\[{])", src):
+        a = m.start(1)
+        win = src[a:a + 2500]
+        if not any(("'" + i + "'") in win or ('"' + i + '"') in win or (' ' + i + ':') in win for i in ids): continue
+        d = 0; q = None; j = a; tops = []; n = len(src); lim = min(n, a + 120000)
+        while j < lim:
+            c = src[j]
+            if q:
+                if c == '\\': j += 2; continue
+                if c == q: q = None
+            elif c in '\'"`': q = c
+            elif c in '{[':
+                d += 1
+                if d == 1: tops.append(j + 1)
+            elif c in '}]':
+                d -= 1
+                if d == 0: break
+            elif c == ',' and d == 1: tops.append(j + 1)
+            j += 1
+        if d != 0: continue
+        keys = set()
+        for s0 in tops:
+            mm = rec.match(src, s0)
+            if mm: keys.add(mm.group(1))
+        hit = keys & ids
+        if len(hit) < 4: continue
+        out.append({'start': a, 'end': j, 'keys': keys, 'ids': hit, 'screen_family': 'gate:screen-family-keyed' in src[max(0, a - 400):a]})
+    # keep the outermost literal for nested matches with the same id set
+    out.sort(key=lambda r: r['start']); keep = []
+    for r in out:
+        if keep and r['start'] < keep[-1]['end'] and r['ids'] <= keep[-1]['ids']: continue
+        keep.append(r)
+    return keep
+
+
 def identity_check(seen):
     """Fails by name when any keyed region still uses a former key. Reports, without failing, ids the regions disagree on."""
     probs, notes = [], []
     try: src = _src(seen['index.html']); R = keyed_regions(src)
     except Exception as e: return [f'identity: keyed regions could not be read ({str(e)[:60]})'], notes
     F = former_keys(seen)
-    for region, keys in R.items():
-        for k in keys:
-            if k in F: probs.append(f'identity: {region} still keys an edition as {k!r}, a former key of {F[k]!r} (app-{k}.html forwards to app-{F[k]}.html)')
-    reg = set(R['registry'])
-    for region, keys in R.items():
-        if region == 'registry': continue
-        miss = sorted(reg - set(keys)); extra = sorted(set(keys) - reg - set(F))
-        if miss or extra: notes.append(f'{region}: missing {", ".join(miss) or "none"}; not in registry {", ".join(extra) or "none"}')
+    D = derive_regions(src, R['registry'])
+    notes.append(f'regions derived from the source: {len(D)} ({sum(1 for r in D if r["screen_family"])} declared screen-family-keyed)')
+    for r in D:
+        if r['screen_family']: continue
+        for k in sorted(r['keys']):
+            if k in F: probs.append(f'identity: the region at {r["start"]} still keys an edition as {k!r}, a former key of {F[k]!r} (app-{k}.html forwards to app-{F[k]}.html)')
     return probs, notes
 
 
@@ -184,7 +226,10 @@ def membership_check(src):
     i = src.find("[{ key: 'books', name: 'Dash Books',")
     if cx is None: P.append('CATALOGUE_EXCLUDED: the declared exclusion block for the offerings catalogue is missing')
     elif i >= 0: compare('offerings catalogue', re.findall(r"\{ key: '([a-z0-9]+)', name: 'Dash ", src[i:i + 40000]), cx, strict=False)
-    i = src.find('const PB = {'); compare('actions map (PB)', re.findall(r'(?:\{|\],) ([a-z0-9]+): \[', src[i:src.index('] };', i) + 3]), {}, strict=False)
+    pp = excl('PB_PENDING')
+    if pp is None: P.append('PB_PENDING: the declared list of unwritten action lines is missing')
+    else:
+        i = src.find('const PB = {'); compare('actions map (PB)', re.findall(r'(?:\{|\],) ([a-z0-9]+): \[', src[i:src.index('] };', i) + 3]), pp)
     # The playbook documents (D) and the edition hub tiles (bandVM) are keyed by screen family (erpx, fndx, ...), not by
     # standalone id: a family absorbed into Command keeps its screens and its key. They are not registry-membership regions,
     # so they are not checked here (Item 409, after the erpxthink regression of 6 Nov 2026).
