@@ -434,8 +434,8 @@
       "size": 1035
     },
     "index.html": {
-      "sha256": "3a7c672d95cdeb2ddfa180726b31a141a4f3463f978b5df01c376c8ffc1ff241",
-      "size": 10972352
+      "sha256": "ec7e7d71d3b8a37f2a87689ace8aa72c2228db3805116aa6b66c952eabb0753b",
+      "size": 10972471
     },
     "item369-build-record.json": {
       "sha256": "bfcaa2bdb4e478085b7ad71443f0b3652fb5d07b18e542b55d42bf19a76c74ff",
@@ -484,6 +484,10 @@
     "item423_eps_eval.py": {
       "sha256": "5b4a4afb2dd53c70c419e0f75901a210fe6e696ae4361403c643756d9e91c71d",
       "size": 3675
+    },
+    "item424_tie_eval.py": {
+      "sha256": "288e42e44414ccb1fd7274108c510fc2e0e5a7da7055e7f4e2c3b5d2736b25ae",
+      "size": 4136
     },
     "link-check.html": {
       "sha256": "c971bd0cec0d69f33ac980e1d2e770a2a7a22d867b5387eab97c5198d0ca9c46",
@@ -702,7 +706,7 @@
       "size": 5344
     }
   },
-  "pass": "Item 423 (Brief Revision 2) \u00b7 the member-unit earnings tile reads Blind naming units outstanding; edit hooks added flat \u00b7 governance records held in the Complete Package per Item 381 \u00b7 9 Nov 2026",
+  "pass": "Item 424 (Brief Revision 1) \u00b7 Times interest earned reads Blind naming interest expense on the keyind tile and the ratios report row \u00b7 governance records held in the Complete Package per Item 381 \u00b7 9 Nov 2026",
   "repo": "196969/dash-app-",
-  "written": "2026-11-09 17:34:24 UTC"
+  "written": "2026-11-09 17:59:18 UTC"
 }
