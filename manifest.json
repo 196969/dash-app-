@@ -145,6 +145,10 @@
       "sha256": "b943c3dc2f2adbb864712b14897dab65ad4cfb729d93bd3b916013289dad2962",
       "size": 1553
     },
+    "build-rules.md": {
+      "sha256": "42575cde3c5d21a68a74616ae1c1174073d7263b9da8d07a75f0994dae879cb0",
+      "size": 861
+    },
     "build_founders_council.py": {
       "sha256": "19458427895402d455508e2c8721a27c0e70a94d76c23e0caf0af96623afdf39",
       "size": 22662
@@ -156,6 +160,10 @@
     "checks.py": {
       "sha256": "f6a0cc48460a4b69e431d93b005aa257afde9466a7a3c680a88e25c22546ab87",
       "size": 1982
+    },
+    "claude-settings.json": {
+      "sha256": "0540d4cfa3e25768f0b12b01e57b7350fd364a8bf339aaf162551827006a1ce5",
+      "size": 549
     },
     "codec.py": {
       "sha256": "117b3cef4ed48d7d81c9ec65141f1e3ab1894615537e8f2c6e1d03aa690cf904",
@@ -417,9 +425,17 @@
       "sha256": "c22e996d3122ea71cbe5bd85548b80a33669a8d1827576282f20d5557e8a1e4f",
       "size": 3178
     },
+    "hook_require_ballot.py": {
+      "sha256": "25937e17d09cd2f0accbb2c15f686791de2bad28fabf1db42e07a0fc305d6579",
+      "size": 2243
+    },
+    "hook_stop_gate.py": {
+      "sha256": "ad1e66581eb29ac3aea4df59ff5b54b2e2a19a8a83c24696be2cb5a689b9a9ff",
+      "size": 1035
+    },
     "index.html": {
-      "sha256": "08db355b9c2bc55c6ed5d46f84db3e8a3b9e1cc3267c5c655addaab184c3f998",
-      "size": 10972299
+      "sha256": "3a7c672d95cdeb2ddfa180726b31a141a4f3463f978b5df01c376c8ffc1ff241",
+      "size": 10972352
     },
     "item369-build-record.json": {
       "sha256": "bfcaa2bdb4e478085b7ad71443f0b3652fb5d07b18e542b55d42bf19a76c74ff",
@@ -464,6 +480,10 @@
     "item420_roster.py": {
       "sha256": "0f1773125c980a5aa82a31cf3f63dbb14fb188508abe58a49a5b02d5919c9fd0",
       "size": 1359
+    },
+    "item423_eps_eval.py": {
+      "sha256": "5b4a4afb2dd53c70c419e0f75901a210fe6e696ae4361403c643756d9e91c71d",
+      "size": 3675
     },
     "link-check.html": {
       "sha256": "c971bd0cec0d69f33ac980e1d2e770a2a7a22d867b5387eab97c5198d0ca9c46",
@@ -682,7 +702,7 @@
       "size": 5344
     }
   },
-  "pass": "Item 420 Pass 1 (Revision 4) \u00b7 Books home cash cycle, DSCR and ROIC; ratio price row Blind; Thinking wheel offered before a decision is recorded; Capital allocation board (ceoalloc) \u00b7 governance records held in the Complete Package per Item 381 \u00b7 9 Nov 2026",
+  "pass": "Item 423 (Brief Revision 2) \u00b7 the member-unit earnings tile reads Blind naming units outstanding; edit hooks added flat \u00b7 governance records held in the Complete Package per Item 381 \u00b7 9 Nov 2026",
   "repo": "196969/dash-app-",
-  "written": "2026-11-09 16:00:22 UTC"
+  "written": "2026-11-09 17:34:24 UTC"
 }

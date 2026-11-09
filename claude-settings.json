@@ -1,0 +1,8 @@
+{
+  "_doc": "Copy to .claude/settings.json in the build session's checkout to wire both hooks to Claude Code. BUILD_STATE names the current item's state file, which lives outside the repository (Item 381); change it per item.",
+  "env": { "BUILD_STATE": "../rec423/item423-state.json" },
+  "hooks": {
+    "PreToolUse": [{ "matcher": "Edit|Write|MultiEdit|NotebookEdit", "hooks": [{ "type": "command", "command": "python3 hook_require_ballot.py" }] }],
+    "Stop": [{ "hooks": [{ "type": "command", "command": "python3 hook_stop_gate.py" }] }]
+  }
+}
