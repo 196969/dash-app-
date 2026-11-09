@@ -434,8 +434,8 @@
       "size": 1035
     },
     "index.html": {
-      "sha256": "8e769cc94e5d2296db352c7bf60d2716bb6ea99bf3603f1f9fc6f2b87a826698",
-      "size": 10982760
+      "sha256": "108ed85aa9eba5a9e7736665b658944c8afe08f36356e25ce704803df11e6308",
+      "size": 10986522
     },
     "item369-build-record.json": {
       "sha256": "bfcaa2bdb4e478085b7ad71443f0b3652fb5d07b18e542b55d42bf19a76c74ff",
@@ -492,6 +492,18 @@
     "item420p2_plants.js": {
       "sha256": "a66328d2c928377106c067adeee40bf88e5d63ae9942f5598a24fdef2ce1d0be",
       "size": 6037
+    },
+    "item420p3_edit.py": {
+      "sha256": "86eb29cb8ad15edf598f78b5d639c55cc897aa0a2bc09260fd18051ac30375a8",
+      "size": 5859
+    },
+    "item420p3_eval.py": {
+      "sha256": "d08380f37c63f3af91126dfd3571b76b99021552b4d52e975f95ffe6f3f19dde",
+      "size": 3515
+    },
+    "item420p3_plants.js": {
+      "sha256": "5ead4e71a315f36f897f128e4222ef691bac88b7961b3322c3c3fad7659c0063",
+      "size": 2196
     },
     "item423_eps_eval.py": {
       "sha256": "5b4a4afb2dd53c70c419e0f75901a210fe6e696ae4361403c643756d9e91c71d",
@@ -718,7 +730,7 @@
       "size": 5344
     }
   },
-  "pass": "Item 420 Pass 2 (Revision 5; scope ruling Revision 3) \u00b7 P2 BAC named, AC Blind, critical path Blind \u00b7 P5 progress, utilisation, alerts on prjxport \u00b7 P6 per-engagement issue matrix, heat map Blind \u00b7 P13 seven people KPIs on one panel \u00b7 records at 108 per Item 381 \u00b7 9 Nov 2026",
+  "pass": "Item 420 Pass 3 (filed Revision 5; restart instruction Revision 1) \u00b7 S4 BANT and CHAMP completeness on every hotlist row, MEDDIC on Tier A, Qualify writer \u00b7 S5 objection library in the composer \u00b7 six of ten exist, two struck \u00b7 records at 109 \u00b7 9 Nov 2026",
   "repo": "196969/dash-app-",
-  "written": "2026-11-09 22:15:49 UTC"
+  "written": "2026-11-09 23:19:46 UTC"
 }
