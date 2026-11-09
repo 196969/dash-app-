@@ -418,8 +418,8 @@
       "size": 3178
     },
     "index.html": {
-      "sha256": "54c936bcce8d13aec901cfd9f134de77d6de42aad05d07187a18f681b5de5294",
-      "size": 10957205
+      "sha256": "08db355b9c2bc55c6ed5d46f84db3e8a3b9e1cc3267c5c655addaab184c3f998",
+      "size": 10972299
     },
     "item369-build-record.json": {
       "sha256": "bfcaa2bdb4e478085b7ad71443f0b3652fb5d07b18e542b55d42bf19a76c74ff",
@@ -448,6 +448,30 @@
     "item369-report.md": {
       "sha256": "d15e2cd4e2723b3bb21cad5768ad07e18fcb068643dbc32815b11dc2b0c99d52",
       "size": 2476
+    },
+    "item420-founders72-verdicts.json": {
+      "sha256": "49f2147ee576b52cd5a009484b14e73717d1aed1b9c914cda549295dc9ca9dbd",
+      "size": 6238
+    },
+    "item420-state.json": {
+      "sha256": "5d96752a2692b82491d1b4245b1b31eebeb28b3996d9f58833fecdceffd35d43",
+      "size": 3694
+    },
+    "item420_edit_pass1.py": {
+      "sha256": "b0ce95c3b12f6f8db0f72c7604788b10c2cc1015f3d82b5ab2a8656b99f50ff7",
+      "size": 17781
+    },
+    "item420_plants.js": {
+      "sha256": "7e0b91ee0c2784187a482686747cf65ebaf969ac1aa783b9a5d2ce336f0309da",
+      "size": 4003
+    },
+    "item420_probe.py": {
+      "sha256": "c2cbefb66f9a7cc842e38c60410d48380f9dc8ce0553e0f1a47040ed9231ae76",
+      "size": 1076
+    },
+    "item420_roster.py": {
+      "sha256": "0f1773125c980a5aa82a31cf3f63dbb14fb188508abe58a49a5b02d5919c9fd0",
+      "size": 1359
     },
     "link-check.html": {
       "sha256": "c971bd0cec0d69f33ac980e1d2e770a2a7a22d867b5387eab97c5198d0ca9c46",
@@ -666,7 +690,7 @@
       "size": 5344
     }
   },
-  "pass": "Item 417 \u00b7 apps.html and links.html both generated from the registry by gen_launchers.py; gate.py fails when the two launchers and the registry are not one set \u00b7 6 Nov 2026",
+  "pass": "Item 420 Pass 1 (Revision 4) \u00b7 Books home cash cycle, DSCR and ROIC; ratio price row Blind; Thinking wheel offered before a decision is recorded; Capital allocation board (ceoalloc) \u00b7 9 Nov 2026",
   "repo": "196969/dash-app-",
-  "written": "2026-11-06 18:33:56 UTC"
+  "written": "2026-11-09 15:54:08 UTC"
 }

@@ -1,0 +1,133 @@
+{
+ "item": "420",
+ "revision": 4,
+ "pass": 1,
+ "head_gated": "31553fc",
+ "hotleads_head": "03d2211",
+ "clock": {
+  "gate_open": "2026-11-09 14:52:23 UTC",
+  "gate_continue": "2026-11-09 15:06:29 UTC",
+  "head_reread": "2026-11-09 15:39:04 UTC",
+  "written": "2026-11-09 15:53:14 UTC"
+ },
+ "base": {
+  "sha256": "54c936bcce8d13aec901cfd9f134de77d6de42aad05d07187a18f681b5de5294",
+  "bytes": 10957205
+ },
+ "build": {
+  "sha256": "08db355b9c2bc55c6ed5d46f84db3e8a3b9e1cc3267c5c655addaab184c3f998",
+  "bytes": 10972299,
+  "edit_script": "item420_edit_pass1.py",
+  "edits": 12
+ },
+ "screens_done": {
+  "new": [
+   "ceoalloc"
+  ],
+  "extended": [
+   "qbxhome (three measures)",
+   "keyind and anlxexec (price ratios Blind)",
+   "decisions (Thinking wheel offered before recording)"
+  ],
+  "found_existing_not_rebuilt": {
+   "CEO Answer Board": "ceo60",
+   "Meeting Cadence": "ceocadence",
+   "Financial Guardrails Wheel": "cmdxguard",
+   "Critical Thinking Wheel": "brnwheel",
+   "Cash conversion cycle": "bkkpccc",
+   "Forecasting Ladder": "bkkpmaturity",
+   "Ratio Library": "keyind",
+   "Five-Step Health Assessment": "findings",
+   "Month-End Variance": "bkkpvar",
+   "CEO KPI Framework": "kpiscore, ceomeas"
+  },
+  "not_built_undefined": [
+   "SCALE Scorecard",
+   "Nine Mindsets",
+   "5-Year Capital Map (twelve steps)"
+  ],
+  "routed_own_item": [
+   "EPS row typed unit count",
+   "Times interest earned typed infinity",
+   "one deals row blanks the app"
+  ]
+ },
+ "plants": {
+  "placed_in_page_session_only": true,
+  "fired_on_new": [
+   "P1 cycle over target",
+   "P2 ROIC measured",
+   "P3 DSCR clause both ways",
+   "P4 floor met",
+   "P4 distribution waits on set-aside",
+   "P5 distribution open",
+   "P6 loan row",
+   "P7 wheel opens brnwheel"
+  ],
+  "failed_on_base": "all",
+  "reversed": "all",
+  "not_constructible": "P6 deal row: blocked by the pre-existing deals crash"
+ },
+ "battery": {
+  "gate": "PASSED exit 0, raw + clone, API 403",
+  "round_trip": "identical",
+  "reversal": "identical to base sha256",
+  "markers": "8 before, 8 after (webleads reads 24 under a raw count, both builds)",
+  "textdiff_1440": "654 to 655, 7 differ, all explained",
+  "textdiff_480": "654 to 655, 7 differ, all explained",
+  "iso": "device line differs between two loads of one build; cncl identical base to new",
+  "census": "259 keys both, Dr = Cr 4,382.19 both, balances identical",
+  "render": "0 errors, 0 sideways, 0 fetch, reduced motion 0 at 400/1500/4000 ms at 1440 and 480 on 5 touched screens",
+  "contrast": "5 touched screens, 825 nodes, 0 failures, floor 4.61:1 (coverage: touched screens only)",
+  "topbar": "655 of 655 exactly once",
+  "brandmark": "OK",
+  "standing_checks": "acorn OK, sc-if 1152 and sc-for 1716 balanced",
+  "performance": {
+   "method": "Chromium headless, file:// load, no network; first-paint is the boot curtain, not app-ready; load = loadEventEnd",
+   "base_1440": {
+    "first_paint_ms": 40,
+    "dcl_ms": 694,
+    "load_ms": 2202
+   },
+   "base_480": {
+    "first_paint_ms": 40,
+    "dcl_ms": 656,
+    "load_ms": 2015
+   },
+   "new_1440": {
+    "first_paint_ms": 48,
+    "dcl_ms": 640,
+    "load_ms": 2308
+   },
+   "new_480": {
+    "first_paint_ms": 40,
+    "dcl_ms": 666,
+    "load_ms": 2068
+   },
+   "transfer_bytes": {
+    "base": 10957205,
+    "new": 10972299
+   },
+   "note": "single runs on a one-CPU machine; variance not measured, so no movement is claimed between builds"
+  }
+ },
+ "counts": {
+  "views": [
+   654,
+   655
+  ],
+  "titleMap": [
+   590,
+   591
+  ],
+  "nav": [
+   196,
+   197
+  ],
+  "standalone_registry": "unchanged"
+ },
+ "ballots": {
+  "brief": "4 agree, 4 hold, 63 Blind of 72",
+  "delivery": "7 agree, 2 hold, 62 Blind of 72"
+ }
+}

@@ -1,0 +1,223 @@
+{
+ "item": "420",
+ "revision": 4,
+ "roster": "Dash _councilRoster() at 31553fc: 72 seats, 725.0 (founders-roster.json at hotleads 03d2211 holds 75 seats, 755.0; Item 368 rules the app roster votes)",
+ "verdicts": [
+  {
+   "label": "Founders 72 · Item 420 Revision 4 brief — read on the gated base 31553fc",
+   "pass": 4,
+   "hold": 4,
+   "blind": 63,
+   "weight": {
+    "pass": 40,
+    "hold": 40,
+    "blind": 630.0,
+    "chair": 15.0,
+    "total": 725
+   },
+   "seats": [
+    {
+     "seat": 1,
+     "name": "Timothy A. Edick",
+     "weight": 15,
+     "reading": "Chair",
+     "field": "decides last",
+     "why": ""
+    },
+    {
+     "seat": 2,
+     "name": "David Boies",
+     "weight": 10,
+     "reading": "Blind",
+     "field": "contracts and e-sign",
+     "why": "Pass 1 touches no contract or e-sign record; this ground opens in Passes 2 and 5"
+    },
+    {
+     "seat": 3,
+     "name": "Martin Lipton",
+     "weight": 10,
+     "reading": "Blind",
+     "field": "contracts and e-sign",
+     "why": "as seat 2"
+    },
+    {
+     "seat": 4,
+     "name": "Sir David Tweedie",
+     "weight": 10,
+     "reading": "Pass",
+     "field": "the ledger",
+     "why": "trial balance ties at $4,382.19 Dr = Cr on the gated base"
+    },
+    {
+     "seat": 5,
+     "name": "Lynn Turner",
+     "weight": 10,
+     "reading": "Hold",
+     "field": "the basis of a figure",
+     "why": "§8 defines the cash cycle with days inventory; the book holds no inventory field and the brief does not name the state that term takes"
+    },
+    {
+     "seat": 16,
+     "name": "Cash scoreboard",
+     "weight": 10,
+     "reading": "Pass",
+     "field": "cash as the scoreboard",
+     "why": "cash $0 against a $4,874 floor is readable from the book"
+    },
+    {
+     "seat": 21,
+     "name": "Trust by design",
+     "weight": 10,
+     "reading": "Pass",
+     "field": "containment",
+     "why": "§4: no autonomous send, write, payment or deletion"
+    },
+    {
+     "seat": 25,
+     "name": "Reusable frameworks",
+     "weight": 10,
+     "reading": "Hold",
+     "field": "reuse before building",
+     "why": "10 of the 15 Pass 1 additions already render live (ceo60, ceocadence, cmdxguard, brnwheel, bkkpccc, bkkpmaturity, keyind, findings, bkkpvar, kpiscore and ceomeas)"
+    },
+    {
+     "seat": 55,
+     "name": "Whether a figure is shown honestly or merely shown",
+     "weight": 10,
+     "reading": "Pass",
+     "field": "a figure is shown honestly",
+     "why": "§7 and §9 require Empty, Blind and Not run in distinct words"
+    },
+    {
+     "seat": 58,
+     "name": "Scope, baseline and earned value — maturity over heroics",
+     "weight": 10,
+     "reading": "Hold",
+     "field": "scope and baseline",
+     "why": "SCALE, Nine Mindsets and the twelve-step capital map carry no definition; scope is not baselined"
+    },
+    {
+     "seat": 72,
+     "name": "Hui Chen",
+     "weight": 10,
+     "reading": "Hold",
+     "field": "zero Google, zero Gmail",
+     "why": "45 Google and 11 Gmail references in the live bundle"
+    }
+   ],
+   "other": "every other seat Blind: no ground defined for this item"
+  },
+  {
+   "label": "Founders 72 · Item 420 Pass 1 delivery — read on the final bytes 08db355b",
+   "pass": 7,
+   "hold": 2,
+   "blind": 62,
+   "weight": {
+    "pass": 70,
+    "hold": 20,
+    "blind": 620.0,
+    "chair": 15.0,
+    "total": 725
+   },
+   "seats": [
+    {
+     "seat": 1,
+     "name": "Timothy A. Edick",
+     "weight": 15,
+     "reading": "Chair",
+     "field": "decides last",
+     "why": ""
+    },
+    {
+     "seat": 2,
+     "name": "David Boies",
+     "weight": 10,
+     "reading": "Blind",
+     "field": "contracts and e-sign",
+     "why": "Pass 1 touches no contract or e-sign record; this ground opens in Passes 2 and 5"
+    },
+    {
+     "seat": 3,
+     "name": "Martin Lipton",
+     "weight": 10,
+     "reading": "Blind",
+     "field": "contracts and e-sign",
+     "why": "as seat 2"
+    },
+    {
+     "seat": 4,
+     "name": "Sir David Tweedie",
+     "weight": 10,
+     "reading": "Pass",
+     "field": "the ledger",
+     "why": "census: Dr 4,382.19 = Cr 4,382.19 on both builds, balances identical, 259 state keys unchanged"
+    },
+    {
+     "seat": 5,
+     "name": "Lynn Turner",
+     "weight": 10,
+     "reading": "Pass",
+     "field": "the basis of a figure",
+     "why": "the cash-cycle card states days inventory reads 0 because the book holds no inventory field; DSCR and ROIC read Blind naming the field"
+    },
+    {
+     "seat": 16,
+     "name": "Cash scoreboard",
+     "weight": 10,
+     "reading": "Pass",
+     "field": "cash as the scoreboard",
+     "why": "ceoalloc renders cash $0 against a $4,874 floor; floor plant fires and reverses"
+    },
+    {
+     "seat": 19,
+     "name": "User-first platform",
+     "weight": 10,
+     "reading": "Pass",
+     "field": "reads at 1440 and 480",
+     "why": "both textdiffs account for every differing screen; no sideways scroll at either width"
+    },
+    {
+     "seat": 21,
+     "name": "Trust by design",
+     "weight": 10,
+     "reading": "Pass",
+     "field": "containment",
+     "why": "new screens write nothing: census keys unchanged, only navigation buttons added"
+    },
+    {
+     "seat": 25,
+     "name": "Reusable frameworks",
+     "weight": 10,
+     "reading": "Pass",
+     "field": "reuse before building",
+     "why": "no second surface built; the four edits reuse _wcDays, _fin, _cashEff, _liveBurn and _brnWheelVM"
+    },
+    {
+     "seat": 55,
+     "name": "Whether a figure is shown honestly or merely shown",
+     "weight": 10,
+     "reading": "Pass",
+     "field": "a figure is shown honestly",
+     "why": "Measured, Empty and Blind render in distinct words; contrast floor 4.61:1, 0 failures on 825 nodes"
+    },
+    {
+     "seat": 58,
+     "name": "Scope, baseline and earned value — maturity over heroics",
+     "weight": 10,
+     "reading": "Hold",
+     "field": "scope and baseline",
+     "why": "three additions remain undefined and unbuilt"
+    },
+    {
+     "seat": 72,
+     "name": "Hui Chen",
+     "weight": 10,
+     "reading": "Hold",
+     "field": "zero Google, zero Gmail",
+     "why": "45 and 11, unchanged; this pass adds 0"
+    }
+   ],
+   "other": "every other seat Blind: no ground defined for this item"
+  }
+ ]
+}
