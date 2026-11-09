@@ -449,14 +449,6 @@
       "sha256": "d15e2cd4e2723b3bb21cad5768ad07e18fcb068643dbc32815b11dc2b0c99d52",
       "size": 2476
     },
-    "item420-founders72-verdicts.json": {
-      "sha256": "49f2147ee576b52cd5a009484b14e73717d1aed1b9c914cda549295dc9ca9dbd",
-      "size": 6238
-    },
-    "item420-state.json": {
-      "sha256": "5d96752a2692b82491d1b4245b1b31eebeb28b3996d9f58833fecdceffd35d43",
-      "size": 3694
-    },
     "item420_edit_pass1.py": {
       "sha256": "b0ce95c3b12f6f8db0f72c7604788b10c2cc1015f3d82b5ab2a8656b99f50ff7",
       "size": 17781
@@ -690,7 +682,7 @@
       "size": 5344
     }
   },
-  "pass": "Item 420 Pass 1 (Revision 4) \u00b7 Books home cash cycle, DSCR and ROIC; ratio price row Blind; Thinking wheel offered before a decision is recorded; Capital allocation board (ceoalloc) \u00b7 9 Nov 2026",
+  "pass": "Item 420 Pass 1 (Revision 4) \u00b7 Books home cash cycle, DSCR and ROIC; ratio price row Blind; Thinking wheel offered before a decision is recorded; Capital allocation board (ceoalloc) \u00b7 governance records held in the Complete Package per Item 381 \u00b7 9 Nov 2026",
   "repo": "196969/dash-app-",
-  "written": "2026-11-09 15:54:08 UTC"
+  "written": "2026-11-09 16:00:22 UTC"
 }
