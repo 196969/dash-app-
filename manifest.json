@@ -434,8 +434,8 @@
       "size": 1035
     },
     "index.html": {
-      "sha256": "108ed85aa9eba5a9e7736665b658944c8afe08f36356e25ce704803df11e6308",
-      "size": 10986522
+      "sha256": "8c82332f4891bd3c4a1ab9bee66ea9e601351f491189f916756b37ccea8c6fa4",
+      "size": 10989902
     },
     "item369-build-record.json": {
       "sha256": "bfcaa2bdb4e478085b7ad71443f0b3652fb5d07b18e542b55d42bf19a76c74ff",
@@ -505,6 +505,18 @@
       "sha256": "5ead4e71a315f36f897f128e4222ef691bac88b7961b3322c3c3fad7659c0063",
       "size": 2196
     },
+    "item420p4_edit.py": {
+      "sha256": "c0bdf8544a8817495f782cc3ec96e307f4f7cbf3b1db907a88ff25f3c20a6757",
+      "size": 14494
+    },
+    "item420p4_eval.py": {
+      "sha256": "78a4efe4de9d18c33ec002439582c11066b4d8d1adf629029d858edb9f33c87b",
+      "size": 4505
+    },
+    "item420p4_plants.js": {
+      "sha256": "562ee93a594926dc3612cbf2ab04512bfbf4ca789b610876d3347df316e67af4",
+      "size": 1663
+    },
     "item423_eps_eval.py": {
       "sha256": "5b4a4afb2dd53c70c419e0f75901a210fe6e696ae4361403c643756d9e91c71d",
       "size": 3675
@@ -520,6 +532,10 @@
     "links.html": {
       "sha256": "8bad2e4ab95b5c068ea53986571eb364d8b60f300443e161562b04525b11ba4c",
       "size": 12479
+    },
+    "markers.py": {
+      "sha256": "54e09d240448e702ae46db92a15b64a204b4f0f19bd80912f789449b0aabb5a9",
+      "size": 2016
     },
     "navreach2.py": {
       "sha256": "b4bbbcb238c7b7692f58fe56ca6b62978b492bc42464931e658dd2bcd822a01a",
@@ -730,7 +746,7 @@
       "size": 5344
     }
   },
-  "pass": "Item 420 Pass 3 (filed Revision 5; restart instruction Revision 1) \u00b7 S4 BANT and CHAMP completeness on every hotlist row, MEDDIC on Tier A, Qualify writer \u00b7 S5 objection library in the composer \u00b7 six of ten exist, two struck \u00b7 records at 109 \u00b7 9 Nov 2026",
+  "pass": "Item 420 Pass 4 (filed Revision 5; instruction Revision 4; Chair ruling option A) \u00b7 C1 Gmail and C2 Google off every screen (rendered 0 and 1, the kept roster record), seed lists byte-identical, changes at load through _c12SeedMerge (fingerprint 8szye6, no book set aside) \u00b7 register shows $150/yr \u00b7 B3 meeting workflow on the Decision log \u00b7 B1, B2, B4\u2013B7 struck \u00b7 records at 110 \u00b7 10 Nov 2026",
   "repo": "196969/dash-app-",
-  "written": "2026-11-09 23:19:46 UTC"
+  "written": "2026-11-10 12:23:44 UTC"
 }
