@@ -146,8 +146,8 @@
       "size": 1553
     },
     "build-rules.md": {
-      "sha256": "42575cde3c5d21a68a74616ae1c1174073d7263b9da8d07a75f0994dae879cb0",
-      "size": 861
+      "sha256": "f0572348a1ce319b3fadf738c81668433e8204fa64d3d4b88e5f22cc79af0ed3",
+      "size": 1006
     },
     "build_founders_council.py": {
       "sha256": "19458427895402d455508e2c8721a27c0e70a94d76c23e0caf0af96623afdf39",
@@ -434,8 +434,8 @@
       "size": 1035
     },
     "index.html": {
-      "sha256": "8c82332f4891bd3c4a1ab9bee66ea9e601351f491189f916756b37ccea8c6fa4",
-      "size": 10989902
+      "sha256": "74e82807990ce0af64c10e22cef59a33698a8d63b1fc484fa7c8976dc1abccb2",
+      "size": 11029048
     },
     "item369-build-record.json": {
       "sha256": "bfcaa2bdb4e478085b7ad71443f0b3652fb5d07b18e542b55d42bf19a76c74ff",
@@ -516,6 +516,18 @@
     "item420p4_plants.js": {
       "sha256": "562ee93a594926dc3612cbf2ab04512bfbf4ca789b610876d3347df316e67af4",
       "size": 1663
+    },
+    "item420p5_edit.py": {
+      "sha256": "44099c501f22183dbf0ff6087d3e133c5c14fb8cd93282a75c19a6684f01445e",
+      "size": 39407
+    },
+    "item420p5_eval.py": {
+      "sha256": "6b84548175701cab30b92b2afd1d09b11c838e7027024e1d0f23284f678aeff4",
+      "size": 3963
+    },
+    "item420p5_plants.js": {
+      "sha256": "9a31c8cc944b6e6a9cfb3902e7c2876ed3c9a1848077ca999a9aa52a24c07e61",
+      "size": 9011
     },
     "item423_eps_eval.py": {
       "sha256": "5b4a4afb2dd53c70c419e0f75901a210fe6e696ae4361403c643756d9e91c71d",
@@ -746,7 +758,7 @@
       "size": 5344
     }
   },
-  "pass": "Item 420 Pass 4 (filed Revision 5; instruction Revision 4; Chair ruling option A) \u00b7 C1 Gmail and C2 Google off every screen (rendered 0 and 1, the kept roster record), seed lists byte-identical, changes at load through _c12SeedMerge (fingerprint 8szye6, no book set aside) \u00b7 register shows $150/yr \u00b7 B3 meeting workflow on the Decision log \u00b7 B1, B2, B4\u2013B7 struck \u00b7 records at 110 \u00b7 10 Nov 2026",
+  "pass": "Item 420 Pass 5 (filed Revision 5; consolidated instruction Revision 2) \u00b7 nine new screens on the derived count (E1 brand asset lock, E2 trace import, E3 reply classifier with composer refusal, E4 deliverability panel through the Chair-approved resolver, R1, R4, R5, R10, R15) \u00b7 R6 ledger: payee classed by the operator, threshold from Tune the Seat, nothing typed \u00b7 Chair-inputs card on Tune the Seat with withdrawal writers \u00b7 build-rules.md Google line \u00b7 4 held pending Chair text, platform held \u00b7 records at 111 \u00b7 10 Nov 2026",
   "repo": "196969/dash-app-",
-  "written": "2026-11-10 12:23:44 UTC"
+  "written": "2026-11-10 14:16:33 UTC"
 }
