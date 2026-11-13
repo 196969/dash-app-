@@ -1,0 +1,63 @@
+// Item 429 forced scenarios, by gap. Each runs through a named writer with a not-fire twin, or reads "not-fire only" with the reason no writer can produce it (Items 421, 423, 427A).
+// Reserved values only (the text plant-429, no client address). Every plant a writer can remove is removed through it and the state read after; a fresh load (the eval) proves nothing remains.
+async()=>{const d=window.__dash; const W=ms=>new Promise(r=>setTimeout(r,ms)); const R={};
+ const form=async(vals)=>{await W(150); const u=d._askUI; if(!u) return 'no form opened'; u.fields.forEach(f=>{ if(f.key in vals) f.value=String(vals[f.key]); }); d._askClose(true); await W(500); return 'submitted';};
+ const go=async v=>{ d.setState({view:v}); await W(900); }; const rv=()=>d.renderVals(); const toast=()=>String(d.state.toast||'');
+ const $=n=>(n<0?'-$':'$')+Math.abs(n).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
+ const wk=()=>rv().bdxweekVM;
+ // ===== A · the sales operating week: cadence writer (Tune the Seat), template deal writer, target writer, close-deal writer =====
+ await go('bdxweek'); let w=wk(); R.A_seed={mon:w.mon.state, tue:w.tue.state, tueRows:w.tue.rows.length, wed:w.wed.state, thu:w.thu.state, fri:w.fri.map(l=>l.k+': '+l.v), tiles:w.tiles.map(t=>t.k+': '+t.v)};
+ await go('ssxtune'); rv().cadenceVM.set(); await form({q:'3', t:'2'}); await go('bdxweek'); w=wk(); R.A_cadence_fire={tue:w.tue.state, tueRows:w.tue.rows.length, cadence:w.cadence};
+ await go('pipeline'); const tm=(rv().tmpl||{}).rows||[]; R.A_deal_writer=tm[0]?'tmpl.rows[0].use':'none'; if(tm[0]) tm[0].use(); await W(400);
+ const deal=(d.state.deals||[])[0]||{}; const expW=(Number(deal.value)||0)*(Number(deal.p)||0);
+ await go('bdxweek'); w=wk(); R.A_deal_fire={mon:w.mon.state, row:(w.mon.rows[0]||{}), thu_notfire:w.thu.state, fri_pipeline:w.fri[0].v, expected_weighted:$(expW), tile_forecast:w.tiles[0].v, tile_forecast_range:w.tiles[0].sub};
+ await go('ssxtune'); d.renderVals().chairInputsVM.setTarget(); await form({v:'45000'}); await go('bdxweek'); w=wk(); R.A_target_fire={tile:w.tiles[2].v, sub:w.tiles[2].sub, expected_cover:Math.round(expW/45000*100)+'%'};
+ d._frxCloseDeal(deal.id,'Lost','Price','plant-429'); await W(400); await go('bdxweek'); w=wk(); R.A_close_fire={winloss:w.tiles[1].v, sub:w.tiles[1].sub, mon_twin:w.mon.state, fri_closed:w.fri[1].v};
+ await go('ssxtune'); rv().cadenceVM.set(); await form({q:'', t:''}); await go('bdxweek'); w=wk(); R.A_cadence_withdrawn={tue:w.tue.state, tueRows:w.tue.rows.length};
+ await go('ssxtune'); d.renderVals().chairInputsVM.setTarget(); await form({v:''}); await go('bdxweek'); R.A_target_withdrawn=wk().tiles[2].v;
+ R.A_quiet_and_clinic='not-fire only: no writer ages a deal (the template and advance writers set since and days to 0, and no cadence can be declared at 0), so Quiet and the deal clinic are proven by not-fire above';
+ R.A_wednesday='not-fire only: no writer adds a non-example draft to the outbox; the card reads Empty with the example rows excluded';
+ // ===== B and G · forecast ranges and commentary: the close writer of fc.history (_retrainForecast, fired by Close & seal) =====
+ await go('rollfc'); R.B_seed=rv().forecastVM.range.line; await go('qbxhome'); R.G_seed_boardpack={head:rv().fluxVM.head, forecastLines:rv().fluxVM.raw.filter(t=>/^Revenue for/.test(t)).length};
+ d._retrainForecast('Sep 2026'); await W(500); await go('rollfc'); R.B_one_period_twin=rv().forecastVM.range.line;
+ d._retrainForecast('Oct 2026'); await W(500); await go('rollfc'); const H=d.state.fc.history; const r=H.map(h=>h.actRev/h.fcRev).sort((x,y)=>x-y); const lo=r[0], hi=r[r.length-1], md=r.length%2?r[(r.length-1)/2]:(r[r.length/2-1]+r[r.length/2])/2;
+ const fv=rv().forecastVM; const pt=Number(d.state.fc.base)*(1+Number(d.state.fc.drivers.growth)/100);
+ R.B_fire={rollfc:fv.range.line, expected:{low:$(Math.min(pt*lo,pt*hi)), likely:$(pt*md), high:$(Math.max(pt*lo,pt*hi)), point:$(pt)}, history:H.map(h=>h.month+' fc '+$(h.fcRev)+' act '+$(h.actRev))};
+ await go('bkfcst'); R.B_fire_bkfcst=rv().bkVM.forecast.range.line; await go('bkkpfcst'); R.B_fire_bkkpfcst=rv().bkkpVM.forecast.range.line; await go('projfin'); R.B_fire_projfin=(rv().pf.rows[0]||{}).range.line;
+ R.G_fire_hist=fv.hist.map(h=>h.comment); await go('qbxhome'); R.G_fire_boardpack=rv().fluxVM.raw;
+ R.G_blind='not-fire only: every account row on this book has a prior month on file and every row has a driver, so the two Blind rules read not-fire; no writer removes a prior month or writes a forecast of zero (_retrainForecast refuses a forecast of zero)';
+ // ===== C · Go/No-Go: market writer and the five test writers =====
+ const g=()=>rv().cbdgonogoVM; await go('cbdgonogo'); R.C_seed={band:g().band, market:g().market, rigour:g().rigour};
+ g().setMarket(); await form({m:'plant-429 test market', c:'1500'}); await go('cbdgonogo'); R.C_market={market:g().market, rigour:g().rigour};
+ const fileT=async(i,vd)=>{ await go('cbdgonogo'); g().rows[i].file(); await form({src:'plant-429 test record', vd:vd, note:'plant-429'}); };
+ await fileT(0,'Confirmed'); await go('cbdgonogo'); R.C_partial_twin=g().band;
+ await fileT(1,'Confirmed'); await fileT(2,'Confirmed'); await fileT(3,'Requires refinement'); await fileT(4,'Requires refinement'); await go('cbdgonogo'); R.C_move_fire={band:g().band, rows:g().rows.map(x=>x.name+' · '+x.state)};
+ await fileT(2,'Limited upside'); await go('cbdgonogo'); R.C_stop_fire=g().band;
+ await fileT(2,'Requires refinement'); await go('cbdgonogo'); R.C_pause_fire=g().band;
+ await go('cbdgonogo'); g().rows[0].file(); await form({src:'plant-429 test record', vd:'maybe', note:''}); R.C_bad_verdict_twin={toast:toast(), state:g().rows[0].state};
+ for(let i=0;i<5;i++){ await go('cbdgonogo'); g().rows[i].file(); await form({src:'', vd:'', note:''}); } await go('cbdgonogo'); g().setMarket(); await form({m:'', c:''}); await go('cbdgonogo'); R.C_removed={band:g().band, market:g().market};
+ // ===== D · Strategy against plan: the strategy field writer and the initiative register writer =====
+ const sv=()=>rv().cmdxstrategyVM; await go('cmdxstrategy'); R.D_seed=sv().guard;
+ await go('initreg'); let iv=rv().initVM; const ev=v=>({target:{value:v}}); iv.setName(ev('plant-429 initiative')); await W(150); iv=rv().initVM; iv.setArea(ev((iv.areaOpts&&iv.areaOpts[0]&&(iv.areaOpts[0].value||iv.areaOpts[0].label||iv.areaOpts[0]))||'Work')); await W(150);
+ const t0=new Date(); const iso=t0.getFullYear()+'-'+String(t0.getMonth()+1).padStart(2,'0')+'-'+String(t0.getDate()).padStart(2,'0'); rv().initVM.setStart(ev(iso)); await W(150); rv().initVM.setStateD(ev('started')); await W(150); rv().initVM.setEvidence(ev('plant-429 evidence field')); await W(150); rv().initVM.add(); await W(500);
+ R.D_initiative={entries:((d.state.connectors||{}).initiatives||{}).entries?((d.state.connectors.initiatives.entries)||[]).length:0, toast:toast()};
+ await go('cmdxstrategy'); R.D_guard_fire={guard:sv().guard, bad:sv().guardBad, init:sv().init};
+ sv().strat[0].file(); await form({t:'plant-429 market text'}); await go('cmdxstrategy'); R.D_partial_twin={guard:sv().guard, field:sv().strat[0].text, bad:sv().guardBad};
+ sv().strat[0].file(); await form({t:''}); await go('cmdxstrategy'); R.D_withdrawn={guard:sv().guard, field:sv().strat[0].text};
+ R.D_initiative_removal='no writer deletes an initiative entry: removed by the fresh load the eval proves';
+ // ===== E · the prompt and voice library: the prompt writer and the phrase writer =====
+ const pv=()=>rv().lrnxpromptsVM; await go('lrnxprompts'); R.E_seed={lib:pv().libState, voice:pv().voiceState};
+ pv().addPrompt(); await form({title:'plant-429 prompt', does:'plant-429', tool:'plant-429', needs:'plant-429', text:'plant-429 prompt text', source:''}); await go('lrnxprompts'); R.E_nosource_twin={toast:toast(), lib:pv().libState, cards:pv().cards.length};
+ pv().addPrompt(); await form({title:'plant-429 prompt', does:'plant-429', tool:'plant-429', needs:'plant-429', text:'plant-429 prompt text', source:'plant-429 filed document'}); await go('lrnxprompts'); R.E_fire={lib:pv().libState, cards:pv().cards.map(c=>c.title+' · '+c.source)};
+ pv().addPhrase(); await form({phrase:'plant-429 phrase', source:''}); await go('lrnxprompts'); R.E_phrase_twin={toast:toast(), voice:pv().voiceState};
+ pv().addPhrase(); await form({phrase:'plant-429 phrase', source:'plant-429 filed standard'}); await go('lrnxprompts'); R.E_phrase_fire={voice:pv().voiceState, phrases:pv().phrases.map(p=>p.phrase+' · '+p.source)};
+ pv().cards[0].remove(); await W(300); pv().phrases[0].remove(); await W(300); await go('lrnxprompts'); R.E_removed={lib:pv().libState, voice:pv().voiceState};
+ // ===== F · the external benchmark writer on the one-seat book; H attrition =====
+ await go('hrxtalent'); const bv=()=>rv().benchVM; R.F_seed={head:bv().head, answers:bv().rows[0].ans.map(a=>a.a)};
+ bv().rows[0].file(); await form({comp:'plant-429 comparator', q1:'plant-429', q2:'plant-429', q3:'plant-429'}); await go('hrxtalent'); R.F_notfire_solo={comparator:bv().rows[0].comparator, answers:bv().rows[0].ans.map(a=>a.a)};
+ bv().rows[0].file(); await form({comp:'', q1:'', q2:'', q3:''}); await go('hrxtalent'); R.F_removed={comparator:bv().rows[0].comparator, talentBench:Object.keys(((d.state.connectors||{}).talentBench)||{}).length};
+ R.F_fire='not-fire only: no writer adds a second Active person to the People roster, so the comparator answers cannot be shown (Item 423)';
+ R.H={attrition:bv().attrition, note:'not-fire only: no writer records a separation'};
+ // ===== after removal =====
+ const c=d.state.connectors||{}; R.after_removal={bdxCadence:JSON.stringify(c.bdxCadence||null), quarterTarget:String(c.quarterTarget), goNoGo:JSON.stringify(c.goNoGo||null), strategy:JSON.stringify(c.strategy||null), promptLibrary:(c.promptLibrary||[]).length, voiceBanned:(c.voiceBanned||[]).length, talentBench:Object.keys(c.talentBench||{}).length, fc_history:(d.state.fc.history||[]).length, deals:(d.state.deals||[]).length, initiatives:((c.initiatives||{}).entries||[]).length, note:'fc.history, the closed template deal and the initiative entry have no delete writer: removed by the fresh load the eval proves'};
+ return R}

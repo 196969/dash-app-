@@ -434,8 +434,8 @@
       "size": 1035
     },
     "index.html": {
-      "sha256": "7da06b36c93090e73dd846ec1b46defbaa98bd85ef0d9991f9a82e971d7d51c7",
-      "size": 11029110
+      "sha256": "c5a786c3898a220b2a8c125f9a2aab860d79a5fd445317c333c685a52309c159",
+      "size": 11076416
     },
     "item369-build-record.json": {
       "sha256": "bfcaa2bdb4e478085b7ad71443f0b3652fb5d07b18e542b55d42bf19a76c74ff",
@@ -536,6 +536,18 @@
     "item424_tie_eval.py": {
       "sha256": "288e42e44414ccb1fd7274108c510fc2e0e5a7da7055e7f4e2c3b5d2736b25ae",
       "size": 4136
+    },
+    "item429_edit.py": {
+      "sha256": "2499ae45f0d528fbed5a799b2c377014d707ef20fd79289ebfeb44134555448a",
+      "size": 50970
+    },
+    "item429_eval.py": {
+      "sha256": "beff1b7e191ff86b7690cfa7bcd09ad33729dccede881b9ea8364e66c224b000",
+      "size": 6559
+    },
+    "item429_plants.js": {
+      "sha256": "42af31b51b5ed6bf01adca1286347a08722ce7ee200a712e6eebde89140001c8",
+      "size": 10236
     },
     "link-check.html": {
       "sha256": "c971bd0cec0d69f33ac980e1d2e770a2a7a22d867b5387eab97c5198d0ca9c46",
@@ -758,7 +770,7 @@
       "size": 5344
     }
   },
-  "pass": "Report count derived, 13 Nov 2026 \u00b7 three typed counts (130) now read the registry (Component.REPORTS.length, 131) \u00b7 index.html only",
+  "pass": "Item 429 \u00b7 the eight gaps, 13 Nov 2026 \u00b7 four new screens (bdxweek, cbdgonogo, cmdxstrategy, lrnxprompts) \u00b7 forecast ranges on four sites \u00b7 commentary on three variance sites and the board pack \u00b7 benchmark and attrition on hrxtalent \u00b7 index.html and three instruments",
   "repo": "196969/dash-app-",
-  "written": "2026-11-13 19:33:13 UTC"
+  "written": "2026-11-13 21:08:13 UTC"
 }
