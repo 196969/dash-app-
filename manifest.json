@@ -434,8 +434,8 @@
       "size": 1035
     },
     "index.html": {
-      "sha256": "c5a786c3898a220b2a8c125f9a2aab860d79a5fd445317c333c685a52309c159",
-      "size": 11076416
+      "sha256": "06e743dd40c1bb075f47b682209569165eb8a538afcb48e32911a95c6b8fc2e2",
+      "size": 11088586
     },
     "item369-build-record.json": {
       "sha256": "bfcaa2bdb4e478085b7ad71443f0b3652fb5d07b18e542b55d42bf19a76c74ff",
@@ -542,12 +542,16 @@
       "size": 50970
     },
     "item429_eval.py": {
-      "sha256": "beff1b7e191ff86b7690cfa7bcd09ad33729dccede881b9ea8364e66c224b000",
-      "size": 6559
+      "sha256": "46bc661a97eaf6887d8d62d8e9cab0054027875577936edb003999bf4781a215",
+      "size": 7830
     },
     "item429_plants.js": {
-      "sha256": "42af31b51b5ed6bf01adca1286347a08722ce7ee200a712e6eebde89140001c8",
-      "size": 10236
+      "sha256": "02bd2ed234ad8bc3fd16d81f924a7367f6df128f83e1fd26c0c5cf6d650b8707",
+      "size": 11342
+    },
+    "item429e_edit.py": {
+      "sha256": "e260e61e323a72066046a2ce4a1c9c6d2472342b75d24b2573412453060f5143",
+      "size": 12201
     },
     "link-check.html": {
       "sha256": "c971bd0cec0d69f33ac980e1d2e770a2a7a22d867b5387eab97c5198d0ca9c46",
@@ -770,7 +774,7 @@
       "size": 5344
     }
   },
-  "pass": "Item 429 \u00b7 the eight gaps, 13 Nov 2026 \u00b7 four new screens (bdxweek, cbdgonogo, cmdxstrategy, lrnxprompts) \u00b7 forecast ranges on four sites \u00b7 commentary on three variance sites and the board pack \u00b7 benchmark and attrition on hrxtalent \u00b7 index.html and three instruments",
+  "pass": "Item 429 gap E filled, 13 Nov 2026 \u00b7 13 prompts and 6 voice rules from register 112, quoted verbatim, through the named load merge _e429Merge \u00b7 two prompt sets, not three \u00b7 the word-level never list reads Blind \u00b7 index.html, item429e_edit.py and the updated eval and plants",
   "repo": "196969/dash-app-",
-  "written": "2026-11-13 21:08:13 UTC"
+  "written": "2026-11-13 22:56:22 UTC"
 }
