@@ -434,8 +434,8 @@
       "size": 1035
     },
     "index.html": {
-      "sha256": "1e7b50b3ce71a0c6459f7f5759ce68bba566ea67971ee05132a6d039f56b8d83",
-      "size": 11098973
+      "sha256": "d4eb4d61fc112df9c14d7ec7ba9e440577dd58b36b16630304de1c6fffb6918b",
+      "size": 11098964
     },
     "item369-build-record.json": {
       "sha256": "bfcaa2bdb4e478085b7ad71443f0b3652fb5d07b18e542b55d42bf19a76c74ff",
@@ -542,8 +542,8 @@
       "size": 50970
     },
     "item429_eval.py": {
-      "sha256": "60a8ba4e9bfa1fee73b9527ab92ad9db2da525a2640659112a73f14f1487ced5",
-      "size": 11509
+      "sha256": "a90927da8a910cf5c8cf973cf25a1b680bd4d3c581836ebb8c5c77f876462dba",
+      "size": 11614
     },
     "item429_plants.js": {
       "sha256": "e7a9243452631ff8e1db6739cc85c2de03dc122dcecb3d5298a844d08ca7bacb",
@@ -568,6 +568,10 @@
     "item434_edit.py": {
       "sha256": "e0b5ce6859fcd44b6933cd098ec95395d6eb3719ae12c88d83cf6de2b0a78032",
       "size": 2545
+    },
+    "item435_edit.py": {
+      "sha256": "f1dffcba5fe513ef42f103e6629aaeb5a49c6790110a5dad1ab98b4f4420f7cb",
+      "size": 2077
     },
     "link-check.html": {
       "sha256": "c971bd0cec0d69f33ac980e1d2e770a2a7a22d867b5387eab97c5198d0ca9c46",
@@ -790,7 +794,7 @@
       "size": 5344
     }
   },
-  "pass": "Item 434, 14 Nov 2026 \u00b7 8 escape sites in the emscore, bdscore and roidash markup become the characters they name: emscore 9 escapes in 9 places, bdscore 2 in 1, roidash 1 in 1, each to 0 \u00b7 correction to the Item 432/433 pass line: 37 visible escapes in 35 places per view \u00b7 index.html, item434_edit.py and the updated eval",
+  "pass": "Item 435, 14 Nov 2026 \u00b7 the corrected case-insensitive scan, run on all 668 screens at both widths before any fix, found residents and catalog only, 1 escape in 1 place each, both headings set in capitals \u00b7 both become the characters they name, and the scan reads 0 on every screen \u00b7 the eval escape check is case-insensitive \u00b7 index.html, item435_edit.py and the updated eval",
   "repo": "196969/dash-app-",
-  "written": "2026-11-14 01:43:14 UTC"
+  "written": "2026-11-14 02:40:12 UTC"
 }

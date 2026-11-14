@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Item 429 eval (Revision 1, with the gap E fill of 13 Nov 2026), graded by code on a fresh load, which also proves every plant removed.
+  Item 435: residents and catalog too; the escape check is case-insensitive, so a heading set in capitals is caught.
   Item 434: emscore, bdscore and roidash render no escape sequence as text either.
   Items 432 and 433: dashiq and cmdxiq render no escape sequence as text; the HR & Succession name on lrnhub reads at or above 4.5:1.
   Item 431: cmdxstrategy carries the Chair's authored text in all five fields, marked authored, and the never list holds Document 113 verbatim.
@@ -20,7 +21,7 @@ JS = """async()=>{const d=window.__dash; const W=ms=>new Promise(r=>setTimeout(r
  const R={}; for(const [v,k] of [['bkfcst',()=>rv().bkVM.forecast.range],['bkkpfcst',()=>rv().bkkpVM.forecast.range],['rollfc',()=>rv().forecastVM.range],['projfin',()=>(rv().pf.rows[0]||{}).range],['prjxfin',()=>(rv().pf.rows[0]||{}).range]]){ d.setState({view:v}); await W(900); let x=null; try{ x=k(); }catch(e){ x={line:'ERR '+e.message}; } R[v]={line:(x||{}).line||'', shown:T().indexOf((x||{}).line||'@@')>=0}; } o.B=R;
  d.setState({view:'qbxhome'}); await W(1200); const f=rv().fluxVM||{}; const bva=((rv().booksDeepVM||{}).bva||{}).rows||[]; o.G={board:(f.raw||[]).length, boardCard:/Board-pack section/i.test(T()), bva:bva.filter(r=>r.comment).length, bvaRows:bva.length};
  d.setState({view:'bkkpauditor'}); await W(1200); const vr=(rv().auditorVM||{}).varRows||[]; o.G.aud=vr.filter(r=>r.comment).length; o.G.audRows=vr.length; d.setState({view:'rollfc'}); await W(900); o.G.hist=((rv().forecastVM||{}).hist||[]).length;
- o.esc={}; for(const v of ['dashiq','cmdxiq','emscore','bdscore','roidash']){ d.setState({view:v}); await W(1100); o.esc[v]=(T().match(/\\\\u[0-9a-fA-F]{4}/g)||[]).length; }
+ o.esc={}; for(const v of ['dashiq','cmdxiq','emscore','bdscore','roidash','residents','catalog']){ d.setState({view:v}); await W(1100); o.esc[v]=(T().match(/\\\\u[0-9a-f]{4}/gi)||[]).length; }
  d.setState({view:'lrnhub'}); await W(1100); const hr=[...document.querySelectorAll('div.m-scroll *')].filter(e=>e.textContent.trim()==='HR & Succession' && ![...e.children].some(c=>c.textContent.trim()==='HR & Succession'))[0]; const lum=c=>{const m=(c||'').match(/\\d+(\\.\\d+)?/g)||[0,0,0]; const f=x=>{x=Number(x)/255; return x<=0.03928?x/12.92:Math.pow((x+0.055)/1.055,2.4)}; return 0.2126*f(m[0])+0.7152*f(m[1])+0.0722*f(m[2]);};
  const bgOf=e=>{ while(e){ const b=getComputedStyle(e).backgroundColor; if(b && !/rgba\\(0, 0, 0, 0\\)|transparent/.test(b)) return b; e=e.parentElement; } return 'rgb(255,255,255)'; };
  o.hr=hr?{color:getComputedStyle(hr).color, token:getComputedStyle(document.documentElement).getPropertyValue('--blue-100').trim(), cr:(()=>{const a=lum(getComputedStyle(hr).color), b=lum(bgOf(hr)); return Math.round((Math.max(a,b)+0.05)/(Math.min(a,b)+0.05)*100)/100;})()}:null;
@@ -60,7 +61,7 @@ def grade(path):
     g = r['G']
     if not (g['board'] >= 1 and g['boardCard'] and g['bvaRows'] and g['bva'] == g['bvaRows'] and g['audRows'] and g['aud'] == g['audRows'] and g['hist'] == 0): w.append(f'G {g}')
     if not (r['tune'].count('Not run') == 1 and r['tune'].startswith(f"{cad.get('contactsPerWeek')} contacts a sales week · {cad.get('newPerWeek')} new · {cad.get('followPerWeek')} follow-up · {cad.get('weeksPerQuarter')} sales weeks a quarter") and 'quiet-day cadence Not run' in r['tune']): w.append(f"Tune the Seat cadence {r['tune']}")
-    if r['esc'] != {'dashiq': 0, 'cmdxiq': 0, 'emscore': 0, 'bdscore': 0, 'roidash': 0}: w.append(f"432/434 visible escapes {r['esc']}")
+    if any(r['esc'].values()) or len(r['esc']) != 7: w.append(f"432/434/435 visible escapes {r['esc']}")
     hr = r.get('hr') or {}
     if not (hr and hr['cr'] >= 4.5): w.append(f'433 HR & Succession contrast {hr}')
     p = r['plant']
