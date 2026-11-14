@@ -7,14 +7,16 @@ async()=>{const d=window.__dash; const W=ms=>new Promise(r=>setTimeout(r,ms)); c
  const wk=()=>rv().bdxweekVM;
  // ===== A · the sales operating week: cadence writer (Tune the Seat), template deal writer, target writer, close-deal writer =====
  await go('bdxweek'); let w=wk(); R.A_seed={mon:w.mon.state, tue:w.tue.state, tueRows:w.tue.rows.length, wed:w.wed.state, thu:w.thu.state, fri:w.fri.map(l=>l.k+': '+l.v), tiles:w.tiles.map(t=>t.k+': '+t.v)};
- await go('ssxtune'); rv().cadenceVM.set(); await form({q:'3', t:'2'}); await go('bdxweek'); w=wk(); R.A_cadence_fire={tue:w.tue.state, tueRows:w.tue.rows.length, cadence:w.cadence};
+ await go('ssxtune'); rv().cadenceVM.set(); await form({k:'30', n:'20', f:'20', w:'13', q:''}); await go('ssxtune'); R.A_cadence_split_twin={toast:toast(), line:rv().cadenceVM.line};
+ await go('ssxtune'); rv().cadenceVM.set(); await form({k:'30', n:'2', f:'28', w:'13', q:'3'}); await go('bdxweek'); w=wk(); R.A_cadence_fire={tue:w.tue.state, tueRows:w.tue.rows.length, cadence:w.cadence};
  await go('pipeline'); const tm=(rv().tmpl||{}).rows||[]; R.A_deal_writer=tm[0]?'tmpl.rows[0].use':'none'; if(tm[0]) tm[0].use(); await W(400);
  const deal=(d.state.deals||[])[0]||{}; const expW=(Number(deal.value)||0)*(Number(deal.p)||0);
  await go('bdxweek'); w=wk(); R.A_deal_fire={mon:w.mon.state, row:(w.mon.rows[0]||{}), thu_notfire:w.thu.state, fri_pipeline:w.fri[0].v, expected_weighted:$(expW), tile_forecast:w.tiles[0].v, tile_forecast_range:w.tiles[0].sub};
- await go('ssxtune'); d.renderVals().chairInputsVM.setTarget(); await form({v:'45000'}); await go('bdxweek'); w=wk(); R.A_target_fire={tile:w.tiles[2].v, sub:w.tiles[2].sub, expected_cover:Math.round(expW/45000*100)+'%'};
+ R.A_target_seed=wk().tiles[2].v; await go('ssxtune'); d.renderVals().chairInputsVM.setTarget(); await form({v:'45000'}); await go('bdxweek'); w=wk(); R.A_target_fire={tile:w.tiles[2].v, sub:w.tiles[2].sub, expected_cover:Math.round(expW/45000*100)+'%'};
  d._frxCloseDeal(deal.id,'Lost','Price','plant-429'); await W(400); await go('bdxweek'); w=wk(); R.A_close_fire={winloss:w.tiles[1].v, sub:w.tiles[1].sub, mon_twin:w.mon.state, fri_closed:w.fri[1].v};
- await go('ssxtune'); rv().cadenceVM.set(); await form({q:'', t:''}); await go('bdxweek'); w=wk(); R.A_cadence_withdrawn={tue:w.tue.state, tueRows:w.tue.rows.length};
- await go('ssxtune'); d.renderVals().chairInputsVM.setTarget(); await form({v:''}); await go('bdxweek'); R.A_target_withdrawn=wk().tiles[2].v;
+ await go('ssxtune'); rv().cadenceVM.set(); await form({k:'', n:'', f:'', w:'', q:''}); await go('bdxweek'); w=wk(); R.A_cadence_withdrawn={tue:w.tue.state, tueRows:w.tue.rows.length, cadence:w.cadence};
+ const RU=d._r430Ruling(); await go('ssxtune'); rv().cadenceVM.set(); await form({k:String(RU.cadence.contactsPerWeek), n:String(RU.cadence.newPerWeek), f:String(RU.cadence.followPerWeek), w:String(RU.cadence.weeksPerQuarter), q:''}); await go('ssxtune'); R.A_cadence_restored=rv().cadenceVM.line;
+ await go('ssxtune'); d.renderVals().chairInputsVM.setTarget(); await form({v:''}); await go('bdxweek'); R.A_target_withdrawn=wk().tiles[2].v; await go('ssxtune'); d.renderVals().chairInputsVM.setTarget(); await form({v:String(RU.quarterTarget)}); await go('bdxweek'); R.A_target_restored=wk().tiles[2].v;
  R.A_quiet_and_clinic='not-fire only: no writer ages a deal (the template and advance writers set since and days to 0, and no cadence can be declared at 0), so Quiet and the deal clinic are proven by not-fire above';
  R.A_wednesday='not-fire only: no writer adds a non-example draft to the outbox; the card reads Empty with the example rows excluded';
  // ===== B and G · forecast ranges and commentary: the close writer of fc.history (_retrainForecast, fired by Close & seal) =====
@@ -26,16 +28,16 @@ async()=>{const d=window.__dash; const W=ms=>new Promise(r=>setTimeout(r,ms)); c
  await go('bkfcst'); R.B_fire_bkfcst=rv().bkVM.forecast.range.line; await go('bkkpfcst'); R.B_fire_bkkpfcst=rv().bkkpVM.forecast.range.line; await go('projfin'); R.B_fire_projfin=(rv().pf.rows[0]||{}).range.line;
  R.G_fire_hist=fv.hist.map(h=>h.comment); await go('qbxhome'); R.G_fire_boardpack=rv().fluxVM.raw;
  R.G_blind='not-fire only: every account row on this book has a prior month on file and every row has a driver, so the two Blind rules read not-fire; no writer removes a prior month or writes a forecast of zero (_retrainForecast refuses a forecast of zero)';
- // ===== C · Go/No-Go: market writer and the five test writers =====
- const g=()=>rv().cbdgonogoVM; await go('cbdgonogo'); R.C_seed={band:g().band, market:g().market, rigour:g().rigour};
- g().setMarket(); await form({m:'plant-429 test market', c:'1500'}); await go('cbdgonogo'); R.C_market={market:g().market, rigour:g().rigour};
- const fileT=async(i,vd)=>{ await go('cbdgonogo'); g().rows[i].file(); await form({src:'plant-429 test record', vd:vd, note:'plant-429'}); };
- await fileT(0,'Confirmed'); await go('cbdgonogo'); R.C_partial_twin=g().band;
- await fileT(1,'Confirmed'); await fileT(2,'Confirmed'); await fileT(3,'Requires refinement'); await fileT(4,'Requires refinement'); await go('cbdgonogo'); R.C_move_fire={band:g().band, rows:g().rows.map(x=>x.name+' · '+x.state)};
- await fileT(2,'Limited upside'); await go('cbdgonogo'); R.C_stop_fire=g().band;
- await fileT(2,'Requires refinement'); await go('cbdgonogo'); R.C_pause_fire=g().band;
- await go('cbdgonogo'); g().rows[0].file(); await form({src:'plant-429 test record', vd:'maybe', note:''}); R.C_bad_verdict_twin={toast:toast(), state:g().rows[0].state};
- for(let i=0;i<5;i++){ await go('cbdgonogo'); g().rows[i].file(); await form({src:'', vd:'', note:''}); } await go('cbdgonogo'); g().setMarket(); await form({m:'', c:''}); await go('cbdgonogo'); R.C_removed={band:g().band, market:g().market};
+ // ===== C · Go/No-Go (Item 430, rebuilt to the ruling): the five test writers on the ruled Illinois record =====
+ const g=()=>rv().cbdgonogoVM; await go('cbdgonogo'); R.C_seed={verdict:g().verdict, market:g().market, note:g().note, rows:g().rows.map(x=>x.name+' · '+x.state)};
+ const fileT=async(i,vals)=>{ await go('cbdgonogo'); g().rows[i].file(); await form(vals); await go('cbdgonogo'); };
+ await fileT(0,{src:'plant-430 test record', vd:'Go', why:''}); R.C_demand_go_twin={verdict:g().verdict};
+ await fileT(4,{src:'plant-430 test record', vd:'Go', why:''}); R.C_go_refused_fire={verdict:g().verdict};
+ await fileT(1,{src:'plant-430 test record', vd:'Go', why:''}); R.C_go_fire={verdict:g().verdict};
+ await fileT(2,{src:'plant-430 test record', vd:'maybe', why:''}); R.C_bad_verdict_twin={toast:toast(), state:g().rows[2].state};
+ await fileT(3,{src:'', vd:'Go', why:''}); R.C_go_without_source_twin={toast:toast(), state:g().rows[3].state};
+ const RG=d._r430Ruling().goNoGo.tests; await fileT(0,{src:'', vd:'', why:RG.demand.reason}); await fileT(1,{src:'', vd:'', why:RG.competition.reason}); await fileT(4,{src:RG.capacity.source, vd:RG.capacity.verdict, why:''});
+ R.C_restored={verdict:g().verdict, rows:g().rows.map(x=>x.name+' · '+x.state), equals_seed:g().verdict===R.C_seed.verdict};
  // ===== D · Strategy against plan: the strategy field writer and the initiative register writer =====
  const sv=()=>rv().cmdxstrategyVM; await go('cmdxstrategy'); R.D_seed=sv().guard;
  await go('initreg'); let iv=rv().initVM; const ev=v=>({target:{value:v}}); iv.setName(ev('plant-429 initiative')); await W(150); iv=rv().initVM; iv.setArea(ev((iv.areaOpts&&iv.areaOpts[0]&&(iv.areaOpts[0].value||iv.areaOpts[0].label||iv.areaOpts[0]))||'Work')); await W(150);
