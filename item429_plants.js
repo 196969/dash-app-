@@ -38,14 +38,14 @@ async()=>{const d=window.__dash; const W=ms=>new Promise(r=>setTimeout(r,ms)); c
  await fileT(3,{src:'', vd:'Go', why:''}); R.C_go_without_source_twin={toast:toast(), state:g().rows[3].state};
  const RG=d._r430Ruling().goNoGo.tests; await fileT(0,{src:'', vd:'', why:RG.demand.reason}); await fileT(1,{src:'', vd:'', why:RG.competition.reason}); await fileT(4,{src:RG.capacity.source, vd:RG.capacity.verdict, why:''});
  R.C_restored={verdict:g().verdict, rows:g().rows.map(x=>x.name+' · '+x.state), equals_seed:g().verdict===R.C_seed.verdict};
- // ===== D · Strategy against plan: the strategy field writer and the initiative register writer =====
- const sv=()=>rv().cmdxstrategyVM; await go('cmdxstrategy'); R.D_seed=sv().guard;
- await go('initreg'); let iv=rv().initVM; const ev=v=>({target:{value:v}}); iv.setName(ev('plant-429 initiative')); await W(150); iv=rv().initVM; iv.setArea(ev((iv.areaOpts&&iv.areaOpts[0]&&(iv.areaOpts[0].value||iv.areaOpts[0].label||iv.areaOpts[0]))||'Work')); await W(150);
- const t0=new Date(); const iso=t0.getFullYear()+'-'+String(t0.getMonth()+1).padStart(2,'0')+'-'+String(t0.getDate()).padStart(2,'0'); rv().initVM.setStart(ev(iso)); await W(150); rv().initVM.setStateD(ev('started')); await W(150); rv().initVM.setEvidence(ev('plant-429 evidence field')); await W(150); rv().initVM.add(); await W(500);
- R.D_initiative={entries:((d.state.connectors||{}).initiatives||{}).entries?((d.state.connectors.initiatives.entries)||[]).length:0, toast:toast()};
- await go('cmdxstrategy'); R.D_guard_fire={guard:sv().guard, bad:sv().guardBad, init:sv().init};
- sv().strat[0].file(); await form({t:'plant-429 market text'}); await go('cmdxstrategy'); R.D_partial_twin={guard:sv().guard, field:sv().strat[0].text, bad:sv().guardBad};
- sv().strat[0].file(); await form({t:''}); await go('cmdxstrategy'); R.D_withdrawn={guard:sv().guard, field:sv().strat[0].text};
+ // ===== D · Strategy against plan (Item 431): the strategy field writer on the authored text, and the initiative register writer =====
+ const sv=()=>rv().cmdxstrategyVM; const R1=d._r431Ruling(); await go('cmdxstrategy'); R.D_seed={guard:sv().guard, marks:sv().strat.map(f=>f.mark)};
+ await go('initreg'); let iv=rv().initVM; const ev=v=>({target:{value:v}}); iv.setName(ev('plant-431 initiative')); await W(150); iv=rv().initVM; iv.setArea(ev((iv.areaOpts&&iv.areaOpts[0]&&(iv.areaOpts[0].value||iv.areaOpts[0].label||iv.areaOpts[0]))||'Work')); await W(150);
+ const t0=new Date(); const iso=t0.getFullYear()+'-'+String(t0.getMonth()+1).padStart(2,'0')+'-'+String(t0.getDate()).padStart(2,'0'); rv().initVM.setStart(ev(iso)); await W(150); rv().initVM.setStateD(ev('started')); await W(150); rv().initVM.setEvidence(ev('plant-431 evidence field')); await W(150); rv().initVM.add(); await W(500);
+ await go('cmdxstrategy'); sv().strat[0].file(); await form({t:R1.strategy.market}); await go('cmdxstrategy'); R.D_same_text_twin={toast:toast(), text:sv().strat[0].text};
+ sv().strat[0].file(); await form({t:'plant-431 market text'}); await go('cmdxstrategy'); R.D_writer_fire={text:sv().strat[0].text, mark:sv().strat[0].mark};
+ for(let i=0;i<5;i++){ await go('cmdxstrategy'); sv().strat[i].file(); await form({t:''}); } await go('cmdxstrategy'); R.D_guard_fire={guard:sv().guard, bad:sv().guardBad, init:sv().init};
+ const KS=['market','means','money','meaning','magic']; for(let i=0;i<5;i++){ await go('cmdxstrategy'); sv().strat[i].file(); await form({t:R1.strategy[KS[i]]}); } await go('cmdxstrategy'); R.D_restored={guard:sv().guard, verbatim:sv().strat.every((f,i)=>f.text===R1.strategy[KS[i]]), marks:sv().strat.map(f=>f.mark.split(' · ')[0])};
  R.D_initiative_removal='no writer deletes an initiative entry: removed by the fresh load the eval proves';
  // ===== E · the prompt and voice library: the filed set by the load merge, the prompt writer and the rule writer =====
  const pv=()=>rv().lrnxpromptsVM; const K=d._e429Filed(); await go('lrnxprompts'); R.E_seed={lib:pv().libState, voice:pv().voiceState, word:pv().wordList, cards:pv().cards.length, filed:K.promptLibrary.length, rules:pv().phrases.length, filedRules:K.voiceBanned.length};
@@ -57,6 +57,11 @@ async()=>{const d=window.__dash; const W=ms=>new Promise(r=>setTimeout(r,ms)); c
  const first=pv().cards[0]; first.remove(); await W(300); const st1=d.state; const again=d._e429Merge(st1); R.E_merge_notfire_marked={removed:first.id, returnedUntouched:again===st1, cards:pv().cards.length};
  const bare=Object.assign({}, st1, {connectors:Object.assign({}, st1.connectors, {e429Filed:undefined})}); const m=d._e429Merge(bare); R.E_merge_fire_unmarked={cards:(m.connectors.promptLibrary||[]).length, rules:(m.connectors.voiceBanned||[]).length, noDuplicateIds:new Set((m.connectors.promptLibrary||[]).map(p=>p.id)).size===(m.connectors.promptLibrary||[]).length, note:'computed on a copy; the book itself is not changed'};
  R.E_first_removal='the removed filed prompt is restored by the fresh load the eval proves (a fresh book takes the filed set once)';
+ // ===== E · Document 113 (Item 431): the never-list writer =====
+ await go('lrnxprompts'); R.E_never_seed={word:pv().wordList, n:pv().nevers.length};
+ pv().addNever(); await form({never:'plant-431 never', why:'plant-431 reason', source:''}); await go('lrnxprompts'); R.E_never_nosource_twin={toast:toast(), n:pv().nevers.length};
+ pv().addNever(); await form({never:'plant-431 never', why:'plant-431 reason', source:'plant-431 filed document'}); await go('lrnxprompts'); R.E_never_fire={word:pv().wordList, n:pv().nevers.length, last:pv().nevers.slice(-1)[0].never};
+ pv().nevers.find(x=>x.never==='plant-431 never').remove(); await W(300); await go('lrnxprompts'); R.E_never_removed={n:pv().nevers.length, verbatim:pv().nevers.every((x,i)=>x.never===R1.doc113.entries[i].never && x.why===R1.doc113.entries[i].why)};
  // ===== F · the external benchmark writer on the one-seat book; H attrition =====
  await go('hrxtalent'); const bv=()=>rv().benchVM; R.F_seed={head:bv().head, answers:bv().rows[0].ans.map(a=>a.a)};
  bv().rows[0].file(); await form({comp:'plant-429 comparator', q1:'plant-429', q2:'plant-429', q3:'plant-429'}); await go('hrxtalent'); R.F_notfire_solo={comparator:bv().rows[0].comparator, answers:bv().rows[0].ans.map(a=>a.a)};
