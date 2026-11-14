@@ -434,8 +434,8 @@
       "size": 1035
     },
     "index.html": {
-      "sha256": "e0b373d6f8ea1bfeaa5d6f1d2b5d4719711d49dcab8ec3be4b5a6cbd5ce403b9",
-      "size": 11099009
+      "sha256": "1e7b50b3ce71a0c6459f7f5759ce68bba566ea67971ee05132a6d039f56b8d83",
+      "size": 11098973
     },
     "item369-build-record.json": {
       "sha256": "bfcaa2bdb4e478085b7ad71443f0b3652fb5d07b18e542b55d42bf19a76c74ff",
@@ -542,8 +542,8 @@
       "size": 50970
     },
     "item429_eval.py": {
-      "sha256": "49f7d6e04ec3c899fc61acd0a7bf16f593972c22b622c24ef89884eed3d59f36",
-      "size": 11350
+      "sha256": "60a8ba4e9bfa1fee73b9527ab92ad9db2da525a2640659112a73f14f1487ced5",
+      "size": 11509
     },
     "item429_plants.js": {
       "sha256": "e7a9243452631ff8e1db6739cc85c2de03dc122dcecb3d5298a844d08ca7bacb",
@@ -564,6 +564,10 @@
     "item432_edit.py": {
       "sha256": "e122ec147d750dea917483238d7a273b091b6a3491964746ab21112aff7a6cf8",
       "size": 3026
+    },
+    "item434_edit.py": {
+      "sha256": "e0b5ce6859fcd44b6933cd098ec95395d6eb3719ae12c88d83cf6de2b0a78032",
+      "size": 2545
     },
     "link-check.html": {
       "sha256": "c971bd0cec0d69f33ac980e1d2e770a2a7a22d867b5387eab97c5198d0ca9c46",
@@ -786,7 +790,7 @@
       "size": 5344
     }
   },
-  "pass": "Items 432 and 433, 14 Nov 2026 \u00b7 432: 29 escape sites in the dashiq/cmdxiq block markup become the characters they name, 35 visible escapes per view to 0 \u00b7 433: the HR & Succession program colour moves to the ramp step --blue-100, lrnhub to 0 contrast failures \u00b7 index.html, item432_edit.py and the updated eval",
+  "pass": "Item 434, 14 Nov 2026 \u00b7 8 escape sites in the emscore, bdscore and roidash markup become the characters they name: emscore 9 escapes in 9 places, bdscore 2 in 1, roidash 1 in 1, each to 0 \u00b7 correction to the Item 432/433 pass line: 37 visible escapes in 35 places per view \u00b7 index.html, item434_edit.py and the updated eval",
   "repo": "196969/dash-app-",
-  "written": "2026-11-14 01:03:39 UTC"
+  "written": "2026-11-14 01:43:14 UTC"
 }
