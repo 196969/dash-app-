@@ -434,8 +434,8 @@
       "size": 1035
     },
     "index.html": {
-      "sha256": "29460fed39a21f5c05eed7aa16b411d36ef8187a765e2db8859fffd2b92b0624",
-      "size": 11099151
+      "sha256": "e0b373d6f8ea1bfeaa5d6f1d2b5d4719711d49dcab8ec3be4b5a6cbd5ce403b9",
+      "size": 11099009
     },
     "item369-build-record.json": {
       "sha256": "bfcaa2bdb4e478085b7ad71443f0b3652fb5d07b18e542b55d42bf19a76c74ff",
@@ -542,8 +542,8 @@
       "size": 50970
     },
     "item429_eval.py": {
-      "sha256": "d8d96f47b9273a54b193e9b0d881b47f392e1f49d7a55288d9b5c4c03e994667",
-      "size": 9968
+      "sha256": "49f7d6e04ec3c899fc61acd0a7bf16f593972c22b622c24ef89884eed3d59f36",
+      "size": 11350
     },
     "item429_plants.js": {
       "sha256": "e7a9243452631ff8e1db6739cc85c2de03dc122dcecb3d5298a844d08ca7bacb",
@@ -560,6 +560,10 @@
     "item431_edit.py": {
       "sha256": "c5658e84b408a1a02599f42c7418594dabff87c4fc91692c039613f4ca16155b",
       "size": 10216
+    },
+    "item432_edit.py": {
+      "sha256": "e122ec147d750dea917483238d7a273b091b6a3491964746ab21112aff7a6cf8",
+      "size": 3026
     },
     "link-check.html": {
       "sha256": "c971bd0cec0d69f33ac980e1d2e770a2a7a22d867b5387eab97c5198d0ca9c46",
@@ -782,7 +786,7 @@
       "size": 5344
     }
   },
-  "pass": "Item 431, 14 Nov 2026 \u00b7 the last two Item 429E Blinds closed under the Chair ruling of 13 Nov \u00b7 cmdxstrategy five fields as the Chair authored text, marked authored \u00b7 the never list as Document 113, first edition, ten entries verbatim \u00b7 through the named load merge _r431Merge \u00b7 quiet days stays Not run by ruling \u00b7 index.html, item431_edit.py and the updated eval and plants",
+  "pass": "Items 432 and 433, 14 Nov 2026 \u00b7 432: 29 escape sites in the dashiq/cmdxiq block markup become the characters they name, 35 visible escapes per view to 0 \u00b7 433: the HR & Succession program colour moves to the ramp step --blue-100, lrnhub to 0 contrast failures \u00b7 index.html, item432_edit.py and the updated eval",
   "repo": "196969/dash-app-",
-  "written": "2026-11-14 00:17:04 UTC"
+  "written": "2026-11-14 01:03:39 UTC"
 }
