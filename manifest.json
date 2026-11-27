@@ -1,28 +1,12 @@
 {
   "branch": "branch",
   "files": {
-    "db-cbd-partnership-and-channel.html": {
-      "sha256": "1f909b03444b4982a60d66cc47df7eb25bcd7595d5a4ca607997479d3f598487",
-      "size": 138026
-    },
-    "db-cbd-referral-engine.html": {
-      "sha256": "51b9998e9dc3acbf4c04980490209ff1657540aa78f9354abb9744f2ee5de422",
-      "size": 137825
-    },
-    "db-clo-contract-register.html": {
-      "sha256": "692395aafa93270ac21fe4bcb2892a69dd9791552241e1f85ea86da53be90d89",
-      "size": 138472
-    },
-    "db-partner-economics.html": {
-      "sha256": "14e88b9fbc93a149eb46960f9d1d564343cd721cc2abb5d327fba777904d78c6",
-      "size": 134730
-    },
     "index.html": {
-      "sha256": "7151b760b7b446aec75ca974a5606e57ed05521af84c575ba76ab0979f5bc904",
-      "size": 11098967
+      "sha256": "c71bbcf45ae758a468eb1a4c9631839bce5e8a7b6b29f8fd16ab4a61bd5abd87",
+      "size": 11132371
     }
   },
-  "pass": "Item 462",
+  "pass": "Item 463",
   "repo": "196969/dash-app-",
-  "written": "2026-11-21 02:23:47 UTC"
+  "written": "2026-11-27 02:21:26 UTC"
 }
