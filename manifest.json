@@ -2,55 +2,11 @@
   "branch": "branch",
   "files": {
     "Dash-Books-CEO-Workbook.xlsx": {
-      "sha256": "8cc63f390bee41ffb3e646dccd0fb59cd9c3661a06a8b0e8a7a7196a3f04e7b1",
-      "size": 23090
-    },
-    "Dash-Client-Portal-CEO-Workbook.xlsx": {
-      "sha256": "0895148ca0a8e926da4a6c382453e22a750da110787a3242202dc7a5c396f8b5",
-      "size": 18304
-    },
-    "Dash-Command-CEO-Workbook.xlsx": {
-      "sha256": "c1644f6435899ba75dfcaea5a68ec48c062279336851d171a038034bdb611d47",
-      "size": 17209
-    },
-    "Dash-Deals-CEO-Workbook.xlsx": {
-      "sha256": "de2f0914f1fc4544464910d5b8e50b4f5436e9bd13db69c1e1eec382f7e8a007",
-      "size": 15281
-    },
-    "Dash-Growth-CEO-Workbook.xlsx": {
-      "sha256": "c690cc259ed972b4610481ad09e1cf18790f02c9b473db33b8960982909ef4e7",
-      "size": 18657
-    },
-    "Dash-Learn-CEO-Workbook.xlsx": {
-      "sha256": "27aac0d070639f0117e3335965a63c12fae59eace234756e95420298ed0ff6e8",
-      "size": 13781
-    },
-    "Dash-Legal-CEO-Workbook.xlsx": {
-      "sha256": "2290bd7459253139188b3dd954b6f8efb0ab26fc8b15eaa22527b83dc40af036",
-      "size": 18435
-    },
-    "Dash-Operations-CEO-Workbook.xlsx": {
-      "sha256": "b26dc5313667d7b850555ede0d12db7eff09c91e2c2a72f041dc85fb6aee12a7",
-      "size": 15363
-    },
-    "Dash-People-CEO-Workbook.xlsx": {
-      "sha256": "cfb9424edb8e8a6eb6f5eb11d9bf3d04f475190b906678cde1cced5b7f608298",
-      "size": 21482
-    },
-    "Dash-Systems-CEO-Workbook.xlsx": {
-      "sha256": "1345512f21d92d05ac6e17e274ca44adca565ca175eb27dac2ed0d155086f80d",
-      "size": 18007
-    },
-    "DashRite-Live-Links-Directory.docx": {
-      "sha256": "e08d185f639f16b10263d0e844cdebbb6141bb1b6ed590834bc77b6980004890",
-      "size": 456151
-    },
-    "standalone-kit.js": {
-      "sha256": "da30723e4a85fbfc9ca5442d42ea3ce6676a22881540e09dd83d4146ac4a60d7",
-      "size": 59341
+      "sha256": "904b864d2948f66c514355e466fe446f073d5e2594dcc67d9829ff41d4313908",
+      "size": 23259
     }
   },
-  "pass": "Item 482",
+  "pass": "Item 483",
   "repo": "196969/dash-app-",
-  "written": "2026-11-27 21:20:09 UTC"
+  "written": "2026-11-27 21:36:26 UTC"
 }
