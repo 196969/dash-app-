@@ -1,48 +1,84 @@
 {
   "branch": "branch",
   "files": {
-    "Dash-Books-CEO-Workbook.xlsx": {
-      "sha256": "785cb10cf7ff0d13d284cef3c3b8cd314a19f6de0a9b498759744528707858e2",
-      "size": 25278
+    ".github/workflows/sweep.yml": {
+      "sha256": "5be6be45fe882ed42e9f22c033e1b5f1c9b3acb29d2f82958f9982e729748469",
+      "size": 999
     },
-    "Dash-Client-Portal-CEO-Workbook.xlsx": {
-      "sha256": "1e625cf872fcbd3b46be03eb4d0f83f38e7098b184b15118fa7411b386d9921c",
-      "size": 26961
+    "app-acquisitions.html": {
+      "sha256": "b90a0c55919dc8cb4fdbfc77fb3b346c09f38e0ff415ec037230d7743d14f1dd",
+      "size": 10009
     },
-    "Dash-Command-CEO-Workbook.xlsx": {
-      "sha256": "5bab50b815b822957eae32d130f88eab7d69723aaae27a75c5772f88c16aff65",
-      "size": 25904
+    "app-books.html": {
+      "sha256": "935d97a3468f5cc555e5450d4d15803d0778be691a99dd8a6cc1195655f559ec",
+      "size": 13063
     },
-    "Dash-Deals-CEO-Workbook.xlsx": {
-      "sha256": "0591741e36b842631e99d0b0ec775a6fc7c5793b6902d128016d97352b6760cf",
-      "size": 23954
+    "app-command.html": {
+      "sha256": "cac72d36f27a05c34b65dd76c7d8d6cc24a13f3bb06de719bcaf6a8db17d78e3",
+      "size": 25089
     },
-    "Dash-Growth-CEO-Workbook.xlsx": {
-      "sha256": "bdb40c27bc1d93b66394791768be408fba3ffefd1878e053826145eed8848ad3",
-      "size": 27322
+    "app-connectors.html": {
+      "sha256": "5ad9f003c5f1cb7af6ed7cb8d6c6a53f250a76db3d661be9bb7694508a812693",
+      "size": 9333
     },
-    "Dash-Learn-CEO-Workbook.xlsx": {
-      "sha256": "bd498aed1ddf18567f5dc7157725ac0f3a1ccdbb99b94d1a9e5c99b7aaa714ea",
-      "size": 22497
+    "app-growth.html": {
+      "sha256": "a82c54a6423dd8581b1e4e68f8472c30b77a83305ecec7f1c2ea87b6582a0ea3",
+      "size": 23522
     },
-    "Dash-Legal-CEO-Workbook.xlsx": {
-      "sha256": "9bd36323b3a09a3672050d4ae0797a5389ee8affbe108cfa5830b6a36ffe6208",
-      "size": 27098
+    "app-learn.html": {
+      "sha256": "9f8faa56d415b347130dce8f90b4dc1d337e78a59ce7b67982ef15217879853d",
+      "size": 9940
     },
-    "Dash-Operations-CEO-Workbook.xlsx": {
-      "sha256": "5a5d80e3893de7082e2cd662074e37a4a626ea2827867432e8e12bec379e4170",
-      "size": 24064
+    "app-legal.html": {
+      "sha256": "dfb0ecf1c98a452b7a7e7f3c22212ca038c648c39bb94a5330b43323ee8a90d6",
+      "size": 10125
     },
-    "Dash-People-CEO-Workbook.xlsx": {
-      "sha256": "ab402cc89515abdd84549aa3b751cc8401f1f8cd6f2572910b53c3e8ee888780",
-      "size": 30157
+    "app-people.html": {
+      "sha256": "91022a1b1a96e7004a91c49a38ee7d499f66892a5ed4f53af1585cb35e6f6563",
+      "size": 10650
     },
-    "Dash-Systems-CEO-Workbook.xlsx": {
-      "sha256": "cf380d6574c2ae4c4bc4a08b162e223ef7cbd345e7cef0478d666491e7525c01",
-      "size": 26666
+    "app-portal.html": {
+      "sha256": "a9ce32089311477af0644ae37dabdda50e0554fca8b37dbc20d3592d6a2ef665",
+      "size": 10720
+    },
+    "app-projects.html": {
+      "sha256": "f13e01224d23871726292ad0cf6d253b697e60ae92dcf51092a4ba54abdc51d9",
+      "size": 11352
+    },
+    "build-rules.md": {
+      "sha256": "c8122ec87790d4912b393f27285618a8f6929c2480658e67fe1c0962ba897b91",
+      "size": 1668
+    },
+    "privacy.html": {
+      "sha256": "e3005842f66bcf612ff923d119bbc4947e3564ee0efde43659931e3ba533b1fb",
+      "size": 4253
+    },
+    "standalone-cloud.js": {
+      "sha256": "9a9705df6e10113af48243bc29ce1b4ee9b2c870a9cd87c2c8dc2cbbb38c1783",
+      "size": 10886
+    },
+    "sweep/ceo-screens.json": {
+      "sha256": "e2b921ff0d0cf326e7e4fbb85be12b6e180e41513296eb1fb2c97628e013f52b",
+      "size": 1256
+    },
+    "sweep/ceo_excel.js": {
+      "sha256": "58bc5a655b7064a5626cf132253811efff2ce4d2ac57548abd8175042d490978",
+      "size": 2424
+    },
+    "sweep/standalones.js": {
+      "sha256": "f2979d4ec24aa3434dbd344e51c98bedd49fc69659753e5ed111c8ef83393788",
+      "size": 2638
+    },
+    "sweep/sweep.py": {
+      "sha256": "cc7efd17bbded680740d8fe6c1902747d0612c69da10a92aae9b335dd5071315",
+      "size": 5306
+    },
+    "terms.html": {
+      "sha256": "4f4958e0cc881877f5bedef4e15bb37ea7e5ab5d42473a177a2668dfc6cff405",
+      "size": 5086
     }
   },
-  "pass": "Item 484",
+  "pass": "Item 485",
   "repo": "196969/dash-app-",
-  "written": "2026-11-27 22:03:14 UTC"
+  "written": "2026-11-27 22:37:21 UTC"
 }
