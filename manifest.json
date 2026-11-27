@@ -1,12 +1,56 @@
 {
   "branch": "branch",
   "files": {
-    "index.html": {
-      "sha256": "dd7f30e6384ae0f677d2d1224c0c93d9636296c004546882f086ed4db9162a7c",
-      "size": 11167174
+    "app-acquisitions.html": {
+      "sha256": "ddc80e8cbc26a26ceb964f2ce1febb5910ee5e8c401e6700510e3df6a32a6b7f",
+      "size": 9966
+    },
+    "app-books.html": {
+      "sha256": "abd5d3fbfdfafa6b591061677c3302f918f5a1703a0ee8ec729795e776014ac7",
+      "size": 13020
+    },
+    "app-command.html": {
+      "sha256": "c5b9f3387a322436e2774f9db917bcf2cd115f7bd3c259430a3ff8fddeb86b97",
+      "size": 25046
+    },
+    "app-connectors.html": {
+      "sha256": "aabb12c139da6041162f03442b8ce89decc5a98e803bc416695b38084591f7a9",
+      "size": 9290
+    },
+    "app-growth.html": {
+      "sha256": "9ecc4f844770ac27c26459b6ee7069f9641e1750da5c92389ff9daf92ea9c907",
+      "size": 23479
+    },
+    "app-learn.html": {
+      "sha256": "86798fa5b38d0c5c0e60d18762a7053b8c4fa24566b0595cac679c050cde232c",
+      "size": 9897
+    },
+    "app-legal.html": {
+      "sha256": "04301b0cac92734eca72a7c7e0d91389c7439a7757e4d41e97d4bc61fef56b67",
+      "size": 10082
+    },
+    "app-people.html": {
+      "sha256": "af45173579c5667ec782890b0b92e4d901d7e0cd7d8bb1861e5aa80ca5cfb1ee",
+      "size": 10607
+    },
+    "app-portal.html": {
+      "sha256": "15125024fe48677b2656cae97f8dd9d8b954ac6e8a58603eea2686707e81decc",
+      "size": 10677
+    },
+    "app-projects.html": {
+      "sha256": "16aa7ee1ee3ee4cd06d2dd4984da14d8ebd6fd727c93d50f7646b7c71b0d5db3",
+      "size": 11309
+    },
+    "standalone-extras.js": {
+      "sha256": "fed169bffbb90555f7402d5319cdbeb4ec0d1f842fd131a10610aca6ecbf2c3f",
+      "size": 26575
+    },
+    "standalone-kit.js": {
+      "sha256": "bc9ee7b91d738b5c38a1970c0be9326e6908c0f7d3fa4e5e9def967fc5542d4c",
+      "size": 58506
     }
   },
-  "pass": "Item 475",
+  "pass": "Item 476",
   "repo": "196969/dash-app-",
-  "written": "2026-11-27 18:30:47 UTC"
+  "written": "2026-11-27 18:59:10 UTC"
 }
