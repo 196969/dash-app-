@@ -1,20 +1,12 @@
 {
   "branch": "branch",
   "files": {
-    "apps.html": {
-      "sha256": "b0bb04e9e9ed059dd380ab1d65e6117ab7b0f2535a4df3c1c65312be27b065d2",
-      "size": 3888
-    },
     "index.html": {
-      "sha256": "95ab40d7bf12c950aaef69f7974bdc870a704111821c7504d7018cbcb1a333c7",
-      "size": 11136006
-    },
-    "links.html": {
-      "sha256": "14ad768c66aa35c36b6ee095b71ace2419a920d4b1c125f4b0421184fca63276",
-      "size": 11750
+      "sha256": "4825dcb8e9a9a4f6a09e9f01d507c2a79fc152bc904121c46b48a6f9e68bd0e7",
+      "size": 11136002
     }
   },
-  "pass": "Item 470",
+  "pass": "Item 471",
   "repo": "196969/dash-app-",
-  "written": "2026-11-27 16:22:39 UTC"
+  "written": "2026-11-27 16:40:43 UTC"
 }
