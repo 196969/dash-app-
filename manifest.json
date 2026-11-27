@@ -2,11 +2,47 @@
   "branch": "branch",
   "files": {
     "Dash-Books-CEO-Workbook.xlsx": {
-      "sha256": "904b864d2948f66c514355e466fe446f073d5e2594dcc67d9829ff41d4313908",
-      "size": 23259
+      "sha256": "785cb10cf7ff0d13d284cef3c3b8cd314a19f6de0a9b498759744528707858e2",
+      "size": 25278
+    },
+    "Dash-Client-Portal-CEO-Workbook.xlsx": {
+      "sha256": "1e625cf872fcbd3b46be03eb4d0f83f38e7098b184b15118fa7411b386d9921c",
+      "size": 26961
+    },
+    "Dash-Command-CEO-Workbook.xlsx": {
+      "sha256": "5bab50b815b822957eae32d130f88eab7d69723aaae27a75c5772f88c16aff65",
+      "size": 25904
+    },
+    "Dash-Deals-CEO-Workbook.xlsx": {
+      "sha256": "0591741e36b842631e99d0b0ec775a6fc7c5793b6902d128016d97352b6760cf",
+      "size": 23954
+    },
+    "Dash-Growth-CEO-Workbook.xlsx": {
+      "sha256": "bdb40c27bc1d93b66394791768be408fba3ffefd1878e053826145eed8848ad3",
+      "size": 27322
+    },
+    "Dash-Learn-CEO-Workbook.xlsx": {
+      "sha256": "bd498aed1ddf18567f5dc7157725ac0f3a1ccdbb99b94d1a9e5c99b7aaa714ea",
+      "size": 22497
+    },
+    "Dash-Legal-CEO-Workbook.xlsx": {
+      "sha256": "9bd36323b3a09a3672050d4ae0797a5389ee8affbe108cfa5830b6a36ffe6208",
+      "size": 27098
+    },
+    "Dash-Operations-CEO-Workbook.xlsx": {
+      "sha256": "5a5d80e3893de7082e2cd662074e37a4a626ea2827867432e8e12bec379e4170",
+      "size": 24064
+    },
+    "Dash-People-CEO-Workbook.xlsx": {
+      "sha256": "ab402cc89515abdd84549aa3b751cc8401f1f8cd6f2572910b53c3e8ee888780",
+      "size": 30157
+    },
+    "Dash-Systems-CEO-Workbook.xlsx": {
+      "sha256": "cf380d6574c2ae4c4bc4a08b162e223ef7cbd345e7cef0478d666491e7525c01",
+      "size": 26666
     }
   },
-  "pass": "Item 483",
+  "pass": "Item 484",
   "repo": "196969/dash-app-",
-  "written": "2026-11-27 21:36:26 UTC"
+  "written": "2026-11-27 22:03:14 UTC"
 }
