@@ -417,6 +417,7 @@
       bar.appendChild(fill); box.appendChild(lab); box.appendChild(bar);
       function prog() { var done = t.items.filter(function (it, i) { return st[i]; }).length; fill.style.width = Math.round(done / t.items.length * 100) + '%'; lab.textContent = done + ' of ' + t.items.length + ' done.'; }
       t.items.forEach(function (it, i) { var l = el('label', { cls: 'kit-ck' }), c = el('input', { type: 'checkbox' }); c.checked = !!st[i]; c.onchange = function () { st[i] = c.checked; data[t.id] = st; save(); prog(); needs(); wiz(); }; l.appendChild(c); l.appendChild(el('span', null, it)); box.appendChild(l); });
+      var cx = el('button', { cls: 'kit-b' }, 'Export Excel'); cx.onclick = function () { download(cfg.key + '-' + t.id + '.xlsx', xlsx([{ name: t.title, rows: [['Step', 'Done']].concat(t.items.map(function (it, i) { return [it, st[i] ? 'Yes' : 'No']; })) }])); }; box.appendChild(cx);
       var rs = el('button', { cls: 'kit-b' }, 'Reset'); rs.onclick = function () { for (var k in st) delete st[k]; save(); box.querySelectorAll('input[type=checkbox]').forEach(function (c) { c.checked = false; }); prog(); needs(); }; box.appendChild(rs);
       prog();
     }
