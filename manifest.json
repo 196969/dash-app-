@@ -1,100 +1,12 @@
 {
   "branch": "branch",
   "files": {
-    "app-acquisitions.html": {
-      "sha256": "882d210fbb4f955397969be42e41e1b04904662da24a6ab0d6c19fdfc79f53d9",
-      "size": 9922
-    },
-    "app-books.html": {
-      "sha256": "20c5a9ae8dfe57e7b76bc21eebbb52821b922fbdd45af09e423da122eb29aa7b",
-      "size": 12976
-    },
-    "app-brain.html": {
-      "sha256": "100f506557cc2f6c4c9d093e449d84b58bbf61f17ceff307999dac75ae837981",
-      "size": 630
-    },
-    "app-command.html": {
-      "sha256": "24a20d934a851b60972b2713798df487814dfbf23a755efd1e1866efa9483fa5",
-      "size": 25002
-    },
-    "app-connectors.html": {
-      "sha256": "81860668e787eb837c7140261671e1232b7737fac6d4c436f76224dcd88def98",
-      "size": 9246
-    },
-    "app-fractionals.html": {
-      "sha256": "4cda433339ffc09382f900f451cf3f3082fb8ee1f9dfa24b455df9e33cd05d4c",
-      "size": 651
-    },
-    "app-growth.html": {
-      "sha256": "e40f1d8b25e6f2f598ecc9908a6f528e4abb72b4fc203be12fe06a438587d19f",
-      "size": 23435
-    },
-    "app-learn.html": {
-      "sha256": "5e28148c3002827ccb7752a4513ed16186ce234ae5c01ca79b9653e4f7924d1e",
-      "size": 9853
-    },
-    "app-legal.html": {
-      "sha256": "1bdca58c446b76bfd283cfe3a08c022e1651f566bee5d1ea86591a197b4bd607",
-      "size": 10038
-    },
-    "app-mentorship.html": {
-      "sha256": "e6c836daf5a64ed6476f2f0bf1ec69f3e4681174a8f4e87bc421d6554caffb07",
-      "size": 628
-    },
-    "app-offerings.html": {
-      "sha256": "13cf530996e5b33142d65fa58baddffd0abf02dd9b89cfa6f430ae594a865ed3",
-      "size": 632
-    },
-    "app-people.html": {
-      "sha256": "11b5b6c5f8db07b2d551112676ad4c3b884b6b0457b99e661dd46bf83f882737",
-      "size": 10563
-    },
-    "app-portal.html": {
-      "sha256": "5721c1a3949eb54d2a984604271566dacb9f7628a415bcf0973cbec017e819bb",
-      "size": 10633
-    },
-    "app-projects.html": {
-      "sha256": "0f59ecf3e6712811029dc5f9e8012cc128efd4998b1c777da55be83881d6f67c",
-      "size": 11265
-    },
-    "apps.html": {
-      "sha256": "80147c805d4bf05b3456dc06ac76db69220e4f9de5a9057048a157b1bc127f45",
-      "size": 3888
-    },
-    "db-service-suite-performance.html": {
-      "sha256": "c9a506a3a42972f0ebe6c355992ee6bfbf92685b5af4348e9235033f0ac1d79f",
-      "size": 138427
-    },
-    "index.html": {
-      "sha256": "7769e3d0d3ad3c453b4a9cf549e8f2214f20af79b7e8ff3f7f9013e878982b85",
-      "size": 11130699
-    },
-    "links.html": {
-      "sha256": "3593c7144f0dc536d227aab36d40f73e5e720fa719870132ad7cd2e3674c4883",
-      "size": 11750
-    },
-    "offering-connectors.html": {
-      "sha256": "8d4a8fe45bd7d2ac87c49cd00136f9c38176d2aeaef725efed9cd5b9daaa0fe4",
-      "size": 1169351
-    },
-    "offering-projects.html": {
-      "sha256": "18131a3946874268c9f8c22eca32c428dcb4baff5f8b4db3ad4b920e875e2571",
-      "size": 1169447
-    },
-    "offerings-all.html": {
-      "sha256": "5d39fe0fa6728602652de74887153c7cffc8dc2c2c065af6db41248d808816ed",
-      "size": 1216455
-    },
-    "offerings.html": {
-      "sha256": "27989c352604ead4a7970285c5503d7c14b17862c72d7adf8d895a591e8d8c43",
-      "size": 1167828
-    },
-    "standalone-kit.js": {
-      "sha256": "86b25ee74efe570caf7850ef030ffdc22f2f3b2994dae6f501b7373958afadc3",
-      "size": 20479
+    "db-standalone-product.html": {
+      "sha256": "aaf9d9b10118fd1493d744e9d4a93fe61bfade1cd9285f51b4fd28255fe3c54f",
+      "size": 138167
     }
   },
-  "pass": "Item 467",
+  "pass": "Item 468",
   "repo": "196969/dash-app-",
-  "written": "2026-11-27 15:32:19 UTC"
+  "written": "2026-11-27 15:53:33 UTC"
 }
