@@ -239,6 +239,8 @@
       var dated = regs.reduce(function (a, f) { return a + (f.t.due ? f.open : 0); }, 0), past = regs.reduce(function (a, f) { return a + f.past; }, 0), soon = regs.reduce(function (a, f) { return a + f.soon; }, 0), recs = regs.reduce(function (a, f) { return a + f.n; }, 0), flagged = regs.reduce(function (a, f) { return a + f.bad; }, 0);
       var bar = el('div', { cls: 'kd-noprint', style: 'display:flex;flex-wrap:wrap;gap:0 4px;margin-bottom:6px' });
       var bx = el('button', { cls: 'kit-b pri' }, 'Export Excel workbook'); bx.onclick = exportXlsx; bar.appendChild(bx);
+      var CEOWB = { command: 'Dash-Command', books: 'Dash-Books', growth: 'Dash-Growth', projects: 'Dash-Operations', people: 'Dash-People', learn: 'Dash-Learn', portal: 'Dash-Client-Portal', legal: 'Dash-Legal', acquisitions: 'Dash-Deals', connectors: 'Dash-Systems' };
+      if (CEOWB[cfg.key]) { var cw = el('a', { cls: 'kit-b', href: CEOWB[cfg.key] + '-CEO-Workbook.xlsx', download: '', title: 'The CEO workbook for this standalone: the records Dash holds, a live summary and one tab per tool' }, 'CEO workbook (Excel)'); bar.appendChild(cw); }
       var bp = el('button', { cls: 'kit-b' }, 'Print report'); bp.onclick = function () { window.print(); }; bar.appendChild(bp);
       if (Object.keys(filters).length) { var bc = el('button', { cls: 'kit-b' }, 'Clear chart filters'); bc.onclick = function () { tools.forEach(function (t) { if (filters[t.id]) setFilter(t, null); }); dash(); }; bar.appendChild(bc); }
       dashBox.appendChild(bar);
