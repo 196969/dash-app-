@@ -2,23 +2,11 @@
   "branch": "branch",
   "files": {
     "index.html": {
-      "sha256": "565d1087182cc55585ed78167ad647c8091f20015c1f00e75a3975041d53f2ef",
-      "size": 11204400
-    },
-    "sweep/nav-screens.json": {
-      "sha256": "73d636408a738687af7d237981d24c85a283779ea63f3f99cf88c36af1719d36",
-      "size": 7138
-    },
-    "sweep/signals.js": {
-      "sha256": "0ab04c34e44a1f57aedd2c2dc93059d152df6c85483ffd30150c91a1e0ddf20f",
-      "size": 7601
-    },
-    "sweep/sweep.py": {
-      "sha256": "3bd5f912d164bc2a6d6d3e05a7915d8ce3fea74c97fd0e282ffef3ad591f7c6d",
-      "size": 10398
+      "sha256": "8c3242c74809367d04f4d261ae90a62609d332668dd821e9f4dee5252de94c94",
+      "size": 11202574
     }
   },
-  "pass": "Item 489",
+  "pass": "Item 490",
   "repo": "196969/dash-app-",
-  "written": "2026-11-28 08:42:21 UTC"
+  "written": "2026-11-28 12:58:01 UTC"
 }
