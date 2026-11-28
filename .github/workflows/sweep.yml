@@ -24,5 +24,5 @@ jobs:
           pip install openpyxl==3.1.5
       - name: Control — the sweep must catch planted faults
         run: python3 sweep/sweep.py --control
-      - name: Full sweep — CEO area and the ten standalones
+      - name: Full sweep — CEO area, the ten standalones and every sidebar dropdown
         run: python3 sweep/sweep.py
