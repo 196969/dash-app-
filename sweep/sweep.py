@@ -3,13 +3,13 @@
   python3 sweep/sweep.py            run every check on this checkout; exit 1 on any fault
   python3 sweep/sweep.py --quick    one CEO screen per sub-dropdown instead of all 54
   python3 sweep/sweep.py --control  known-answer control: plant a missing link and a thrown error in a copy, and a
-                                    screen listed for the sweep that is not in the sidebar, and a sidebar screen no dropdown holds; the sweep must report all four, or the control fails
+                                    screen listed for the sweep that is not in the sidebar, and a sidebar screen no dropdown holds, and a Brain signal that cannot trip; the sweep must report all five, or the control fails
 
 Checks: (1) every local link target on the standalones, apps.html and links.html exists; (2) every standalone page
 loads without errors, every button is clicked and every download opens; (3) every CEO screen opens without page
 errors and its Excel export downloads and opens; the CEO pack opens; (4, Item 488) every header after CEO is a dropdown,
 every screen in sweep/nav-screens.json opens from its dropdown without page errors, open state survives a reload, the palette
-finds a screen, the Brain and Second Seat buttons go, and 400px does not scroll sideways. Outside web addresses are listed, not fetched,
+finds a screen, the Brain and Second Seat buttons go, and 400px does not scroll sideways; (5, Item 489) every new Brain signal reads clear on one planted book and tripped on another. Outside web addresses are listed, not fetched,
 so the sweep is the same on any network; the live-site read-back after a push covers them.
 """
 import json, os, re, shutil, socket, subprocess, sys, tempfile, threading, http.server, functools, glob
@@ -82,13 +82,20 @@ def nav(root, base, out):
     print('nav: ' + (r.stdout.strip().splitlines() or ['no output'])[-1][:400])
     return ['sidebar sweep reported faults: ' + (r.stdout.strip().splitlines() or ['no output'])[-1][:600]] if r.returncode else []
 
+def signals(root, base, out):
+    """Item 489: the new Brain signals, by known answer. A planted book restored through Dash's own restore control must read clear on
+    every new signal, a second must read tripped, and the pipeline signal must name the BD lead."""
+    r = subprocess.run(['node', os.path.join(HERE, 'signals.js'), base + 'index.html', os.path.join(root, 'sweep', 'nav-screens.json'), out + '/signals'], capture_output=True, text=True)
+    print('signals: ' + (r.stdout.strip().splitlines() or ['no output'])[-1][:400])
+    return ['Brain signal plants failed: ' + (r.stdout.strip().splitlines() or ['no output'])[-1][:400]] if r.returncode else []
+
 def sweep(root, quick=False, ceo=True, navonly=False):
     out = tempfile.mkdtemp(prefix='sweep-'); faults = []
     n, missing = links(root); print('links: %d local targets, %d missing %s' % (n, len(missing), missing))
     faults += ['missing link target ' + m for m in missing]
     srv, base = serve(root)
     try:
-        if navonly: return navmap(root) + nav(root, base, out)
+        if navonly: return navmap(root) + nav(root, base, out) + signals(root, base, out)
         r = subprocess.run(['node', os.path.join(HERE, 'standalones.js'), base, out + '/st'], capture_output=True, text=True); print(r.stdout.strip())
         if r.returncode: faults.append('standalone sweep reported issues (see standalones.json)')
         bad = opens(glob.glob(out + '/st/*')); faults += ['download will not open: %s %s' % b for b in bad]
@@ -99,7 +106,7 @@ def sweep(root, quick=False, ceo=True, navonly=False):
             if r.returncode: faults.append('CEO sweep reported faults (see ceo.json)')
             bad = opens(glob.glob(out + '/ceo/*.xlsx')); faults += ['CEO export will not open: %s %s' % b for b in bad]
             print('CEO exports opened: %d, faults %d' % (len(glob.glob(out + '/ceo/*.xlsx')) - len(bad), len(bad)))
-            faults += navmap(root) + nav(root, base, out)
+            faults += navmap(root) + nav(root, base, out) + signals(root, base, out)
     finally: srv.shutdown()
     return faults
 
@@ -114,11 +121,13 @@ def control():
     sys.path.insert(0, ROOT); from codec import decode, encode   # plant 2: a screen in a header's sidebar list that no dropdown holds
     ix = os.path.join(copy, 'index.html'); pre, src, post = decode(open(ix, encoding='utf-8').read())
     a = "['ctostack', 'Technology stack', 'ph-stack', '']"; assert src.count(a) == 1
-    open(ix, 'w', encoding='utf-8').write(encode(pre, src.replace(a, a + ", ['plantorphan', 'Orphan plant', 'ph-stack', '']"), post))
+    b = "quiet.length ? 'tripped'"; assert src.count(b) == 1   # plant 3: the BD signal can no longer trip; the signal plants must name it
+    open(ix, 'w', encoding='utf-8').write(encode(pre, src.replace(a, a + ", ['plantorphan', 'Orphan plant', 'ph-stack', '']").replace(b, "false ? 'tripped'"), post))
     g = sweep(copy, navonly=True); shutil.rmtree(tmp, ignore_errors=True)
     caught_link = any('plant-missing-page.html' in x for x in f); caught_err = any('standalone sweep' in x for x in f); caught_nav = any('Sweep control plant: not in dropdown' in x for x in g) and any('plantorphan sits in 0 dropdowns' in x for x in g)
-    ok = caught_link and caught_err and caught_nav
-    print('CONTROL', 'PASSED' if ok else 'FAILED', '- missing link caught:', caught_link, '- thrown error caught:', caught_err, '- unswept and orphaned sidebar screens caught:', caught_nav)
+    caught_sig = any('B:bdquiet=Clear' in x for x in g)
+    ok = caught_link and caught_err and caught_nav and caught_sig
+    print('CONTROL', 'PASSED' if ok else 'FAILED', '- missing link caught:', caught_link, '- thrown error caught:', caught_err, '- unswept and orphaned sidebar screens caught:', caught_nav, '- broken Brain signal caught:', caught_sig)
     return ok
 
 if __name__ == '__main__':

@@ -1,28 +1,24 @@
 {
   "branch": "branch",
   "files": {
-    ".github/workflows/sweep.yml": {
-      "sha256": "82366ac424cf7303eecc5fd0749fa1672eef36fdb58a2e5a9ff3692a1ef528bd",
-      "size": 1023
-    },
     "index.html": {
-      "sha256": "c2d852a5c247b23aaa93bb6113110252218feb278855f3695ff600ca1166ffd3",
-      "size": 11185825
+      "sha256": "565d1087182cc55585ed78167ad647c8091f20015c1f00e75a3975041d53f2ef",
+      "size": 11204400
     },
     "sweep/nav-screens.json": {
-      "sha256": "deb1d30ec82ebab49d41ee84d4ed435e0b957b28f38fd8e297d8043b6f8cf6fb",
-      "size": 7109
+      "sha256": "73d636408a738687af7d237981d24c85a283779ea63f3f99cf88c36af1719d36",
+      "size": 7138
     },
-    "sweep/nav.js": {
-      "sha256": "b5e719f9d172b7ce329b2a8261e48bc58d35d20d41d4b682bff5f15c9c6d04f2",
-      "size": 6468
+    "sweep/signals.js": {
+      "sha256": "0ab04c34e44a1f57aedd2c2dc93059d152df6c85483ffd30150c91a1e0ddf20f",
+      "size": 7601
     },
     "sweep/sweep.py": {
-      "sha256": "4e15c87d927771a4ae7aa722b57efd611f69ed0f9edfe5666b221d3748503dfb",
-      "size": 9261
+      "sha256": "3bd5f912d164bc2a6d6d3e05a7915d8ce3fea74c97fd0e282ffef3ad591f7c6d",
+      "size": 10398
     }
   },
-  "pass": "Item 488",
+  "pass": "Item 489",
   "repo": "196969/dash-app-",
-  "written": "2026-11-28 07:33:59 UTC"
+  "written": "2026-11-28 08:42:21 UTC"
 }
